@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://caeveyl5v6fts"]
+
+[ext_resource type="Texture2D" uid="uid://d3vkaskrarp0c" path="res://icon.svg" id="1_tmwon"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bswci"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_tmwon")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ujdks"]
+
+[node name="Player3D" type="CharacterBody3D" unique_id=1836066506]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1190222300]
+sprite_frames = SubResource("SpriteFrames_bswci")
+animation = &"Idle"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1388711284]
+shape = SubResource("CapsuleShape3D_ujdks")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1738503317]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25148267, 1.3083198)
