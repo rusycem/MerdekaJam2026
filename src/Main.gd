@@ -1,35 +1,44 @@
 # Main.gd
 extends Node
 
-@onready var level_container = $LevelContainer2D # This should be a Node3D for your 2.5D game
+@onready var level_container = $LevelContainer
+@onready var menu_container = $UI/MenuContainer
 @onready var fader = $TransitionLayer/ColorRect
 
-# This lets you drag and drop your starting scene in the Inspector
 @export_file("*.tscn") var starting_level: String
 
 func _ready() -> void:
-	EventBus.level_change_requested.connect(_on_level_change_requested)
-	fader.modulate.a = 0.0 # Ensure screen is clear when game starts
+	EventBus.scene_change_requested.connect(_on_scene_change_requested)
+	fader.modulate.a = 0.0 
 	
-	# Load the starting scene if one is set
-	if starting_level:
-		_on_level_change_requested(starting_level)
+	# Start the game by loading the Main Menu into the MenuContainer
+	_on_scene_change_requested(starting_level, true)
 
-func _on_level_change_requested(level_path: String) -> void:
-	# 1. Fade to Black
+func _on_scene_change_requested(scene_path: String, is_menu: bool) -> void:
+	# 1. Fade to black
 	var tween = create_tween()
-	tween.tween_property(fader, "modulate:a", 1.0, 0.5) # Fade to alpha 1 over 0.5 seconds
-	await tween.finished # Wait for the fade to finish
+	tween.tween_property(fader, "modulate:a", 1.0, 0.5)
+	await tween.finished
 
-	# 2. Swap the Level safely in the background
+	# 2. Clear out EVERYTHING (both old menus and old levels)
 	for child in level_container.get_children():
 		child.queue_free()
+	for child in menu_container.get_children():
+		child.queue_free()
 
-	var new_level_scene = load(level_path)
-	if new_level_scene:
-		var level_instance = new_level_scene.instantiate()
-		level_container.add_child(level_instance)
+	# 3. Load the new scene
+	var new_scene = load(scene_path)
+	if new_scene:
+		var instance = new_scene.instantiate()
+		
+		# 4. Route it to the correct container based on the 'is_menu' flag
+		if is_menu:
+			menu_container.add_child(instance)
+			# You can also hide the HUD here: $UI/HUD.hide()
+		else:
+			level_container.add_child(instance)
+			# You can show the HUD here: $UI/HUD.show()
 
-	# 3. Fade back to Gameplay
+	# 5. Fade back in
 	tween = create_tween()
-	tween.tween_property(fader, "modulate:a", 0.0, 0.5) # Fade back to alpha 0
+	tween.tween_property(fader, "modulate:a", 0.0, 0.5)
