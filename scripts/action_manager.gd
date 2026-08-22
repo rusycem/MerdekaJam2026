@@ -10,9 +10,9 @@ extends Control
 @onready var advance_btn: Button = $VBoxContainer/AdvanceButton
 
 # --- ACTION PHASE STATE ---
-var max_slots: int = 3
-var current_slots: int = 3
-var money: int = 100
+var max_slots: int = 5
+var current_slots: int = max_slots
+var money: int = 10
 
 var stats = {
 	"charisma": 0,
@@ -29,6 +29,7 @@ func _ready() -> void:
 	chores_btn.pressed.connect(_on_chores_pressed)
 	buy_food_btn.pressed.connect(_on_buy_food_pressed)
 	advance_btn.pressed.connect(_on_advance_pressed)
+	money += 5
 	
 	update_ui_state()
 
@@ -41,7 +42,7 @@ func update_ui_state() -> void:
 	work_out_btn.disabled = not has_slots
 	study_btn.disabled = not has_slots
 	chores_btn.disabled = not has_slots
-	
+	buy_food_btn.disabled = money < 20
 	advance_btn.visible = not has_slots
 
 func _on_hang_out_pressed() -> void:
@@ -87,7 +88,7 @@ func _start_practice_minigame() -> void:
 	print("30-Second Practice Started!")
 	study_btn.disabled = true
 	
-	var timer = get_tree().create_timer(30.0)
+	var timer = get_tree().create_timer(1.0)
 	timer.timeout.connect(func():
 		print("Practice finished!")
 		update_ui_state()
