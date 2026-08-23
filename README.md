@@ -1,5 +1,5 @@
 # SeMaK VN Designer Manual
-Welcome to SeMaK, the robust node-based Visual Novel editor built specifically for MerdekaJam 2026. This document explains every tool, node, tag, and logic feature available to you. For more comprehensive implementation, refer [Technical Design Document (TDD)](Technical%20Design%20Document%20(TDD).md) for architecture details.
+Welcome to SeMaK, the robust node-based Visual Novel editor built specifically for MerdekaJam 2026. This document explains every tool, node, tag, and logic feature available to you. For more comprehensive implementation, refer [Technical Design Document (TDD)](Technical_Design_Document_Comprehensive.md) for architecture details.
 
 
 ## 1. Opening the Workspace
