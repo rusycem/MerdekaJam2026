@@ -18,6 +18,9 @@ config/icon="res://icon.svg"
 [autoload]
 
 EventBus="*uid://cpf4tt5anvkk4"
+VNManager="*uid://038bmj2x67le"
+_mcp_game_helper="*res://addons/godot_ai/runtime/game_helper.gd"
+GameState="*res://runtime/GameState.gd"
 
 [display]
 
@@ -26,6 +29,10 @@ window/size/viewport_height=180
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_ai/plugin.cfg", "res://addons/semak/plugin.cfg")
 
 [global_group]
 

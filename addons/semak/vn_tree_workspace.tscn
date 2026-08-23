@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://dukiedqm73d6j"]
+
+[ext_resource type="Script" uid="uid://blc5b5r2288pa" path="res://addons/semak/vn_tree_workspace.gd" id="1_65gsw"]
+[ext_resource type="Script" uid="uid://bo8o4o83utfq7" path="res://addons/semak/vn_tree_save_load.gd" id="2_save"]
+[ext_resource type="Script" uid="uid://df0rxtomce3yk" path="res://addons/semak/vn_tree_inspector.gd" id="3_insp"]
+[ext_resource type="Script" uid="uid://doywskvl64mrf" path="res://addons/semak/vn_tree_debugger.gd" id="4_debug"]
+
+[node name="Control" type="Control" unique_id=459372847]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_65gsw")
+
+[node name="SaveLoadManager" type="Node" parent="." unique_id=555555555 node_paths=PackedStringArray("graph_edit")]
+script = ExtResource("2_save")
+graph_edit = NodePath("../HSplitContainer/VBoxContainer/StoryGraph")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="." unique_id=987654123]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer" unique_id=236794424]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Toolbar" type="HBoxContainer" parent="HSplitContainer/VBoxContainer" unique_id=689975599]
+layout_mode = 2
+
+[node name="SaveTreeButton" type="Button" parent="HSplitContainer/VBoxContainer/Toolbar" unique_id=1131025840]
+layout_mode = 2
+text = "Save Tree"
+
+[node name="LoadTreeButton" type="Button" parent="HSplitContainer/VBoxContainer/Toolbar" unique_id=218615224]
+layout_mode = 2
+text = "Load Tree"
+
+[node name="ToggleSidebarButton" type="Button" parent="HSplitContainer/VBoxContainer/Toolbar" unique_id=777888999]
+layout_mode = 2
+text = "Toggle Sidebar"
+
+[node name="StoryGraph" type="GraphEdit" parent="HSplitContainer/VBoxContainer" unique_id=286826498]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SidebarTabs" type="TabContainer" parent="HSplitContainer" unique_id=123456789]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+current_tab = 0
+
+[node name="InspectorScroll" type="ScrollContainer" parent="HSplitContainer/SidebarTabs" unique_id=999888776]
+layout_mode = 2
+horizontal_scroll_mode = 0
+metadata/_tab_index = 0
+metadata/_tab_name = "Inspector"
+
+[node name="Inspector" type="VBoxContainer" parent="HSplitContainer/SidebarTabs/InspectorScroll" unique_id=999888777]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("3_insp")
+
+[node name="Label" type="Label" parent="HSplitContainer/SidebarTabs/InspectorScroll/Inspector" unique_id=555444333]
+layout_mode = 2
+text = "Selected Node Text:"
+
+[node name="InspectorTextEdit" type="TextEdit" parent="HSplitContainer/SidebarTabs/InspectorScroll/Inspector" unique_id=111222333]
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "Select a Dialogue node..."
+wrap_mode = 1
+
+[node name="DebuggerScroll" type="ScrollContainer" parent="HSplitContainer/SidebarTabs" unique_id=987654320]
+visible = false
+layout_mode = 2
+horizontal_scroll_mode = 0
+metadata/_tab_index = 1
+metadata/_tab_name = "Debugger"
+
+[node name="Debugger" type="VBoxContainer" parent="HSplitContainer/SidebarTabs/DebuggerScroll" unique_id=987654321 node_paths=PackedStringArray("graph_edit")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("4_debug")
+graph_edit = NodePath("../../../VBoxContainer/StoryGraph")
+
+[node name="Label" type="Label" parent="HSplitContainer/SidebarTabs/DebuggerScroll/Debugger" unique_id=111122223]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Flag Debugger"
+horizontal_alignment = 1
+
+[node name="ScanButton" type="Button" parent="HSplitContainer/SidebarTabs/DebuggerScroll/Debugger" unique_id=333444555]
+layout_mode = 2
+text = "Scan Graph for Flags"
+
+[node name="FlagList" type="ItemList" parent="HSplitContainer/SidebarTabs/DebuggerScroll/Debugger" unique_id=666777888]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="pressed" from="HSplitContainer/VBoxContainer/Toolbar/SaveTreeButton" to="SaveLoadManager" method="save_tree"]
+[connection signal="pressed" from="HSplitContainer/VBoxContainer/Toolbar/LoadTreeButton" to="SaveLoadManager" method="load_tree"]
+[connection signal="pressed" from="HSplitContainer/VBoxContainer/Toolbar/ToggleSidebarButton" to="." method="_on_toggle_sidebar_pressed"]
+[connection signal="pressed" from="HSplitContainer/SidebarTabs/DebuggerScroll/Debugger/ScanButton" to="HSplitContainer/SidebarTabs/DebuggerScroll/Debugger" method="_on_scan_flags_pressed"]
+[connection signal="item_activated" from="HSplitContainer/SidebarTabs/DebuggerScroll/Debugger/FlagList" to="HSplitContainer/SidebarTabs/DebuggerScroll/Debugger" method="_on_flag_list_item_activated"]

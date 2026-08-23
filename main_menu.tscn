@@ -19,7 +19,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_06t4h")
-first_level_scene = "uid://bha1bhxc2uklj"
+first_level_scene = "uid://c3x8g2y4nak1"
 
 [node name="Panel" type="Panel" parent="MainMenu" unique_id=1536040878]
 layout_mode = 1
