@@ -4,6 +4,12 @@ signal narrative_finished
 
 @export var story_tree: Resource
 
+@onready var background_rect = $BackgroundRect
+@onready var background_rect_2 = $BackgroundRect2
+@onready var blip_player = $BlipPlayer
+@onready var voice_player = $VoicePlayer
+@onready var character_container = $CharacterContainer
+
 @onready var dialogue_panel = $DialoguePanel
 @onready var speaker_label = $DialoguePanel/VBoxContainer/SpeakerLabel
 @onready var text_label = $DialoguePanel/VBoxContainer/TextLabel
@@ -19,14 +25,42 @@ signal narrative_finished
 
 var graph_data: Dictionary = {}
 var current_node_id: String = ""
+var last_visible_characters: int = -1
+var current_blip_pitch: float = 1.0
+var active_profiles: Dictionary = {}
+
+func _process(_delta: float) -> void:
+	if type_tween and type_tween.is_running() and not voice_player.playing:
+		if text_label.visible_characters > last_visible_characters:
+			last_visible_characters = text_label.visible_characters
+			# Play blip every 2 characters for pacing
+			if last_visible_characters % 2 == 0 and blip_player.stream:
+				blip_player.pitch_scale = current_blip_pitch + randf_range(-0.05, 0.05)
+				blip_player.play()
+
 
 func _ready() -> void:
 	hide_all()
 	next_button.pressed.connect(_on_next_pressed)
 	dice_continue_btn.pressed.connect(_on_dice_continue)
 	
-	# Auto-start if a tree was assigned in the Inspector!
-	if story_tree:
+	if not blip_player.stream:
+		# Generate a procedural blip
+		var blip = AudioStreamWAV.new()
+		blip.format = AudioStreamWAV.FORMAT_16_BITS
+		blip.mix_rate = 44100
+		blip.stereo = false
+		var blip_data = PackedByteArray()
+		for i in range(44100 * 0.05):
+			var t = i / 44100.0
+			var sample = int(sin(t * 2.0 * PI * 800.0) * 16000.0 * exp(-t * 30.0))
+			blip_data.append(sample & 0xFF)
+			blip_data.append((sample >> 8) & 0xFF)
+		blip.data = blip_data
+		blip_player.stream = blip
+		
+	# Auto-start only if this scene is run directly (F6) or not managed by Main
+	if story_tree and get_parent() == get_tree().root:
 		play()
 
 func play(tree: Resource = null) -> void:
@@ -37,8 +71,16 @@ func play(tree: Resource = null) -> void:
 		return
 		
 	graph_data = story_tree.graph_data
+	GameState.current_chapter_uid = story_tree.resource_path
 	
-	# Find Start Node
+	if GameState.resume_node_id != "":
+		current_node_id = GameState.resume_node_id
+		GameState.resume_node_id = "" # Clear it so it doesn't loop
+		print("VNPlayer: Resuming from node ", current_node_id)
+		_process_node()
+		return
+	
+	# Find Start Node normally
 	current_node_id = ""
 	for node_id in graph_data.keys():
 		if graph_data[node_id]["type"] == "start":
@@ -58,12 +100,24 @@ func hide_all() -> void:
 
 func _process_node() -> void:
 	hide_all()
-	if current_node_id == "" or not graph_data.has(current_node_id):
-		print("VNPlayer: Reached end of narrative tree.")
-		narrative_finished.emit()
+	
+	# Godot 4 dictionaries often use StringName for keys in exported resources
+	var sn_id = StringName(current_node_id)
+	var str_id = String(current_node_id)
+	
+	var actual_id = ""
+	if graph_data.has(sn_id):
+		actual_id = sn_id
+	elif graph_data.has(str_id):
+		actual_id = str_id
+		
+	if actual_id == "":
+		print("VNPlayer: Reached end of narrative tree. (Node not found: ", current_node_id, ")")
+		if EventBus.has_signal("vn_ended"):
+			EventBus.vn_ended.emit()
 		return
 		
-	var data = graph_data[current_node_id]
+	var data = graph_data[actual_id]
 	var type = data["type"]
 	
 	if type == "start":
@@ -71,99 +125,40 @@ func _process_node() -> void:
 		_process_node()
 		
 	elif type == "dialogue":
-		_handle_dialogue(data)
+		VNPlayerHandlers.handle_dialogue(self, data)
 		
 	elif type == "choice_branch":
-		_handle_choice(data)
+		VNPlayerHandlers.handle_choice(self, data)
 		
 	elif type == "dnd_check":
-		_handle_dnd_check(data)
+		VNPlayerHandlers.handle_dnd_check(self, data)
+		
+	elif type == "command":
+		VNPlayerHandlers.handle_command(self, data)
+		
+	elif type == "condition":
+		VNPlayerHandlers.handle_condition(self, data)
+		
+	elif type == "actor":
+		VNPlayerHandlers.handle_actor(self, data)
 		
 	elif type == "comment":
 		pass
 
-func _handle_dialogue(data: Dictionary) -> void:
-	dialogue_panel.show()
-	speaker_label.text = data.get("speaker", "")
-	text_label.text = data.get("text", "")
-	
-	if data.has("set_flags") and data["set_flags"] != "":
-		GameState.grant_flags(data["set_flags"])
-		
-	current_node_id = data.get("next_node", "")
+var type_tween: Tween
 
 func _on_next_pressed() -> void:
-	_process_node()
-
-func _handle_choice(data: Dictionary) -> void:
-	choices_panel.show()
-	choice_prompt_label.text = data.get("prompt", "")
-	
-	# Clear old choices
-	for child in choices_container.get_children():
-		child.queue_free()
-		
-	var choices = data.get("choices", [])
-	var next_nodes = data.get("next_nodes", [])
-	
-	for i in range(choices.size()):
-		var choice = choices[i]
-		var btn = Button.new()
-		btn.text = choice.get("text", "")
-		
-		var condition = choice.get("condition", "")
-		var hide_if_locked = choice.get("hide_if_locked", false)
-		var can_select = true
-		
-		if condition != "":
-			var conditions = condition.split(",")
-			for cond in conditions:
-				if not GameState.has_flag(cond.strip_edges()):
-					can_select = false
-					break
-					
-		if not can_select:
-			if hide_if_locked:
-				continue
-			else:
-				btn.disabled = true
-				btn.text += " (Locked)"
-				
-		var target_node = ""
-		if i < next_nodes.size():
-			target_node = next_nodes[i]
-			
-		btn.pressed.connect(func():
-			current_node_id = target_node
-			_process_node()
-		)
-		choices_container.add_child(btn)
+	if type_tween and type_tween.is_running():
+		type_tween.kill()
+		text_label.visible_characters = -1
+		if voice_player.playing:
+			voice_player.stop()
+	else:
+		if voice_player.playing:
+			voice_player.stop()
+		_process_node()
 
 var dice_target_node = ""
-
-func _handle_dnd_check(data: Dictionary) -> void:
-	dice_panel.show()
-	var stat = data.get("target_stat", "STR")
-	var dc = data.get("dc_value", 10)
-	
-	var roll = randi() % 20 + 1
-	var mod = GameState.get_stat_modifier(stat)
-	var total = roll + mod
-	
-	var result_text = "Rolling %s Check...\n" % stat
-	result_text += "d20 Roll: %d\n" % roll
-	result_text += "%s Modifier: %+d\n" % [stat, mod]
-	result_text += "Total: %d vs DC %d\n\n" % [total, dc]
-	
-	if total >= dc:
-		result_text += "[color=green]SUCCESS![/color]"
-		dice_target_node = data.get("next_pass", "")
-	else:
-		result_text += "[color=red]FAILURE![/color]"
-		dice_target_node = data.get("next_fail", "")
-		
-	dice_result_label.text = result_text
-
 func _on_dice_continue() -> void:
 	current_node_id = dice_target_node
 	_process_node()

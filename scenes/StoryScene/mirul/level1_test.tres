@@ -1,0 +1,147 @@
+[gd_resource type="Resource" script_class="VNStoryTree" format=3 uid="uid://dq0hbkf4ljii5"]
+
+[ext_resource type="Script" uid="uid://dtjadxbepppro" path="res://src/vn_control/VNStoryTree.gd" id="1_hd8si"]
+
+[resource]
+script = ExtResource("1_hd8si")
+graph_data = {
+&"Start": {
+"type": "start",
+"position": [0, 0],
+"next_node": "SetupScene"
+},
+&"SetupScene": {
+"type": "actor",
+"events": [{
+"action_type": "change_bg",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "uid://ltl68wkoaqh0",
+"character": "",
+"character_uid": "",
+"expression": "Neutral",
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "Jump",
+"background_uid": "",
+"character": "Mirul",
+"character_uid": "uid://cupkf4jv5s3wr",
+"expression": "Angry",
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"position": [300, 0],
+"next_node": "MirulGreeting"
+},
+&"MirulGreeting": {
+"type": "dialogue",
+"speaker": "Mirul",
+"text": "What are you looking at, {player}? Got a staring problem?",
+"position": [600, 0],
+"next_node": "StareChoice"
+},
+&"StareChoice": {
+"type": "choice_branch",
+"prompt": "How do you respond to Mirul?",
+"choices": Array[Dictionary]([
+{"text": "Nothing, sorry!", "condition": "", "hide_if_locked": false},
+{"text": "I'm looking at a jerk.", "condition": "Courage >= 6", "hide_if_locked": false}
+]),
+"next_nodes": ["ApologizeRoute", "JerkRoute"],
+"position": [900, 0]
+},
+&"ApologizeRoute": {
+"type": "dialogue",
+"speaker": "Mirul",
+"text": "Hmph. Weak.",
+"position": [1300, -200],
+"next_node": "LoseCourage"
+},
+&"LoseCourage": {
+"type": "command",
+"command": "stat Courage -1",
+"position": [1600, -200],
+"next_node": "JoinActivity"
+},
+&"JerkRoute": {
+"type": "dnd_check",
+"target_stat": "Charm",
+"dc_value": 10,
+"position": [1300, 200],
+"next_pass": "JerkPass",
+"next_fail": "JerkFail"
+},
+&"JerkPass": {
+"type": "dialogue",
+"speaker": "Mirul",
+"text": "Heh. You've got guts, I'll give you that.",
+"set_flags": "mirul_respect",
+"position": [1600, 100],
+"next_node": "JoinActivity"
+},
+&"JerkFail": {
+"type": "dialogue",
+"speaker": "Mirul",
+"text": "Watch your mouth, {player}.",
+"position": [1600, 300],
+"next_node": "JoinActivity"
+},
+&"JoinActivity": {
+"type": "dialogue",
+"speaker": "Teacher",
+"text": "Alright everyone, time for Physical Education! Hit the track!",
+"position": [2000, 0],
+"next_node": "StartHub"
+},
+&"StartHub": {
+"type": "command",
+"command": "start_hub 5",
+"position": [2300, 0],
+"next_node": "AfterPE"
+},
+&"AfterPE": {
+"type": "actor",
+"events": [{
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Mirul",
+"character_uid": "uid://cupkf4jv5s3wr",
+"expression": "Neutral",
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"position": [2600, 0],
+"next_node": "MirulReward"
+},
+&"MirulReward": {
+"type": "dialogue",
+"speaker": "Mirul",
+"text": "You're not completely useless on the track. Here, I found this.",
+"position": [2900, 0],
+"next_node": "GiveMoney"
+},
+&"GiveMoney": {
+"type": "command",
+"command": "reward money 20",
+"position": [3200, 0],
+"next_node": "EndChapter"
+},
+&"EndChapter": {
+"type": "dialogue",
+"speaker": "{player}",
+"text": "(I got 20 money!) Time to head back to the dorm.",
+"position": [3500, 0],
+"next_node": ""
+}
+}

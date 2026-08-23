@@ -1,0 +1,150 @@
+[gd_resource type="Resource" script_class="VNStoryTree" format=3 uid="uid://msjo6ad0pr8n"]
+
+[ext_resource type="Script" uid="uid://dtjadxbepppro" path="res://src/vn_control/VNStoryTree.gd" id="1_uwufi"]
+
+[resource]
+script = ExtResource("1_uwufi")
+graph_data = {
+&"Start": {
+"type": "start",
+"position": [0, 0],
+"next_node": "SetupScene"
+},
+&"SetupScene": {
+"type": "actor",
+"events": [{
+"action_type": "change_bg",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "uid://ltl68wkoaqh0",
+"character": "",
+"character_uid": "",
+"expression": "Neutral",
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Mirul",
+"character_uid": "uid://cupkf4jv5s3wr",
+"expression": "Neutral",
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"position": [300, 0],
+"next_node": "CheckRespect"
+},
+&"CheckRespect": {
+"type": "condition",
+"condition": "mirul_respect",
+"position": [600, 0],
+"next_true": "HasRespect",
+"next_false": "NoRespect"
+},
+&"HasRespect": {
+"type": "dialogue",
+"speaker": "Mirul",
+"text": "Hey {player}. You've got guts. I need some help studying, and you're the only one I trust to not annoy me.",
+"position": [900, -100],
+"next_node": "StudyChoice"
+},
+&"NoRespect": {
+"type": "dialogue",
+"speaker": "Mirul",
+"text": "Hey {player}. I'm failing math. You better help me study, or else.",
+"position": [900, 100],
+"next_node": "StudyChoice"
+},
+&"StudyChoice": {
+"type": "choice_branch",
+"prompt": "How do you reply?",
+"choices": Array[Dictionary]([
+{"text": "I'll help you study!", "condition": "Intelligence >= 8", "hide_if_locked": false},
+{"text": "I'm terrible at math too.", "condition": "", "hide_if_locked": false}
+]),
+"next_nodes": ["IntPass", "MathFail"],
+"position": [1300, 0]
+},
+&"IntPass": {
+"type": "dialogue",
+"speaker": "Mirul",
+"text": "Thanks. Let's hit the books. I'll pay you for the tutoring.",
+"position": [1700, -100],
+"next_node": "GiveMoney"
+},
+&"GiveMoney": {
+"type": "command",
+"command": "reward money 50",
+"position": [2000, -100],
+"next_node": "GiveInt"
+},
+&"GiveInt": {
+"type": "command",
+"command": "stat Intelligence 1",
+"position": [2300, -100],
+"next_node": "JoinActivity"
+},
+&"MathFail": {
+"type": "dialogue",
+"speaker": "Mirul",
+"text": "Figures. Guess we're both failing. Wanna play games instead?",
+"position": [1700, 200],
+"next_node": "PlayMinigame"
+},
+&"PlayMinigame": {
+"type": "command",
+"command": "minigame clicker",
+"position": [2000, 200],
+"next_node": "JoinActivity"
+},
+&"JoinActivity": {
+"type": "dialogue",
+"speaker": "Mirul",
+"text": "Alright, break time is over. Let's do some self-study before we head back to the dorm.",
+"position": [2600, 0],
+"next_node": "StartHub"
+},
+&"StartHub": {
+"type": "command",
+"command": "start_hub 3",
+"position": [2900, 0],
+"next_node": "AfterHub"
+},
+&"AfterHub": {
+"type": "actor",
+"events": [{
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Mirul",
+"character_uid": "uid://cupkf4jv5s3wr",
+"expression": "Neutral",
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"position": [3200, 0],
+"next_node": "EndDialogue"
+},
+&"EndDialogue": {
+"type": "dialogue",
+"speaker": "Mirul",
+"text": "I feel a bit better about the exams. See ya later, {player}.",
+"position": [3500, 0],
+"next_node": "FlagCompleted"
+},
+&"FlagCompleted": {
+"type": "command",
+"command": "flag add completed_mirul_ch2",
+"position": [3800, 0],
+"next_node": ""
+}
+}

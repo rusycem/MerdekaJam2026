@@ -2,7 +2,7 @@
 extends EditorPlugin
 
 # Hold a reference to the loaded visual workspace scene
-const WORKSPACE_SCENE = preload("res://addons/semak/vn_tree_workspace.tscn")
+const WORKSPACE_SCENE = preload("res://addons/semak/core/vn_tree_workspace.tscn")
 var workspace_instance: Control
 
 func _enter_tree() -> void:

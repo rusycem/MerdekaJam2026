@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CharacterProfile" format=3 uid="uid://bsylmi0xhjqvv"]
+
+[ext_resource type="Script" uid="uid://v1nhkqe7rmdj" path="res://runtime/CharacterProfile.gd" id="1_qje0g"]
+
+[resource]
+script = ExtResource("1_qje0g")
+character_name = "Alyssa"
+metadata/_custom_type_script = "uid://v1nhkqe7rmdj"

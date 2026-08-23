@@ -12,3 +12,13 @@ signal change_background(bg_path: String)
 signal show_portrait(character_name: String, expression: String)
 signal hide_portrait(character_name: String)
 signal play_voice(audio_path: String)
+
+# Signals for Minigames and Activity Phases
+signal start_minigame(minigame_id: String)
+signal minigame_finished()
+
+# Signals for VN Flow
+signal play_visual_novel(tres_path: String)
+signal vn_ended()
+signal start_hub()
+signal resume_vn()
