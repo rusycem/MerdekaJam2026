@@ -1,11 +1,13 @@
 # SeMaK VN Designer Manual
-Welcome to SeMaK, the robust node-based Visual Novel editor built specifically for MerdekaJam 2026. This document explains every tool, node, tag, and logic feature available to you.
+Welcome to SeMaK, the robust node-based Visual Novel editor built specifically for MerdekaJam 2026. This document explains every tool, node, tag, and logic feature available to you. For more comprehensive implementation, refer [Technical Design Document (TDD)](Technical%20Design%20Document%20(TDD).md) for architecture details.
+
 
 ## 1. Opening the Workspace
 To start editing or building a VN Tree:
 1. Open Godot.
 2. At the bottom panel of the editor, look for the **"VN Tree Editor"** tab. Click it.
-3. This opens a visual node workspace. You can **drag and drop .tres files** from the es://scenes/StoryScene/ folder into this workspace to edit them, or click "New Tree" to start a fresh chapter.
+3. This opens a visual node workspace. You can **drag and drop .tres files** from the 
+es://scenes/StoryScene/ folder into this workspace to edit them, or click "New Tree" to start a fresh chapter.
 4. **Important**: Always remember to save the tree when you are done by pressing **Save Tree**.
 
 ## 2. Character Setup (Profiles & Audio)
@@ -94,7 +96,10 @@ Whenever you see a **Condition** field (in a Condition Node or a Choice Option),
 In the **Command Node**, type these exact strings to trigger game events:
 
 ### Currency & Stats
-- eward money [amount] (e.g. eward money 50 or eward money -20)
+- 
+eward money [amount] (e.g. 
+eward money 50 or 
+eward money -20)
 - stat [StatName] [amount] (e.g. stat Charm 2 or stat Courage -1)
 - lag add [flag_name]
 - lag remove [flag_name]
