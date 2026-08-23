@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="CampaignData" load_steps=2 format=3]
+
+[ext_resource type="Script" uid="uid://dyhkm5e5jgk4o" path="res://src/vn_control/CampaignData.gd" id="1_q1w2e"]
+
+[resource]
+script = ExtResource("1_q1w2e")
+campaign_name = "Merdeka Jam 2026 Campaign"

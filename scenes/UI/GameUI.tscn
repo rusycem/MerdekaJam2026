@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://bqfco3ht1388h"]
+
+[ext_resource type="Script" uid="uid://vx3tpxxn885e" path="res://src/UI/GameUI.gd" id="1_sjnlv"]
+
+[node name="GameUi" type="Control" unique_id=711874673]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sjnlv")
+
+[node name="TextBox" type="PanelContainer" parent="." unique_id=1695970534]
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextBox" unique_id=151483234]
+layout_mode = 2
+
+[node name="SpeakerName" type="Label" parent="TextBox/VBoxContainer" unique_id=1589407812]
+layout_mode = 2
+text = "Name"
+
+[node name="DialogueText" type="RichTextLabel" parent="TextBox/VBoxContainer" unique_id=139962333]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Hello~
+"
+
+[node name="VoiceBlipPlayer" type="AudioStreamPlayer2D" parent="." unique_id=2048399854]
+
+[node name="NextButton" type="Button" parent="." unique_id=845998903]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.9438036, 0.8580863, 0.78344536, 1)
