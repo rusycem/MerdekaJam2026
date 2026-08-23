@@ -47,7 +47,7 @@ static func build_dnd_inspector(inspector: VBoxContainer, node: GraphNode) -> vo
 	inspector.add_child(stat_lbl)
 	
 	var stat_dropdown = OptionButton.new()
-	var stats = ["STR", "DEX", "CON", "INT", "WIS", "CHA"]
+	var stats = ["Charm", "Intelligence", "Courage", "Dexterity"]
 	for s in stats:
 		stat_dropdown.add_item(s)
 	

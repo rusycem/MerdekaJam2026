@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="CharacterProfile" format=3 uid="uid://cupkf4jv5s3wr"]
 
 [ext_resource type="Texture2D" uid="uid://btvbeo4tx2t51" path="res://assets/portraits/yon.PNG" id="1_5edkk"]
-[ext_resource type="Script" uid="uid://v1nhkqe7rmdj" path="res://runtime/CharacterProfile.gd" id="1_a3li7"]
+[ext_resource type="Script" uid="uid://v1nhkqe7rmdj" path="res://runtime/CharacterProfile.gd" id="2_a8xfy"]
 
 [resource]
-script = ExtResource("1_a3li7")
+script = ExtResource("2_a8xfy")
 character_name = "Yon"
 portraits = {
 "Neutral": ExtResource("1_5edkk")

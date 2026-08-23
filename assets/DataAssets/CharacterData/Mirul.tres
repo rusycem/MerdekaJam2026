@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_rykxn")
-character_name = "Man"
+character_name = "Mirul"
 portraits = {
 "Neutral": ExtResource("1_sj73r")
 }

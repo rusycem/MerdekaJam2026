@@ -1,17 +1,74 @@
-[gd_resource type="Resource" script_class="VNStoryTree" format=3 uid="uid://m3mirulchapter30000"]
+[gd_resource type="Resource" script_class="VNStoryTree" format=3 uid="uid://gteyq0g4lhfj"]
 
 [ext_resource type="Script" uid="uid://dtjadxbepppro" path="res://src/vn_control/VNStoryTree.gd" id="1_uwufi"]
 
 [resource]
 script = ExtResource("1_uwufi")
 graph_data = {
-&"Start": {
-"type": "start",
-"position": [0, 0],
-"next_node": "SetupScene"
+&"AddBestFriend": {
+"command": "flag add mirul_best_friend",
+"next_node": "GiveMoney",
+"position": [1600.0, -100.0],
+"type": "command"
+},
+&"EndChapter": {
+"next_node": "FlagCompleted",
+"node_name": &"EndChapter",
+"position": [2300.0, 0.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "And so, the school year ends.",
+"type": "dialogue"
+},
+&"ExamFail": {
+"next_node": "EndChapter",
+"node_name": &"ExamFail",
+"position": [1300.0, 100.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Sad} Damn... I failed. But it's okay, I'll just retake the class. Thanks for being my friend anyway.",
+"type": "dialogue"
+},
+&"ExamPass": {
+"next_node": "AddBestFriend",
+"node_name": &"ExamPass",
+"position": [1300.0, -100.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Happy} Wow! I actually passed! Thanks to you, {player}. We're best friends now!",
+"type": "dialogue"
+},
+&"ExamStart": {
+"next_node": "FinalCheck",
+"node_name": &"ExamStart",
+"position": [600.0, 0.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Surprised} This is it, {player}. The final exam. I hope we studied enough.",
+"type": "dialogue"
+},
+&"FinalCheck": {
+"dc_value": 15,
+"next_fail": "ExamFail",
+"next_pass": "ExamPass",
+"node_name": &"FinalCheck",
+"position": [900.0, 0.0],
+"target_stat": "Intelligence",
+"type": "dnd_check"
+},
+&"FlagCompleted": {
+"command": "flag add completed_mirul_ch3",
+"next_node": "",
+"position": [2600.0, 0.0],
+"type": "command"
+},
+&"GiveMoney": {
+"command": "reward money 100",
+"next_node": "EndChapter",
+"position": [1900.0, -100.0],
+"type": "command"
 },
 &"SetupScene": {
-"type": "actor",
 "events": [{
 "action_type": "change_bg",
 "anim_duration": 0.5,
@@ -30,68 +87,21 @@ graph_data = {
 "animation": "None",
 "background_uid": "",
 "character": "Mirul",
-"character_uid": "uid://cupkf4jv5s3wr",
+"character_uid": "uid://dowxttrntsqon",
 "expression": "Neutral",
 "offset_x": 0.0,
 "offset_y": 0.0,
 "position_slot": "Center",
 "z_index": 0
 }],
-"position": [300, 0],
-"next_node": "ExamStart"
+"next_node": "ExamStart",
+"position": [300.0, 0.0],
+"type": "actor"
 },
-&"ExamStart": {
-"type": "dialogue",
-"speaker": "Mirul",
-"text": "This is it, {player}. The final exam. I hope we studied enough.",
-"position": [600, 0],
-"next_node": "FinalCheck"
-},
-&"FinalCheck": {
-"type": "dnd_check",
-"target_stat": "Intelligence",
-"dc_value": 15,
-"position": [900, 0],
-"next_pass": "ExamPass",
-"next_fail": "ExamFail"
-},
-&"ExamPass": {
-"type": "dialogue",
-"speaker": "Mirul",
-"text": "Wow! I actually passed! Thanks to you, {player}. We're best friends now!",
-"position": [1300, -100],
-"next_node": "AddBestFriend"
-},
-&"AddBestFriend": {
-"type": "command",
-"command": "flag add mirul_best_friend",
-"position": [1600, -100],
-"next_node": "GiveMoney"
-},
-&"GiveMoney": {
-"type": "command",
-"command": "reward money 100",
-"position": [1900, -100],
-"next_node": "EndChapter"
-},
-&"ExamFail": {
-"type": "dialogue",
-"speaker": "Mirul",
-"text": "Damn... I failed. But it's okay, I'll just retake the class. Thanks for being my friend anyway.",
-"position": [1300, 100],
-"next_node": "EndChapter"
-},
-&"EndChapter": {
-"type": "dialogue",
-"speaker": "{player}",
-"text": "And so, the school year ends.",
-"position": [2300, 0],
-"next_node": "FlagCompleted"
-},
-&"FlagCompleted": {
-"type": "command",
-"command": "flag add completed_mirul_ch3",
-"position": [2600, 0],
-"next_node": ""
+&"Start": {
+"next_node": "SetupScene",
+"node_name": &"Start",
+"position": [0.0, 0.0],
+"type": "start"
 }
 }

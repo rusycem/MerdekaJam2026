@@ -5,4 +5,5 @@
 [resource]
 script = ExtResource("1_qje0g")
 character_name = "Alyssa"
+blip_pitch = 2.0
 metadata/_custom_type_script = "uid://v1nhkqe7rmdj"

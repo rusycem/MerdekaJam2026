@@ -21,26 +21,14 @@ graph_data = {
 }, {
 "action_type": "show_character",
 "anim_duration": 0.5,
-"animation": "Shake",
+"animation": "None",
 "background_uid": "",
-"character": "Yon",
-"character_uid": "uid://cupkf4jv5s3wr",
-"expression": "Neutral",
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Left",
-"z_index": 0
-}, {
-"action_type": "show_character",
-"anim_duration": 0.5,
-"animation": "Jump",
-"background_uid": "",
-"character": "Man",
+"character": "Mirul",
 "character_uid": "uid://dowxttrntsqon",
 "expression": "Neutral",
 "offset_x": 0.0,
 "offset_y": 0.0,
-"position_slot": "Right",
+"position_slot": "Center",
 "z_index": 0
 }],
 "next_node": "IntroDialogue",
@@ -53,7 +41,7 @@ graph_data = {
 "position": [1800.0, 0.0],
 "set_flags": "",
 "speaker": "Alyssa",
-"text": "Hi {player}! I see you got your allowance. Let's study together later!",
+"text": "Hi {Happy} {player}! I see you got your allowance. Let's study together later!",
 "type": "dialogue"
 },
 &"AlyssaFlag": {
@@ -68,7 +56,7 @@ graph_data = {
 "position": [1200.0, 0.0],
 "set_flags": "",
 "speaker": "Principal",
-"text": "Ohh great, she is a great example for you to follow, I'm sure you guys will get along.",
+"text": "{Happy} Ohh great, she is a great example for you to follow, I'm sure you guys will get along.",
 "type": "dialogue"
 },
 &"AlyssaMoney": {
@@ -103,7 +91,7 @@ graph_data = {
 "position": [200.0, 0.0],
 "set_flags": "",
 "speaker": "Principal",
-"text": "Welcome to school, {player}. Choose your tablemate wisely. They could be your best friend for life.",
+"text": "{Happy} Welcome to school, {player}. Choose your tablemate wisely. They could be your best friend for life.",
 "type": "dialogue"
 },
 &"MirulCheck": {
@@ -118,10 +106,10 @@ graph_data = {
 &"MirulEnd": {
 "next_node": "",
 "node_name": &"MirulEnd",
-"position": [2400.0, -300.0],
+"position": [2500.0, -340.0],
 "set_flags": "",
 "speaker": "{player}",
-"text": "Phew, that training was tough! Time to head back to the dorm.",
+"text": "{Happy} Phew, that training was tough! Time to head back to the dorm.",
 "type": "dialogue"
 },
 &"MirulFail": {
@@ -130,7 +118,7 @@ graph_data = {
 "position": [1800.0, -200.0],
 "set_flags": "",
 "speaker": "Mirul",
-"text": "... (He ignores you completely)",
+"text": "{Annoyed} ... (He ignores you completely)",
 "type": "dialogue"
 },
 &"MirulFlag": {
@@ -151,7 +139,7 @@ graph_data = {
 "position": [1200.0, -300.0],
 "set_flags": "",
 "speaker": "Principal",
-"text": "I see you have met my son, don't let his attitude fool you, he is just having his teenage angst phase.",
+"text": "{Happy} I see you have met my son, don't let his attitude fool you, he is just having his teenage angst phase.",
 "type": "dialogue"
 },
 &"MirulPass": {
@@ -160,7 +148,7 @@ graph_data = {
 "position": [1800.0, -400.0],
 "set_flags": "mirul_likes_you",
 "speaker": "Mirul",
-"text": "Whatever, {player}. Just don't get in my way.",
+"text": "{Angry} Whatever, {player}. Just don't get in my way.",
 "type": "dialogue"
 },
 &"Start": {
@@ -175,7 +163,7 @@ graph_data = {
 "position": [1800.0, 300.0],
 "set_flags": "",
 "speaker": "Vihaan",
-"text": "You... you beat my high score, {player}. Not bad.",
+"text": "{Surprised} You... you beat my high score, {player}. Not bad.",
 "type": "dialogue"
 },
 &"VihaanFlag": {
@@ -190,7 +178,7 @@ graph_data = {
 "position": [1200.0, 300.0],
 "set_flags": "",
 "speaker": "Principal",
-"text": "Vihaan is a bit quiet, but if you talk to him I'm sure he will open up to you eventually.",
+"text": "{Happy} Vihaan is a bit quiet, but if you talk to him I'm sure he will open up to you eventually.",
 "type": "dialogue"
 },
 &"VihaanMinigame": {

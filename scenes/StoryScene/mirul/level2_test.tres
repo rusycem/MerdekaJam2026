@@ -5,13 +5,110 @@
 [resource]
 script = ExtResource("1_uwufi")
 graph_data = {
-&"Start": {
-"type": "start",
-"position": [0, 0],
-"next_node": "SetupScene"
+&"AfterHub": {
+"events": [{
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Mirul",
+"character_uid": "uid://cupkf4jv5s3wr",
+"expression": "Neutral",
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "EndDialogue",
+"position": [3200.0, 0.0],
+"type": "actor"
+},
+&"CheckRespect": {
+"condition": "mirul_respect",
+"next_false": "NoRespect",
+"next_true": "HasRespect",
+"position": [600.0, 0.0],
+"type": "condition"
+},
+&"EndDialogue": {
+"next_node": "FlagCompleted",
+"node_name": &"EndDialogue",
+"position": [3500.0, 0.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Happy} I feel a bit better about the exams. See ya later, {player}.",
+"type": "dialogue"
+},
+&"FlagCompleted": {
+"command": "flag add completed_mirul_ch2",
+"next_node": "",
+"position": [3800.0, 0.0],
+"type": "command"
+},
+&"GiveInt": {
+"command": "stat Intelligence 1",
+"next_node": "JoinActivity",
+"position": [2300.0, -100.0],
+"type": "command"
+},
+&"GiveMoney": {
+"command": "reward money 50",
+"next_node": "GiveInt",
+"position": [2000.0, -100.0],
+"type": "command"
+},
+&"HasRespect": {
+"next_node": "StudyChoice",
+"node_name": &"HasRespect",
+"position": [900.0, -100.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Happy} Hey {player}. You've got guts. I need some help studying, and you're the only one I trust to not annoy me.",
+"type": "dialogue"
+},
+&"IntPass": {
+"next_node": "GiveMoney",
+"node_name": &"IntPass",
+"position": [1700.0, -100.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Happy} Thanks. Let's hit the books. I'll pay you for the tutoring.",
+"type": "dialogue"
+},
+&"JoinActivity": {
+"next_node": "StartHub",
+"node_name": &"JoinActivity",
+"position": [2600.0, 0.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Neutral} Alright, break time is over. Let's do some self-study before we head back to the dorm.",
+"type": "dialogue"
+},
+&"MathFail": {
+"next_node": "PlayMinigame",
+"node_name": &"MathFail",
+"position": [1700.0, 200.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Sad} Figures. Guess we're both failing. Wanna play games instead?",
+"type": "dialogue"
+},
+&"NoRespect": {
+"next_node": "StudyChoice",
+"node_name": &"NoRespect",
+"position": [900.0, 100.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Angry} Hey {player}. I'm failing math. You better help me study, or else.",
+"type": "dialogue"
+},
+&"PlayMinigame": {
+"command": "minigame clicker",
+"next_node": "JoinActivity",
+"position": [2000.0, 200.0],
+"type": "command"
 },
 &"SetupScene": {
-"type": "actor",
 "events": [{
 "action_type": "change_bg",
 "anim_duration": 0.5,
@@ -30,121 +127,43 @@ graph_data = {
 "animation": "None",
 "background_uid": "",
 "character": "Mirul",
-"character_uid": "uid://cupkf4jv5s3wr",
+"character_uid": "uid://dowxttrntsqon",
 "expression": "Neutral",
 "offset_x": 0.0,
 "offset_y": 0.0,
 "position_slot": "Center",
 "z_index": 0
 }],
-"position": [300, 0],
-"next_node": "CheckRespect"
+"next_node": "CheckRespect",
+"position": [300.0, 0.0],
+"type": "actor"
 },
-&"CheckRespect": {
-"type": "condition",
-"condition": "mirul_respect",
-"position": [600, 0],
-"next_true": "HasRespect",
-"next_false": "NoRespect"
-},
-&"HasRespect": {
-"type": "dialogue",
-"speaker": "Mirul",
-"text": "Hey {player}. You've got guts. I need some help studying, and you're the only one I trust to not annoy me.",
-"position": [900, -100],
-"next_node": "StudyChoice"
-},
-&"NoRespect": {
-"type": "dialogue",
-"speaker": "Mirul",
-"text": "Hey {player}. I'm failing math. You better help me study, or else.",
-"position": [900, 100],
-"next_node": "StudyChoice"
-},
-&"StudyChoice": {
-"type": "choice_branch",
-"prompt": "How do you reply?",
-"choices": Array[Dictionary]([
-{"text": "I'll help you study!", "condition": "Intelligence >= 8", "hide_if_locked": false},
-{"text": "I'm terrible at math too.", "condition": "", "hide_if_locked": false}
-]),
-"next_nodes": ["IntPass", "MathFail"],
-"position": [1300, 0]
-},
-&"IntPass": {
-"type": "dialogue",
-"speaker": "Mirul",
-"text": "Thanks. Let's hit the books. I'll pay you for the tutoring.",
-"position": [1700, -100],
-"next_node": "GiveMoney"
-},
-&"GiveMoney": {
-"type": "command",
-"command": "reward money 50",
-"position": [2000, -100],
-"next_node": "GiveInt"
-},
-&"GiveInt": {
-"type": "command",
-"command": "stat Intelligence 1",
-"position": [2300, -100],
-"next_node": "JoinActivity"
-},
-&"MathFail": {
-"type": "dialogue",
-"speaker": "Mirul",
-"text": "Figures. Guess we're both failing. Wanna play games instead?",
-"position": [1700, 200],
-"next_node": "PlayMinigame"
-},
-&"PlayMinigame": {
-"type": "command",
-"command": "minigame clicker",
-"position": [2000, 200],
-"next_node": "JoinActivity"
-},
-&"JoinActivity": {
-"type": "dialogue",
-"speaker": "Mirul",
-"text": "Alright, break time is over. Let's do some self-study before we head back to the dorm.",
-"position": [2600, 0],
-"next_node": "StartHub"
+&"Start": {
+"next_node": "SetupScene",
+"node_name": &"Start",
+"position": [0.0, 0.0],
+"type": "start"
 },
 &"StartHub": {
-"type": "command",
 "command": "start_hub 3",
-"position": [2900, 0],
-"next_node": "AfterHub"
+"next_node": "AfterHub",
+"position": [2900.0, 0.0],
+"type": "command"
 },
-&"AfterHub": {
-"type": "actor",
-"events": [{
-"action_type": "show_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Mirul",
-"character_uid": "uid://cupkf4jv5s3wr",
-"expression": "Neutral",
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}],
-"position": [3200, 0],
-"next_node": "EndDialogue"
-},
-&"EndDialogue": {
-"type": "dialogue",
-"speaker": "Mirul",
-"text": "I feel a bit better about the exams. See ya later, {player}.",
-"position": [3500, 0],
-"next_node": "FlagCompleted"
-},
-&"FlagCompleted": {
-"type": "command",
-"command": "flag add completed_mirul_ch2",
-"position": [3800, 0],
-"next_node": ""
+&"StudyChoice": {
+"choices": Array[Dictionary]([{
+"condition": "Intelligence >= 8",
+"hide_if_locked": false,
+"text": "I'll help you study!"
+}, {
+"condition": "",
+"hide_if_locked": false,
+"text": "I'm terrible at math too."
+}]),
+"next_nodes": ["IntPass", "MathFail"],
+"node_name": &"StudyChoice",
+"position": [1300.0, 0.0],
+"prompt": "How do you reply?",
+"type": "choice_branch"
 }
 }
