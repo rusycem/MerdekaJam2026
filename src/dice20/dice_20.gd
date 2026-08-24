@@ -1,5 +1,7 @@
 extends Node3D
 
+signal roll_finished
+
 # why dict? readability and also 1-index
 const FACES_ROTATION: Dictionary[String, Vector3] = {
 	"1": Vector3(0, -90, -37.5),
@@ -86,3 +88,4 @@ func _on_rolling_timer_timeout() -> void :
 		FACES_ROTATION[str(target_number)],
 		settle_duration
 	).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	_settle_tween.finished.connect(func(): roll_finished.emit())
