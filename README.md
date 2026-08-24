@@ -96,21 +96,18 @@ Whenever you see a **Condition** field (in a Condition Node or a Choice Option),
 In the **Command Node**, type these exact strings to trigger game events:
 
 ### Currency & Stats
-- 
-eward money [amount] (e.g. 
-eward money 50 or 
-eward money -20)
+- reward money [amount] (e.g. reward money 50 or reward money -20)
 - stat [StatName] [amount] (e.g. stat Charm 2 or stat Courage -1)
-- lag add [flag_name]
-- lag remove [flag_name]
+- flag add [flag_name]
+- flag remove [flag_name]
 
 ### Game Flow
-- dd_turns [amount] -> Adds to the player's available Hub/Dorm turns.
+- add_turns [amount] -> Adds to the player's available Hub/Dorm turns.
 - set_next_chapter [uid] -> When this VN tree ends and the player returns to the Hub, this chapter will be automatically queued. To get the [uid], right click a .tres file in the FileSystem dock, select "Copy UID", and paste it here.
 
 ### Audio (BGM)
-- gm play [uid] -> Stops the current track and fades in the new music. (Copy the UID of an .mp3/.ogg file from the FileSystem).
-- gm stop -> Fades out the currently playing music. Music perfectly persists across different VN trees until you run this.
+- bgm play [uid] -> Stops the current track and fades in the new music. (Copy the UID of an .mp3/.ogg file from the FileSystem).
+- bgm stop -> Fades out the currently playing music. Music perfectly persists across different VN trees until you run this.
 
 ### Engine Minigames
 - minigame play [name] -> Temporarily suspends the VN player, launches a custom Godot minigame scene, and resumes the VN tree once the minigame returns a win/loss result.
