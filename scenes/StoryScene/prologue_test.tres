@@ -1,0 +1,190 @@
+[gd_resource type="Resource" script_class="VNStoryTree" format=3 uid="uid://c6gwqkcetcatt"]
+
+[ext_resource type="Script" uid="uid://dtjadxbepppro" path="res://src/vn_control/VNStoryTree.gd" id="1_4juje"]
+
+[resource]
+script = ExtResource("1_4juje")
+graph_data = {
+&"ActorNode": {
+"events": [{
+"action_type": "change_bg",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "uid://ltl68wkoaqh0",
+"character": "Alyssa",
+"character_uid": "",
+"expression": "Neutral",
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Mirul",
+"character_uid": "uid://dowxttrntsqon",
+"expression": "Neutral",
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "IntroDialogue",
+"position": [-180.0, 80.0],
+"type": "actor"
+},
+&"AlyssaEnd": {
+"next_node": "",
+"node_name": &"AlyssaEnd",
+"position": [1800.0, 0.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "Hi {Happy} {player}! I see you got your allowance. Let's study together later!",
+"type": "dialogue"
+},
+&"AlyssaFlag": {
+"command": "flag add companion_alyssa",
+"next_node": "AlyssaIntro",
+"position": [900.0, 0.0],
+"type": "command"
+},
+&"AlyssaIntro": {
+"next_node": "AlyssaMoney",
+"node_name": &"AlyssaIntro",
+"position": [1200.0, 0.0],
+"set_flags": "",
+"speaker": "Principal",
+"text": "{Happy} Ohh great, she is a great example for you to follow, I'm sure you guys will get along.",
+"type": "dialogue"
+},
+&"AlyssaMoney": {
+"command": "reward money 50",
+"next_node": "AlyssaEnd",
+"position": [1500.0, 0.0],
+"type": "command"
+},
+&"ChooseCompanion": {
+"choices": Array[Dictionary]([{
+"condition": "",
+"hide_if_locked": false,
+"text": "Sit with Mirul"
+}, {
+"condition": "",
+"hide_if_locked": false,
+"text": "Sit with Alyssa"
+}, {
+"condition": "",
+"hide_if_locked": false,
+"text": "Sit with Vihaan"
+}]),
+"next_nodes": ["MirulFlag", "AlyssaFlag", "VihaanFlag"],
+"node_name": &"ChooseCompanion",
+"position": [500.0, 0.0],
+"prompt": "Who will you sit next to, {player}?",
+"type": "choice_branch"
+},
+&"IntroDialogue": {
+"next_node": "ChooseCompanion",
+"node_name": &"IntroDialogue",
+"position": [200.0, 0.0],
+"set_flags": "",
+"speaker": "Principal",
+"text": "{Happy} Welcome to school, {player}. Choose your tablemate wisely. They could be your best friend for life.",
+"type": "dialogue"
+},
+&"MirulCheck": {
+"dc_value": 8,
+"next_fail": "MirulFail",
+"next_pass": "MirulPass",
+"node_name": &"MirulCheck",
+"position": [1500.0, -300.0],
+"target_stat": "Charm",
+"type": "dnd_check"
+},
+&"MirulEnd": {
+"next_node": "",
+"node_name": &"MirulEnd",
+"position": [2500.0, -340.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{Happy} Phew, that training was tough! Time to head back to the dorm.",
+"type": "dialogue"
+},
+&"MirulFail": {
+"next_node": "MirulHub",
+"node_name": &"MirulFail",
+"position": [1800.0, -200.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Annoyed} ... (He ignores you completely)",
+"type": "dialogue"
+},
+&"MirulFlag": {
+"command": "flag add companion_mirul",
+"next_node": "MirulIntro",
+"position": [900.0, -300.0],
+"type": "command"
+},
+&"MirulHub": {
+"command": "start_hub 3",
+"next_node": "MirulEnd",
+"position": [2100.0, -300.0],
+"type": "command"
+},
+&"MirulIntro": {
+"next_node": "MirulCheck",
+"node_name": &"MirulIntro",
+"position": [1200.0, -300.0],
+"set_flags": "",
+"speaker": "Principal",
+"text": "{Happy} I see you have met my son, don't let his attitude fool you, he is just having his teenage angst phase.",
+"type": "dialogue"
+},
+&"MirulPass": {
+"next_node": "MirulHub",
+"node_name": &"MirulPass",
+"position": [1800.0, -400.0],
+"set_flags": "mirul_likes_you",
+"speaker": "Mirul",
+"text": "{Angry} Whatever, {player}. Just don't get in my way.",
+"type": "dialogue"
+},
+&"Start": {
+"next_node": "ActorNode",
+"node_name": &"Start",
+"position": [-540.0, 0.0],
+"type": "start"
+},
+&"VihaanEnd": {
+"next_node": "",
+"node_name": &"VihaanEnd",
+"position": [1800.0, 300.0],
+"set_flags": "",
+"speaker": "Vihaan",
+"text": "{Surprised} You... you beat my high score, {player}. Not bad.",
+"type": "dialogue"
+},
+&"VihaanFlag": {
+"command": "flag add companion_vihaan",
+"next_node": "VihaanIntro",
+"position": [900.0, 300.0],
+"type": "command"
+},
+&"VihaanIntro": {
+"next_node": "VihaanMinigame",
+"node_name": &"VihaanIntro",
+"position": [1200.0, 300.0],
+"set_flags": "",
+"speaker": "Principal",
+"text": "{Happy} Vihaan is a bit quiet, but if you talk to him I'm sure he will open up to you eventually.",
+"type": "dialogue"
+},
+&"VihaanMinigame": {
+"command": "minigame clicker",
+"next_node": "VihaanEnd",
+"position": [1500.0, 300.0],
+"type": "command"
+}
+}

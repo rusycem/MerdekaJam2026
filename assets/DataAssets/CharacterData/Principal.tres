@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="CharacterProfile" format=3 uid="uid://ch0pocbeb0y77"]
+
+[ext_resource type="Script" uid="uid://v1nhkqe7rmdj" path="res://runtime/CharacterProfile.gd" id="1_u20dw"]
+
+[resource]
+script = ExtResource("1_u20dw")
+metadata/_custom_type_script = "uid://v1nhkqe7rmdj"
