@@ -6,7 +6,7 @@ extends Control
 @onready var stats_container = $VBox/StatsContainer
 @onready var btn_finish = $VBox/BtnFinish
 
-var available_points: int = 12
+var available_points: int = 4
 var base_stats: Dictionary = {
 	"Charm": 5,
 	"Intelligence": 5,
