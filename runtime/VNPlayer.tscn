@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://duh8h5rdamywy" path="res://runtime/VNPlayer.gd" id="1_vnplay"]
 [ext_resource type="Resource" uid="uid://bxfb5jbpjsd8q" path="res://scenes/StoryScene/prologue.tres" id="2_j7s1q"]
+[ext_resource type="PackedScene" uid="uid://bloekt38bucuf" path="res://src/UI/settings.tscn" id="3_kvy81"]
 
 [node name="VNPlayer" type="CanvasLayer" unique_id=1542072408]
 script = ExtResource("1_vnplay")
@@ -38,20 +39,29 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DialoguePanel" type="Panel" parent="." unique_id=638276859]
+[node name="UI" type="Control" parent="." unique_id=1375819083]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DialoguePanel" type="Panel" parent="UI" unique_id=638276859]
 custom_minimum_size = Vector2(0, 250)
+layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 50.0
-offset_top = -280.0
-offset_right = -50.0
-offset_bottom = -30.0
+offset_top = -300.0
+offset_right = -5.584961
+offset_bottom = -50.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="DialoguePanel" unique_id=482122600]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/DialoguePanel" unique_id=482122600]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -63,26 +73,27 @@ offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SpeakerLabel" type="Label" parent="DialoguePanel/VBoxContainer" unique_id=956585148]
+[node name="SpeakerLabel" type="Label" parent="UI/DialoguePanel/VBoxContainer" unique_id=956585148]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.8, 0, 1)
 theme_override_font_sizes/font_size = 36
 text = "Speaker"
 
-[node name="TextLabel" type="RichTextLabel" parent="DialoguePanel/VBoxContainer" unique_id=1895780882]
+[node name="TextLabel" type="RichTextLabel" parent="UI/DialoguePanel/VBoxContainer" unique_id=1895780882]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/normal_font_size = 32
 text = "Dialogue text goes here..."
 
-[node name="NextButton" type="Button" parent="DialoguePanel/VBoxContainer" unique_id=49527346]
+[node name="NextButton" type="Button" parent="UI/DialoguePanel/VBoxContainer" unique_id=49527346]
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 24
 text = "Next >"
 
-[node name="ChoicesPanel" type="Panel" parent="." unique_id=116286973]
+[node name="ChoicesPanel" type="Panel" parent="UI" unique_id=116286973]
 visible = false
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -95,7 +106,7 @@ offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ChoicesPanel" unique_id=900087719]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/ChoicesPanel" unique_id=900087719]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -107,18 +118,19 @@ offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PromptLabel" type="Label" parent="ChoicesPanel/VBoxContainer" unique_id=1847787063]
+[node name="PromptLabel" type="Label" parent="UI/ChoicesPanel/VBoxContainer" unique_id=1847787063]
 layout_mode = 2
 text = "What will you do?"
 horizontal_alignment = 1
 
-[node name="ChoicesContainer" type="VBoxContainer" parent="ChoicesPanel/VBoxContainer" unique_id=59708927]
+[node name="ChoicesContainer" type="VBoxContainer" parent="UI/ChoicesPanel/VBoxContainer" unique_id=59708927]
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
-[node name="DicePanel" type="Panel" parent="." unique_id=209269263]
+[node name="DicePanel" type="Panel" parent="UI" unique_id=209269263]
 visible = false
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -131,7 +143,7 @@ offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="DicePanel" unique_id=1941332487]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/DicePanel" unique_id=1941332487]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -143,12 +155,15 @@ offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ResultLabel" type="RichTextLabel" parent="DicePanel/VBoxContainer" unique_id=1581281231]
+[node name="ResultLabel" type="RichTextLabel" parent="UI/DicePanel/VBoxContainer" unique_id=1581281231]
 layout_mode = 2
 size_flags_vertical = 3
 bbcode_enabled = true
 text = "Rolling..."
 
-[node name="ContinueBtn" type="Button" parent="DicePanel/VBoxContainer" unique_id=1477810018]
+[node name="ContinueBtn" type="Button" parent="UI/DicePanel/VBoxContainer" unique_id=1477810018]
 layout_mode = 2
 text = "Continue"
+
+[node name="Settings" parent="." unique_id=178099742 instance=ExtResource("3_kvy81")]
+visible = false

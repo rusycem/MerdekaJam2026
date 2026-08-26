@@ -10,26 +10,60 @@ signal narrative_finished
 @onready var voice_player = $VoicePlayer
 @onready var character_container = $CharacterContainer
 
-@onready var dialogue_panel = $DialoguePanel
-@onready var speaker_label = $DialoguePanel/VBoxContainer/SpeakerLabel
-@onready var text_label = $DialoguePanel/VBoxContainer/TextLabel
-@onready var next_button = $DialoguePanel/VBoxContainer/NextButton
+@onready var ui_control = $UI
 
-@onready var choices_panel = $ChoicesPanel
-@onready var choice_prompt_label = $ChoicesPanel/VBoxContainer/PromptLabel
-@onready var choices_container = $ChoicesPanel/VBoxContainer/ChoicesContainer
+@onready var dialogue_panel = $UI/DialoguePanel
+@onready var speaker_label  = $UI/DialoguePanel/VBoxContainer/SpeakerLabel
+@onready var text_label     = $UI/DialoguePanel/VBoxContainer/TextLabel
+@onready var next_button    = $UI/DialoguePanel/VBoxContainer/NextButton
 
-@onready var dice_panel = $DicePanel
-@onready var dice_result_label = $DicePanel/VBoxContainer/ResultLabel
-@onready var dice_continue_btn = $DicePanel/VBoxContainer/ContinueBtn
+@onready var choices_panel 		 = $UI/ChoicesPanel
+@onready var choice_prompt_label = $UI/ChoicesPanel/VBoxContainer/PromptLabel
+@onready var choices_container   = $UI/ChoicesPanel/VBoxContainer/ChoicesContainer
+
+@onready var dice_panel        = $UI/DicePanel
+@onready var dice_result_label = $UI/DicePanel/VBoxContainer/ResultLabel
+@onready var dice_continue_btn = $UI/DicePanel/VBoxContainer/ContinueBtn
 
 var graph_data: Dictionary = {}
 var current_node_id: String = ""
+var current_node_type: String = ""
 var last_visible_characters: int = -1
 var current_blip_pitch: float = 1.0
 var active_profiles: Dictionary = {}
+var type_tween: Tween
+var auto_advance_delay: float = 0.8
+var _auto_advance_pending: bool = false
+var _auto_advance_time: float = 0.0
 
 func _process(_delta: float) -> void:
+	if (Input.is_action_just_pressed("toggle_ui")) :
+		_toggle_ui_visibility()	
+
+	elif (Input.is_action_just_pressed("toggle_auto_next")) :
+		_toggle_auto_next()
+
+	elif (Input.is_action_just_pressed("next")) :
+		_on_next_pressed()
+
+
+	if (GameSettings.auto_next_enabled) :
+		if current_node_type == "dialogue":
+			if (type_tween and type_tween.is_running()) or voice_player.playing:
+				_auto_advance_pending = false
+			else:
+				if not _auto_advance_pending:
+					_auto_advance_pending = true
+					_auto_advance_time = auto_advance_delay
+				else:
+					_auto_advance_time -= _delta
+					if _auto_advance_time <= 0.0:
+						_auto_advance_pending = false
+						_on_next_pressed()
+	else:
+		_auto_advance_pending = false
+
+
 	if type_tween and type_tween.is_running() and not voice_player.playing:
 		if text_label.visible_characters > last_visible_characters:
 			last_visible_characters = text_label.visible_characters
@@ -63,6 +97,8 @@ func _ready() -> void:
 	if story_tree and get_parent() == get_tree().root:
 		play()
 
+
+
 func play(tree: Resource = null) -> void:
 	if tree:
 		story_tree = tree
@@ -93,10 +129,20 @@ func play(tree: Resource = null) -> void:
 		
 	_process_node()
 
+
+func _toggle_ui_visibility() -> void :
+	ui_control.visible = !ui_control.visible
+
+
+func _toggle_auto_next() -> void :
+	GameSettings.auto_next_enabled = !GameSettings.auto_next_enabled
+
+
 func hide_all() -> void:
 	dialogue_panel.hide()
 	choices_panel.hide()
 	dice_panel.hide()
+
 
 func _process_node() -> void:
 	hide_all()
@@ -113,12 +159,14 @@ func _process_node() -> void:
 		
 	if actual_id == "":
 		print("VNPlayer: Reached end of narrative tree. (Node not found: ", current_node_id, ")")
+		current_node_type = ""
 		if EventBus.has_signal("vn_ended"):
 			EventBus.vn_ended.emit()
 		return
 		
 	var data = graph_data[actual_id]
 	var type = data["type"]
+	current_node_type = type
 	
 	if type == "start":
 		current_node_id = data["next_node"]
@@ -145,7 +193,6 @@ func _process_node() -> void:
 	elif type == "comment":
 		pass
 
-var type_tween: Tween
 
 func _on_next_pressed() -> void:
 	if type_tween and type_tween.is_running():
@@ -157,6 +204,7 @@ func _on_next_pressed() -> void:
 		if voice_player.playing:
 			voice_player.stop()
 		_process_node()
+
 
 var dice_target_node = ""
 func _on_dice_continue() -> void:

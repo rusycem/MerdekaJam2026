@@ -118,7 +118,7 @@ static func handle_dialogue(player: Node, data: Dictionary) -> void:
 	var text_length = player.text_label.text.length()
 	if text_length > 0:
 		player.type_tween = player.create_tween()
-		player.type_tween.tween_property(player.text_label, "visible_characters", text_length, text_length * 0.03)
+		player.type_tween.tween_property(player.text_label, "visible_characters", text_length, text_length * GameSettings.get_text_speed_delay())
 	else:
 		player.text_label.visible_characters = -1
 	
@@ -192,6 +192,7 @@ static func handle_dnd_check(player: Node, data: Dictionary) -> void:
 		
 	player.dice_result_label.text = result_text
 
+
 static func handle_command(player: Node, data: Dictionary) -> void:
 	var cmd = data.get("command", "")
 	if cmd.begins_with("minigame"):
@@ -233,6 +234,7 @@ static func handle_command(player: Node, data: Dictionary) -> void:
 	# Move to the next node immediately
 	player.current_node_id = data.get("next_node", "")
 	player._process_node()
+
 
 static func handle_actor(player: Node, data: Dictionary) -> void:
 	var events = data.get("events", [])
