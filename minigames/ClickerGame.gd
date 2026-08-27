@@ -55,11 +55,12 @@ func _update_ui() -> void:
 	time_label.text = "Time: %.1f" % time_left
 	score_label.text = "Clicks: %d / %d" % [clicks, target_clicks]
 
+#must reuse for other minigame
 func _end_game(win: bool) -> void:
 	game_active = false
 	target_button.hide()
 	result_panel.show()
-	
+	#important 
 	GameState.last_minigame_result = win
 	
 	if win:
@@ -69,6 +70,7 @@ func _end_game(win: bool) -> void:
 		result_label.text = "FAILED!"
 		result_label.add_theme_color_override("font_color", Color.RED)
 
+# must reuse if have continue after end button
 func _on_return_pressed() -> void:
 	# Tell EventBus we are done, VNPlayer will resume
 	EventBus.minigame_finished.emit()
