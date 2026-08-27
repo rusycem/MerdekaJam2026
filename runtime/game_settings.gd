@@ -36,7 +36,20 @@ func get_action_text(action: String) -> String :
 	var events := InputMap.action_get_events(action)
 	if events.is_empty():
 		return "None"
-	return events[0].as_text()
+	var ev = events[0]
+	if ev is InputEventMouseButton:
+		match ev.button_index:
+			MOUSE_BUTTON_LEFT: return "Left Click"
+			MOUSE_BUTTON_RIGHT: return "Right Click"
+			MOUSE_BUTTON_MIDDLE: return "Middle Click"
+			MOUSE_BUTTON_WHEEL_UP: return "Wheel Up"
+			MOUSE_BUTTON_WHEEL_DOWN: return "Wheel Down"
+			_: return "Mouse " + str(ev.button_index)
+	
+	# Godot 4 sometimes includes physical modifiers in as_text, we can just return as_text
+	var raw = ev.as_text()
+	# Clean up "(Physical)" if present
+	return raw.replace(" (Physical)", "")
 
 
 func set_action_key(action: String, event: InputEvent) -> void :

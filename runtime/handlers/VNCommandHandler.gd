@@ -22,8 +22,7 @@ static func handle(player: Node, data: Dictionary) -> void:
 		print("VNPlayer: Handing off to Hub. Resuming at ", GameState.resume_node_id)
 		
 		EventBus.start_hub.emit()
-		player.queue_free()
-		return # Stop execution entirely, we are destroying ourselves
+		return # Stop execution entirely, Main.gd will cache us in memory
 		
 	elif cmd.begins_with("bgm"):
 		var parts = cmd.split(" ", false)

@@ -41,6 +41,12 @@ func _on_activity(stat_name: String, amount: int):
 	# Add stat
 	GameState.stats[stat_name] += amount
 	
+	# Try to inject into VN backlog!
+	if get_node_or_null("/root/Main") and get_node("/root/Main").cached_vn:
+		var vn = get_node("/root/Main").cached_vn
+		if vn.has_method("add_to_history"):
+			vn.add_to_history("System", "+%d %s (Activity)" % [amount, stat_name], "")
+			
 	# Refresh UI
 	_update_ui()
 	

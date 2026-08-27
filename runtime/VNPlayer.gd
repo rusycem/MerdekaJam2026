@@ -30,6 +30,9 @@ var current_node_id: String = ""
 var current_node_type: String = ""
 var last_visible_characters: int = -1
 var current_blip_pitch: float = 1.0
+var dialogue_history: Array[Dictionary] = []
+var is_waiting: bool = false
+var backlog_ui: Node
 var active_profiles: Dictionary = {}
 var type_tween: Tween
 var auto_advance_delay: float = 0.8
@@ -45,6 +48,12 @@ func _process(_delta: float) -> void:
 
 	elif (Input.is_action_just_pressed("next")) :
 		_on_next_pressed()
+
+	elif (Input.is_action_just_pressed("toggle_transcript")) :
+		if backlog_ui and backlog_ui.visible:
+			backlog_ui.close()
+		elif backlog_ui:
+			backlog_ui.open()
 
 
 	if (GameSettings.auto_next_enabled) :
@@ -75,6 +84,8 @@ func _process(_delta: float) -> void:
 
 func _ready() -> void:
 	hide_all()
+	backlog_ui = preload("res://src/UI/BacklogUI.gd").new(self)
+	add_child(backlog_ui)
 	next_button.pressed.connect(_on_next_pressed)
 	dice_continue_btn.pressed.connect(_on_dice_continue)
 	
@@ -92,6 +103,8 @@ func _ready() -> void:
 			blip_data.append((sample >> 8) & 0xFF)
 		blip.data = blip_data
 		blip_player.stream = blip
+	blip_player.bus = "Voice"
+	voice_player.bus = "Voice"
 		
 	# Auto-start only if this scene is run directly (F6) or not managed by Main
 	if story_tree and get_parent() == get_tree().root:
@@ -129,6 +142,13 @@ func play(tree: Resource = null) -> void:
 		
 	_process_node()
 
+
+func add_to_history(speaker: String, text: String, voice_uid: String) -> void:
+	dialogue_history.append({
+		"speaker": speaker,
+		"text": text,
+		"voice_uid": voice_uid
+	})
 
 func _toggle_ui_visibility() -> void :
 	ui_control.visible = !ui_control.visible
@@ -195,6 +215,7 @@ func _process_node() -> void:
 
 
 func _on_next_pressed() -> void:
+	if is_waiting: return
 	if type_tween and type_tween.is_running():
 		type_tween.kill()
 		text_label.visible_characters = -1

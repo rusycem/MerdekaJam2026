@@ -266,6 +266,19 @@ static func build_actor_inspector(inspector: VBoxContainer, node: GraphNode) -> 
 				node.update_preview()
 			)
 			inspector.add_child(bg_picker)
+			
+			var place_lbl = Label.new()
+			place_lbl.text = "Location Name (for Log):"
+			inspector.add_child(place_lbl)
+			
+			var place_edit = LineEdit.new()
+			place_edit.text = ev.get("place_name", "")
+			place_edit.placeholder_text = "e.g. Cafeteria"
+			place_edit.text_changed.connect(func(new_text: String):
+				ev["place_name"] = new_text
+				node.update_preview()
+			)
+			inspector.add_child(place_edit)
 		else:
 			var char_lbl = Label.new()
 			char_lbl.text = "Character Profile (.tres):"
