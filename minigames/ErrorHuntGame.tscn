@@ -1,0 +1,209 @@
+[gd_scene format=3 uid="uid://errorhunt12345"]
+
+[ext_resource type="Script" path="res://minigames/ErrorHuntGame.gd" id="1_errorhunt"]
+
+[node name="ErrorHuntGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_errorhunt")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.08, 0.1, 0.16, 0.98)
+
+[node name="Header" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 90.0
+grow_horizontal = 2
+
+[node name="TitleLabel" type="Label" parent="Header"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 40.0
+offset_top = -24.0
+offset_right = 400.0
+offset_bottom = 24.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 28
+text = "ENGLISH // ERROR HUNT"
+vertical_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="Header"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 12.0
+offset_right = 150.0
+offset_bottom = 56.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Time: 60.0s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="Header"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -340.0
+offset_top = -34.0
+offset_right = -40.0
+offset_bottom = 4.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 28
+text = "Score: 0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="TargetLabel" type="Label" parent="Header"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -340.0
+offset_top = 8.0
+offset_right = -40.0
+offset_bottom = 38.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.75, 0.8, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "Target: 100 pts (Solved: 0)"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MainCard" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -230.0
+offset_right = 500.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="MainCard"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="BadgeLabel" type="Label" parent="MainCard/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.8, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "[TAP THE ERROR] VERB TENSE"
+horizontal_alignment = 1
+
+[node name="PromptLabel" type="Label" parent="MainCard/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Tap the incorrect word in the sentence below:"
+horizontal_alignment = 1
+
+[node name="SentenceDisplayCard" type="PanelContainer" parent="MainCard/VBox"]
+visible = false
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+
+[node name="SentenceLabel" type="Label" parent="MainCard/VBox/SentenceDisplayCard"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.95, 0.75, 1)
+theme_override_font_sizes/font_size = 24
+text = "Sentence to analyze..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="WordCard" type="PanelContainer" parent="MainCard/VBox"]
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="WordContainer" type="HFlowContainer" parent="MainCard/VBox/WordCard"]
+layout_mode = 2
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 12
+alignment = 1
+
+[node name="OptionsBox" type="VBoxContainer" parent="MainCard/VBox"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="ResultPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResultBox" type="VBoxContainer" parent="ResultPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -200.0
+offset_right = 300.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ResultTitle" type="Label" parent="ResultPanel/ResultBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "TIME'S UP!"
+horizontal_alignment = 1
+
+[node name="ResultStatus" type="Label" parent="ResultPanel/ResultBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "SUCCESS!"
+horizontal_alignment = 1
+
+[node name="ResultScoreLabel" type="Label" parent="ResultPanel/ResultBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Final Score: 120 Points
+Sentences Solved: 12
+Target Goal: 100 Points"
+horizontal_alignment = 1
+
+[node name="ReturnButton" type="Button" parent="ResultPanel/ResultBox"]
+custom_minimum_size = Vector2(220, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 28
+text = "Return"

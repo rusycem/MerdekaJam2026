@@ -6,6 +6,8 @@ static func handle(player: Node, data: Dictionary) -> void:
 		var parts = cmd.split(" ", false)
 		if parts.size() > 1:
 			var minigame_id = parts[1]
+			if minigame_id == "play" and parts.size() > 2:
+				minigame_id = parts[2]
 			EventBus.start_minigame.emit(minigame_id)
 			
 			# Wait for the minigame to finish
