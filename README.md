@@ -1,5 +1,9 @@
 # SeMaK VN Designer Manual
-Welcome to SeMaK, the robust node-based Visual Novel editor built specifically for MerdekaJam 2026. This document explains every tool, node, tag, and logic feature available to you. For more comprehensive implementation, refer [Technical Design Document (TDD)](Technical_Design_Document_Comprehensive.md) for architecture details. For Gameplay programmer and UI Programmer, refer [Programmer Guide SeMak VN](Programmer_Guide_SeMaK_and_VN.md) for minigames and UI implementatoion.
+Welcome to SeMaK, the robust node-based Visual Novel editor built specifically for MerdekaJam 2026. This document explains every tool, node, tag, and logic feature available to you. 
+
+For more comprehensive implementation, refer [Technical Design Document (TDD)](Technical_Design_Document_Comprehensive.md) for architecture details. 
+
+For Gameplay programmer and UI Programmer, refer [Programmer Guide SeMak VN](Programmer_Guide_SeMaK_and_VN.md) for minigames and UI implementatoion.
 
 ## 1. Opening the Workspace
 To start editing or building a VN Tree:
