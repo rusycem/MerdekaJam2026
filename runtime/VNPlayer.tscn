@@ -1,0 +1,208 @@
+[gd_scene format=3 uid="uid://c3x8g2y4nak1"]
+
+[ext_resource type="Script" uid="uid://duh8h5rdamywy" path="res://runtime/VNPlayer.gd" id="1_vnplay"]
+[ext_resource type="Resource" uid="uid://bxfb5jbpjsd8q" path="res://scenes/StoryScene/prologue.tres" id="2_j7s1q"]
+[ext_resource type="PackedScene" uid="uid://bloekt38bucuf" path="res://src/UI/settings.tscn" id="3_kvy81"]
+[ext_resource type="PackedScene" uid="uid://5ilhr54yhup" path="res://assets/objects/dice20/dice20.glb" id="10_diceglb"]
+[ext_resource type="Script" uid="uid://d4bkvxps2dgj2" path="res://src/dice20/dice_20.gd" id="11_dicescr"]
+
+[node name="VNPlayer" type="CanvasLayer" unique_id=1542072408]
+script = ExtResource("1_vnplay")
+story_tree = ExtResource("2_j7s1q")
+
+[node name="BackgroundRect2" type="TextureRect" parent="." unique_id=987654321]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="BackgroundRect" type="TextureRect" parent="." unique_id=324910243]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="BlipPlayer" type="AudioStreamPlayer" parent="." unique_id=555555555]
+
+[node name="VoicePlayer" type="AudioStreamPlayer" parent="." unique_id=666666666]
+
+[node name="CharacterContainer" type="Control" parent="." unique_id=945283401]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UI" type="Control" parent="." unique_id=1375819083]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 63.0
+offset_top = -34.0
+offset_right = 63.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DialoguePanel" type="Panel" parent="UI" unique_id=638276859]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -300.0
+offset_right = -5.584961
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/DialoguePanel" unique_id=482122600]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = -30.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SpeakerLabel" type="Label" parent="UI/DialoguePanel/VBoxContainer" unique_id=956585148]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.8, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "Speaker"
+
+[node name="TextLabel" type="RichTextLabel" parent="UI/DialoguePanel/VBoxContainer" unique_id=1895780882]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 32
+text = "Dialogue text goes here..."
+
+[node name="NextButton" type="Button" parent="UI/DialoguePanel/VBoxContainer" unique_id=49527346]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 24
+text = "Next >"
+
+[node name="ChoicesPanel" type="Panel" parent="UI" unique_id=116286973]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -150.0
+offset_right = 250.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/ChoicesPanel" unique_id=900087719]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PromptLabel" type="Label" parent="UI/ChoicesPanel/VBoxContainer" unique_id=1847787063]
+layout_mode = 2
+text = "What will you do?"
+horizontal_alignment = 1
+
+[node name="ChoicesContainer" type="VBoxContainer" parent="UI/ChoicesPanel/VBoxContainer" unique_id=59708927]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="DicePanel" type="Panel" parent="UI" unique_id=209269263]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -112.0
+offset_right = 150.0
+offset_bottom = 223.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/DicePanel" unique_id=1941332487]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResultLabel" type="RichTextLabel" parent="UI/DicePanel/VBoxContainer" unique_id=1581281231]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "Rolling..."
+
+[node name="ContinueBtn" type="Button" parent="UI/DicePanel/VBoxContainer" unique_id=1477810018]
+layout_mode = 2
+text = "Continue"
+
+[node name="DiceViewportContainer" type="SubViewportContainer" parent="UI/DicePanel" unique_id=1211340907]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -374.0
+offset_right = 128.0
+offset_bottom = -118.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="UI/DicePanel/DiceViewportContainer" unique_id=1646116685]
+handle_input_locally = false
+size = Vector2i(256, 256)
+render_target_update_mode = 0
+
+[node name="dice20" parent="UI/DicePanel/DiceViewportContainer/SubViewport" unique_id=1149426466 instance=ExtResource("10_diceglb")]
+script = ExtResource("11_dicescr")
+
+[node name="RollingTimer" type="Timer" parent="UI/DicePanel/DiceViewportContainer/SubViewport/dice20" unique_id=1373377202]
+
+[node name="Camera3D" type="Camera3D" parent="UI/DicePanel/DiceViewportContainer/SubViewport" unique_id=2019115123]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.7327557, 0)
+
+[node name="DirectionalLight3D" type="SpotLight3D" parent="UI/DicePanel/DiceViewportContainer/SubViewport" unique_id=1927675683]
+transform = Transform3D(0.9495561, 0.30673522, 0.06524409, -0.059085086, -0.029332727, 0.9978219, 0.30798092, -0.95134276, -0.009729593, 0, 2.4969049, 0)
+light_energy = 1.896
+
+[node name="Settings" parent="." unique_id=178099742 instance=ExtResource("3_kvy81")]
+visible = false
+
+[connection signal="timeout" from="UI/DicePanel/DiceViewportContainer/SubViewport/dice20/RollingTimer" to="UI/DicePanel/DiceViewportContainer/SubViewport/dice20" method="_on_rolling_timer_timeout"]
