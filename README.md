@@ -3,7 +3,7 @@ Welcome to SeMaK, the robust node-based Visual Novel editor built specifically f
 
 For more comprehensive implementation, refer [Technical Design Document (TDD)](Technical_Design_Document_Comprehensive.md) for architecture details. 
 
-For Gameplay programmer and UI Programmer, refer [Programmer Guide SeMak VN](Programmer_Guide_SeMaK_and_VN.md) for minigames and UI implementatoion.
+For Gameplay programmer and UI Programmer, refer [Programmer Guide SeMak VN](Programmer_Guide_SeMaK_and_VN.md) for minigames and UI implementation.
 
 ## 1. Opening the Workspace
 To start editing or building a VN Tree:
