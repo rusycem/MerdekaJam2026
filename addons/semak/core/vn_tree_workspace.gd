@@ -20,6 +20,8 @@ const ACTOR_NODE_SCENE = preload("res://addons/semak/nodes/ActorNode.tscn")
 @onready var inspector_tab = $HSplitContainer/SidebarTabs/InspectorScroll/Inspector
 @onready var debugger_tab = $HSplitContainer/SidebarTabs/DebuggerScroll/Debugger
 
+var clipboard_data: Array = []
+
 func _ready() -> void:
 	# Fail-safe check to prevent tool editor crashes if things aren't rendered yet
 	if not graph_edit:
@@ -33,6 +35,9 @@ func _ready() -> void:
 	graph_edit.connection_request.connect(_on_connection_request)
 	graph_edit.disconnection_request.connect(_on_disconnection_request)
 	graph_edit.delete_nodes_request.connect(_on_delete_nodes_request)
+	
+	graph_edit.copy_nodes_request.connect(_on_copy_nodes_request)
+	graph_edit.paste_nodes_request.connect(_on_paste_nodes_request)
 	
 	graph_edit.node_selected.connect(func(node): 
 		inspector_tab.build_inspector(node)
@@ -208,3 +213,71 @@ func clear_workspace() -> void:
 
 func _on_toggle_sidebar_pressed() -> void:
 	sidebar_tabs.visible = not sidebar_tabs.visible
+
+func _on_copy_nodes_request() -> void:
+	clipboard_data.clear()
+	for child in graph_edit.get_children():
+		if child.has_method("is_selected") and child.is_selected():
+			if child.has_method("get_node_data"):
+				var data = child.get_node_data()
+				clipboard_data.append(data)
+			elif child.get_class() == "GraphFrame":
+				var data = {
+					"type": "comment",
+					"position": [child.position_offset.x, child.position_offset.y],
+					"size": [child.size.x, child.size.y],
+					"title": child.title
+				}
+				clipboard_data.append(data)
+
+func _on_paste_nodes_request() -> void:
+	if clipboard_data.is_empty():
+		return
+		
+	# Deselect all
+	graph_edit.set_selected(null)
+	
+	var offset = Vector2(50, 50)
+	for data in clipboard_data:
+		var node_data = data.duplicate(true)
+		var type = node_data.get("type", "")
+		
+		var original_pos = node_data.get("position", [0,0])
+		var new_pos = Vector2(original_pos[0] + offset.x, original_pos[1] + offset.y)
+		
+		# Hijack last_click_position so _spawn_node puts it at our new_pos exactly
+		last_click_position = (new_pos * graph_edit.zoom) - graph_edit.scroll_offset
+		
+		if type == "comment":
+			_spawn_comment_frame()
+			# Need to wait a frame for it to spawn to set size/title properly
+			get_tree().create_timer(0.01).timeout.connect(func():
+				var new_frame = graph_edit.get_child(graph_edit.get_child_count() - 1)
+				if new_frame.get_class() == "GraphFrame":
+					new_frame.title = node_data.get("title", "")
+					var s = node_data.get("size", [200, 200])
+					new_frame.size = Vector2(s[0], s[1])
+			)
+		else:
+			var scene: PackedScene = null
+			var is_choice = false
+			if type == "dialogue": scene = DIALOGUE_NODE_SCENE
+			elif type == "choice_branch": 
+				scene = CHOICE_NODE_SCENE
+				is_choice = true
+			elif type == "dnd_check": scene = DND_CHECK_SCENE
+			elif type == "command": scene = COMMAND_NODE_SCENE
+			elif type == "condition": scene = CONDITION_NODE_SCENE
+			elif type == "actor": scene = ACTOR_NODE_SCENE
+			elif type == "start": scene = START_NODE_SCENE
+			
+			if scene:
+				_spawn_node(scene, false)
+				# Need to inject the exact data since _spawn_node spawns defaults
+				get_tree().create_timer(0.01).timeout.connect(func():
+					var spawned = graph_edit.get_child(graph_edit.get_child_count() - 1)
+					if spawned.has_method("set_node_data"):
+						spawned.set_node_data(node_data)
+						if spawned.has_method("update_preview"):
+							spawned.update_preview()
+				)

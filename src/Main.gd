@@ -83,13 +83,13 @@ func _on_start_minigame(minigame_id: String) -> void:
 	var path = ""
 	if minigame_id == "clicker":
 		path = "res://minigames/ClickerGame.tscn"
-	# Add more minigames here!
+	# add more minigames here
 	
 	if path != "":
 		var mg_scene = load(path)
 		if mg_scene:
 			var instance = mg_scene.instantiate()
-			# Add minigame ON TOP of the VNPlayer so the VNPlayer sits paused underneath!
+			# Add minigame ON TOP of the VNPlayer so the VNPlayer sits paused underneath
 			menu_container.add_child(instance)
 		else:
 			push_error("Main.gd: Could not load minigame at " + path)
