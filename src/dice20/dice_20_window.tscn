@@ -1,0 +1,185 @@
+[gd_scene format=3 uid="uid://c3kd7vuuqteuc"]
+
+[ext_resource type="PackedScene" uid="uid://5ilhr54yhup" path="res://assets/objects/dice20/dice20.glb" id="1_0t4qk"]
+[ext_resource type="Script" uid="uid://dx8twcxs0pm5f" path="res://src/dice20/dice_20_window.gd" id="1_ootdh"]
+[ext_resource type="Script" uid="uid://d4bkvxps2dgj2" path="res://src/dice20/dice_20.gd" id="2_vpmt3"]
+[ext_resource type="Script" uid="uid://ddgeq1uc5ludq" path="res://src/dice20/buttons.gd" id="4_oodoe"]
+
+[node name="Dice20Window" type="Node2D" unique_id=516793987]
+script = ExtResource("1_ootdh")
+
+[node name="Window" type="SubViewportContainer" parent="." unique_id=1253719370]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="Window" unique_id=857251968]
+handle_input_locally = false
+size = Vector2i(256, 256)
+render_target_update_mode = 4
+
+[node name="dice20" parent="Window/SubViewport" unique_id=136609725 instance=ExtResource("1_0t4qk")]
+script = ExtResource("2_vpmt3")
+
+[node name="RollingTimer" type="Timer" parent="Window/SubViewport/dice20" unique_id=1318667827]
+
+[node name="Camera3D" type="Camera3D" parent="Window/SubViewport" unique_id=1779473315]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.7327557, 0)
+
+[node name="DirectionalLight3D" type="SpotLight3D" parent="Window/SubViewport" unique_id=903325984]
+transform = Transform3D(0.9495561, 0.30673522, 0.06524409, -0.059085086, -0.029332727, 0.9978219, 0.30798092, -0.95134276, -0.009729593, 0, 2.4969049, 0)
+light_energy = 1.896
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2087930613]
+offset_left = 711.0
+offset_top = 211.0
+offset_right = 751.0
+offset_bottom = 251.0
+theme_override_constants/separation = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1456080790]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="1" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1872871528]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "01"
+script = ExtResource("4_oodoe")
+
+[node name="2" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1147272475]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "02"
+script = ExtResource("4_oodoe")
+
+[node name="3" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1212101934]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "03"
+script = ExtResource("4_oodoe")
+
+[node name="4" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1041006412]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "04"
+script = ExtResource("4_oodoe")
+
+[node name="5" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1972306257]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "05"
+script = ExtResource("4_oodoe")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=45205332]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="6" type="Button" parent="VBoxContainer/HBoxContainer2" unique_id=1268224031]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "06"
+script = ExtResource("4_oodoe")
+
+[node name="7" type="Button" parent="VBoxContainer/HBoxContainer2" unique_id=1816270710]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "07"
+script = ExtResource("4_oodoe")
+
+[node name="8" type="Button" parent="VBoxContainer/HBoxContainer2" unique_id=960202849]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "08"
+script = ExtResource("4_oodoe")
+
+[node name="9" type="Button" parent="VBoxContainer/HBoxContainer2" unique_id=1097894644]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "09"
+script = ExtResource("4_oodoe")
+
+[node name="10" type="Button" parent="VBoxContainer/HBoxContainer2" unique_id=102419018]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "10
+"
+script = ExtResource("4_oodoe")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer" unique_id=1009857300]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="11" type="Button" parent="VBoxContainer/HBoxContainer3" unique_id=114046571]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "11"
+script = ExtResource("4_oodoe")
+
+[node name="12" type="Button" parent="VBoxContainer/HBoxContainer3" unique_id=688628368]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "12"
+script = ExtResource("4_oodoe")
+
+[node name="13" type="Button" parent="VBoxContainer/HBoxContainer3" unique_id=1083322359]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "13"
+script = ExtResource("4_oodoe")
+
+[node name="14" type="Button" parent="VBoxContainer/HBoxContainer3" unique_id=2029536346]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "14"
+script = ExtResource("4_oodoe")
+
+[node name="15" type="Button" parent="VBoxContainer/HBoxContainer3" unique_id=1227562465]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "15"
+script = ExtResource("4_oodoe")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer" unique_id=1985585750]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="16" type="Button" parent="VBoxContainer/HBoxContainer4" unique_id=549205299]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "16"
+script = ExtResource("4_oodoe")
+
+[node name="17" type="Button" parent="VBoxContainer/HBoxContainer4" unique_id=1243141604]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "17"
+script = ExtResource("4_oodoe")
+
+[node name="18" type="Button" parent="VBoxContainer/HBoxContainer4" unique_id=1437526521]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "18"
+script = ExtResource("4_oodoe")
+
+[node name="19" type="Button" parent="VBoxContainer/HBoxContainer4" unique_id=742610971]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "19"
+script = ExtResource("4_oodoe")
+
+[node name="20" type="Button" parent="VBoxContainer/HBoxContainer4" unique_id=849851302]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "20"
+script = ExtResource("4_oodoe")
+
+[node name="Button" type="Button" parent="." unique_id=201682840]
+offset_left = 1031.0
+offset_top = 305.0
+offset_right = 1168.0
+offset_bottom = 358.0
+theme_override_font_sizes/font_size = 32
+text = "Random"
+
+[connection signal="timeout" from="Window/SubViewport/dice20/RollingTimer" to="Window/SubViewport/dice20" method="_on_rolling_timer_timeout"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]

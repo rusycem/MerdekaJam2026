@@ -118,13 +118,16 @@ static func handle_dialogue(player: Node, data: Dictionary) -> void:
 	var text_length = player.text_label.text.length()
 	if text_length > 0:
 		player.type_tween = player.create_tween()
-		player.type_tween.tween_property(player.text_label, "visible_characters", text_length, text_length * 0.03)
+		player.type_tween.tween_property(player.text_label, "visible_characters", text_length, text_length * GameSettings.get_text_speed_delay())
 	else:
 		player.text_label.visible_characters = -1
 	
 	if data.has("set_flags") and data["set_flags"] != "":
 		GameState.grant_flags(data["set_flags"])
 	
+	if player.has_method("add_to_history"):
+		player.add_to_history(player.speaker_label.text, raw_text.strip_edges(), voice_uid)
+		
 	player.current_node_id = data.get("next_node", "")
 
 
@@ -163,6 +166,8 @@ static func handle_choice(player: Node, data: Dictionary) -> void:
 			target_node = next_nodes[i]
 			
 		btn.pressed.connect(func():
+			if player.has_method("add_to_history"):
+				player.add_to_history("Choice", "> " + btn.text, "")
 			player.current_node_id = target_node
 			player._process_node()
 		)
@@ -170,6 +175,7 @@ static func handle_choice(player: Node, data: Dictionary) -> void:
 
 
 static func handle_dnd_check(player: Node, data: Dictionary) -> void:
+	player.is_waiting = true
 	player.dice_panel.show()
 	var stat = data.get("target_stat", "STR")
 	var dc = data.get("dc_value", 10)
@@ -186,11 +192,18 @@ static func handle_dnd_check(player: Node, data: Dictionary) -> void:
 	if total >= dc:
 		result_text += "[color=green]SUCCESS![/color]"
 		player.dice_target_node = data.get("next_pass", "")
+		player.is_waiting = false
 	else:
 		result_text += "[color=red]FAILURE![/color]"
 		player.dice_target_node = data.get("next_fail", "")
+		player.is_waiting = false
 		
 	player.dice_result_label.text = result_text
+	
+	if player.has_method("add_to_history"):
+		var outcome = "SUCCESS" if total >= dc else "FAILURE"
+		player.add_to_history("System", "Rolled " + stat + " Check against DC " + str(dc) + ". [b]Total: " + str(total) + "[/b] (" + outcome + ")", "")
+
 
 static func handle_command(player: Node, data: Dictionary) -> void:
 	var cmd = data.get("command", "")
@@ -198,10 +211,22 @@ static func handle_command(player: Node, data: Dictionary) -> void:
 		var parts = cmd.split(" ", false)
 		if parts.size() > 1:
 			var minigame_id = parts[1]
+			player.is_waiting = true
 			EventBus.start_minigame.emit(minigame_id)
 			
 			# Wait for the minigame to finish
 			await EventBus.minigame_finished
+			player.is_waiting = false
+			if player.has_method("add_to_history"):
+				var outcome = "WON" if GameState.last_minigame_result else "LOST"
+				player.add_to_history("System", "Minigame [" + minigame_id + "]: " + outcome, "")
+			
+	elif cmd == "clear_stage":
+		for child in player.character_container.get_children():
+			child.queue_free()
+		player.active_profiles.clear()
+		if player.has_method("add_to_history"):
+			player.add_to_history("System", "Stage Cleared", "")
 			
 	elif cmd.begins_with("start_hub"):
 		var parts = cmd.split(" ", false)
@@ -214,7 +239,6 @@ static func handle_command(player: Node, data: Dictionary) -> void:
 		print("VNPlayer: Handing off to Hub. Resuming at ", GameState.resume_node_id)
 		
 		EventBus.start_hub.emit()
-		player.queue_free()
 		return # Stop execution entirely, we are destroying ourselves
 		
 	elif cmd.begins_with("bgm"):
@@ -229,10 +253,14 @@ static func handle_command(player: Node, data: Dictionary) -> void:
 			
 	elif cmd != "":
 		GameState.execute_command(cmd)
+		if player.has_method("add_to_history"):
+			if cmd.begins_with("stat ") or cmd.begins_with("reward "):
+				player.add_to_history("System", "Action: " + cmd.capitalize(), "")
 		
 	# Move to the next node immediately
 	player.current_node_id = data.get("next_node", "")
 	player._process_node()
+
 
 static func handle_actor(player: Node, data: Dictionary) -> void:
 	var events = data.get("events", [])
@@ -254,6 +282,12 @@ static func handle_actor(player: Node, data: Dictionary) -> void:
 						var tw = player.create_tween()
 						tw.tween_property(player.background_rect, "modulate:a", 1.0, 0.5)
 						tw.parallel().tween_property(player.background_rect_2, "modulate:a", 0.0, 0.5)
+						
+						if player.has_method("add_to_history"):
+							var loc_name = ev.get("place_name", "")
+							if loc_name == "":
+								loc_name = bg_uid.get_file().get_basename().capitalize().replace("_", " ")
+							player.add_to_history("System", "[b]Location:[/b] " + loc_name, "")
 				else:
 					print("VNPlayer: BG UID invalid")
 					

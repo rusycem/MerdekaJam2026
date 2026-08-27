@@ -16,6 +16,7 @@ graph_data = {
 "expression": "Neutral",
 "offset_x": 0.0,
 "offset_y": 0.0,
+"place_name": "Class Murni",
 "position_slot": "Center",
 "z_index": 0
 }, {

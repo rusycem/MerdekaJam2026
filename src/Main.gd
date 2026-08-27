@@ -7,6 +7,8 @@ extends Node
 
 @export_file("*.tscn") var starting_level: String
 
+var cached_vn: Node = null
+
 func _ready() -> void:
 	EventBus.scene_change_requested.connect(_on_scene_change_requested)
 	EventBus.play_visual_novel.connect(_on_play_visual_novel)
@@ -47,6 +49,9 @@ func _on_scene_change_requested(scene_path: String, is_menu: bool) -> void:
 	tween.tween_property(fader, "modulate:a", 0.0, 0.5)
 
 func _on_play_visual_novel(tres_path: String) -> void:
+	if cached_vn:
+		cached_vn.queue_free()
+		cached_vn = null
 	var tween = create_tween()
 	tween.tween_property(fader, "modulate:a", 1.0, 0.5)
 	await tween.finished
@@ -100,7 +105,12 @@ func _on_start_hub() -> void:
 	await tween.finished
 	
 	for child in level_container.get_children():
-		child.queue_free()
+		if child.name == "VNPlayer" or child.has_method("play"):
+			level_container.remove_child(child)
+			cached_vn = child
+		else:
+			child.queue_free()
+			
 	for child in menu_container.get_children():
 		child.queue_free()
 		
@@ -112,7 +122,25 @@ func _on_start_hub() -> void:
 	tween.tween_property(fader, "modulate:a", 0.0, 0.5)
 
 func _on_resume_vn() -> void:
-	if GameState.current_chapter_uid != "":
-		_on_play_visual_novel(GameState.current_chapter_uid)
+	var tween = create_tween()
+	tween.tween_property(fader, "modulate:a", 1.0, 0.5)
+	await tween.finished
+
+	for child in level_container.get_children():
+		child.queue_free()
+	for child in menu_container.get_children():
+		child.queue_free()
+		
+	if cached_vn:
+		level_container.add_child(cached_vn)
+		if cached_vn.has_method("play"):
+			cached_vn.play()
+		cached_vn = null
 	else:
-		push_error("Main.gd: Cannot resume VN because current_chapter_uid is empty!")
+		if GameState.current_chapter_uid != "":
+			_on_play_visual_novel(GameState.current_chapter_uid)
+		else:
+			push_error("Main.gd: Cannot resume VN because current_chapter_uid is empty!")
+			
+	tween = create_tween()
+	tween.tween_property(fader, "modulate:a", 0.0, 0.5)
