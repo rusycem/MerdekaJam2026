@@ -1,0 +1,173 @@
+[gd_scene format=3 uid="uid://bloekt38bucuf"]
+
+[ext_resource type="Script" uid="uid://b2is41e18svil" path="res://src/UI/settings.gd" id="1_20fys"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_ork7p"]
+
+[node name="Settings" type="PanelContainer" unique_id=178099742]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_20fys")
+
+[node name="Options" type="VBoxContainer" parent="." unique_id=1995142369]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Options" unique_id=242558543]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Settings FR"
+horizontal_alignment = 1
+
+[node name="TextSpeed" type="HBoxContainer" parent="Options" unique_id=826114514]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Options/TextSpeed" unique_id=1833772801]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Text Speed:"
+
+[node name="Slow" type="Button" parent="Options/TextSpeed" unique_id=234749455]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+toggle_mode = true
+button_group = SubResource("ButtonGroup_ork7p")
+text = "Slow"
+
+[node name="Medium" type="Button" parent="Options/TextSpeed" unique_id=1834318440]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+toggle_mode = true
+button_pressed = true
+button_group = SubResource("ButtonGroup_ork7p")
+text = "Medium"
+
+[node name="Fast" type="Button" parent="Options/TextSpeed" unique_id=466798206]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+toggle_mode = true
+button_group = SubResource("ButtonGroup_ork7p")
+text = "Fast"
+
+[node name="KeybindLabel" type="Label" parent="Options" unique_id=242223033]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "-- KeyBinds --"
+horizontal_alignment = 1
+
+[node name="NextChat" type="HBoxContainer" parent="Options" unique_id=1015817090]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Label" type="Label" parent="Options/NextChat" unique_id=839017155]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Next Dialog:"
+
+[node name="Button" type="Button" parent="Options/NextChat" unique_id=802855042]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Space"
+
+[node name="AutoNext" type="HBoxContainer" parent="Options" unique_id=865215106]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Label" type="Label" parent="Options/AutoNext" unique_id=718015500]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Toggle Auto Next: "
+
+[node name="Button" type="Button" parent="Options/AutoNext" unique_id=1703049650]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "F"
+
+[node name="HideMenu" type="HBoxContainer" parent="Options" unique_id=763570250]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Label" type="Label" parent="Options/HideMenu" unique_id=1235581674]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Toggle UI: "
+
+[node name="Button" type="Button" parent="Options/HideMenu" unique_id=1827949770]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "H"
+
+[node name="OpenTranscript" type="HBoxContainer" parent="Options" unique_id=68115252]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Label" type="Label" parent="Options/OpenTranscript" unique_id=907354664]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Toggle Transcript:"
+
+[node name="Button" type="Button" parent="Options/OpenTranscript" unique_id=1966062508]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Tab"
+
+[node name="PauseButton" type="HBoxContainer" parent="Options" unique_id=103774006]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Label" type="Label" parent="Options/PauseButton" unique_id=527296045]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Pause Game:"
+
+[node name="Button" type="Button" parent="Options/PauseButton" unique_id=1554924941]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Esc"
+
+[node name="ListeningContainer" type="PanelContainer" parent="." unique_id=182606966]
+visible = false
+layout_mode = 2
+
+[node name="HBox" type="HBoxContainer" parent="ListeningContainer" unique_id=182606967]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 65
+
+[node name="Label" type="Label" parent="ListeningContainer/HBox" unique_id=767754600]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "Listening...."
+
+[node name="CancelBtn" type="Button" parent="ListeningContainer/HBox" unique_id=182606968]
+modulate = Color(0.86, 0, 0.014333115, 1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 64
+text = "X"
+
+[connection signal="toggled" from="Options/TextSpeed/Slow" to="." method="_on_slow_toggled"]
+[connection signal="toggled" from="Options/TextSpeed/Medium" to="." method="_on_medium_toggled"]
+[connection signal="toggled" from="Options/TextSpeed/Fast" to="." method="_on_fast_toggled"]
+[connection signal="pressed" from="Options/NextChat/Button" to="." method="_on_next_chat_pressed"]
+[connection signal="pressed" from="Options/AutoNext/Button" to="." method="_on_auto_next_pressed"]
+[connection signal="pressed" from="Options/HideMenu/Button" to="." method="_on_hide_menu_pressed"]
+[connection signal="pressed" from="Options/OpenTranscript/Button" to="." method="_on_open_transcript_pressed"]
+[connection signal="pressed" from="Options/PauseButton/Button" to="." method="_on_pause_pressed"]
+[connection signal="button_down" from="ListeningContainer/HBox/CancelBtn" to="." method="_stop_listening"]
