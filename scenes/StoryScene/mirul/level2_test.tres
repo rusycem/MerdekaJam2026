@@ -13,7 +13,7 @@ graph_data = {
 "background_uid": "",
 "character": "Mirul",
 "character_uid": "uid://cupkf4jv5s3wr",
-"expression": "Neutral",
+"expression": "Neutral_Pose1",
 "offset_x": 0.0,
 "offset_y": 0.0,
 "position_slot": "Center",
@@ -36,7 +36,7 @@ graph_data = {
 "position": [3500.0, 0.0],
 "set_flags": "",
 "speaker": "Mirul",
-"text": "{Happy} I feel a bit better about the exams. See ya later, {player}.",
+"text": "{Happy, Pose1, bounce} I feel a bit better about the exams. See ya later, {player}.",
 "type": "dialogue"
 },
 &"FlagCompleted": {
@@ -63,7 +63,7 @@ graph_data = {
 "position": [900.0, -100.0],
 "set_flags": "",
 "speaker": "Mirul",
-"text": "{Happy} Hey {player}. You've got guts. I need some help studying, and you're the only one I trust to not annoy me.",
+"text": "{Happy, Pose1, bounce} Hey {player}. You've got guts. I need some help studying, and you're the only one I trust to not annoy me.",
 "type": "dialogue"
 },
 &"IntPass": {
@@ -72,7 +72,7 @@ graph_data = {
 "position": [1700.0, -100.0],
 "set_flags": "",
 "speaker": "Mirul",
-"text": "{Happy} Thanks. Let's hit the books. I'll pay you for the tutoring.",
+"text": "{Happy, Pose1, bounce} Thanks. Let's hit the books. I'll pay you for the tutoring.",
 "type": "dialogue"
 },
 &"JoinActivity": {
@@ -81,7 +81,7 @@ graph_data = {
 "position": [2600.0, 0.0],
 "set_flags": "",
 "speaker": "Mirul",
-"text": "{Neutral} Alright, break time is over. Let's do some self-study before we head back to the dorm.",
+"text": "{Neutral, Pose1} Alright, break time is over. Let's do some self-study before we head back to the dorm.",
 "type": "dialogue"
 },
 &"MathFail": {
@@ -90,7 +90,7 @@ graph_data = {
 "position": [1700.0, 200.0],
 "set_flags": "",
 "speaker": "Mirul",
-"text": "{Sad} Figures. Guess we're both failing. Wanna play games instead?",
+"text": "{Sad, Pose1, sink} Figures. Guess we're both failing. Wanna play games instead?",
 "type": "dialogue"
 },
 &"NoRespect": {
@@ -99,7 +99,7 @@ graph_data = {
 "position": [900.0, 100.0],
 "set_flags": "",
 "speaker": "Mirul",
-"text": "{Angry} Hey {player}. I'm failing math. You better help me study, or else.",
+"text": "{Angry, Pose1, shake} Hey {player}. I'm failing math. You better help me study, or else.",
 "type": "dialogue"
 },
 &"PlayMinigame": {
@@ -116,7 +116,7 @@ graph_data = {
 "background_uid": "uid://ltl68wkoaqh0",
 "character": "",
 "character_uid": "",
-"expression": "Neutral",
+"expression": "Neutral_Pose1",
 "offset_x": 0.0,
 "offset_y": 0.0,
 "position_slot": "Center",
@@ -128,7 +128,7 @@ graph_data = {
 "background_uid": "",
 "character": "Mirul",
 "character_uid": "uid://dowxttrntsqon",
-"expression": "Neutral",
+"expression": "Neutral_Pose1",
 "offset_x": 0.0,
 "offset_y": 0.0,
 "position_slot": "Center",

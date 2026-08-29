@@ -7,6 +7,7 @@
 
 [resource]
 script = ExtResource("1_u20dw")
+character_name = "Principal"
 portraits = {
 "Happy": ExtResource("2_46xia"),
 "Neutral": ExtResource("1_jteak"),

@@ -13,18 +13,26 @@ static func handle_dialogue(player: Node, data: Dictionary) -> void:
 	var new_emotion = ""
 	var new_pose = ""
 	var new_anim = ""
+	var new_flip = ""
 	
 	var results = regex.search_all(raw_text)
 	for res in results:
 		var tag = res.get_string(1)
 		var parts = tag.split(",")
 		
-		if parts.size() > 0 and parts[0].strip_edges() != "":
-			new_emotion = parts[0].strip_edges().capitalize()
-		if parts.size() > 1 and parts[1].strip_edges() != "":
-			new_pose = parts[1].strip_edges().capitalize()
-		if parts.size() > 2 and parts[2].strip_edges() != "":
-			new_anim = parts[2].strip_edges().to_lower()
+		var filtered_parts = []
+		for p in parts:
+			var clean = p.strip_edges().to_lower()
+			if clean == "flip": new_flip = "flip"
+			elif clean == "unflip": new_flip = "unflip"
+			else: filtered_parts.append(p.strip_edges())
+			
+		if filtered_parts.size() > 0 and filtered_parts[0] != "":
+			new_emotion = filtered_parts[0].capitalize()
+		if filtered_parts.size() > 1 and filtered_parts[1] != "":
+			new_pose = filtered_parts[1].capitalize()
+		if filtered_parts.size() > 2 and filtered_parts[2] != "":
+			new_anim = filtered_parts[2].to_lower()
 			
 		raw_text = raw_text.replace(res.get_string(0), "")
 		
@@ -47,11 +55,13 @@ static func handle_dialogue(player: Node, data: Dictionary) -> void:
 			
 			if new_emotion != "": current_emotion = new_emotion
 			if new_pose != "": current_pose = new_pose
+			if new_flip == "flip": sprite.flip_h = true
+			elif new_flip == "unflip": sprite.flip_h = false
 			
 			sprite.set_meta("emotion", current_emotion)
 			sprite.set_meta("pose", current_pose)
 			
-			var key_full = current_pose + "_" + current_emotion
+			var key_full = current_emotion + "_" + current_pose
 			var tex = null
 			
 			if profile.portraits.has(key_full):
@@ -343,6 +353,20 @@ static func handle_actor(player: Node, data: Dictionary) -> void:
 				else:
 					print("VNPlayer: BG UID invalid")
 					
+		elif action == "clear_stage":
+			for child in player.character_container.get_children():
+				child.queue_free()
+			player.background_rect_2.texture = player.background_rect.texture
+			player.background_rect_2.modulate.a = 1.0
+			player.background_rect.texture = null
+			player.background_rect.modulate.a = 0.0
+			var tw = player.create_tween()
+			tw.tween_property(player.background_rect_2, "modulate:a", 0.0, 0.5)
+
+		elif action == "hide_all":
+			for child in player.character_container.get_children():
+				child.queue_free()
+				
 		elif action == "hide_character":
 			var char_name = ev.get("character", "Unknown").replace("{player}", GameState.player_name).to_lower()
 			var node_name = "Sprite_" + char_name
@@ -383,6 +407,7 @@ static func handle_actor(player: Node, data: Dictionary) -> void:
 				print("VNPlayer: Portrait for ", expr, " not found in profile!")
 				
 			sprite.z_index = ev.get("z_index", 0)
+			sprite.flip_h = ev.get("flip_h", false)
 			
 			var slot = ev.get("position_slot", "Center")
 			var screen_w = player.get_viewport().get_visible_rect().size.x

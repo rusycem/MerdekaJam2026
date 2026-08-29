@@ -201,6 +201,7 @@ static func build_actor_inspector(inspector: VBoxContainer, node: GraphNode) -> 
 			"offset_x": 0.0,
 			"offset_y": 0.0,
 			"z_index": 0,
+			"flip_h": false,
 			"animation": "None",
 			"anim_duration": 0.5,
 			"background_uid": ""
@@ -233,16 +234,22 @@ static func build_actor_inspector(inspector: VBoxContainer, node: GraphNode) -> 
 		var action_opt = OptionButton.new()
 		action_opt.add_item("Show Character")
 		action_opt.add_item("Hide Character")
+		action_opt.add_item("Hide All Characters")
 		action_opt.add_item("Change Background")
+		action_opt.add_item("Clear Stage")
 		
 		if ev["action_type"] == "show_character": action_opt.selected = 0
 		elif ev["action_type"] == "hide_character": action_opt.selected = 1
-		elif ev["action_type"] == "change_bg": action_opt.selected = 2
+		elif ev["action_type"] == "hide_all": action_opt.selected = 2
+		elif ev["action_type"] == "change_bg": action_opt.selected = 3
+		elif ev["action_type"] == "clear_stage": action_opt.selected = 4
 		
 		action_opt.item_selected.connect(func(idx: int):
 			if idx == 0: ev["action_type"] = "show_character"
 			elif idx == 1: ev["action_type"] = "hide_character"
-			elif idx == 2: ev["action_type"] = "change_bg"
+			elif idx == 2: ev["action_type"] = "hide_all"
+			elif idx == 3: ev["action_type"] = "change_bg"
+			elif idx == 4: ev["action_type"] = "clear_stage"
 			node.update_preview()
 			inspector.build_inspector(node)
 		)
@@ -319,6 +326,12 @@ static func build_actor_inspector(inspector: VBoxContainer, node: GraphNode) -> 
 				pos_opt.selected = slots.find(ev["position_slot"]) if slots.find(ev["position_slot"]) != -1 else 2
 				pos_opt.item_selected.connect(func(idx: int): ev["position_slot"] = slots[idx]; node.update_preview())
 				inspector.add_child(pos_opt)
+				
+				var flip_btn = CheckButton.new()
+				flip_btn.text = "Flip Horizontally"
+				flip_btn.button_pressed = ev.get("flip_h", false)
+				flip_btn.toggled.connect(func(t: bool): ev["flip_h"] = t; node.update_preview())
+				inspector.add_child(flip_btn)
 				
 				var off_lbl = Label.new()
 				off_lbl.text = "Offset X/Y:"

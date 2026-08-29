@@ -26,7 +26,7 @@ graph_data = {
 "position": [1300.0, 100.0],
 "set_flags": "",
 "speaker": "Mirul",
-"text": "{Sad} Damn... I failed. But it's okay, I'll just retake the class. Thanks for being my friend anyway.",
+"text": "{Sad, Pose1, sink} Damn... I failed. But it's okay, I'll just retake the class. Thanks for being my friend anyway.",
 "type": "dialogue"
 },
 &"ExamPass": {
@@ -35,7 +35,7 @@ graph_data = {
 "position": [1300.0, -100.0],
 "set_flags": "",
 "speaker": "Mirul",
-"text": "{Happy} Wow! I actually passed! Thanks to you, {player}. We're best friends now!",
+"text": "{Happy, Pose1, bounce} Wow! I actually passed! Thanks to you, {player}. We're best friends now!",
 "type": "dialogue"
 },
 &"ExamStart": {
@@ -44,7 +44,7 @@ graph_data = {
 "position": [600.0, 0.0],
 "set_flags": "",
 "speaker": "Mirul",
-"text": "{Surprised} This is it, {player}. The final exam. I hope we studied enough.",
+"text": "{Shocked, Pose2, jump} This is it, {player}. The final exam. I hope we studied enough.",
 "type": "dialogue"
 },
 &"FinalCheck": {
@@ -76,7 +76,7 @@ graph_data = {
 "background_uid": "uid://ltl68wkoaqh0",
 "character": "",
 "character_uid": "",
-"expression": "Neutral",
+"expression": "Neutral_Pose1",
 "offset_x": 0.0,
 "offset_y": 0.0,
 "position_slot": "Center",
@@ -88,7 +88,7 @@ graph_data = {
 "background_uid": "",
 "character": "Mirul",
 "character_uid": "uid://dowxttrntsqon",
-"expression": "Neutral",
+"expression": "Neutral_Pose1",
 "offset_x": 0.0,
 "offset_y": 0.0,
 "position_slot": "Center",
