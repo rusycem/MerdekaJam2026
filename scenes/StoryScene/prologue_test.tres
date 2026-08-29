@@ -5,198 +5,6 @@
 [resource]
 script = ExtResource("1_4juje")
 graph_data = {
-&"@GraphNode@33047": {
-"events": [{
-"action_type": "hide_all",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Alyssa",
-"character_uid": "",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}, {
-"action_type": "show_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Principal",
-"character_uid": "uid://ch0pocbeb0y77",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}],
-"next_node": "MirulFlag",
-"position": [660.0, -160.0],
-"type": "actor"
-},
-&"@GraphNode@35635": {
-"events": [{
-"action_type": "hide_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Principal",
-"character_uid": "uid://ch0pocbeb0y77",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}, {
-"action_type": "show_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Mirul",
-"character_uid": "uid://dowxttrntsqon",
-"expression": "Neutral_Pose1",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}],
-"next_node": "MirulCheck",
-"position": [1867.3397, -350.12103],
-"type": "actor"
-},
-&"@GraphNode@35950": {
-"events": [{
-"action_type": "hide_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Principal",
-"character_uid": "uid://ch0pocbeb0y77",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}, {
-"action_type": "show_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Alyssa",
-"character_uid": "uid://bsylmi0xhjqvv",
-"expression": "Happy_Pose1",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}],
-"next_node": "AlyssaMoney",
-"position": [1880.0, -40.0],
-"type": "actor"
-},
-&"@GraphNode@38764": {
-"events": [{
-"action_type": "hide_all",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Alyssa",
-"character_uid": "",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}, {
-"action_type": "show_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Principal",
-"character_uid": "uid://ch0pocbeb0y77",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}],
-"next_node": "AlyssaFlag",
-"position": [680.0, 40.0],
-"type": "actor"
-},
-&"@GraphNode@38860": {
-"events": [{
-"action_type": "hide_all",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Alyssa",
-"character_uid": "",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}, {
-"action_type": "show_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Principal",
-"character_uid": "uid://ch0pocbeb0y77",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}],
-"next_node": "VihaanFlag",
-"position": [660.0, 220.0],
-"type": "actor"
-},
-&"@GraphNode@42922": {
-"events": [{
-"action_type": "hide_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Principal",
-"character_uid": "uid://ch0pocbeb0y77",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}, {
-"action_type": "show_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Vihaan",
-"character_uid": "uid://cupkf4jv5s3wr",
-"expression": "Neutral_Pose1",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}],
-"next_node": "VihaanMinigame",
-"position": [1940.0, 380.0],
-"type": "actor"
-},
 &"ActorNode": {
 "events": [{
 "action_type": "hide_all",
@@ -258,9 +66,9 @@ graph_data = {
 "type": "command"
 },
 &"AlyssaIntro": {
-"next_node": "@GraphNode@35950",
+"next_node": "_GraphNode_35950",
 "node_name": &"AlyssaIntro",
-"position": [2080.0, 100.0],
+"position": [1440.0, 0.0],
 "set_flags": "",
 "speaker": "Principal",
 "text": "{Happy, Pose1, bounce} Ohh great, she is a great example for you to follow, I'm sure you guys will get along.",
@@ -286,7 +94,7 @@ graph_data = {
 "hide_if_locked": false,
 "text": "Sit with Vihaan"
 }]),
-"next_nodes": ["@GraphNode@33047", "@GraphNode@38764", "@GraphNode@38860"],
+"next_nodes": ["_GraphNode_33047", "_GraphNode_38764", "_GraphNode_38860"],
 "node_name": &"ChooseCompanion",
 "position": [260.0, -40.0],
 "prompt": "Who will you sit next to, {player}?",
@@ -322,7 +130,7 @@ graph_data = {
 &"MirulFail": {
 "next_node": "MirulHub",
 "node_name": &"MirulFail",
-"position": [2700.0, -200.0],
+"position": [2620.0, -180.0],
 "set_flags": "",
 "speaker": "Mirul",
 "text": "{Annoyed, Pose1, twitch} ... (He ignores you completely)",
@@ -341,7 +149,7 @@ graph_data = {
 "type": "command"
 },
 &"MirulIntro": {
-"next_node": "@GraphNode@35635",
+"next_node": "_GraphNode_35635",
 "node_name": &"MirulIntro",
 "position": [1480.0, -320.0],
 "set_flags": "",
@@ -352,10 +160,10 @@ graph_data = {
 &"MirulPass": {
 "next_node": "MirulHub",
 "node_name": &"MirulPass",
-"position": [2700.0, -400.0],
+"position": [2600.0, -420.0],
 "set_flags": "mirul_likes_you",
 "speaker": "Mirul",
-"text": "{Angry, Pose1, shake} Whatever, {player}. Just don't get in my way.",
+"text": "{Laugh_Pose1, shake} Whatever, {player}. Just don't get in my way.",
 "type": "dialogue"
 },
 &"Start": {
@@ -380,7 +188,7 @@ graph_data = {
 "type": "command"
 },
 &"VihaanIntro": {
-"next_node": "@GraphNode@42922",
+"next_node": "_GraphNode_42922",
 "node_name": &"VihaanIntro",
 "position": [1560.0, 360.0],
 "set_flags": "",
@@ -393,6 +201,198 @@ graph_data = {
 "next_node": "VihaanEnd",
 "position": [2280.0, 380.0],
 "type": "command"
+},
+&"_GraphNode_33047": {
+"events": [{
+"action_type": "hide_all",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Alyssa",
+"character_uid": "",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Principal",
+"character_uid": "uid://ch0pocbeb0y77",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "MirulFlag",
+"position": [660.0, -160.0],
+"type": "actor"
+},
+&"_GraphNode_35635": {
+"events": [{
+"action_type": "hide_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Principal",
+"character_uid": "uid://ch0pocbeb0y77",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Mirul",
+"character_uid": "uid://dowxttrntsqon",
+"expression": "Neutral_Pose1",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "MirulCheck",
+"position": [1867.3397, -350.12103],
+"type": "actor"
+},
+&"_GraphNode_35950": {
+"events": [{
+"action_type": "hide_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Principal",
+"character_uid": "uid://ch0pocbeb0y77",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Alyssa",
+"character_uid": "uid://bsylmi0xhjqvv",
+"expression": "Happy_Pose1",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "AlyssaMoney",
+"position": [1880.0, -40.0],
+"type": "actor"
+},
+&"_GraphNode_38764": {
+"events": [{
+"action_type": "hide_all",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Alyssa",
+"character_uid": "",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Principal",
+"character_uid": "uid://ch0pocbeb0y77",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "AlyssaFlag",
+"position": [680.0, 40.0],
+"type": "actor"
+},
+&"_GraphNode_38860": {
+"events": [{
+"action_type": "hide_all",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Alyssa",
+"character_uid": "",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Principal",
+"character_uid": "uid://ch0pocbeb0y77",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "VihaanFlag",
+"position": [660.0, 220.0],
+"type": "actor"
+},
+&"_GraphNode_42922": {
+"events": [{
+"action_type": "hide_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Principal",
+"character_uid": "uid://ch0pocbeb0y77",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Vihaan",
+"character_uid": "uid://cupkf4jv5s3wr",
+"expression": "Neutral_Pose1",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "VihaanMinigame",
+"position": [1940.0, 380.0],
+"type": "actor"
 },
 &"_GraphNode_63451": {
 "events": [{

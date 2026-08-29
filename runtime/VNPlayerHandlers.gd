@@ -28,11 +28,25 @@ static func handle_dialogue(player: Node, data: Dictionary) -> void:
 			else: filtered_parts.append(p.strip_edges())
 			
 		if filtered_parts.size() > 0 and filtered_parts[0] != "":
-			new_emotion = filtered_parts[0].capitalize()
+			var p0 = filtered_parts[0]
+			if "_" in p0:
+				var ep = p0.split("_")
+				new_emotion = ep[0].substr(0,1).to_upper() + ep[0].substr(1)
+				if ep.size() > 1:
+					new_pose = ep[1].substr(0,1).to_upper() + ep[1].substr(1)
+			else:
+				new_emotion = p0.substr(0,1).to_upper() + p0.substr(1)
+				
 		if filtered_parts.size() > 1 and filtered_parts[1] != "":
-			new_pose = filtered_parts[1].capitalize()
+			if new_pose == "":
+				var p1 = filtered_parts[1]
+				new_pose = p1.substr(0,1).to_upper() + p1.substr(1)
+			else:
+				new_anim = filtered_parts[1].to_lower()
+				
 		if filtered_parts.size() > 2 and filtered_parts[2] != "":
-			new_anim = filtered_parts[2].to_lower()
+			if new_anim == "":
+				new_anim = filtered_parts[2].to_lower()
 			
 		raw_text = raw_text.replace(res.get_string(0), "")
 		
