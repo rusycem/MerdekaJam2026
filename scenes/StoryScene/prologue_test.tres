@@ -197,7 +197,7 @@ graph_data = {
 "type": "dialogue"
 },
 &"VihaanMinigame": {
-"command": "minigame clicker",
+"command": "minigame errorhunt",
 "next_node": "VihaanEnd",
 "position": [2280.0, 380.0],
 "type": "command"
