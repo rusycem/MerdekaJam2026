@@ -1,9 +1,58 @@
 [gd_resource type="Resource" script_class="CharacterProfile" format=3 uid="uid://bsylmi0xhjqvv"]
 
 [ext_resource type="Script" uid="uid://v1nhkqe7rmdj" path="res://runtime/CharacterProfile.gd" id="1_qje0g"]
+[ext_resource type="Texture2D" uid="uid://dnvisl3y4lbj4" path="res://assets/CharacterArtAssets/Alyssa/Alyssa_Neutral_Pose1.png" id="1_y5ksc"]
+[ext_resource type="Texture2D" uid="uid://cf8j6x577iwux" path="res://assets/CharacterArtAssets/Alyssa/Alyssa_Neutral_Pose2.png" id="2_jvt6v"]
+[ext_resource type="Texture2D" uid="uid://ejigr0k50ra3" path="res://assets/CharacterArtAssets/Alyssa/Alyssa_Neutral_Pose3.png" id="3_gycml"]
+[ext_resource type="Texture2D" uid="uid://ceop053mht7vl" path="res://assets/CharacterArtAssets/Alyssa/Alyssa_Neutral_Pose4.png" id="4_ku2dr"]
+[ext_resource type="Texture2D" uid="uid://cfhr5to6m6eyt" path="res://assets/CharacterArtAssets/Alyssa/Alyssa_Happy_Pose1.png" id="5_bah8b"]
+[ext_resource type="Texture2D" uid="uid://bpoa7bohyuu57" path="res://assets/CharacterArtAssets/Alyssa/Alyssa_Angry_Pose2.png" id="6_esbvh"]
+[ext_resource type="Texture2D" uid="uid://ckb5x5614ngip" path="res://assets/CharacterArtAssets/Alyssa/Alyssa_Happy_Pose3.png" id="7_s6iyj"]
+[ext_resource type="Texture2D" uid="uid://n5imn7c2fw48" path="res://assets/CharacterArtAssets/Alyssa/Alyssa_Happy_Pose4.png" id="8_34jq6"]
+[ext_resource type="Texture2D" uid="uid://dcuv5dwqeooqc" path="res://assets/CharacterArtAssets/Alyssa/Alyssa_Annoyed_Pose1.png" id="9_2txw6"]
+[ext_resource type="Texture2D" uid="uid://cxeqw1sllp7et" path="res://assets/CharacterArtAssets/Alyssa/Alyssa_Annoyed_Pose2.png" id="10_e6u7q"]
+[ext_resource type="Texture2D" uid="uid://bj8o33t2jpxow" path="res://assets/CharacterArtAssets/Alyssa/Alyssa_Annoyed_Pose3.png" id="11_ftrhq"]
+[ext_resource type="Texture2D" uid="uid://dyx7xplm0f8iq" path="res://assets/CharacterArtAssets/Alyssa/Alyssa_Annoyed_Pose4.png" id="12_w648f"]
+[ext_resource type="Texture2D" uid="uid://dbh0mvt56m6yq" path="res://assets/CharacterArtAssets/Alyssa/Alyssa_Angry_Pose1.png" id="13_q1ty7"]
+[ext_resource type="Texture2D" uid="uid://drm1p8asa8igt" path="res://assets/CharacterArtAssets/Alyssa/Alyssa_Angry_Pose3.png" id="14_cosr4"]
+[ext_resource type="Texture2D" uid="uid://bvq7mmlfnhfnk" path="res://assets/CharacterArtAssets/Alyssa/Alyssa_Angry_Pose4.png" id="15_fdhpq"]
+[ext_resource type="Texture2D" uid="uid://b7e5fpyitj731" path="res://assets/CharacterArtAssets/Alyssa/Alyssa_Sad_Pose1.png" id="16_gfs0l"]
+[ext_resource type="Texture2D" uid="uid://cfeilcp4mbmx8" path="res://assets/CharacterArtAssets/Alyssa/Alyssa_Sad_Pose2.png" id="17_oktj7"]
+[ext_resource type="Texture2D" uid="uid://wm4808us45pd" path="res://assets/CharacterArtAssets/Alyssa/Alyssa_Sad_Pose3.png" id="18_qv5em"]
+[ext_resource type="Texture2D" uid="uid://bow71hih26nig" path="res://assets/CharacterArtAssets/Alyssa/Alyssa_Sad_Pose4.png" id="19_7fi0a"]
+[ext_resource type="Texture2D" uid="uid://ba24fs4d3ny6" path="res://assets/CharacterArtAssets/Alyssa/Alyssa_Shocked_Pose1.png" id="20_21cxo"]
+[ext_resource type="Texture2D" uid="uid://2qsc6x24kn6p" path="res://assets/CharacterArtAssets/Alyssa/Alyssa_Shocked_Pose2.png" id="21_avtli"]
+[ext_resource type="Texture2D" uid="uid://cdpj8rcspxdq5" path="res://assets/CharacterArtAssets/Alyssa/Alyssa_Shocked_Pose3.png" id="22_435d6"]
+[ext_resource type="Texture2D" uid="uid://ch8qmgbcjrbsd" path="res://assets/CharacterArtAssets/Alyssa/Alyssa_Shocked_Pose4.png" id="23_gp0si"]
 
 [resource]
 script = ExtResource("1_qje0g")
 character_name = "Alyssa"
 blip_pitch = 2.0
+portraits = {
+"Angry_Pose1": ExtResource("13_q1ty7"),
+"Angry_Pose2": ExtResource("6_esbvh"),
+"Angry_Pose3": ExtResource("14_cosr4"),
+"Angry_Pose4": ExtResource("15_fdhpq"),
+"Annoyed_Pose1": ExtResource("9_2txw6"),
+"Annoyed_Pose2": ExtResource("10_e6u7q"),
+"Annoyed_Pose3": ExtResource("11_ftrhq"),
+"Annoyed_Pose4": ExtResource("12_w648f"),
+"Happy_Pose1": ExtResource("5_bah8b"),
+"Happy_Pose2": ExtResource("6_esbvh"),
+"Happy_Pose3": ExtResource("7_s6iyj"),
+"Happy_Pose4": ExtResource("8_34jq6"),
+"Neutral_Pose1": ExtResource("1_y5ksc"),
+"Neutral_Pose2": ExtResource("2_jvt6v"),
+"Neutral_Pose3": ExtResource("3_gycml"),
+"Neutral_Pose4": ExtResource("4_ku2dr"),
+"Sad_Pose1": ExtResource("16_gfs0l"),
+"Sad_Pose2": ExtResource("17_oktj7"),
+"Sad_Pose3": ExtResource("18_qv5em"),
+"Sad_Pose4": ExtResource("19_7fi0a"),
+"Shocked_Pose1": ExtResource("20_21cxo"),
+"Shocked_Pose2": ExtResource("21_avtli"),
+"Shocked_Pose3": ExtResource("22_435d6"),
+"Shocked_Pose4": ExtResource("23_gp0si")
+}
 metadata/_custom_type_script = "uid://v1nhkqe7rmdj"
