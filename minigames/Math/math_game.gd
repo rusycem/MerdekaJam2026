@@ -1,6 +1,6 @@
 extends Control
 
-@export var timer_bar: ProgressBar
+@export var timer: TextureProgressBar
 @export var score_label: Label
 @export var equation_label: Label
 
@@ -16,11 +16,11 @@ func _ready() -> void :
 
 
 func _process(delta: float) -> void :
-	timer_bar.value -= delta
+	timer.value -= delta
 
 	score_label.text = "Score: %d" % score
 
-	if (timer_bar.value == 0) :
+	if (timer.value == 0) :
 		_handle_game_finish()
 
 
@@ -34,7 +34,7 @@ func _handle_correct_answer() -> void :
 
 
 func _handle_wrong_answer() -> void :
-	timer_bar.value -= PUNISHMENT_SECONDS
+	timer.value -= PUNISHMENT_SECONDS
 	_generate_question()
 
 
