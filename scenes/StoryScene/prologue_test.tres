@@ -100,6 +100,22 @@ graph_data = {
 "prompt": "Who will you sit next to, {player}?",
 "type": "choice_branch"
 },
+&"ConditionNode": {
+"condition": "minigame_won",
+"next_false": "GraphNode",
+"next_true": "VihaanEnd",
+"position": [2660.0, 340.0],
+"type": "condition"
+},
+&"GraphNode": {
+"next_node": "",
+"node_name": &"GraphNode",
+"position": [3000.0, 460.0],
+"set_flags": "",
+"speaker": "Vihaan",
+"text": "{Neutral, Pose2, shake} You... suck {player}.",
+"type": "dialogue"
+},
 &"IntroDialogue": {
 "next_node": "_GraphNode_63451",
 "node_name": &"IntroDialogue",
@@ -175,7 +191,7 @@ graph_data = {
 &"VihaanEnd": {
 "next_node": "",
 "node_name": &"VihaanEnd",
-"position": [2780.0, 300.0],
+"position": [3000.0, 240.0],
 "set_flags": "",
 "speaker": "Vihaan",
 "text": "{Shocked, Pose2, jump} You... you beat my high score, {player}. Not bad.",
@@ -198,8 +214,8 @@ graph_data = {
 },
 &"VihaanMinigame": {
 "command": "minigame errorhunt",
-"next_node": "VihaanEnd",
-"position": [2280.0, 380.0],
+"next_node": "ConditionNode",
+"position": [2320.0, 380.0],
 "type": "command"
 },
 &"_GraphNode_33047": {
