@@ -5,8 +5,45 @@
 [resource]
 script = ExtResource("1_qhav2")
 graph_data = {
-&"Start": {
+&"@GraphNode@30786": {
 "next_node": "",
+"node_name": &"@GraphNode@30786",
+"position": [560.0, 20.0],
+"set_flags": "",
+"speaker": "",
+"text": "You wake up and make your way down the hallway, You are quite nervous as this is the first day since you transferred to SMK Puncak Tikus Besi.",
+"type": "dialogue"
+},
+&"ActorNode": {
+"events": [{
+"action_type": "change_bg",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "uid://brq5bijildv3f",
+"character": "Alyssa",
+"character_uid": "",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "GraphNode",
+"position": [-200.0, 40.0],
+"type": "actor"
+},
+&"GraphNode": {
+"next_node": "@GraphNode@30786",
+"node_name": &"GraphNode",
+"position": [180.0, 40.0],
+"set_flags": "",
+"speaker": "",
+"text": "It’s Monday morning.",
+"type": "dialogue"
+},
+&"Start": {
+"next_node": "ActorNode",
 "node_name": &"Start",
 "position": [-620.0, 40.0],
 "type": "start"
