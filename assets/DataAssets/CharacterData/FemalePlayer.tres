@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CharacterProfile" format=3 uid="uid://cum5xbdr3oufx"]
+
+[ext_resource type="Texture2D" uid="uid://clw1a8ncqltb4" path="res://assets/CharacterArtAssets/FemaleChar/FemaleCharacter_Neutral.png" id="1_ewbb1"]
+[ext_resource type="Script" uid="uid://v1nhkqe7rmdj" path="res://runtime/CharacterProfile.gd" id="1_q3e8f"]
+[ext_resource type="Texture2D" uid="uid://cbl6aodsfogqy" path="res://assets/CharacterArtAssets/FemaleChar/FemaleCharacter_Happy.png" id="2_d2u6v"]
+[ext_resource type="Texture2D" uid="uid://biruhhk52fjh5" path="res://assets/CharacterArtAssets/FemaleChar/FemaleCharacter_Angry.png" id="3_wdyig"]
+[ext_resource type="Texture2D" uid="uid://bfv5tlh1vdnlc" path="res://assets/CharacterArtAssets/FemaleChar/FemaleCharacter_Shocked.png" id="4_lwicb"]
+
+[resource]
+script = ExtResource("1_q3e8f")
+portraits = {
+"Angry": ExtResource("3_wdyig"),
+"Happy": ExtResource("2_d2u6v"),
+"Neutral": ExtResource("1_ewbb1"),
+"Shocked": ExtResource("4_lwicb")
+}
+metadata/_custom_type_script = "uid://v1nhkqe7rmdj"
