@@ -5,8 +5,14 @@
 [resource]
 script = ExtResource("1_ej8sj")
 graph_data = {
-&"Start": {
+&"ActorNode": {
+"events": [],
 "next_node": "",
+"position": [759.93567, 489.76007],
+"type": "actor"
+},
+&"Start": {
+"next_node": "ActorNode",
 "node_name": &"Start",
 "position": [238.0, 496.0],
 "type": "start"
