@@ -78,6 +78,10 @@ func _on_start_minigame(minigame_id: String) -> void:
 	var path = ""
 	if minigame_id == "clicker":
 		path = "res://minigames/ClickerGame.tscn"
+	elif minigame_id == "stick":
+		path = "res://minigames/Stick/stick_game.tscn"
+	elif minigame_id == "math":
+		path = "res://minigames/Math/math_game.tscn"
 	# Add more minigames here!
 	
 	if path != "":
