@@ -5,6 +5,204 @@
 [resource]
 script = ExtResource("1_qhav2")
 graph_data = {
+&"@GraphNode@30380": {
+"events": [{
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Alyssa",
+"character_uid": "uid://bsylmi0xhjqvv",
+"expression": "Neutral_Pose1",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "_GraphNode_34234",
+"position": [14460.0, 60.0],
+"type": "actor"
+},
+&"@GraphNode@30536": {
+"events": [{
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Mirul",
+"character_uid": "uid://dowxttrntsqon",
+"expression": "Neutral_Pose1",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "_GraphNode_34122",
+"position": [14480.0, 400.0],
+"type": "actor"
+},
+&"@GraphNode@30683": {
+"events": [{
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Vihaan",
+"character_uid": "uid://cupkf4jv5s3wr",
+"expression": "Neutral_Pose1",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "_GraphNode_34106",
+"position": [14480.0, 640.0],
+"type": "actor"
+},
+&"@GraphNode@31318": {
+"events": [{
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Alyssa",
+"character_uid": "uid://bsylmi0xhjqvv",
+"expression": "Neutral_Pose1",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Left",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Mirul",
+"character_uid": "uid://dowxttrntsqon",
+"expression": "Neutral_Pose1",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Vihaan",
+"character_uid": "uid://cupkf4jv5s3wr",
+"expression": "Neutral_Pose1",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Right",
+"z_index": 0
+}],
+"next_node": "ChoiceNode",
+"position": [12240.0, 240.0],
+"type": "actor"
+},
+&"@GraphNode@33324": {
+"events": [{
+"action_type": "hide_all",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Alyssa",
+"character_uid": "",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Principal",
+"character_uid": "uid://ch0pocbeb0y77",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "CommandNode",
+"position": [12992.311, 226.48526],
+"type": "actor"
+},
+&"@GraphNode@33608": {
+"events": [{
+"action_type": "hide_all",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Alyssa",
+"character_uid": "",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Principal",
+"character_uid": "uid://ch0pocbeb0y77",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "_GraphNode_33353",
+"position": [13040.0, 340.0],
+"type": "actor"
+},
+&"@GraphNode@33704": {
+"events": [{
+"action_type": "hide_all",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Alyssa",
+"character_uid": "",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Principal",
+"character_uid": "uid://ch0pocbeb0y77",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "_GraphNode_33364",
+"position": [13040.0, 460.0],
+"type": "actor"
+},
 &"ActorNode": {
 "events": [{
 "action_type": "change_bg",
@@ -38,16 +236,16 @@ graph_data = {
 "hide_if_locked": false,
 "text": "Vihaan"
 }]),
-"next_nodes": ["_GraphNode_31776", "_GraphNode_31920", "_GraphNode_31992"],
+"next_nodes": ["@GraphNode@33324", "@GraphNode@33608", "@GraphNode@33704"],
 "node_name": &"ChoiceNode",
-"position": [12480.0, 120.0],
+"position": [12580.0, 180.0],
 "prompt": "Who will you sit next to? (This choice will affect how the story unfolds)",
 "type": "choice_branch"
 },
 &"CommandNode": {
 "command": "flag add companion_alyssa",
 "next_node": "_GraphNode_33540",
-"position": [13340.0, 40.0],
+"position": [13400.0, 40.0],
 "type": "command"
 },
 &"GraphNode": {
@@ -81,8 +279,8 @@ graph_data = {
 "animation": "None",
 "background_uid": "",
 "character": "Alyssa",
-"character_uid": "",
-"expression": "Neutral",
+"character_uid": "uid://bsylmi0xhjqvv",
+"expression": "Angry_Pose2",
 "flip_h": false,
 "offset_x": 0.0,
 "offset_y": 0.0,
@@ -110,7 +308,7 @@ graph_data = {
 "animation": "None",
 "background_uid": "",
 "character": "Alyssa",
-"character_uid": "",
+"character_uid": "uid://bsylmi0xhjqvv",
 "expression": "Neutral",
 "flip_h": false,
 "offset_x": 0.0,
@@ -176,7 +374,7 @@ graph_data = {
 "background_uid": "",
 "character": "Mirul",
 "character_uid": "uid://dowxttrntsqon",
-"expression": "Neutral",
+"expression": "Neutral_Pose1",
 "flip_h": false,
 "offset_x": 0.0,
 "offset_y": 0.0,
@@ -241,7 +439,7 @@ graph_data = {
 "background_uid": "",
 "character": "Vihaan",
 "character_uid": "uid://cupkf4jv5s3wr",
-"expression": "Neutral",
+"expression": "Neutral_Pose1",
 "flip_h": false,
 "offset_x": 0.0,
 "offset_y": 0.0,
@@ -367,7 +565,7 @@ Good morning kelas, harini we have a new student.",
 &"_GraphNode_29962": {
 "next_node": "_GraphNode_30013",
 "node_name": &"_GraphNode_29962",
-"position": [10460.0, 120.0],
+"position": [10400.0, 120.0],
 "set_flags": "",
 "speaker": "",
 "text": "None of the students paid attention...",
@@ -376,7 +574,7 @@ Good morning kelas, harini we have a new student.",
 &"_GraphNode_30013": {
 "next_node": "_GraphNode_30220",
 "node_name": &"_GraphNode_30013",
-"position": [10860.0, 100.0],
+"position": [10740.0, 100.0],
 "set_flags": "",
 "speaker": "Principal",
 "text": "“Okaay! Thank you, thank you {player}. Choose your seat.”",
@@ -385,7 +583,7 @@ Good morning kelas, harini we have a new student.",
 &"_GraphNode_30220": {
 "next_node": "_GraphNode_30264",
 "node_name": &"_GraphNode_30220",
-"position": [11260.0, 120.0],
+"position": [11140.0, 120.0],
 "set_flags": "",
 "speaker": "",
 "text": "The principal leans towards you and quietly talks to you.",
@@ -394,7 +592,7 @@ Good morning kelas, harini we have a new student.",
 &"_GraphNode_30264": {
 "next_node": "_GraphNode_31219",
 "node_name": &"_GraphNode_30264",
-"position": [11680.0, 100.0],
+"position": [11560.0, 100.0],
 "set_flags": "",
 "speaker": "Principal",
 "text": "{Happy}
@@ -425,83 +623,26 @@ Good morning kelas, harini we have a new student.",
 "position_slot": "Center",
 "z_index": 0
 }],
-"next_node": "ChoiceNode",
-"position": [12120.0, 180.0],
-"type": "actor"
-},
-&"_GraphNode_31776": {
-"events": [{
-"action_type": "show_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Principal",
-"character_uid": "uid://ch0pocbeb0y77",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}],
-"next_node": "CommandNode",
-"position": [12940.0, 100.0],
-"type": "actor"
-},
-&"_GraphNode_31920": {
-"events": [{
-"action_type": "show_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Principal",
-"character_uid": "uid://ch0pocbeb0y77",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}],
-"next_node": "_GraphNode_33353",
-"position": [12940.0, 260.0],
-"type": "actor"
-},
-&"_GraphNode_31992": {
-"events": [{
-"action_type": "show_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Principal",
-"character_uid": "uid://ch0pocbeb0y77",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}],
-"next_node": "_GraphNode_33364",
-"position": [12940.0, 420.0],
+"next_node": "@GraphNode@31318",
+"position": [11920.0, 160.0],
 "type": "actor"
 },
 &"_GraphNode_33353": {
 "command": "flag add companion_mirul",
 "next_node": "_GraphNode_33671",
-"position": [13340.0, 240.0],
+"position": [13400.0, 240.0],
 "type": "command"
 },
 &"_GraphNode_33364": {
 "command": "flag add companion_vihaan",
 "next_node": "_GraphNode_33639",
-"position": [13360.0, 500.0],
+"position": [13420.0, 500.0],
 "type": "command"
 },
 &"_GraphNode_33540": {
 "next_node": "_GraphNode_33886",
 "node_name": &"_GraphNode_33540",
-"position": [13720.0, 0.0],
+"position": [13780.0, 0.0],
 "set_flags": "",
 "speaker": "Principal",
 "text": "{Happy}
@@ -511,7 +652,7 @@ Good morning kelas, harini we have a new student.",
 &"_GraphNode_33639": {
 "next_node": "_GraphNode_34015",
 "node_name": &"_GraphNode_33639",
-"position": [13700.0, 580.0],
+"position": [13760.0, 580.0],
 "set_flags": "",
 "speaker": "Principal",
 "text": "{Happy}
@@ -521,7 +662,7 @@ Good morning kelas, harini we have a new student.",
 &"_GraphNode_33671": {
 "next_node": "_GraphNode_33986",
 "node_name": &"_GraphNode_33671",
-"position": [13720.0, 260.0],
+"position": [13780.0, 260.0],
 "set_flags": "",
 "speaker": "Principal",
 "text": "{Happy}
@@ -543,8 +684,8 @@ Good morning kelas, harini we have a new student.",
 "position_slot": "Center",
 "z_index": 0
 }],
-"next_node": "_GraphNode_34234",
-"position": [14080.0, 40.0],
+"next_node": "@GraphNode@30380",
+"position": [14140.0, 40.0],
 "type": "actor"
 },
 &"_GraphNode_33986": {
@@ -562,8 +703,8 @@ Good morning kelas, harini we have a new student.",
 "position_slot": "Center",
 "z_index": 0
 }],
-"next_node": "_GraphNode_34122",
-"position": [14060.0, 320.0],
+"next_node": "@GraphNode@30536",
+"position": [14120.0, 320.0],
 "type": "actor"
 },
 &"_GraphNode_34015": {
@@ -581,14 +722,14 @@ Good morning kelas, harini we have a new student.",
 "position_slot": "Center",
 "z_index": 0
 }],
-"next_node": "_GraphNode_34106",
-"position": [14060.0, 640.0],
+"next_node": "@GraphNode@30683",
+"position": [14120.0, 640.0],
 "type": "actor"
 },
 &"_GraphNode_34106": {
 "next_node": "_GraphNode_35440",
 "node_name": &"_GraphNode_34106",
-"position": [14480.0, 540.0],
+"position": [14760.0, 580.0],
 "set_flags": "",
 "speaker": "Vihaan",
 "text": "{Sad, Pose1}
@@ -598,7 +739,7 @@ Good morning kelas, harini we have a new student.",
 &"_GraphNode_34122": {
 "next_node": "_GraphNode_35424",
 "node_name": &"_GraphNode_34122",
-"position": [14480.0, 280.0],
+"position": [14760.0, 320.0],
 "set_flags": "",
 "speaker": "Mirul",
 "text": "{Laugh, Pose2}
@@ -608,7 +749,7 @@ Good morning kelas, harini we have a new student.",
 &"_GraphNode_34234": {
 "next_node": "_GraphNode_35395",
 "node_name": &"_GraphNode_34234",
-"position": [14480.0, 40.0],
+"position": [14760.0, 80.0],
 "set_flags": "",
 "speaker": "Alyssa",
 "text": "{Annoyed, Pose2}
@@ -618,7 +759,7 @@ Good morning kelas, harini we have a new student.",
 &"_GraphNode_35395": {
 "next_node": "",
 "node_name": &"_GraphNode_35395",
-"position": [14880.0, 80.0],
+"position": [15160.0, 120.0],
 "set_flags": "",
 "speaker": "{player}",
 "text": "“Hek eleh.. Dasar hidung tinggi.”",
@@ -627,7 +768,7 @@ Good morning kelas, harini we have a new student.",
 &"_GraphNode_35424": {
 "next_node": "",
 "node_name": &"_GraphNode_35424",
-"position": [14880.0, 300.0],
+"position": [15160.0, 340.0],
 "set_flags": "",
 "speaker": "{player}",
 "text": "” ... Mamat ni alright tak alright?”",
@@ -636,7 +777,7 @@ Good morning kelas, harini we have a new student.",
 &"_GraphNode_35440": {
 "next_node": "",
 "node_name": &"_GraphNode_35440",
-"position": [14860.0, 560.0],
+"position": [15140.0, 600.0],
 "set_flags": "",
 "speaker": "{player}",
 "text": "“Well... At least member ni chill lah...”",
