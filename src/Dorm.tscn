@@ -2,14 +2,13 @@
 
 [ext_resource type="Script" uid="uid://c0hnkiacldsq" path="res://src/Dorm.gd" id="1_dorm"]
 [ext_resource type="Resource" uid="uid://bp74p15n2lh8o" path="res://scenes/StoryScene/AlyssaChapters/AlyssaChapter1.tres" id="2_jw3nw"]
-[ext_resource type="Resource" uid="uid://bxfb5jbpjsd8q" path="res://scenes/StoryScene/prologue.tres" id="2_oaefl"]
 [ext_resource type="Resource" uid="uid://dq0hbkf4ljii5" path="res://scenes/StoryScene/MirulChapters/MirulChapter1.tres" id="3_qk8yr"]
 [ext_resource type="Resource" uid="uid://msjo6ad0pr8n" path="res://scenes/StoryScene/MirulChapters/MirulChapter2.tres" id="4_1s6s4"]
 [ext_resource type="Resource" uid="uid://gteyq0g4lhfj" path="res://scenes/StoryScene/MirulChapters/MirulChapter3.tres" id="5_v4nee"]
 [ext_resource type="Texture2D" uid="uid://evakhjfk1bh6" path="res://assets/UIAssets/woodbg.png" id="6_jw3nw"]
 [ext_resource type="FontFile" uid="uid://bjsjfoiqhtqsm" path="res://assets/UIAssets/cc.otf" id="6_v4nee"]
 [ext_resource type="Resource" uid="uid://bbp2m7mrenbs1" path="res://scenes/StoryScene/AlyssaChapters/AlyssaChapter2.tres" id="7_u43c8"]
-[ext_resource type="Resource" uid="uid://c647w6k7xquuu" path="res://scenes/StoryScene/AlyssaChapters/AlyssaChapter3.tres" id="8_mo6ia"]
+[ext_resource type="Resource" uid="uid://bupa2yg7ta548" path="res://scenes/StoryScene/AlyssaChapters/AlyssaChapter3.tres" id="8_mo6ia"]
 [ext_resource type="Resource" uid="uid://caiguau12ndtb" path="res://scenes/StoryScene/VihaanChapters/VihaanChapter1.tres" id="9_27jsp"]
 [ext_resource type="Resource" uid="uid://bj074naylrndg" path="res://scenes/StoryScene/VihaanChapters/VihaanChapter2.tres" id="10_xunsv"]
 [ext_resource type="Resource" uid="uid://da1ysw1o281t2" path="res://scenes/StoryScene/VihaanChapters/VihaanChapter3.tres" id="11_3sowt"]
@@ -22,7 +21,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dorm")
-prologue_tree = ExtResource("2_oaefl")
+prologue_tree = ExtResource("8_mo6ia")
 mirul_chapters = Array[Resource]([ExtResource("3_qk8yr"), ExtResource("4_1s6s4"), ExtResource("5_v4nee")])
 alyssa_chapters = Array[Resource]([ExtResource("2_jw3nw"), ExtResource("7_u43c8"), ExtResource("8_mo6ia")])
 vihaan_chapters = Array[Resource]([ExtResource("9_27jsp"), ExtResource("10_xunsv"), ExtResource("11_3sowt")])
