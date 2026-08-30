@@ -32,11 +32,11 @@ When `VNPlayer.gd` calls `play(story_tree)`, it sets `current_node_id` to the st
 ```gdscript
 # VNPlayer.gd - The core execution loop
 func _process_node() -> void:
-	# 1. Fetch current node's data dictionary
+    # 1. Fetch current node's data dictionary
     var data = graph_data[current_node_id]
     var type = data["type"]
     
-	# 2. Delegate execution to VNPlayerHandlers based on 'type'
+    # 2. Delegate execution to VNPlayerHandlers based on 'type'
     if type == "dialogue":
         VNPlayerHandlers.handle_dialogue(self, data)
     elif type == "choice_branch":
@@ -178,13 +178,13 @@ Locate the `anim_to_play` block in `handle_dialogue`:
 ```gdscript
 # In VNPlayerHandlers.gd -> handle_dialogue()
 if anim_to_play == "bounce":
-	# Old: Basic up/down
-	# NEW: Persona-style squash and stretch
-	tw.tween_property(sprite, "scale", Vector2(1.1, 0.9), 0.05)
-	tw.tween_property(sprite, "position:y", orig_pos.y - 30, 0.1).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-	tw.tween_property(sprite, "scale", Vector2(0.9, 1.1), 0.1)
-	tw.tween_property(sprite, "position:y", orig_pos.y, 0.1).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
-	tw.tween_property(sprite, "scale", Vector2(1, 1), 0.1)
+    # Old: Basic up/down
+    # NEW: Persona-style squash and stretch
+    tw.tween_property(sprite, "scale", Vector2(1.1, 0.9), 0.05)
+    tw.tween_property(sprite, "position:y", orig_pos.y - 30, 0.1).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+    tw.tween_property(sprite, "scale", Vector2(0.9, 1.1), 0.1)
+    tw.tween_property(sprite, "position:y", orig_pos.y, 0.1).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+    tw.tween_property(sprite, "scale", Vector2(1, 1), 0.1)
 ```
 
 ### 5.3 Dialogue Transitions
@@ -209,9 +209,9 @@ btn.set_text(choice.text)
 In `VNPlayer.gd`, the `_process` function plays a blip sound every 2 characters.
 ```gdscript
 if last_visible_characters % 2 == 0 and blip_player.stream:
-	# Pitch modulation for variety
-	blip_player.pitch_scale = current_blip_pitch + randf_range(-0.05, 0.05)
-	blip_player.play()
+    # Pitch modulation for variety
+    blip_player.pitch_scale = current_blip_pitch + randf_range(-0.05, 0.05)
+    blip_player.play()
 ```
 *   **Feature Expansion:** If you want different characters to have distinct instruments (like Animal Crossing), modify the `CharacterProfile.gd` resource to include a `blip_stream: AudioStream` variable, and load it here.
 
@@ -221,10 +221,10 @@ In `VNPlayerHandlers.gd`:
 ```gdscript
 var voice_uid = data.get("voice_audio_uid", "")
 if voice_uid != "":
-	var stream = ResourceLoader.load(voice_uid)
-	player.voice_player.stream = stream
-	player.voice_player.play()
-	# Note: When voice plays, the typewriter blip is suppressed automatically!
+    var stream = ResourceLoader.load(voice_uid)
+    player.voice_player.stream = stream
+    player.voice_player.play()
+    # Note: When voice plays, the typewriter blip is suppressed automatically!
 ```
 
 ### 6.3 SFX via Command Nodes
@@ -233,11 +233,11 @@ Want the designer to trigger a "Punch" sound effect mid-dialogue?
 2. Add a new command parser:
 ```gdscript
 elif cmd.begins_with("sfx play"):
-	var parts = cmd.split(" ", false)
-	if parts.size() > 2:
-		var uid = parts[2]
-		# Play the sound using your AudioManager autoload
-		AudioManager.play_sfx(uid)
+    var parts = cmd.split(" ", false)
+    if parts.size() > 2:
+        var uid = parts[2]
+        # Play the sound using your AudioManager autoload
+        AudioManager.play_sfx(uid)
 ```
 *Designer usage:* `Command Node: sfx play uid://12345`
 
