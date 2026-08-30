@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://ci08qt5yg3l0o" path="res://src/UI/main_menu.gd" id="1_qwnig"]
 [ext_resource type="Texture2D" uid="uid://evakhjfk1bh6" path="res://assets/UIAssets/woodbg.png" id="2_5jstl"]
 [ext_resource type="Texture2D" uid="uid://cmme5r57qenc8" path="res://assets/MainMenu/book.png" id="4_ngj32"]
+[ext_resource type="Texture2D" uid="uid://ciuxad1g7dwg3" path="res://assets/MainMenu/d20.png" id="6_bm8t2"]
 [ext_resource type="PackedScene" uid="uid://bloekt38bucuf" path="res://src/UI/settings.tscn" id="6_ngj32"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1869123318]
@@ -97,6 +98,14 @@ text = "Quit school"
 [node name="Settings" parent="MainMenu" unique_id=178099742 instance=ExtResource("6_ngj32")]
 visible = false
 layout_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1911816882]
+offset_left = 943.0
+offset_top = 231.0
+offset_right = 1431.0
+offset_bottom = 752.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_bm8t2")
 
 [connection signal="button_up" from="MainMenu/Play" to="MainMenu" method="_on_play_button_up"]
 [connection signal="button_up" from="MainMenu/Load" to="MainMenu" method="_on_load_button_up"]
