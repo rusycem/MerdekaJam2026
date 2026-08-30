@@ -20,7 +20,7 @@ graph_data = {
 "position": [3500.0, -160.0],
 "set_flags": "",
 "speaker": "",
-"text": "Nobody listens.You try again. Alyssa sighs and steps forward.",
+"text": "Nobody listens. You try again. Alyssa sighs and steps forward.",
 "type": "dialogue"
 },
 &"A_Fail3": {
@@ -252,7 +252,7 @@ graph_data = {
 "position": [6060.0, 0.0],
 "set_flags": "",
 "speaker": "",
-"text": "Alyssa follows your eyes.She sighs.",
+"text": "Alyssa follows your eyes. She sighs.",
 "type": "dialogue"
 },
 &"Merge5": {
@@ -296,19 +296,6 @@ graph_data = {
 "anim_duration": 0.5,
 "animation": "None",
 "background_uid": "",
-"character": "Alyssa",
-"character_uid": "uid://bsylmi0xhjqvv",
-"expression": "Angry_Pose1",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center-Left",
-"z_index": 0
-}, {
-"action_type": "show_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
 "character": "Mirul",
 "character_uid": "uid://dowxttrntsqon",
 "expression": "Laugh_Pose1",
@@ -317,9 +304,22 @@ graph_data = {
 "offset_y": 0.0,
 "position_slot": "Center-Right",
 "z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Alyssa",
+"character_uid": "uid://bsylmi0xhjqvv",
+"expression": "Neutral_Pose1",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center-Left",
+"z_index": 0
 }],
 "next_node": "S2_1",
-"position": [6747.9316, 91.37512],
+"position": [6740.0, 100.0],
 "type": "actor"
 },
 &"Node_371105792_259": {

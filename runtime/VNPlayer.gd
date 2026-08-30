@@ -215,7 +215,7 @@ func _process_node() -> void:
 
 
 func _on_next_pressed() -> void:
-	if is_waiting: return
+	if is_waiting or current_node_type != "dialogue": return
 	if type_tween and type_tween.is_running():
 		type_tween.kill()
 		text_label.visible_characters = -1
