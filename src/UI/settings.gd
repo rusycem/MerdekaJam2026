@@ -195,15 +195,18 @@ func _add_volume_sliders(options: Node):
 
 func _refresh_status():
 	if not status_lbl: return
+	
 	var txt = "[font_size=24][b]Player:[/b] " + GameState.player_name + " (" + GameState.player_class + ")[/font_size]\n"
+	
+	# Added as a new line
+	txt += "[b]Gender:[/b] " + GameState.player_gender + "\n"
+	
 	txt += "[b]Money:[/b] $" + str(GameState.money) + "\n\n"
 	txt += "[b]Stats:[/b]\n"
 	for k in GameState.stats.keys():
 		var mod = GameState.get_stat_modifier(k)
 		txt += k + ": " + str(GameState.stats[k]) + " (+" + str(mod) + ")\n"
 	status_lbl.text = txt
-
-
 
 func _process(_delta: float) -> void :
 	if listening_action != "":

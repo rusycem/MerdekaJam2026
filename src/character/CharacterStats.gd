@@ -3,6 +3,7 @@ class_name CharacterStats
 extends Resource
 
 @export var character_name: String = "Unnamed Student"
+@export var gender: String = "Male"
 
 @export_category("D&D Attributes")
 @export_range(1, 30) var dexterity: int = 10

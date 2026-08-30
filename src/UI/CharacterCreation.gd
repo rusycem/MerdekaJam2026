@@ -2,6 +2,9 @@ extends Control
 
 @onready var name_input = $Paper/VBox/HBoxName/NameInput
 @onready var class_option = $Paper/VBox/HBoxClass/ClassOption
+@onready var hbox_class = $Paper/VBox/HBoxClass
+# 1. Grab the new GenderOption node from your scene
+@onready var gender_option = $Paper/VBox/HBoxGender/GenderOption 
 @onready var points_label = $Paper/VBox/PointsLabel
 @onready var stats_container = $Paper/VBox/StatsContainer
 @onready var btn_finish = $Paper/VBox/BtnFinish
@@ -32,6 +35,12 @@ func _ready():
 	class_option.add_item("Athlete")
 	class_option.add_item("Class Clown")
 	class_option.item_selected.connect(func(_idx): _update_ui())
+	
+	# 2. Add the items here (if you haven't already added them in the Godot Inspector!)
+	gender_option.add_item("Male")
+	gender_option.add_item("Female")
+	
+	# ALL the dynamic HBoxGender generation code has been removed from here!
 	
 	btn_finish.pressed.connect(_on_finish)
 	
@@ -122,12 +131,22 @@ func _on_finish():
 	
 	GameState.player_name = name_input.text.strip_edges()
 	GameState.player_class = selected_class
+	GameState.player_gender = gender_option.get_item_text(gender_option.selected)
 	
 	for stat in GameState.stats.keys():
 		GameState.stats[stat] = base_stats[stat] + allocated_points[stat] + mods[stat]
 		
 	print("Character Created: ", GameState.player_name, " the ", GameState.player_class)
 	print("Stats: ", GameState.stats)
+	
+	var stats_res = load("res://assets/DataAssets/player1_stats.tres")
+	if stats_res:
+		stats_res.character_name = GameState.player_name
+		stats_res.gender = GameState.player_gender
+		stats_res.dexterity = GameState.stats["Dexterity"]
+		stats_res.intelligence = GameState.stats["Intelligence"]
+		stats_res.charisma = GameState.stats["Charm"]
+		ResourceSaver.save(stats_res, "res://assets/DataAssets/player1_stats.tres")
 	
 	# In a real game, this would go to prologue.tres.
 	# For now, we will route to the Dorm where they can manually pick Prologue/Chapter 1

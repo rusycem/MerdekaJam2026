@@ -193,22 +193,22 @@ func _process_node() -> void:
 		_process_node()
 		
 	elif type == "dialogue":
-		VNPlayerHandlers.handle_dialogue(self, data)
+		VNDialogueHandler.handle(self, data)
 		
 	elif type == "choice_branch":
-		VNPlayerHandlers.handle_choice(self, data)
+		VNChoiceHandler.handle(self, data)
 		
 	elif type == "dnd_check":
-		VNPlayerHandlers.handle_dnd_check(self, data)
+		VNDnDHandler.handle(self, data)
 		
 	elif type == "command":
-		VNPlayerHandlers.handle_command(self, data)
+		VNCommandHandler.handle(self, data)
 		
 	elif type == "condition":
-		VNPlayerHandlers.handle_condition(self, data)
+		VNConditionHandler.handle(self, data)
 		
 	elif type == "actor":
-		VNPlayerHandlers.handle_actor(self, data)
+		VNActorHandler.handle(self, data)
 		
 	elif type == "comment":
 		pass

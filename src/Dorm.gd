@@ -1,5 +1,8 @@
 extends Control
 
+# 1. Preload the custom font at the top
+var custom_font = preload("res://assets/UIAssets/cc.otf")
+
 @export_category("Story Routes")
 @export var prologue_tree: Resource
 
@@ -29,6 +32,9 @@ func _rebuild_right_panel():
 	var tabs = TabContainer.new()
 	tabs.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	tabs.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	
+	# Apply font to TabContainer
+	tabs.add_theme_font_override("font", custom_font)
 	tabs.add_theme_font_size_override("font_size", 24)
 	
 	# Create Character Stats tab
@@ -42,13 +48,19 @@ func _rebuild_right_panel():
 	stats_tab.add_child(vbox)
 	
 	var info = Label.new()
-	info.text = "Name: %s\nClass: %s\nMoney: %d\n" % [GameState.player_name, GameState.player_class, GameState.money]
+	info.text = "Name: %s\nClass: %s\nGender: %s\nMoney: %d\n" % [GameState.player_name, GameState.player_class, GameState.player_gender, GameState.money]
+	
+	# Apply font to info label
+	info.add_theme_font_override("font", custom_font)
 	info.add_theme_font_size_override("font_size", 24)
 	vbox.add_child(info)
 	
 	for stat in GameState.stats.keys():
 		var lbl = Label.new()
 		lbl.text = "%s: %d" % [stat, GameState.stats[stat]]
+		
+		# Apply font to stat labels
+		lbl.add_theme_font_override("font", custom_font)
 		lbl.add_theme_font_size_override("font_size", 20)
 		vbox.add_child(lbl)
 		
@@ -86,24 +98,33 @@ func _populate_chapters():
 	if GameState.has_flag("companion_mirul"):
 		for i in range(mirul_chapters.size()):
 			if mirul_chapters[i]:
-				_add_chapter_button("Chapter %d (Mirul)" % (i + 1), mirul_chapters[i].resource_path, "completed_mirul_ch%d" % (i + 1))
+				if i == 0 or GameState.has_flag("completed_mirul_ch%d" % i):
+					_add_chapter_button("Chapter %d (Mirul)" % (i + 1), mirul_chapters[i].resource_path, "completed_mirul_ch%d" % (i + 1))
 	elif GameState.has_flag("companion_alyssa"):
 		for i in range(alyssa_chapters.size()):
 			if alyssa_chapters[i]:
-				_add_chapter_button("Chapter %d (Alyssa)" % (i + 1), alyssa_chapters[i].resource_path, "completed_alyssa_ch%d" % (i + 1))
+				if i == 0 or GameState.has_flag("completed_alyssa_ch%d" % i):
+					_add_chapter_button("Chapter %d (Alyssa)" % (i + 1), alyssa_chapters[i].resource_path, "completed_alyssa_ch%d" % (i + 1))
 	elif GameState.has_flag("companion_vihaan"):
 		for i in range(vihaan_chapters.size()):
 			if vihaan_chapters[i]:
-				_add_chapter_button("Chapter %d (Vihaan)" % (i + 1), vihaan_chapters[i].resource_path, "completed_vihaan_ch%d" % (i + 1))
+				if i == 0 or GameState.has_flag("completed_vihaan_ch%d" % i):
+					_add_chapter_button("Chapter %d (Vihaan)" % (i + 1), vihaan_chapters[i].resource_path, "completed_vihaan_ch%d" % (i + 1))
 	else:
 		var lbl = Label.new()
 		lbl.text = "Play Prologue to unlock Chapters."
+		
+		# Apply font to fallback label
+		lbl.add_theme_font_override("font", custom_font)
 		lbl.add_theme_font_size_override("font_size", 24)
 		chapter_list.add_child(lbl)
 
 func _add_chapter_button(title: String, uid: String, completion_flag: String = ""):
 	var btn = Button.new()
 	btn.text = title
+	
+	# Apply font to chapter buttons
+	btn.add_theme_font_override("font", custom_font)
 	btn.add_theme_font_size_override("font_size", 28)
 	
 	if completion_flag != "" and GameState.has_flag(completion_flag):
