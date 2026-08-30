@@ -1,7 +1,16 @@
 [gd_resource type="Resource" script_class="CharacterProfile" format=3 uid="uid://ch0pocbeb0y77"]
 
+[ext_resource type="Texture2D" uid="uid://c7eaea7uhepjm" path="res://assets/CharacterArtAssets/Principal/Principal_Neutral.png" id="1_jteak"]
 [ext_resource type="Script" uid="uid://v1nhkqe7rmdj" path="res://runtime/CharacterProfile.gd" id="1_u20dw"]
+[ext_resource type="Texture2D" uid="uid://7fdogrnmqmhx" path="res://assets/CharacterArtAssets/Principal/Principal_Happy.png" id="2_46xia"]
+[ext_resource type="Texture2D" uid="uid://cifi4sbu527am" path="res://assets/CharacterArtAssets/Principal/Principal_Serious.png" id="3_7d4hy"]
 
 [resource]
 script = ExtResource("1_u20dw")
+character_name = "Principal"
+portraits = {
+"Happy": ExtResource("2_46xia"),
+"Neutral": ExtResource("1_jteak"),
+"Serious": ExtResource("3_7d4hy")
+}
 metadata/_custom_type_script = "uid://v1nhkqe7rmdj"

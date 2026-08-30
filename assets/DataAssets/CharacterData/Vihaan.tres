@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="CharacterProfile" format=3 uid="uid://cupkf4jv5s3wr"]
+
+[ext_resource type="Texture2D" uid="uid://cx6ojba5cl5fg" path="res://assets/CharacterArtAssets/Vihaan/Vihaan_Neutral_Pose1.png" id="1_8e37h"]
+[ext_resource type="Texture2D" uid="uid://d2e4c1xrta2gw" path="res://assets/CharacterArtAssets/Vihaan/Vihaan_Neutral_Pose2.png" id="2_ju336"]
+[ext_resource type="Texture2D" uid="uid://cla61nq72hbw8" path="res://assets/CharacterArtAssets/Vihaan/Vihaan_Neutral_Pose3.png" id="3_8en4y"]
+[ext_resource type="Texture2D" uid="uid://bxbuamig5u46r" path="res://assets/CharacterArtAssets/Vihaan/Vihaan_Neutral_Pose4.png" id="4_0uqyn"]
+[ext_resource type="Texture2D" uid="uid://dimsy37jrv3ej" path="res://assets/CharacterArtAssets/Vihaan/Vihaan_Annoyed_Pose1.png" id="5_pa118"]
+[ext_resource type="Texture2D" uid="uid://dlydgj6dhdxnw" path="res://assets/CharacterArtAssets/Vihaan/Vihaan_Annoyed_Pose2.png" id="6_8vkir"]
+[ext_resource type="Texture2D" uid="uid://l6va5jlkt4ee" path="res://assets/CharacterArtAssets/Vihaan/Vihaan_Annoyed_Pose3.png" id="7_uun8b"]
+[ext_resource type="Texture2D" uid="uid://d1ur2vechwdr6" path="res://assets/CharacterArtAssets/Vihaan/vihaan_Annoyed_Pose4.png" id="8_ai1fn"]
+[ext_resource type="Texture2D" uid="uid://ci5mwhrwlegq3" path="res://assets/CharacterArtAssets/Vihaan/Vihaan_Angry_Pose1.png" id="9_1wr6y"]
+[ext_resource type="Texture2D" uid="uid://bo5elbp1clqfb" path="res://assets/CharacterArtAssets/Vihaan/Vihaan_Angry_Pose2.png" id="10_bpafo"]
+[ext_resource type="Texture2D" uid="uid://bg3gieernndxj" path="res://assets/CharacterArtAssets/Vihaan/Vihaan_Angry_Pose3.png" id="11_g5fdq"]
+[ext_resource type="Texture2D" uid="uid://csrmxru821mc3" path="res://assets/CharacterArtAssets/Vihaan/Vihaan_Angry_Pose4.png" id="12_yjm5s"]
+[ext_resource type="Texture2D" uid="uid://bnfosu0jqe0xq" path="res://assets/CharacterArtAssets/Vihaan/Vihaan_Smile_Pose1.png" id="13_fv4v3"]
+[ext_resource type="Texture2D" uid="uid://dna1b63hlmkti" path="res://assets/CharacterArtAssets/Vihaan/Vihaan_Smile_Pose2.png" id="14_64yi6"]
+[ext_resource type="Texture2D" uid="uid://60er1h6xrema" path="res://assets/CharacterArtAssets/Vihaan/Vihaan_Smile_Pose3.png" id="15_jcnnu"]
+[ext_resource type="Texture2D" uid="uid://bufercyp1rs37" path="res://assets/CharacterArtAssets/Vihaan/Vihaan_Smile_Pose4.png" id="16_yi75x"]
+[ext_resource type="Texture2D" uid="uid://bvyas3cvb5qlc" path="res://assets/CharacterArtAssets/Vihaan/Vihaan_Shocked_Pose1.png" id="17_d1h1m"]
+[ext_resource type="Texture2D" uid="uid://dnrftbsypfqy6" path="res://assets/CharacterArtAssets/Vihaan/Vihaan_Shocked_Pose2.png" id="18_rjiwm"]
+[ext_resource type="Texture2D" uid="uid://c5hecc2dw3och" path="res://assets/CharacterArtAssets/Vihaan/Vihaan_Shocked_Pose3.png" id="19_85mjy"]
+[ext_resource type="Texture2D" uid="uid://fjfx0ju3ilnk" path="res://assets/CharacterArtAssets/Vihaan/Vihaan_Shocked_Pose4.png" id="20_qvvyu"]
+[ext_resource type="Texture2D" uid="uid://dhvfsml01kkmq" path="res://assets/CharacterArtAssets/Vihaan/Vihaan_Sad_Pose1.png" id="21_h55lp"]
+[ext_resource type="Texture2D" uid="uid://c5jb8iivgavrh" path="res://assets/CharacterArtAssets/Vihaan/Vihaan_Sad_Pose2.png" id="22_40d8f"]
+[ext_resource type="Texture2D" uid="uid://cm3mbhjcmdpk0" path="res://assets/CharacterArtAssets/Vihaan/Vihaan_Sad_Pose3.png" id="23_am1as"]
+[ext_resource type="Texture2D" uid="uid://dbpwcru0u7n88" path="res://assets/CharacterArtAssets/Vihaan/Vihaan_Sad_Pose4.png" id="24_h1h10"]
+[ext_resource type="Script" uid="uid://v1nhkqe7rmdj" path="res://runtime/CharacterProfile.gd" id="25_gqqbv"]
+
+[resource]
+script = ExtResource("25_gqqbv")
+character_name = "Vihaan"
+portraits = {
+"Angry_Pose1": ExtResource("9_1wr6y"),
+"Angry_Pose2": ExtResource("10_bpafo"),
+"Angry_Pose3": ExtResource("11_g5fdq"),
+"Angry_Pose4": ExtResource("12_yjm5s"),
+"Annoyed_Pose1": ExtResource("5_pa118"),
+"Annoyed_Pose2": ExtResource("6_8vkir"),
+"Annoyed_Pose3": ExtResource("7_uun8b"),
+"Annoyed_Pose4": ExtResource("8_ai1fn"),
+"Neutral_Pose1": ExtResource("1_8e37h"),
+"Neutral_Pose2": ExtResource("2_ju336"),
+"Neutral_Pose3": ExtResource("3_8en4y"),
+"Neutral_Pose4": ExtResource("4_0uqyn"),
+"Sad_Pose1": ExtResource("21_h55lp"),
+"Sad_Pose2": ExtResource("22_40d8f"),
+"Sad_Pose3": ExtResource("23_am1as"),
+"Sad_Pose4": ExtResource("24_h1h10"),
+"Shocked_Pose1": ExtResource("17_d1h1m"),
+"Shocked_Pose2": ExtResource("18_rjiwm"),
+"Shocked_Pose3": ExtResource("19_85mjy"),
+"Shocked_Pose4": ExtResource("20_qvvyu"),
+"Smile_Pose1": ExtResource("13_fv4v3"),
+"Smile_Pose2": ExtResource("14_64yi6"),
+"Smile_Pose3": ExtResource("15_jcnnu"),
+"Smile_Pose4": ExtResource("16_yi75x")
+}
+metadata/_custom_type_script = "uid://v1nhkqe7rmdj"

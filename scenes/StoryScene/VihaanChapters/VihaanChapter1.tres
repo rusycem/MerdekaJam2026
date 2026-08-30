@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="VNStoryTree" format=3 uid="uid://caiguau12ndtb"]
+
+[ext_resource type="Script" uid="uid://dtjadxbepppro" path="res://src/vn_control/VNStoryTree.gd" id="1_p8nui"]
+
+[resource]
+script = ExtResource("1_p8nui")
+graph_data = {
+&"Start": {
+"next_node": "",
+"node_name": &"Start",
+"position": [238.0, 496.0],
+"type": "start"
+}
+}

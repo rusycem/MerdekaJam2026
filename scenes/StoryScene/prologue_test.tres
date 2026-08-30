@@ -7,6 +7,19 @@ script = ExtResource("1_4juje")
 graph_data = {
 &"ActorNode": {
 "events": [{
+"action_type": "hide_all",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Unknown",
+"character_uid": "",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
 "action_type": "change_bg",
 "anim_duration": 0.5,
 "animation": "None",
@@ -14,9 +27,9 @@ graph_data = {
 "character": "Alyssa",
 "character_uid": "",
 "expression": "Neutral",
+"flip_h": false,
 "offset_x": 0.0,
 "offset_y": 0.0,
-"place_name": "Class Murni",
 "position_slot": "Center",
 "z_index": 0
 }, {
@@ -24,46 +37,47 @@ graph_data = {
 "anim_duration": 0.5,
 "animation": "None",
 "background_uid": "",
-"character": "Mirul",
-"character_uid": "uid://dowxttrntsqon",
+"character": "Principal",
+"character_uid": "uid://ch0pocbeb0y77",
 "expression": "Neutral",
+"flip_h": false,
 "offset_x": 0.0,
 "offset_y": 0.0,
 "position_slot": "Center",
 "z_index": 0
 }],
 "next_node": "IntroDialogue",
-"position": [-180.0, 80.0],
+"position": [-900.0, 40.0],
 "type": "actor"
 },
 &"AlyssaEnd": {
 "next_node": "",
 "node_name": &"AlyssaEnd",
-"position": [1800.0, 0.0],
+"position": [2700.0, 0.0],
 "set_flags": "",
 "speaker": "Alyssa",
-"text": "Hi {Happy} {player}! I see you got your allowance. Let's study together later!",
+"text": "Hi {Happy, Pose1, bounce} {player}! I see you got your allowance. Let's study together later!",
 "type": "dialogue"
 },
 &"AlyssaFlag": {
 "command": "flag add companion_alyssa",
 "next_node": "AlyssaIntro",
-"position": [900.0, 0.0],
+"position": [1040.0, 40.0],
 "type": "command"
 },
 &"AlyssaIntro": {
-"next_node": "AlyssaMoney",
+"next_node": "_GraphNode_35950",
 "node_name": &"AlyssaIntro",
-"position": [1200.0, 0.0],
+"position": [1440.0, 0.0],
 "set_flags": "",
 "speaker": "Principal",
-"text": "{Happy} Ohh great, she is a great example for you to follow, I'm sure you guys will get along.",
+"text": "{Happy, Pose1, bounce} Ohh great, she is a great example for you to follow, I'm sure you guys will get along.",
 "type": "dialogue"
 },
 &"AlyssaMoney": {
 "command": "reward money 50",
 "next_node": "AlyssaEnd",
-"position": [1500.0, 0.0],
+"position": [2220.0, 0.0],
 "type": "command"
 },
 &"ChooseCompanion": {
@@ -80,19 +94,35 @@ graph_data = {
 "hide_if_locked": false,
 "text": "Sit with Vihaan"
 }]),
-"next_nodes": ["MirulFlag", "AlyssaFlag", "VihaanFlag"],
+"next_nodes": ["_GraphNode_33047", "_GraphNode_38764", "_GraphNode_38860"],
 "node_name": &"ChooseCompanion",
-"position": [500.0, 0.0],
+"position": [260.0, -40.0],
 "prompt": "Who will you sit next to, {player}?",
 "type": "choice_branch"
 },
+&"ConditionNode": {
+"condition": "minigame_won",
+"next_false": "GraphNode",
+"next_true": "VihaanEnd",
+"position": [2660.0, 340.0],
+"type": "condition"
+},
+&"GraphNode": {
+"next_node": "",
+"node_name": &"GraphNode",
+"position": [3000.0, 460.0],
+"set_flags": "",
+"speaker": "Vihaan",
+"text": "{Neutral, Pose2, shake} You... suck {player}.",
+"type": "dialogue"
+},
 &"IntroDialogue": {
-"next_node": "ChooseCompanion",
+"next_node": "_GraphNode_63451",
 "node_name": &"IntroDialogue",
-"position": [200.0, 0.0],
+"position": [-560.0, -20.0],
 "set_flags": "",
 "speaker": "Principal",
-"text": "{Happy} Welcome to school, {player}. Choose your tablemate wisely. They could be your best friend for life.",
+"text": "{Happy, Pose1, bounce} Welcome to school, {player}. Choose your tablemate wisely. They could be your best friend for life.",
 "type": "dialogue"
 },
 &"MirulCheck": {
@@ -100,92 +130,342 @@ graph_data = {
 "next_fail": "MirulFail",
 "next_pass": "MirulPass",
 "node_name": &"MirulCheck",
-"position": [1500.0, -300.0],
+"position": [2180.0, -360.0],
 "target_stat": "Charm",
 "type": "dnd_check"
 },
 &"MirulEnd": {
 "next_node": "",
 "node_name": &"MirulEnd",
-"position": [2500.0, -340.0],
+"position": [3400.0, -340.0],
 "set_flags": "",
 "speaker": "{player}",
-"text": "{Happy} Phew, that training was tough! Time to head back to the dorm.",
+"text": "{Happy, Pose1, bounce} Phew, that training was tough! Time to head back to the dorm.",
 "type": "dialogue"
 },
 &"MirulFail": {
 "next_node": "MirulHub",
 "node_name": &"MirulFail",
-"position": [1800.0, -200.0],
+"position": [2620.0, -180.0],
 "set_flags": "",
 "speaker": "Mirul",
-"text": "{Annoyed} ... (He ignores you completely)",
+"text": "{Annoyed, Pose1, twitch} ... (He ignores you completely)",
 "type": "dialogue"
 },
 &"MirulFlag": {
 "command": "flag add companion_mirul",
 "next_node": "MirulIntro",
-"position": [900.0, -300.0],
+"position": [1080.0, -280.0],
 "type": "command"
 },
 &"MirulHub": {
 "command": "start_hub 3",
 "next_node": "MirulEnd",
-"position": [2100.0, -300.0],
+"position": [3000.0, -300.0],
 "type": "command"
 },
 &"MirulIntro": {
-"next_node": "MirulCheck",
+"next_node": "_GraphNode_35635",
 "node_name": &"MirulIntro",
-"position": [1200.0, -300.0],
+"position": [1480.0, -320.0],
 "set_flags": "",
 "speaker": "Principal",
-"text": "{Happy} I see you have met my son, don't let his attitude fool you, he is just having his teenage angst phase.",
+"text": "{Happy, Pose1, bounce} I see you have met my son, don't let his attitude fool you, he is just having his teenage angst phase.",
 "type": "dialogue"
 },
 &"MirulPass": {
 "next_node": "MirulHub",
 "node_name": &"MirulPass",
-"position": [1800.0, -400.0],
+"position": [2600.0, -420.0],
 "set_flags": "mirul_likes_you",
 "speaker": "Mirul",
-"text": "{Angry} Whatever, {player}. Just don't get in my way.",
+"text": "{Laugh_Pose1, shake} Whatever, {player}. Just don't get in my way.",
 "type": "dialogue"
 },
 &"Start": {
 "next_node": "ActorNode",
 "node_name": &"Start",
-"position": [-540.0, 0.0],
+"position": [-1320.0, 40.0],
 "type": "start"
 },
 &"VihaanEnd": {
 "next_node": "",
 "node_name": &"VihaanEnd",
-"position": [1800.0, 300.0],
+"position": [3000.0, 240.0],
 "set_flags": "",
 "speaker": "Vihaan",
-"text": "{Surprised} You... you beat my high score, {player}. Not bad.",
+"text": "{Shocked, Pose2, jump} You... you beat my high score, {player}. Not bad.",
 "type": "dialogue"
 },
 &"VihaanFlag": {
 "command": "flag add companion_vihaan",
 "next_node": "VihaanIntro",
-"position": [900.0, 300.0],
+"position": [1060.0, 320.0],
 "type": "command"
 },
 &"VihaanIntro": {
-"next_node": "VihaanMinigame",
+"next_node": "_GraphNode_42922",
 "node_name": &"VihaanIntro",
-"position": [1200.0, 300.0],
+"position": [1560.0, 360.0],
 "set_flags": "",
 "speaker": "Principal",
-"text": "{Happy} Vihaan is a bit quiet, but if you talk to him I'm sure he will open up to you eventually.",
+"text": "{Happy, Pose1, bounce} Vihaan is a bit quiet, but if you talk to him I'm sure he will open up to you eventually.",
 "type": "dialogue"
 },
 &"VihaanMinigame": {
-"command": "minigame clicker",
-"next_node": "VihaanEnd",
-"position": [1500.0, 300.0],
+"command": "minigame errorhunt",
+"next_node": "ConditionNode",
+"position": [2320.0, 380.0],
 "type": "command"
+},
+&"_GraphNode_33047": {
+"events": [{
+"action_type": "hide_all",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Alyssa",
+"character_uid": "",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Principal",
+"character_uid": "uid://ch0pocbeb0y77",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "MirulFlag",
+"position": [660.0, -160.0],
+"type": "actor"
+},
+&"_GraphNode_35635": {
+"events": [{
+"action_type": "hide_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Principal",
+"character_uid": "uid://ch0pocbeb0y77",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Mirul",
+"character_uid": "uid://dowxttrntsqon",
+"expression": "Neutral_Pose1",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "MirulCheck",
+"position": [1867.3397, -350.12103],
+"type": "actor"
+},
+&"_GraphNode_35950": {
+"events": [{
+"action_type": "hide_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Principal",
+"character_uid": "uid://ch0pocbeb0y77",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Alyssa",
+"character_uid": "uid://bsylmi0xhjqvv",
+"expression": "Happy_Pose1",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "AlyssaMoney",
+"position": [1880.0, -40.0],
+"type": "actor"
+},
+&"_GraphNode_38764": {
+"events": [{
+"action_type": "hide_all",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Alyssa",
+"character_uid": "",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Principal",
+"character_uid": "uid://ch0pocbeb0y77",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "AlyssaFlag",
+"position": [680.0, 40.0],
+"type": "actor"
+},
+&"_GraphNode_38860": {
+"events": [{
+"action_type": "hide_all",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Alyssa",
+"character_uid": "",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Principal",
+"character_uid": "uid://ch0pocbeb0y77",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "VihaanFlag",
+"position": [660.0, 220.0],
+"type": "actor"
+},
+&"_GraphNode_42922": {
+"events": [{
+"action_type": "hide_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Principal",
+"character_uid": "uid://ch0pocbeb0y77",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Vihaan",
+"character_uid": "uid://cupkf4jv5s3wr",
+"expression": "Neutral_Pose1",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "VihaanMinigame",
+"position": [1940.0, 380.0],
+"type": "actor"
+},
+&"_GraphNode_63451": {
+"events": [{
+"action_type": "hide_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Principal",
+"character_uid": "uid://ch0pocbeb0y77",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Mirul",
+"character_uid": "uid://dowxttrntsqon",
+"expression": "Neutral_Pose1",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Left",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Alyssa",
+"character_uid": "uid://bsylmi0xhjqvv",
+"expression": "Neutral_Pose1",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Vihaan",
+"character_uid": "uid://cupkf4jv5s3wr",
+"expression": "Neutral_Pose1",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Right",
+"z_index": 0
+}],
+"next_node": "ChooseCompanion",
+"position": [-100.0, -20.0],
+"type": "actor"
 }
 }

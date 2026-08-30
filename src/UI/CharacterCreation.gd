@@ -1,10 +1,11 @@
 extends Control
 
-@onready var name_input = $VBox/HBoxName/NameInput
-@onready var class_option = $VBox/HBoxClass/ClassOption
-@onready var points_label = $VBox/PointsLabel
-@onready var stats_container = $VBox/StatsContainer
-@onready var btn_finish = $VBox/BtnFinish
+@onready var name_input = $Paper/VBox/HBoxName/NameInput
+@onready var class_option = $Paper/VBox/HBoxClass/ClassOption
+@onready var points_label = $Paper/VBox/PointsLabel
+@onready var stats_container = $Paper/VBox/StatsContainer
+@onready var btn_finish = $Paper/VBox/BtnFinish
+@onready var animation = $AnimationPlayer
 
 var available_points: int = 4
 var base_stats: Dictionary = {
@@ -43,24 +44,28 @@ func _create_stat_row(stat_name: String):
 	var hbox = HBoxContainer.new()
 	
 	var lbl = Label.new()
+	lbl.theme = load("res://assets/UIAssets/ui.tres")
 	lbl.custom_minimum_size = Vector2(200, 0)
-	lbl.add_theme_font_size_override("font_size", 24)
+	lbl.add_theme_font_size_override("font_size", 20)
 	hbox.add_child(lbl)
 	
-	var btn_minus = Button.new()
-	btn_minus.text = " - "
+	var btn_minus = TextureButton.new()
+	#btn_minus.text = " - "
+	btn_minus.texture_normal = load("res://assets/UIAssets/minus_button.png")
 	btn_minus.add_theme_font_size_override("font_size", 24)
 	btn_minus.pressed.connect(func(): _modify_stat(stat_name, -1))
 	hbox.add_child(btn_minus)
 	
 	var val_lbl = Label.new()
+	val_lbl.theme = load("res://assets/UIAssets/ui.tres")
 	val_lbl.custom_minimum_size = Vector2(50, 0)
 	val_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	val_lbl.add_theme_font_size_override("font_size", 28)
 	hbox.add_child(val_lbl)
 	
-	var btn_plus = Button.new()
-	btn_plus.text = " + "
+	var btn_plus = TextureButton.new()
+	#btn_plus.text = " + "
+	btn_plus.texture_normal = load("res://assets/UIAssets/plus_button.png")
 	btn_plus.add_theme_font_size_override("font_size", 24)
 	btn_plus.pressed.connect(func(): _modify_stat(stat_name, 1))
 	hbox.add_child(btn_plus)
@@ -126,4 +131,6 @@ func _on_finish():
 	
 	# In a real game, this would go to prologue.tres.
 	# For now, we will route to the Dorm where they can manually pick Prologue/Chapter 1
+	animation.play("outro")
+	await animation.animation_finished
 	EventBus.scene_change_requested.emit("res://src/Dorm.tscn", false)

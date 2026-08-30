@@ -1,0 +1,168 @@
+[gd_resource type="Resource" script_class="VNStoryTree" format=3 uid="uid://dq0hbkf4ljii5"]
+
+[ext_resource type="Script" uid="uid://dtjadxbepppro" path="res://src/vn_control/VNStoryTree.gd" id="1_hd8si"]
+
+[resource]
+script = ExtResource("1_hd8si")
+graph_data = {
+&"AfterPE": {
+"events": [{
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Mirul",
+"character_uid": "uid://cupkf4jv5s3wr",
+"expression": "Neutral_Pose1",
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "MirulReward",
+"position": [2600.0, 0.0],
+"type": "actor"
+},
+&"ApologizeRoute": {
+"next_node": "LoseCourage",
+"node_name": &"ApologizeRoute",
+"position": [1300.0, -200.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Annoyed, Pose2, twitch, flip} Hmph. Weak.",
+"type": "dialogue"
+},
+&"EndChapter": {
+"next_node": "",
+"node_name": &"EndChapter",
+"position": [3500.0, 0.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "(I got 20 money!) Time to head back to the dorm.",
+"type": "dialogue"
+},
+&"GiveMoney": {
+"command": "reward money 20",
+"next_node": "EndChapter",
+"position": [3200.0, 0.0],
+"type": "command"
+},
+&"JerkFail": {
+"next_node": "JoinActivity",
+"node_name": &"JerkFail",
+"position": [1600.0, 300.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Angry, Pose3, shake, flip} Watch your mouth, {player}.",
+"type": "dialogue"
+},
+&"JerkPass": {
+"next_node": "JoinActivity",
+"node_name": &"JerkPass",
+"position": [1600.0, 100.0],
+"set_flags": "mirul_respect",
+"speaker": "Mirul",
+"text": "{Happy, Pose1, bounce} Heh. {Happy, Pose1, bounce} You've got guts, I'll give you that.",
+"type": "dialogue"
+},
+&"JerkRoute": {
+"dc_value": 10,
+"next_fail": "JerkFail",
+"next_pass": "JerkPass",
+"node_name": &"JerkRoute",
+"position": [1300.0, 200.0],
+"target_stat": "Charm",
+"type": "dnd_check"
+},
+&"JoinActivity": {
+"next_node": "StartHub",
+"node_name": &"JoinActivity",
+"position": [2000.0, 0.0],
+"set_flags": "",
+"speaker": "Teacher",
+"text": "Alright everyone, time for Physical Education! Hit the track!",
+"type": "dialogue"
+},
+&"LoseCourage": {
+"command": "stat Courage -1",
+"next_node": "JoinActivity",
+"position": [1600.0, -200.0],
+"type": "command"
+},
+&"MirulGreeting": {
+"next_node": "StareChoice",
+"node_name": &"MirulGreeting",
+"position": [600.0, 0.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Angry, Pose1, shake} What are you looking at, {player}? Got a staring problem?",
+"type": "dialogue"
+},
+&"MirulReward": {
+"next_node": "GiveMoney",
+"node_name": &"MirulReward",
+"position": [2900.0, 0.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Happy, Pose1, bounce} You're not completely useless on the track. Here, I found this.",
+"type": "dialogue"
+},
+&"SetupScene": {
+"events": [{
+"action_type": "change_bg",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "uid://ltl68wkoaqh0",
+"character": "",
+"character_uid": "",
+"expression": "Neutral_Pose1",
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Mirul",
+"character_uid": "uid://dowxttrntsqon",
+"expression": "Neutral_Pose1",
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "MirulGreeting",
+"position": [300.0, 0.0],
+"type": "actor"
+},
+&"StareChoice": {
+"choices": Array[Dictionary]([{
+"condition": "",
+"hide_if_locked": false,
+"text": "Nothing, sorry!"
+}, {
+"condition": "Courage >= 6",
+"hide_if_locked": false,
+"text": "I'm looking at a jerk."
+}]),
+"next_nodes": ["ApologizeRoute", "JerkRoute"],
+"node_name": &"StareChoice",
+"position": [900.0, 0.0],
+"prompt": "How do you respond to Mirul?",
+"type": "choice_branch"
+},
+&"Start": {
+"next_node": "SetupScene",
+"node_name": &"Start",
+"position": [0.0, 0.0],
+"type": "start"
+},
+&"StartHub": {
+"command": "start_hub 5",
+"next_node": "AfterPE",
+"position": [2300.0, 0.0],
+"type": "command"
+}
+}

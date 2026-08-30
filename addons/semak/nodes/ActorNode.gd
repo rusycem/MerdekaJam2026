@@ -39,6 +39,7 @@ func set_node_data(data: Dictionary) -> void:
 			"offset_x": data.get("offset_x", 0.0),
 			"offset_y": data.get("offset_y", 0.0),
 			"z_index": data.get("z_index", 0),
+			"flip_h": data.get("flip_h", false),
 			"animation": data.get("animation", "None"),
 			"anim_duration": data.get("anim_duration", 0.5),
 			"background_id": data.get("background_id", "")

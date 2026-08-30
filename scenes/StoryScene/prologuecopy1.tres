@@ -1,0 +1,645 @@
+[gd_resource type="Resource" script_class="VNStoryTree" format=3 uid="uid://xx875pdaxdr2"]
+
+[ext_resource type="Script" uid="uid://dtjadxbepppro" path="res://src/vn_control/VNStoryTree.gd" id="1_wdme7"]
+
+[resource]
+script = ExtResource("1_wdme7")
+graph_data = {
+&"ActorNode": {
+"events": [{
+"action_type": "change_bg",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "uid://brq5bijildv3f",
+"character": "Alyssa",
+"character_uid": "",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "GraphNode",
+"position": [-200.0, 40.0],
+"type": "actor"
+},
+&"ChoiceNode": {
+"choices": Array[Dictionary]([{
+"condition": "",
+"hide_if_locked": false,
+"text": "Alyssa"
+}, {
+"condition": "",
+"hide_if_locked": false,
+"text": "Mirul"
+}, {
+"condition": "",
+"hide_if_locked": false,
+"text": "Vihaan"
+}]),
+"next_nodes": ["_GraphNode_31776", "_GraphNode_31920", "_GraphNode_31992"],
+"node_name": &"ChoiceNode",
+"position": [12480.0, 120.0],
+"prompt": "Who will you sit next to? (This choice will affect how the story unfolds)",
+"type": "choice_branch"
+},
+&"CommandNode": {
+"command": "flag add companion_alyssa",
+"next_node": "_GraphNode_33540",
+"position": [13340.0, 40.0],
+"type": "command"
+},
+&"GraphNode": {
+"next_node": "_GraphNode_30786",
+"node_name": &"GraphNode",
+"position": [180.0, 40.0],
+"set_flags": "",
+"speaker": "",
+"text": "It’s Monday morning.",
+"type": "dialogue"
+},
+&"Start": {
+"next_node": "ActorNode",
+"node_name": &"Start",
+"position": [-620.0, 40.0],
+"type": "start"
+},
+&"_GraphNode_22360": {
+"next_node": "_GraphNode_23545",
+"node_name": &"_GraphNode_22360",
+"position": [960.0, -20.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "“Where is this classroom? ...It should be around here.” ",
+"type": "dialogue"
+},
+&"_GraphNode_23545": {
+"events": [{
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Alyssa",
+"character_uid": "",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "_GraphNode_23822",
+"position": [1360.0, 40.0],
+"type": "actor"
+},
+&"_GraphNode_23822": {
+"next_node": "_GraphNode_24247",
+"node_name": &"_GraphNode_23822",
+"position": [1780.0, 0.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Angry, Pose2}
+“Wah baru first day sudah lambat eh you? Masuk kelas cepat!”",
+"type": "dialogue"
+},
+&"_GraphNode_23914": {
+"events": [{
+"action_type": "hide_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Alyssa",
+"character_uid": "",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "_GraphNode_24114",
+"position": [2520.0, 40.0],
+"type": "actor"
+},
+&"_GraphNode_24114": {
+"next_node": "_GraphNode_24335",
+"node_name": &"_GraphNode_24114",
+"position": [2880.0, -40.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "“Waish! First day of school kene marah already.”",
+"type": "dialogue"
+},
+&"_GraphNode_24247": {
+"next_node": "_GraphNode_23914",
+"node_name": &"_GraphNode_24247",
+"position": [2120.0, 40.0],
+"set_flags": "",
+"speaker": "",
+"text": "You stare at her for a moment...",
+"type": "dialogue"
+},
+&"_GraphNode_24335": {
+"events": [{
+"action_type": "change_bg",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "uid://4imjs0hwif5i",
+"character": "Alyssa",
+"character_uid": "",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "_GraphNode_25408",
+"position": [3260.0, -20.0],
+"type": "actor"
+},
+&"_GraphNode_25408": {
+"next_node": "_GraphNode_25447",
+"node_name": &"_GraphNode_25408",
+"position": [3720.0, -40.0],
+"set_flags": "",
+"speaker": "",
+"text": "You step inside the buzzing class and behind all the commotion, you see a boy. ",
+"type": "dialogue"
+},
+&"_GraphNode_25447": {
+"events": [{
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Mirul",
+"character_uid": "uid://dowxttrntsqon",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Right",
+"z_index": 0
+}],
+"next_node": "_GraphNode_26129",
+"position": [4080.0, -20.0],
+"type": "actor"
+},
+&"_GraphNode_26129": {
+"next_node": "_GraphNode_26189",
+"node_name": &"_GraphNode_26129",
+"position": [4480.0, -40.0],
+"set_flags": "",
+"speaker": "",
+"text": "Your eyes locked to his and his to yours. ",
+"type": "dialogue"
+},
+&"_GraphNode_26189": {
+"next_node": "_GraphNode_26512",
+"node_name": &"_GraphNode_26189",
+"position": [4900.0, -40.0],
+"set_flags": "",
+"speaker": "",
+"text": "You felt a sense of intensity behind those eyes...You look away before it gets weird. ",
+"type": "dialogue"
+},
+&"_GraphNode_26512": {
+"events": [{
+"action_type": "hide_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Mirul",
+"character_uid": "uid://dowxttrntsqon",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "_GraphNode_26652",
+"position": [5320.0, -20.0],
+"type": "actor"
+},
+&"_GraphNode_26652": {
+"next_node": "_GraphNode_26681",
+"node_name": &"_GraphNode_26652",
+"position": [5740.0, -40.0],
+"set_flags": "",
+"speaker": "",
+"text": "Your eyes landed on another at the back of the class.",
+"type": "dialogue"
+},
+&"_GraphNode_26681": {
+"events": [{
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Vihaan",
+"character_uid": "uid://cupkf4jv5s3wr",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "_GraphNode_27341",
+"position": [6140.0, -20.0],
+"type": "actor"
+},
+&"_GraphNode_27341": {
+"next_node": "_GraphNode_28303",
+"node_name": &"_GraphNode_27341",
+"position": [6540.0, -40.0],
+"set_flags": "",
+"speaker": "",
+"text": "He seems quiet...and kind of weird. You approach him, hoping to make your first friend. ",
+"type": "dialogue"
+},
+&"_GraphNode_28303": {
+"events": [{
+"action_type": "hide_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Vihaan",
+"character_uid": "uid://cupkf4jv5s3wr",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "_GraphNode_28430",
+"position": [6900.0, -20.0],
+"type": "actor"
+},
+&"_GraphNode_28430": {
+"events": [{
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Principal",
+"character_uid": "uid://ch0pocbeb0y77",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center-Left",
+"z_index": 0
+}],
+"next_node": "_GraphNode_28869",
+"position": [7260.0, -20.0],
+"type": "actor"
+},
+&"_GraphNode_28869": {
+"next_node": "_GraphNode_28885",
+"node_name": &"_GraphNode_28869",
+"position": [7660.0, -40.0],
+"set_flags": "",
+"speaker": "",
+"text": "Before you could do anything elese, the principle enters the class.",
+"type": "dialogue"
+},
+&"_GraphNode_28885": {
+"next_node": "_GraphNode_29450",
+"node_name": &"_GraphNode_28885",
+"position": [8080.0, -40.0],
+"set_flags": "",
+"speaker": "",
+"text": "His presence silenced the chaotic classroom.",
+"type": "dialogue"
+},
+&"_GraphNode_29450": {
+"next_node": "_GraphNode_29497",
+"node_name": &"_GraphNode_29450",
+"position": [8460.0, -60.0],
+"set_flags": "",
+"speaker": "STUDENTS",
+"text": "SE-LA-MAT PA-GI! ENCIK SAMAD!",
+"type": "dialogue"
+},
+&"_GraphNode_29497": {
+"next_node": "_GraphNode_29543",
+"node_name": &"_GraphNode_29497",
+"position": [8840.0, -60.0],
+"set_flags": "",
+"speaker": "Principal",
+"text": "{Neutral}
+Good morning kelas, harini we have a new student.",
+"type": "dialogue"
+},
+&"_GraphNode_29543": {
+"next_node": "_GraphNode_29586",
+"node_name": &"_GraphNode_29543",
+"position": [9240.0, -60.0],
+"set_flags": "",
+"speaker": "",
+"text": "The principal gestures to you to come forward.",
+"type": "dialogue"
+},
+&"_GraphNode_29586": {
+"next_node": "_GraphNode_29928",
+"node_name": &"_GraphNode_29586",
+"position": [9620.0, -60.0],
+"set_flags": "",
+"speaker": "Principal",
+"text": "{Happy}
+\"Why don’t you introduce yourself to your new classmates?”",
+"type": "dialogue"
+},
+&"_GraphNode_29928": {
+"next_node": "_GraphNode_29962",
+"node_name": &"_GraphNode_29928",
+"position": [10060.0, 80.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "“... Hi my name is {player}. I recently transferred here from SMK Udang Batu. Errr.... Tu jelah I think.”",
+"type": "dialogue"
+},
+&"_GraphNode_29962": {
+"next_node": "_GraphNode_30013",
+"node_name": &"_GraphNode_29962",
+"position": [10460.0, 120.0],
+"set_flags": "",
+"speaker": "",
+"text": "None of the students paid attention...",
+"type": "dialogue"
+},
+&"_GraphNode_30013": {
+"next_node": "_GraphNode_30220",
+"node_name": &"_GraphNode_30013",
+"position": [10860.0, 100.0],
+"set_flags": "",
+"speaker": "Principal",
+"text": "“Okaay! Thank you, thank you {player}. Choose your seat.”",
+"type": "dialogue"
+},
+&"_GraphNode_30220": {
+"next_node": "_GraphNode_30264",
+"node_name": &"_GraphNode_30220",
+"position": [11260.0, 120.0],
+"set_flags": "",
+"speaker": "",
+"text": "The principal leans towards you and quietly talks to you.",
+"type": "dialogue"
+},
+&"_GraphNode_30264": {
+"next_node": "_GraphNode_31219",
+"node_name": &"_GraphNode_30264",
+"position": [11680.0, 100.0],
+"set_flags": "",
+"speaker": "Principal",
+"text": "{Happy}
+“Pick your friends wisely, mana tahu boleh jadi kawan rapat? Haaaa!”",
+"type": "dialogue"
+},
+&"_GraphNode_30786": {
+"next_node": "_GraphNode_22360",
+"node_name": &"_GraphNode_30786",
+"position": [560.0, 0.0],
+"set_flags": "",
+"speaker": "",
+"text": "You're making your way down the hallway, Your heart is shaking as this is your first day in SMK Puncak Tikus Besi. What adventures awaits you I wonder...",
+"type": "dialogue"
+},
+&"_GraphNode_31219": {
+"events": [{
+"action_type": "hide_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Principal",
+"character_uid": "uid://ch0pocbeb0y77",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "ChoiceNode",
+"position": [12120.0, 180.0],
+"type": "actor"
+},
+&"_GraphNode_31776": {
+"events": [{
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Principal",
+"character_uid": "uid://ch0pocbeb0y77",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "CommandNode",
+"position": [12940.0, 100.0],
+"type": "actor"
+},
+&"_GraphNode_31920": {
+"events": [{
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Principal",
+"character_uid": "uid://ch0pocbeb0y77",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "_GraphNode_33353",
+"position": [12940.0, 260.0],
+"type": "actor"
+},
+&"_GraphNode_31992": {
+"events": [{
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Principal",
+"character_uid": "uid://ch0pocbeb0y77",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "_GraphNode_33364",
+"position": [12940.0, 420.0],
+"type": "actor"
+},
+&"_GraphNode_33353": {
+"command": "flag add companion_mirul",
+"next_node": "_GraphNode_33671",
+"position": [13340.0, 240.0],
+"type": "command"
+},
+&"_GraphNode_33364": {
+"command": "flag add companion_vihaan",
+"next_node": "_GraphNode_33639",
+"position": [13360.0, 500.0],
+"type": "command"
+},
+&"_GraphNode_33540": {
+"next_node": "_GraphNode_33886",
+"node_name": &"_GraphNode_33540",
+"position": [13720.0, 0.0],
+"set_flags": "",
+"speaker": "Principal",
+"text": "{Happy}
+“Wow okay lah you sit dengan Alyssa. Dia memang our best student. You can learn a lot from her.”",
+"type": "dialogue"
+},
+&"_GraphNode_33639": {
+"next_node": "_GraphNode_34015",
+"node_name": &"_GraphNode_33639",
+"position": [13700.0, 580.0],
+"set_flags": "",
+"speaker": "Principal",
+"text": "{Happy}
+“Vihaan is a quiet kid, but after a while he’s okay lah tu.”",
+"type": "dialogue"
+},
+&"_GraphNode_33671": {
+"next_node": "_GraphNode_33986",
+"node_name": &"_GraphNode_33671",
+"position": [13720.0, 260.0],
+"set_flags": "",
+"speaker": "Principal",
+"text": "{Happy}
+“Mirul? Laahh ni anak saya ni. Dia okay je, tapi jangan follow sangat.”",
+"type": "dialogue"
+},
+&"_GraphNode_33886": {
+"events": [{
+"action_type": "hide_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Principal",
+"character_uid": "uid://ch0pocbeb0y77",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "_GraphNode_34234",
+"position": [14080.0, 40.0],
+"type": "actor"
+},
+&"_GraphNode_33986": {
+"events": [{
+"action_type": "hide_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Principal",
+"character_uid": "uid://ch0pocbeb0y77",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "_GraphNode_34122",
+"position": [14060.0, 320.0],
+"type": "actor"
+},
+&"_GraphNode_34015": {
+"events": [{
+"action_type": "hide_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Principal",
+"character_uid": "uid://ch0pocbeb0y77",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "_GraphNode_34106",
+"position": [14060.0, 640.0],
+"type": "actor"
+},
+&"_GraphNode_34106": {
+"next_node": "_GraphNode_35440",
+"node_name": &"_GraphNode_34106",
+"position": [14480.0, 540.0],
+"set_flags": "",
+"speaker": "Vihaan",
+"text": "{Sad, Pose1}
+ “...”",
+"type": "dialogue"
+},
+&"_GraphNode_34122": {
+"next_node": "_GraphNode_35424",
+"node_name": &"_GraphNode_34122",
+"position": [14480.0, 280.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Laugh, Pose2}
+“Yo, bro. Kau takde kawan kan? Takpelah kita geng.”",
+"type": "dialogue"
+},
+&"_GraphNode_34234": {
+"next_node": "_GraphNode_35395",
+"node_name": &"_GraphNode_34234",
+"position": [14480.0, 40.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Annoyed, Pose2}
+“Haiyaa, faster sit down lah! You late lagi ah tomorrow, I tulis nama you o. Don’t play play with me ah.”",
+"type": "dialogue"
+},
+&"_GraphNode_35395": {
+"next_node": "",
+"node_name": &"_GraphNode_35395",
+"position": [14880.0, 80.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "“Hek eleh.. Dasar hidung tinggi.”",
+"type": "dialogue"
+},
+&"_GraphNode_35424": {
+"next_node": "",
+"node_name": &"_GraphNode_35424",
+"position": [14880.0, 300.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "” ... Mamat ni alright tak alright?”",
+"type": "dialogue"
+},
+&"_GraphNode_35440": {
+"next_node": "",
+"node_name": &"_GraphNode_35440",
+"position": [14860.0, 560.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "“Well... At least member ni chill lah...”",
+"type": "dialogue"
+}
+}
