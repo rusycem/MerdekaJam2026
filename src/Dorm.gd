@@ -48,7 +48,7 @@ func _rebuild_right_panel():
 	stats_tab.add_child(vbox)
 	
 	var info = Label.new()
-	info.text = "Name: %s\nClass: %s\nMoney: %d\n" % [GameState.player_name, GameState.player_class, GameState.money]
+	info.text = "Name: %s\nClass: %s\nGender: %s\nMoney: %d\n" % [GameState.player_name, GameState.player_class, GameState.player_gender, GameState.money]
 	
 	# Apply font to info label
 	info.add_theme_font_override("font", custom_font)
@@ -98,15 +98,18 @@ func _populate_chapters():
 	if GameState.has_flag("companion_mirul"):
 		for i in range(mirul_chapters.size()):
 			if mirul_chapters[i]:
-				_add_chapter_button("Chapter %d (Mirul)" % (i + 1), mirul_chapters[i].resource_path, "completed_mirul_ch%d" % (i + 1))
+				if i == 0 or GameState.has_flag("completed_mirul_ch%d" % i):
+					_add_chapter_button("Chapter %d (Mirul)" % (i + 1), mirul_chapters[i].resource_path, "completed_mirul_ch%d" % (i + 1))
 	elif GameState.has_flag("companion_alyssa"):
 		for i in range(alyssa_chapters.size()):
 			if alyssa_chapters[i]:
-				_add_chapter_button("Chapter %d (Alyssa)" % (i + 1), alyssa_chapters[i].resource_path, "completed_alyssa_ch%d" % (i + 1))
+				if i == 0 or GameState.has_flag("completed_alyssa_ch%d" % i):
+					_add_chapter_button("Chapter %d (Alyssa)" % (i + 1), alyssa_chapters[i].resource_path, "completed_alyssa_ch%d" % (i + 1))
 	elif GameState.has_flag("companion_vihaan"):
 		for i in range(vihaan_chapters.size()):
 			if vihaan_chapters[i]:
-				_add_chapter_button("Chapter %d (Vihaan)" % (i + 1), vihaan_chapters[i].resource_path, "completed_vihaan_ch%d" % (i + 1))
+				if i == 0 or GameState.has_flag("completed_vihaan_ch%d" % i):
+					_add_chapter_button("Chapter %d (Vihaan)" % (i + 1), vihaan_chapters[i].resource_path, "completed_vihaan_ch%d" % (i + 1))
 	else:
 		var lbl = Label.new()
 		lbl.text = "Play Prologue to unlock Chapters."

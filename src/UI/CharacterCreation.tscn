@@ -244,6 +244,23 @@ size_flags_horizontal = 3
 theme = ExtResource("4_4cx18")
 theme_override_font_sizes/font_size = 28
 
+[node name="HBoxGender" type="HBoxContainer" parent="Paper/VBox" unique_id=516373818]
+layout_mode = 2
+theme_override_constants/separation = -64
+
+[node name="Label" type="Label" parent="Paper/VBox/HBoxGender" unique_id=551243781]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("4_4cx18")
+theme_override_font_sizes/font_size = 28
+text = "Gender:"
+
+[node name="GenderOption" type="OptionButton" parent="Paper/VBox/HBoxGender" unique_id=209302235]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("4_4cx18")
+theme_override_font_sizes/font_size = 28
+
 [node name="PointsLabel" type="Label" parent="Paper/VBox" unique_id=1597387824]
 layout_mode = 2
 theme = ExtResource("4_4cx18")

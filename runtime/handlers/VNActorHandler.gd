@@ -1,4 +1,5 @@
-class_name VNActorHandler extends RefCounted
+class_name VNActorHandler
+extends RefCounted
 
 static func handle(player: Node, data: Dictionary) -> void:
 	var events = data.get("events", [])
@@ -20,9 +21,29 @@ static func handle(player: Node, data: Dictionary) -> void:
 						var tw = player.create_tween()
 						tw.tween_property(player.background_rect, "modulate:a", 1.0, 0.5)
 						tw.parallel().tween_property(player.background_rect_2, "modulate:a", 0.0, 0.5)
+						
+						if player.has_method("add_to_history"):
+							var loc_name = ev.get("place_name", "")
+							if loc_name == "":
+								loc_name = bg_uid.get_file().get_basename().capitalize().replace("_", " ")
+							player.add_to_history("System", "[b]Location:[/b] " + loc_name, "")
 				else:
 					print("VNPlayer: BG UID invalid")
 					
+		elif action == "clear_stage":
+			for child in player.character_container.get_children():
+				child.queue_free()
+			player.background_rect_2.texture = player.background_rect.texture
+			player.background_rect_2.modulate.a = 1.0
+			player.background_rect.texture = null
+			player.background_rect.modulate.a = 0.0
+			var tw = player.create_tween()
+			tw.tween_property(player.background_rect_2, "modulate:a", 0.0, 0.5)
+
+		elif action == "hide_all":
+			for child in player.character_container.get_children():
+				child.queue_free()
+				
 		elif action == "hide_character":
 			var char_name = ev.get("character", "Unknown").replace("{player}", GameState.player_name).to_lower()
 			var node_name = "Sprite_" + char_name
@@ -40,6 +61,13 @@ static func handle(player: Node, data: Dictionary) -> void:
 				
 			var char_name = ev.get("character", "Unknown").replace("{player}", GameState.player_name).to_lower()
 			if profile:
+				if char_name == "player" or char_name == GameState.player_name.to_lower():
+					if GameState.player_gender == "Female":
+						var p = ResourceLoader.load("res://assets/DataAssets/CharacterData/FemalePlayer.tres")
+						if p: profile = p as CharacterProfile
+					else:
+						var p = ResourceLoader.load("res://assets/DataAssets/CharacterData/MalePlayer.tres")
+						if p: profile = p as CharacterProfile
 				player.active_profiles[char_name] = profile
 				
 			var node_name = "Sprite_" + char_name
@@ -63,6 +91,7 @@ static func handle(player: Node, data: Dictionary) -> void:
 				print("VNPlayer: Portrait for ", expr, " not found in profile!")
 				
 			sprite.z_index = ev.get("z_index", 0)
+			sprite.flip_h = ev.get("flip_h", false)
 			
 			var slot = ev.get("position_slot", "Center")
 			var screen_w = player.get_viewport().get_visible_rect().size.x
@@ -137,4 +166,3 @@ static func handle(player: Node, data: Dictionary) -> void:
 	# Proceed to next node
 	player.current_node_id = data.get("next_node", "")
 	player._process_node()
-

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dormscene123"]
 
 [ext_resource type="Script" uid="uid://c0hnkiacldsq" path="res://src/Dorm.gd" id="1_dorm"]
-[ext_resource type="Resource" uid="uid://bxfb5jbpjsd8q" path="res://scenes/StoryScene/prologue.tres" id="2_1s6s4"]
+[ext_resource type="Resource" uid="uid://c6gwqkcetcatt" path="res://scenes/StoryScene/prologue_test.tres" id="2_jw3nw"]
 [ext_resource type="Resource" uid="uid://dq0hbkf4ljii5" path="res://scenes/StoryScene/MirulChapters/MirulChapter1.tres" id="3_qk8yr"]
 [ext_resource type="Resource" uid="uid://msjo6ad0pr8n" path="res://scenes/StoryScene/MirulChapters/MirulChapter2.tres" id="4_1s6s4"]
 [ext_resource type="Resource" uid="uid://gteyq0g4lhfj" path="res://scenes/StoryScene/MirulChapters/MirulChapter3.tres" id="5_v4nee"]
@@ -16,7 +16,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dorm")
-prologue_tree = ExtResource("2_1s6s4")
+prologue_tree = ExtResource("2_jw3nw")
 mirul_chapters = Array[Resource]([ExtResource("3_qk8yr"), ExtResource("4_1s6s4"), ExtResource("5_v4nee")])
 alyssa_chapters = Array[Resource]([null, null, null])
 vihaan_chapters = Array[Resource]([null, null, null])
