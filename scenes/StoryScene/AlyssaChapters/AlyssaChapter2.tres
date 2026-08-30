@@ -1,14 +1,820 @@
 [gd_resource type="Resource" script_class="VNStoryTree" format=3 uid="uid://bbp2m7mrenbs1"]
 
-[ext_resource type="Script" uid="uid://dtjadxbepppro" path="res://src/vn_control/VNStoryTree.gd" id="1_jogno"]
+[ext_resource type="Script" uid="uid://dtjadxbepppro" path="res://src/vn_control/VNStoryTree.gd" id="1_1"]
 
 [resource]
-script = ExtResource("1_jogno")
+script = ExtResource("1_1")
 graph_data = {
-&"Start": {
+&"@GraphNode@39352": {
+"next_node": "B1",
+"node_name": &"@GraphNode@39352",
+"position": [3420.0, 260.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "\"Maybe you're letting your history with him affect you.\"",
+"type": "dialogue"
+},
+&"A_Fail1": {
+"next_node": "A_Fail2",
+"node_name": &"A_Fail1",
+"position": [3850.0, -150.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{Neutral, sink} Something about this feels off wei.",
+"type": "dialogue"
+},
+&"A_Fail2": {
+"next_node": "A_Fail3",
+"node_name": &"A_Fail2",
+"position": [4200.0, -150.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Annoyed_Pose1, twitch} What thing?",
+"type": "dialogue"
+},
+&"A_Fail3": {
+"next_node": "A_Fail4",
+"node_name": &"A_Fail3",
+"position": [4550.0, -150.0],
+"set_flags": "",
+"speaker": "System",
+"text": "You look over the notes again.",
+"type": "dialogue"
+},
+&"A_Fail4": {
+"next_node": "A_Fail5",
+"node_name": &"A_Fail4",
+"position": [4900.0, -150.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{Neutral, sink} ...I don't know lah.",
+"type": "dialogue"
+},
+&"A_Fail5": {
+"next_node": "A_Fail6",
+"node_name": &"A_Fail5",
+"position": [5250.0, -150.0],
+"set_flags": "",
+"speaker": "",
+"text": "Alyssa sighs.",
+"type": "dialogue"
+},
+&"A_Fail6": {
+"next_node": "Merge1",
+"node_name": &"A_Fail6",
+"position": [5600.0, -150.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Annoyed_Pose3, twitch} Haiya. Then I'm sticking with Mirul until we find something better.",
+"type": "dialogue"
+},
+&"A_Pass1": {
+"next_node": "A_Pass2",
+"node_name": &"A_Pass1",
+"position": [3850.0, -400.0],
+"set_flags": "",
+"speaker": "",
+"text": "You check Alyssa's notes again.",
+"type": "dialogue"
+},
+&"A_Pass10": {
+"next_node": "A_Pass11",
+"node_name": &"A_Pass10",
+"position": [7000.0, -400.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{Neutral, bounce} Doesn't mean he's innocent. Just that your evidence was wrong.",
+"type": "dialogue"
+},
+&"A_Pass11": {
+"next_node": "Merge1",
+"node_name": &"A_Pass11",
+"position": [7350.0, -400.0],
+"set_flags": "",
+"speaker": "",
+"text": "Alyssa nods.",
+"type": "dialogue"
+},
+&"A_Pass2": {
+"next_node": "A_Pass3",
+"node_name": &"A_Pass2",
+"position": [4200.0, -400.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{Shocked, jump} Wei, the papers were already missing before Mirul skipped class do.",
+"type": "dialogue"
+},
+&"A_Pass3": {
+"next_node": "A_Pass4",
+"node_name": &"A_Pass3",
+"position": [4560.0, -400.0],
+"set_flags": "",
+"speaker": "",
+"text": "Alyssa pauses.",
+"type": "dialogue"
+},
+&"A_Pass4": {
+"next_node": "A_Pass5",
+"node_name": &"A_Pass4",
+"position": [4900.0, -400.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Sad_Pose3, sink} ...Hah? What?",
+"type": "dialogue"
+},
+&"A_Pass5": {
+"next_node": "A_Pass6",
+"node_name": &"A_Pass5",
+"position": [5250.0, -400.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{Neutral, bounce} Look here. The office reported them missing before Puan Leah's class.",
+"type": "dialogue"
+},
+&"A_Pass6": {
+"next_node": "A_Pass7",
+"node_name": &"A_Pass6",
+"position": [5600.0, -400.0],
+"set_flags": "",
+"speaker": "",
+"text": "She reads the timeline.",
+"type": "dialogue"
+},
+&"A_Pass7": {
+"next_node": "A_Pass8",
+"node_name": &"A_Pass7",
+"position": [5950.0, -400.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Sad_Pose4, sink} Then him ponteng doesn't prove anything lor.",
+"type": "dialogue"
+},
+&"A_Pass8": {
+"next_node": "A_Pass9",
+"node_name": &"A_Pass8",
+"position": [6300.0, -400.0],
+"set_flags": "",
+"speaker": "",
+"text": "Alyssa looks frustrated.",
+"type": "dialogue"
+},
+&"A_Pass9": {
+"next_node": "A_Pass10",
+"node_name": &"A_Pass9",
+"position": [6650.0, -400.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Angry_Pose3, shake} Haiya, I was so sure do.",
+"type": "dialogue"
+},
+&"ActorNode": {
+"events": [{
+"action_type": "clear_stage"
+}, {
+"action_type": "change_bg",
+"background_uid": "res://assets/BGArtAssets/BG_Classroom.jpg"
+}, {
+"action_type": "show_character",
+"character": "Alyssa",
+"character_uid": "uid://bsylmi0xhjqvv",
+"expression": "Neutral_Pose1",
+"position_slot": "Center"
+}],
+"next_node": "S2_1",
+"position": [11660.0, 0.0],
+"type": "actor"
+},
+&"B1": {
+"next_node": "B2",
+"node_name": &"B1",
+"position": [3700.0, 340.0],
+"set_flags": "",
+"speaker": "",
+"text": "Alyssa looks at you sharply.",
+"type": "dialogue"
+},
+&"B2": {
+"next_node": "B3",
+"node_name": &"B2",
+"position": [3900.0, 140.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Angry_Pose2, shake} Excuse me? What you mean ah?",
+"type": "dialogue"
+},
+&"B3": {
+"next_node": "B4",
+"node_name": &"B3",
+"position": [4260.0, 140.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{Neutral, bounce} You clearly have something personal going on mah.",
+"type": "dialogue"
+},
+&"B4": {
+"next_node": "B5",
+"node_name": &"B4",
+"position": [4550.0, 150.0],
+"set_flags": "",
+"speaker": "System",
+"text": "Alyssa goes quiet.",
+"type": "dialogue"
+},
+&"B5": {
+"next_node": "B6",
+"node_name": &"B5",
+"position": [4900.0, 150.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Annoyed_Pose4, twitch} That doesn't mean I'm wrong.",
+"type": "dialogue"
+},
+&"B6": {
+"next_node": "B7",
+"node_name": &"B6",
+"position": [5240.0, 160.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{Neutral, bounce} Doesn't mean you're right either do.",
+"type": "dialogue"
+},
+&"B7": {
+"next_node": "Merge1",
+"node_name": &"B7",
+"position": [5600.0, 150.0],
+"set_flags": "",
+"speaker": "",
+"text": "She looks back at her notes.",
+"type": "dialogue"
+},
+&"Check1": {
+"dc_value": 10,
+"next_fail": "A_Fail1",
+"next_pass": "A_Pass1",
+"node_name": &"Check1",
+"position": [3540.0, -280.0],
+"target_stat": "Intelligence",
+"type": "dnd_check"
+},
+&"Choice1": {
+"choices": Array[Dictionary]([{
+"condition": "",
+"hide_if_locked": false,
+"text": "[INT — DC 10] Investigate"
+}, {
+"condition": "",
+"hide_if_locked": false,
+"text": "Doubt"
+}]),
+"next_nodes": ["GraphNode", "@GraphNode@39352"],
+"node_name": &"Choice1",
+"position": [3100.0, 60.0],
+"prompt": "What will you do?",
+"type": "choice_branch"
+},
+&"D1": {
+"next_node": "D2",
+"node_name": &"D1",
+"position": [350.0, 0.0],
+"set_flags": "",
+"speaker": "",
+"text": "Before class, Alyssa is going through notes from the investigation.You sit beside her.",
+"type": "dialogue"
+},
+&"D2": {
+"next_node": "D3",
+"node_name": &"D2",
+"position": [700.0, 0.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{Neutral, bounce} Still looking into the exam papers ah?",
+"type": "dialogue"
+},
+&"D3": {
+"next_node": "D4",
+"node_name": &"D3",
+"position": [1050.0, 0.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Annoyed_Pose2, twitch} Mestilah. Of course.",
+"type": "dialogue"
+},
+&"D4": {
+"next_node": "D5",
+"node_name": &"D4",
+"position": [1400.0, 0.0],
+"set_flags": "",
+"speaker": "",
+"text": "She points toward Mirul.",
+"type": "dialogue"
+},
+&"D5": {
+"next_node": "D6",
+"node_name": &"D5",
+"position": [1750.0, 0.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Angry_Pose1, shake} He ponteng class the exact same day they disappeared.",
+"type": "dialogue"
+},
+&"D6": {
+"next_node": "D7",
+"node_name": &"D6",
+"position": [2100.0, 0.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{Neutral, bounce} So you think he rembat them ke?",
+"type": "dialogue"
+},
+&"D7": {
+"next_node": "D8",
+"node_name": &"D7",
+"position": [2450.0, 0.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Annoyed_Pose4, twitch} Who else lah?",
+"type": "dialogue"
+},
+&"D8": {
+"next_node": "Choice1",
+"node_name": &"D8",
+"position": [2800.0, 0.0],
+"set_flags": "",
+"speaker": "",
+"text": "You look over her notes. Something doesn't line up.",
+"type": "dialogue"
+},
+&"GraphNode": {
+"next_node": "Check1",
+"node_name": &"GraphNode",
+"position": [3440.0, -100.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "Wait. When exactly were the papers stolen?\"ative...",
+"type": "dialogue"
+},
+&"Merge1": {
+"next_node": "Merge2",
+"node_name": &"Merge1",
+"position": [7800.0, 0.0],
+"set_flags": "",
+"speaker": "",
+"text": "A student passing by overhears the conversation.",
+"type": "dialogue"
+},
+&"Merge10": {
+"next_node": "Merge11",
+"node_name": &"Merge10",
+"position": [10960.0, 0.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Sad_Pose4, sink} I accused him without double check properly.",
+"type": "dialogue"
+},
+&"Merge11": {
+"next_node": "ActorNode",
+"node_name": &"Merge11",
+"position": [11300.0, 0.0],
+"set_flags": "",
+"speaker": "",
+"text": "For the first time, she looks genuinely embarrassed.",
+"type": "dialogue"
+},
+&"Merge2": {
+"next_node": "Merge3",
+"node_name": &"Merge2",
+"position": [8150.0, 0.0],
+"set_flags": "",
+"speaker": "Student",
+"text": "Eh, if you guys mean the exam paper, wasn't it already missing before Math class?",
+"type": "dialogue"
+},
+&"Merge3": {
+"next_node": "Merge4",
+"node_name": &"Merge3",
+"position": [8500.0, 0.0],
+"set_flags": "",
+"speaker": "",
+"text": "Alyssa looks up.",
+"type": "dialogue"
+},
+&"Merge4": {
+"next_node": "Merge5",
+"node_name": &"Merge4",
+"position": [8850.0, 0.0],
+"set_flags": "",
+"speaker": "Student",
+"text": "Cikgu was already talking about it that morning do.",
+"type": "dialogue"
+},
+&"Merge5": {
+"next_node": "Merge6",
+"node_name": &"Merge5",
+"position": [9200.0, 0.0],
+"set_flags": "",
+"speaker": "",
+"text": "The student walks off. Alyssa checks her notes again. Her expression drops.",
+"type": "dialogue"
+},
+&"Merge6": {
+"next_node": "Merge7",
+"node_name": &"Merge6",
+"position": [9550.0, 0.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Sad_Pose2, sink} ...Aiya. Damn it.",
+"type": "dialogue"
+},
+&"Merge7": {
+"next_node": "Merge8",
+"node_name": &"Merge7",
+"position": [9900.0, 0.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{Neutral, bounce} So Mirul couldn't have rembat it while he was ponteng.",
+"type": "dialogue"
+},
+&"Merge8": {
+"next_node": "Merge9",
+"node_name": &"Merge8",
+"position": [10250.0, 0.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Sad_Pose3, sink} At least not then lor.",
+"type": "dialogue"
+},
+&"Merge9": {
+"next_node": "Merge10",
+"node_name": &"Merge9",
+"position": [10600.0, 0.0],
+"set_flags": "",
+"speaker": "",
+"text": "She closes the notebook.",
+"type": "dialogue"
+},
+&"S2_1": {
+"next_node": "S2_2",
+"node_name": &"S2_1",
+"position": [12000.0, 0.0],
+"set_flags": "",
+"speaker": "",
+"text": "Later, you find Alyssa alone in the classroom.She is still looking over the investigation notes.",
+"type": "dialogue"
+},
+&"S2_10": {
+"next_node": "S2_11",
+"node_name": &"S2_10",
+"position": [15150.0, 0.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Annoyed_Pose2, twitch} Don't make that face lah.",
+"type": "dialogue"
+},
+&"S2_11": {
+"next_node": "S2_12",
+"node_name": &"S2_11",
+"position": [15500.0, 0.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{Shocked, jump} Eh, I didn't say anything pun.",
+"type": "dialogue"
+},
+&"S2_12": {
+"next_node": "S2_13",
+"node_name": &"S2_12",
+"position": [15850.0, 0.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Annoyed_Pose4, twitch} Your face did.",
+"type": "dialogue"
+},
+&"S2_13": {
+"next_node": "S2_14",
+"node_name": &"S2_13",
+"position": [16200.0, 0.0],
+"set_flags": "",
+"speaker": "",
+"text": "She looks away.",
+"type": "dialogue"
+},
+&"S2_14": {
+"next_node": "S2_15",
+"node_name": &"S2_14",
+"position": [16550.0, 0.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Sad_Pose2, sink} He was always so reckless. I kept thinking if I pushed him enough, maybe he'd actually take things seriously mah.",
+"type": "dialogue"
+},
+&"S2_15": {
+"next_node": "S2_16",
+"node_name": &"S2_15",
+"position": [16900.0, 0.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{Neutral, bounce} Tak jalan eh?",
+"type": "dialogue"
+},
+&"S2_16": {
+"next_node": "S2_17",
+"node_name": &"S2_16",
+"position": [17250.0, 0.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Sad_Pose4, sink} Obviously lor.",
+"type": "dialogue"
+},
+&"S2_17": {
+"next_node": "S2_18",
+"node_name": &"S2_17",
+"position": [17600.0, 0.0],
+"set_flags": "",
+"speaker": "",
+"text": "She taps her pen against the desk.",
+"type": "dialogue"
+},
+&"S2_18": {
+"next_node": "S2_19",
+"node_name": &"S2_18",
+"position": [17950.0, 0.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Sad_Pose3, sink} After we clash, things just got worse.",
+"type": "dialogue"
+},
+&"S2_19": {
+"next_node": "S2_20",
+"node_name": &"S2_19",
+"position": [18300.0, 0.0],
+"set_flags": "",
+"speaker": "",
+"text": "You think back to Mirul and Vihaan.",
+"type": "dialogue"
+},
+&"S2_2": {
+"next_node": "S2_3",
+"node_name": &"S2_2",
+"position": [12350.0, 0.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{Neutral, bounce} You okay tak ni?",
+"type": "dialogue"
+},
+&"S2_20": {
+"next_node": "S2_21",
+"node_name": &"S2_20",
+"position": [18650.0, 0.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{Neutral, bounce} What about Vihaan?",
+"type": "dialogue"
+},
+&"S2_21": {
+"next_node": "S2_22",
+"node_name": &"S2_21",
+"position": [19000.0, 0.0],
+"set_flags": "",
+"speaker": "",
+"text": "Alyssa looks at you.",
+"type": "dialogue"
+},
+&"S2_22": {
+"next_node": "S2_23",
+"node_name": &"S2_22",
+"position": [19350.0, 0.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{Neutral, bounce} He and Mirul seem pretty close, kan?",
+"type": "dialogue"
+},
+&"S2_23": {
+"next_node": "S2_24",
+"node_name": &"S2_23",
+"position": [19700.0, 0.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Neutral_Pose1, sink} Used to be lah.",
+"type": "dialogue"
+},
+&"S2_24": {
+"next_node": "S2_25",
+"node_name": &"S2_24",
+"position": [20050.0, 0.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{Shocked, jump} Used to?",
+"type": "dialogue"
+},
+&"S2_25": {
+"next_node": "S2_26",
+"node_name": &"S2_25",
+"position": [20400.0, 0.0],
+"set_flags": "",
+"speaker": "",
+"text": "Alyssa nods.",
+"type": "dialogue"
+},
+&"S2_26": {
+"next_node": "S2_27",
+"node_name": &"S2_26",
+"position": [20750.0, 0.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Neutral_Pose3, bounce} Vihaan knew him better than almost anyone lor.",
+"type": "dialogue"
+},
+&"S2_27": {
+"next_node": "S2_28",
+"node_name": &"S2_27",
+"position": [21100.0, 0.0],
+"set_flags": "",
+"speaker": "",
+"text": "You both go quiet. Then Alyssa looks back at the investigation notes.",
+"type": "dialogue"
+},
+&"S2_28": {
+"next_node": "S2_29",
+"node_name": &"S2_28",
+"position": [21450.0, 0.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Neutral_Pose2, twitch} If Mirul didn't steal the papers during class...",
+"type": "dialogue"
+},
+&"S2_29": {
+"next_node": "S2_30",
+"node_name": &"S2_29",
+"position": [21800.0, 0.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{Neutral, bounce} Maybe someone else had access.",
+"type": "dialogue"
+},
+&"S2_3": {
+"next_node": "S2_4",
+"node_name": &"S2_3",
+"position": [12700.0, 0.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Annoyed_Pose1, twitch} Annoyed lah.",
+"type": "dialogue"
+},
+&"S2_30": {
+"next_node": "S2_31",
+"node_name": &"S2_30",
+"position": [22150.0, 0.0],
+"set_flags": "",
+"speaker": "",
+"text": "Alyssa thinks.",
+"type": "dialogue"
+},
+&"S2_31": {
+"next_node": "S2_32",
+"node_name": &"S2_31",
+"position": [22500.0, 0.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Neutral_Pose4, bounce} Someone quiet. Someone nobody would question.",
+"type": "dialogue"
+},
+&"S2_32": {
+"next_node": "S2_33",
+"node_name": &"S2_32",
+"position": [22840.0, 0.0],
+"set_flags": "",
+"speaker": "",
+"text": "Her eyes narrow slightly.",
+"type": "dialogue"
+},
+&"S2_33": {
+"next_node": "S2_34",
+"node_name": &"S2_33",
+"position": [23200.0, 0.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{Shocked, jump} You suspect Vihaan do.",
+"type": "dialogue"
+},
+&"S2_34": {
+"next_node": "S2_35",
+"node_name": &"S2_34",
+"position": [23550.0, 0.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Angry_Pose1, shake} I'm saying we should talk to him lah.",
+"type": "dialogue"
+},
+&"S2_35": {
+"next_node": "S2_36",
+"node_name": &"S2_35",
+"position": [23900.0, 0.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{Happy, bounce} That sounds less dangerous than accusing him in front of the whole class.",
+"type": "dialogue"
+},
+&"S2_36": {
+"next_node": "S2_37",
+"node_name": &"S2_36",
+"position": [24250.0, 0.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Annoyed_Pose1, twitch} Ha-ha. Very funny.",
+"type": "dialogue"
+},
+&"S2_37": {
+"next_node": "S2_38",
+"node_name": &"S2_37",
+"position": [24600.0, 0.0],
+"set_flags": "",
+"speaker": "",
+"text": "She gathers her notes.",
+"type": "dialogue"
+},
+&"S2_38": {
 "next_node": "",
-"node_name": &"Start",
-"position": [238.0, 496.0],
+"node_name": &"S2_38",
+"position": [24960.0, 0.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Neutral_Pose1, bounce} Tomorrow. We ask him.",
+"type": "dialogue"
+},
+&"S2_4": {
+"next_node": "S2_5",
+"node_name": &"S2_4",
+"position": [13060.0, 0.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{Neutral, bounce} Cause you were wrong about Mirul ke?",
+"type": "dialogue"
+},
+&"S2_5": {
+"next_node": "S2_6",
+"node_name": &"S2_5",
+"position": [13400.0, 0.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Annoyed_Pose3, twitch} Wow, you really know how to cheer people up hor.",
+"type": "dialogue"
+},
+&"S2_6": {
+"next_node": "S2_7",
+"node_name": &"S2_6",
+"position": [13750.0, 0.0],
+"set_flags": "",
+"speaker": "",
+"text": "You sit beside her.",
+"type": "dialogue"
+},
+&"S2_7": {
+"next_node": "S2_8",
+"node_name": &"S2_7",
+"position": [14100.0, 0.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{Neutral, bounce} Why were you so sure it was him do?",
+"type": "dialogue"
+},
+&"S2_8": {
+"next_node": "S2_9",
+"node_name": &"S2_8",
+"position": [14450.0, 0.0],
+"set_flags": "",
+"speaker": "",
+"text": "Alyssa stays quiet for a moment. Then she sighs.",
+"type": "dialogue"
+},
+&"S2_9": {
+"next_node": "S2_10",
+"node_name": &"S2_9",
+"position": [14800.0, 0.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Sad_Pose1, sink} Mirul and I used to date.",
+"type": "dialogue"
+},
+&"Start": {
+"events": [{
+"action_type": "change_bg",
+"background_uid": "res://assets/BGArtAssets/BG_Classroom.jpg"
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"character": "Alyssa",
+"character_uid": "uid://bsylmi0xhjqvv",
+"expression": "Neutral_Pose1",
+"position_slot": "Center"
+}],
+"next_node": "D1",
+"position": [0.0, 0.0],
+"type": "actor"
+},
+&"Start2": {
+"next_node": "Start",
+"node_name": &"Start2",
+"position": [-360.0, 0.0],
 "type": "start"
 }
 }

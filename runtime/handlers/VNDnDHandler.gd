@@ -25,9 +25,15 @@ static func handle(player: Node, data: Dictionary) -> void:
 	
 	var original_pos = Vector2.ZERO
 	if dice_viewport:
-		original_pos = dice_viewport.position # Save the designer's editor position
+		# Compute the intended position dynamically using anchors and offsets
+		# This avoids the Godot 4 hidden-control layout bug where position is (0,0)
+		original_pos = Vector2(
+			(player.dice_panel.size.x * 0.5) + dice_viewport.offset_left,
+			(player.dice_panel.size.y * 0.5) + dice_viewport.offset_top
+		)
 		dice_viewport.show()
-		# Center it perfectly on the SCREEN, ignoring the panel!
+		
+		# Center it perfectly on the SCREEN for the cinematic roll!
 		var screen_size = player.get_viewport().get_visible_rect().size
 		var global_center = screen_size / 2.0 - (dice_viewport.size / 2.0)
 		dice_viewport.global_position = global_center
@@ -43,7 +49,7 @@ static func handle(player: Node, data: Dictionary) -> void:
 	if dice_viewport:
 		var tw = player.create_tween()
 		tw.set_parallel(true)
-		# Move the dice back to exactly where you placed it in the editor!
+		# Move the dice back UP to exactly where you placed it in the editor!
 		tw.tween_property(dice_viewport, "position", original_pos, 0.4).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 		tw.tween_property(player.dice_panel, "self_modulate:a", 1.0, 0.4)
 		await tw.finished
