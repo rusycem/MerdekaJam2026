@@ -43,24 +43,11 @@ graph_data = {
 "flip_h": false,
 "offset_x": 0.0,
 "offset_y": 0.0,
-"position_slot": "Right",
-"z_index": 0
-}, {
-"action_type": "show_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "{player}",
-"character_uid": "uid://bhul00hbvcywv",
-"expression": "Angry",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Left",
+"position_slot": "Center",
 "z_index": 0
 }],
-"next_node": "_GraphNode_52104",
-"position": [-1260.0, -40.0],
+"next_node": "IntroDialogue",
+"position": [-900.0, 40.0],
 "type": "actor"
 },
 &"AlyssaEnd": {
@@ -198,7 +185,7 @@ graph_data = {
 &"Start": {
 "next_node": "ActorNode",
 "node_name": &"Start",
-"position": [-1620.0, -20.0],
+"position": [-1320.0, 40.0],
 "type": "start"
 },
 &"VihaanEnd": {
@@ -226,7 +213,7 @@ graph_data = {
 "type": "dialogue"
 },
 &"VihaanMinigame": {
-"command": "minigame math",
+"command": "minigame errorhunt",
 "next_node": "ConditionNode",
 "position": [2320.0, 380.0],
 "type": "command"
@@ -422,15 +409,6 @@ graph_data = {
 "next_node": "VihaanMinigame",
 "position": [1940.0, 380.0],
 "type": "actor"
-},
-&"_GraphNode_52104": {
-"next_node": "IntroDialogue",
-"node_name": &"_GraphNode_52104",
-"position": [-900.0, 40.0],
-"set_flags": "",
-"speaker": "{player}",
-"text": "{Shocked} Hi! ",
-"type": "dialogue"
 },
 &"_GraphNode_63451": {
 "events": [{
