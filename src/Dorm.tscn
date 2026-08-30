@@ -5,6 +5,8 @@
 [ext_resource type="Resource" uid="uid://dq0hbkf4ljii5" path="res://scenes/StoryScene/MirulChapters/MirulChapter1.tres" id="3_qk8yr"]
 [ext_resource type="Resource" uid="uid://msjo6ad0pr8n" path="res://scenes/StoryScene/MirulChapters/MirulChapter2.tres" id="4_1s6s4"]
 [ext_resource type="Resource" uid="uid://gteyq0g4lhfj" path="res://scenes/StoryScene/MirulChapters/MirulChapter3.tres" id="5_v4nee"]
+[ext_resource type="Texture2D" uid="uid://evakhjfk1bh6" path="res://assets/UIAssets/woodbg.png" id="6_jw3nw"]
+[ext_resource type="FontFile" uid="uid://bjsjfoiqhtqsm" path="res://assets/UIAssets/cc.otf" id="6_v4nee"]
 
 [node name="Dorm" type="Control" unique_id=1102915279]
 layout_mode = 3
@@ -28,6 +30,12 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.15, 0.1, 0.1, 1)
 
+[node name="BG" type="TextureRect" parent="ColorRect" unique_id=1091984910]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("6_jw3nw")
+
 [node name="TitleLabel" type="Label" parent="." unique_id=516172941]
 layout_mode = 1
 anchors_preset = 10
@@ -35,6 +43,7 @@ anchor_right = 1.0
 offset_top = 20.0
 offset_bottom = 87.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_v4nee")
 theme_override_font_sizes/font_size = 48
 text = "The Dorm"
 horizontal_alignment = 1
@@ -61,9 +70,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 20.0
+offset_left = 15.0
 offset_top = 20.0
-offset_right = -20.0
+offset_right = -15.0
 offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -71,6 +80,7 @@ theme_override_constants/separation = 15
 
 [node name="Label" type="Label" parent="HBox/ChaptersPanel/VBox" unique_id=446019477]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("6_v4nee")
 theme_override_font_sizes/font_size = 32
 text = "Chapter Select"
 horizontal_alignment = 1
@@ -107,6 +117,7 @@ theme_override_constants/separation = 20
 
 [node name="Label" type="Label" parent="HBox/RightPanel/RadioPanel/VBox" unique_id=1109447843]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("6_v4nee")
 theme_override_font_sizes/font_size = 32
 text = "Radio"
 horizontal_alignment = 1
@@ -116,11 +127,13 @@ layout_mode = 2
 
 [node name="BtnPlaySong1" type="Button" parent="HBox/RightPanel/RadioPanel/VBox" unique_id=590629220]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("6_v4nee")
 theme_override_font_sizes/font_size = 24
 text = "Play: Lo-Fi Study"
 
 [node name="BtnPlaySong2" type="Button" parent="HBox/RightPanel/RadioPanel/VBox" unique_id=824813065]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("6_v4nee")
 theme_override_font_sizes/font_size = 24
 text = "Play: Upbeat Dorm"
 
@@ -144,6 +157,7 @@ theme_override_constants/separation = 20
 
 [node name="Label" type="Label" parent="HBox/RightPanel/SystemPanel/VBox" unique_id=1029898182]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("6_v4nee")
 theme_override_font_sizes/font_size = 32
 text = "System"
 horizontal_alignment = 1
@@ -153,10 +167,12 @@ layout_mode = 2
 
 [node name="BtnSaveLoad" type="Button" parent="HBox/RightPanel/SystemPanel/VBox" unique_id=1623192396]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("6_v4nee")
 theme_override_font_sizes/font_size = 24
 text = "Save / Load"
 
 [node name="BtnMainMenu" type="Button" parent="HBox/RightPanel/SystemPanel/VBox" unique_id=2077437511]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("6_v4nee")
 theme_override_font_sizes/font_size = 24
 text = "Quit to Title"

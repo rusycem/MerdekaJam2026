@@ -5,562 +5,117 @@
 [resource]
 script = ExtResource("1_hd8si")
 graph_data = {
-&"@GraphNode@24277": {
-"next_node": "@GraphNode@24309",
-"node_name": &"@GraphNode@24277",
-"position": [-540.0, 0.0],
-"set_flags": "",
-"speaker": "",
-"text": "The door closes behind her. For one glorious second, the classroom is silent.",
-"type": "dialogue"
-},
-&"@GraphNode@24309": {
-"next_node": "@GraphNode@24456",
-"node_name": &"@GraphNode@24309",
-"position": [-160.0, 20.0],
-"set_flags": "",
-"speaker": "",
-"text": "Then the illusion of order dies. Chairs scrape. Conversations erupt. Someone at the back laughs far too loudly.",
-"type": "dialogue"
-},
-&"@GraphNode@24329": {
-"next_node": "@GraphNode@24353",
-"node_name": &"@GraphNode@24329",
-"position": [600.0, 40.0],
-"set_flags": "",
-"speaker": "",
-"text": "Mirul wastes no time. He drifts over to Vihaan’s desk, leaning in as if whatever they are discussing is suddenly more important than Mathematics.",
-"type": "dialogue"
-},
-&"@GraphNode@24353": {
-"next_node": "@GraphNode@26419",
-"node_name": &"@GraphNode@24353",
-"position": [1000.0, 40.0],
-"set_flags": "",
-"speaker": "",
-"text": "You look away for only a moment.",
-"type": "dialogue"
-},
-&"@GraphNode@24373": {
-"next_node": "@GraphNode@26788",
-"node_name": &"@GraphNode@24373",
-"position": [1740.0, 40.0],
-"set_flags": "",
-"speaker": "",
-"text": "When you glance back...Mirul is gone.",
-"type": "dialogue"
-},
-&"@GraphNode@24456": {
+&"AfterPE": {
 "events": [{
 "action_type": "show_character",
 "anim_duration": 0.5,
 "animation": "None",
 "background_uid": "",
-"character": "Vihaan",
+"character": "Mirul",
 "character_uid": "uid://cupkf4jv5s3wr",
-"expression": "Sad_Pose4",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center-Right",
-"z_index": 0
-}, {
-"action_type": "show_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Mirul",
-"character_uid": "uid://dowxttrntsqon",
-"expression": "Smile_Pose1",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Right",
-"z_index": 0
-}],
-"next_node": "@GraphNode@24329",
-"position": [220.0, 40.0],
-"type": "actor"
-},
-&"@GraphNode@26419": {
-"events": [{
-"action_type": "hide_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Mirul",
-"character_uid": "uid://dowxttrntsqon",
-"expression": "Neutral",
-"flip_h": false,
+"expression": "Neutral_Pose1",
 "offset_x": 0.0,
 "offset_y": 0.0,
 "position_slot": "Center",
 "z_index": 0
 }],
-"next_node": "@GraphNode@24373",
-"position": [1360.0, 60.0],
+"next_node": "MirulReward",
+"position": [2600.0, 0.0],
 "type": "actor"
 },
-&"@GraphNode@26788": {
-"events": [{
-"action_type": "hide_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Vihaan",
-"character_uid": "uid://cupkf4jv5s3wr",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}],
-"next_node": "@GraphNode@26889",
-"position": [2120.0, 60.0],
-"type": "actor"
-},
-&"@GraphNode@26889": {
-"next_node": "@GraphNode@27114",
-"node_name": &"@GraphNode@26889",
-"position": [2500.0, 40.0],
-"set_flags": "",
-"speaker": "",
-"text": "The back door is still swinging slightly. He slipped out...",
-"type": "dialogue"
-},
-&"@GraphNode@27114": {
-"next_node": "@GraphNode@27170",
-"node_name": &"@GraphNode@27114",
-"position": [2900.0, 20.0],
-"set_flags": "",
-"speaker": "{player}",
-"text": "“...Where is this mamat going?”",
-"type": "dialogue"
-},
-&"@GraphNode@27147": {
-"next_node": "@GraphNode@27365",
-"node_name": &"@GraphNode@27147",
-"position": [3640.0, 40.0],
-"set_flags": "",
-"speaker": "",
-"text": "You follow his trail through the quieter side of the school until the classrooms are little more than distant noise behind you.",
-"type": "dialogue"
-},
-&"@GraphNode@27170": {
-"events": [{
-"action_type": "change_bg",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "uid://brq5bijildv3f",
-"character": "Alyssa",
-"character_uid": "",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}],
-"next_node": "@GraphNode@27147",
-"position": [3280.0, 60.0],
-"type": "actor"
-},
-&"@GraphNode@27365": {
-"events": [{
-"action_type": "show_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Mirul",
-"character_uid": "uid://dowxttrntsqon",
-"expression": "Annoyed_Pose1",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Right",
-"z_index": 0
-}],
-"next_node": "@GraphNode@28436",
-"position": [4040.0, 60.0],
-"type": "actor"
-},
-&"@GraphNode@28436": {
-"next_node": "@GraphNode@28453",
-"node_name": &"@GraphNode@28436",
-"position": [4420.0, 40.0],
-"set_flags": "",
-"speaker": "",
-"text": "At the back fence, you find him.",
-"type": "dialogue"
-},
-&"@GraphNode@28453": {
-"next_node": "@GraphNode@28491",
-"node_name": &"@GraphNode@28453",
-"position": [4800.0, 40.0],
-"set_flags": "",
-"speaker": "",
-"text": "Mirul already has one foot against the wall, fingers hooked around the metal bars as he pulls himself upward with practiced ease.",
-"type": "dialogue"
-},
-&"@GraphNode@28491": {
-"next_node": "@GraphNode@28875",
-"node_name": &"@GraphNode@28491",
-"position": [5200.0, 40.0],
-"set_flags": "",
-"speaker": "",
-"text": "Then he glances over his shoulder. He’s noticed you.",
-"type": "dialogue"
-},
-&"@GraphNode@28860": {
-"next_node": "@GraphNode@29380",
-"node_name": &"@GraphNode@28860",
-"position": [6260.0, 60.0],
+&"ApologizeRoute": {
+"next_node": "LoseCourage",
+"node_name": &"ApologizeRoute",
+"position": [1300.0, -200.0],
 "set_flags": "",
 "speaker": "Mirul",
-"text": "{Smile, Pose2}
-Oh. Kau je.”",
+"text": "{Annoyed, Pose2, twitch, flip} Hmph. Weak.",
 "type": "dialogue"
 },
-&"@GraphNode@28875": {
-"events": [{
-"action_type": "hide_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Mirul",
-"character_uid": "uid://dowxttrntsqon",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}],
-"next_node": "@GraphNode@28976",
-"position": [5560.0, 80.0],
-"type": "actor"
-},
-&"@GraphNode@28976": {
-"events": [{
-"action_type": "show_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Mirul",
-"character_uid": "uid://dowxttrntsqon",
-"expression": "Smile_Pose2",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center-Right",
-"z_index": 0
-}],
-"next_node": "@GraphNode@28860",
-"position": [5920.0, 80.0],
-"type": "actor"
-},
-&"@GraphNode@29380": {
-"next_node": "@GraphNode@29583",
-"node_name": &"@GraphNode@29380",
-"position": [6600.0, 60.0],
+&"EndChapter": {
+"next_node": "",
+"node_name": &"EndChapter",
+"position": [3500.0, 0.0],
 "set_flags": "",
 "speaker": "{player}",
-"text": "“Eh you skipping class ke?”",
+"text": "(I got 20 money!) Time to head back to the dorm.",
 "type": "dialogue"
 },
-&"@GraphNode@29583": {
-"next_node": "@GraphNode@29703",
-"node_name": &"@GraphNode@29583",
-"position": [6980.0, 80.0],
+&"GiveMoney": {
+"command": "reward money 20",
+"next_node": "EndChapter",
+"position": [3200.0, 0.0],
+"type": "command"
+},
+&"JerkFail": {
+"next_node": "JoinActivity",
+"node_name": &"JerkFail",
+"position": [1600.0, 300.0],
 "set_flags": "",
 "speaker": "Mirul",
-"text": "{Neutral, Pose4}
-“Yelah, lepak bro.”",
+"text": "{Angry, Pose3, shake, flip} Watch your mouth, {player}.",
 "type": "dialogue"
 },
-&"@GraphNode@29703": {
-"next_node": "@GraphNode@29727",
-"node_name": &"@GraphNode@29703",
-"position": [7360.0, 100.0],
-"set_flags": "",
-"speaker": "{player}",
-"text": "“Aren’t afraid you gonna get caught?”",
-"type": "dialogue"
-},
-&"@GraphNode@29727": {
-"next_node": "ChoiceNode",
-"node_name": &"@GraphNode@29727",
-"position": [7760.0, 100.0],
-"set_flags": "",
+&"JerkPass": {
+"next_node": "JoinActivity",
+"node_name": &"JerkPass",
+"position": [1600.0, 100.0],
+"set_flags": "mirul_respect",
 "speaker": "Mirul",
-"text": "{Smile, Pose4}
-“Santai lah. Aku professional ah.”",
+"text": "{Happy, Pose1, bounce} Heh. {Happy, Pose1, bounce} You've got guts, I'll give you that.",
 "type": "dialogue"
 },
-&"@GraphNode@30109": {
+&"JerkRoute": {
 "dc_value": 10,
-"next_fail": "@GraphNode@31371",
-"next_pass": "@GraphNode@30258",
-"node_name": &"@GraphNode@30109",
-"position": [8700.0, 40.0],
-"target_stat": "Dexterity",
+"next_fail": "JerkFail",
+"next_pass": "JerkPass",
+"node_name": &"JerkRoute",
+"position": [1300.0, 200.0],
+"target_stat": "Charm",
 "type": "dnd_check"
 },
-&"@GraphNode@30258": {
-"next_node": "@GraphNode@30292",
-"node_name": &"@GraphNode@30258",
-"position": [9080.0, -80.0],
-"set_flags": "Flag_JumpFence",
-"speaker": "",
-"text": "You pull yourself over the fence and drop cleanly onto the other side.",
-"type": "dialogue"
-},
-&"@GraphNode@30292": {
-"next_node": "@GraphNode@30475",
-"node_name": &"@GraphNode@30292",
-"position": [9440.0, -80.0],
+&"JoinActivity": {
+"next_node": "StartHub",
+"node_name": &"JoinActivity",
+"position": [2000.0, 0.0],
 "set_flags": "",
-"speaker": "",
-"text": "Mirul looks you over, visibly impressed.",
+"speaker": "Teacher",
+"text": "Alright everyone, time for Physical Education! Hit the track!",
 "type": "dialogue"
 },
-&"@GraphNode@30475": {
-"next_node": "@GraphNode@31049",
-"node_name": &"@GraphNode@30475",
-"position": [9840.0, -100.0],
-"set_flags": "",
-"speaker": "Mirul",
-"text": "{Smile, Pose3}
-“Fuiyo!! Not bad.”",
-"type": "dialogue"
-},
-&"@GraphNode@31049": {
-"next_node": "@GraphNode@31069",
-"node_name": &"@GraphNode@31049",
-"position": [10211.159, -71.195045],
-"set_flags": "",
-"speaker": "",
-"text": "He jerks his head toward the path ahead.",
-"type": "dialogue"
-},
-&"@GraphNode@31069": {
-"next_node": "@GraphNode@31091",
-"node_name": &"@GraphNode@31069",
-"position": [10560.0, -80.0],
-"set_flags": "",
-"speaker": "",
-"text": "And just like that, the two of you disappear beyond the school grounds.",
-"type": "dialogue"
-},
-&"@GraphNode@31091": {
-"events": [{
-"action_type": "hide_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Mirul",
-"character_uid": "uid://dowxttrntsqon",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}],
-"next_node": "CommandNode",
-"position": [10920.0, -60.0],
-"type": "actor"
-},
-&"@GraphNode@31371": {
-"next_node": "@GraphNode@31392",
-"node_name": &"@GraphNode@31371",
-"position": [9080.0, 160.0],
-"set_flags": "Flag_JumpFence",
-"speaker": "",
-"text": "You follow him up.",
-"type": "dialogue"
-},
-&"@GraphNode@31392": {
-"next_node": "@GraphNode@31411",
-"node_name": &"@GraphNode@31392",
-"position": [9440.0, 120.0],
-"set_flags": "",
-"speaker": "",
-"text": "For a moment, it seems easy enough.",
-"type": "dialogue"
-},
-&"@GraphNode@31411": {
-"next_node": "@GraphNode@31432",
-"node_name": &"@GraphNode@31411",
-"position": [9820.0, 140.0],
-"set_flags": "",
-"speaker": "",
-"text": "Then your foot slips. Gravity does the rest.",
-"type": "dialogue"
-},
-&"@GraphNode@31432": {
-"next_node": "@GraphNode@31464",
-"node_name": &"@GraphNode@31432",
-"position": [10220.0, 160.0],
-"set_flags": "",
-"speaker": "",
-"text": "THUD!!!",
-"type": "dialogue"
-},
-&"@GraphNode@31464": {
-"next_node": "@GraphNode@31506",
-"node_name": &"@GraphNode@31464",
-"position": [10620.0, 140.0],
-"set_flags": "",
-"speaker": "",
-"text": "You hit the ground hard, dignity arriving several seconds after you do.",
-"type": "dialogue"
-},
-&"@GraphNode@31506": {
-"next_node": "@GraphNode@31564",
-"node_name": &"@GraphNode@31506",
-"position": [11000.0, 160.0],
-"set_flags": "",
-"speaker": "",
-"text": "Mirul stares down at you.",
-"type": "dialogue"
-},
-&"@GraphNode@31564": {
-"next_node": "@GraphNode@31586",
-"node_name": &"@GraphNode@31564",
-"position": [11400.0, 160.0],
-"set_flags": "",
-"speaker": "",
-"text": "Then bursts out laughing.",
-"type": "dialogue"
-},
-&"@GraphNode@31586": {
-"next_node": "@GraphNode@31789",
-"node_name": &"@GraphNode@31586",
-"position": [11840.0, 120.0],
-"set_flags": "",
-"speaker": "Mirul",
-"text": "{Laugh, Pose3}
-“HAHAHA!! Yo, you good bro?!”",
-"type": "dialogue"
-},
-&"@GraphNode@31789": {
-"next_node": "@GraphNode@31807",
-"node_name": &"@GraphNode@31789",
-"position": [12280.0, 140.0],
-"set_flags": "",
-"speaker": "",
-"text": "Still grinning, he reaches down and hauls you back onto your feet.",
-"type": "dialogue"
-},
-&"@GraphNode@31807": {
-"next_node": "@GraphNode@31845",
-"node_name": &"@GraphNode@31807",
-"position": [12700.0, 140.0],
-"set_flags": "",
-"speaker": "",
-"text": "Mirul laughs again, and with what remains of your pride, the two of you head away from the school together.",
-"type": "dialogue"
-},
-&"@GraphNode@31845": {
-"events": [{
-"action_type": "hide_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Mirul",
-"character_uid": "uid://dowxttrntsqon",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}],
-"next_node": "CommandNode",
-"position": [13080.0, 120.0],
-"type": "actor"
-},
-&"@GraphNode@32796": {
-"next_node": "@GraphNode@32922",
-"node_name": &"@GraphNode@32796",
-"position": [8600.0, 320.0],
-"set_flags": "",
-"speaker": "Mirul",
-"text": "{Annoyed, Pose2}
-“Serious lah? Ikut suka kau lah.\"",
-"type": "dialogue"
-},
-&"@GraphNode@32922": {
-"events": [{
-"action_type": "hide_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Mirul",
-"character_uid": "uid://dowxttrntsqon",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}],
-"next_node": "@GraphNode@33127",
-"position": [8980.0, 520.0],
-"type": "actor"
-},
-&"@GraphNode@33127": {
-"next_node": "@GraphNode@33161",
-"node_name": &"@GraphNode@33127",
-"position": [9360.0, 500.0],
-"set_flags": "",
-"speaker": "",
-"text": "Mirul turns back to the fence and starts climbing. You watch him disappear over the other side.",
-"type": "dialogue"
-},
-&"@GraphNode@33161": {
-"next_node": "@GraphNode@33290",
-"node_name": &"@GraphNode@33161",
-"position": [9740.0, 480.0],
-"set_flags": "",
-"speaker": "",
-"text": "Then, deciding you have done enough questionable things for one morning, you head back to class.",
-"type": "dialogue"
-},
-&"@GraphNode@33290": {
-"command": "start_hub 3",
-"next_node": "@GraphNode@33312",
-"position": [10160.0, 520.0],
+&"LoseCourage": {
+"command": "stat Courage -1",
+"next_node": "JoinActivity",
+"position": [1600.0, -200.0],
 "type": "command"
 },
-&"@GraphNode@33312": {
-"command": "minigame error_hunt",
-"next_node": "@GraphNode@33419",
-"position": [10580.0, 520.0],
-"type": "command"
-},
-&"@GraphNode@33346": {
-"next_node": "@GraphNode@35046",
-"node_name": &"@GraphNode@33346",
-"position": [14460.0, 520.0],
+&"MirulGreeting": {
+"next_node": "StareChoice",
+"node_name": &"MirulGreeting",
+"position": [600.0, 0.0],
 "set_flags": "",
-"speaker": "Alyssa",
-"text": "{Angry, Pose1}
-“Mirul! How many times you want to skip class ah?!”",
+"speaker": "Mirul",
+"text": "{Angry, Pose1, shake} What are you looking at, {player}? Got a staring problem?",
 "type": "dialogue"
 },
-&"@GraphNode@33419": {
+&"MirulReward": {
+"next_node": "GiveMoney",
+"node_name": &"MirulReward",
+"position": [2900.0, 0.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Happy, Pose1, bounce} You're not completely useless on the track. Here, I found this.",
+"type": "dialogue"
+},
+&"SetupScene": {
 "events": [{
 "action_type": "change_bg",
 "anim_duration": 0.5,
 "animation": "None",
-"background_uid": "uid://4imjs0hwif5i",
-"character": "Alyssa",
+"background_uid": "uid://ltl68wkoaqh0",
+"character": "",
 "character_uid": "",
-"expression": "Neutral",
-"flip_h": false,
+"expression": "Neutral_Pose1",
 "offset_x": 0.0,
 "offset_y": 0.0,
 "position_slot": "Center",
@@ -570,468 +125,44 @@ Oh. Kau je.”",
 "anim_duration": 0.5,
 "animation": "None",
 "background_uid": "",
-"character": "Alyssa",
-"character_uid": "uid://bsylmi0xhjqvv",
-"expression": "Angry_Pose1",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center-Right",
-"z_index": 0
-}, {
-"action_type": "show_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
 "character": "Mirul",
 "character_uid": "uid://dowxttrntsqon",
-"expression": "Annoyed_Pose1",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center-Left",
-"z_index": 0
-}],
-"next_node": "@GraphNode@33346",
-"position": [13840.0, 520.0],
-"type": "actor"
-},
-&"@GraphNode@34934": {
-"next_node": "@GraphNode@35128",
-"node_name": &"@GraphNode@34934",
-"position": [15340.0, 540.0],
-"set_flags": "",
-"speaker": "Mirul",
-"text": "{Annoyed, Pose2}
-“Relax lah, Lysa. Still only twice.”",
-"type": "dialogue"
-},
-&"@GraphNode@35046": {
-"next_node": "@GraphNode@34934",
-"node_name": &"@GraphNode@35046",
-"position": [14880.0, 520.0],
-"set_flags": "",
-"speaker": "Alyssa",
-"text": "{Angry, Pose1}
-“You already skipped twice this week!”",
-"type": "dialogue"
-},
-&"@GraphNode@35128": {
-"next_node": "@GraphNode@35440",
-"node_name": &"@GraphNode@35128",
-"position": [15820.0, 540.0],
-"set_flags": "",
-"speaker": "Alyssa",
-"text": "{Angry, Pose1}
-“You—”",
-"type": "dialogue"
-},
-&"@GraphNode@35424": {
-"next_node": "@GraphNode@35709",
-"node_name": &"@GraphNode@35424",
-"position": [16580.0, 540.0],
-"set_flags": "",
-"speaker": "",
-"text": "The school speakers crackle overhead. The noise dies almost instantly.",
-"type": "dialogue"
-},
-&"@GraphNode@35440": {
-"events": [{
-"action_type": "hide_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Mirul",
-"character_uid": "uid://dowxttrntsqon",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}, {
-"action_type": "hide_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Alyssa",
-"character_uid": "uid://bsylmi0xhjqvv",
-"expression": "Neutral",
-"flip_h": false,
+"expression": "Neutral_Pose1",
 "offset_x": 0.0,
 "offset_y": 0.0,
 "position_slot": "Center",
 "z_index": 0
 }],
-"next_node": "@GraphNode@35424",
-"position": [16220.0, 560.0],
+"next_node": "MirulGreeting",
+"position": [300.0, 0.0],
 "type": "actor"
 },
-&"@GraphNode@35709": {
-"next_node": "@GraphNode@35730",
-"node_name": &"@GraphNode@35709",
-"position": [16920.0, 520.0],
-"set_flags": "",
-"speaker": "ANNOUNCEMENT",
-"text": "“The answer sheets for the upcoming final examination have been reported missing.”",
-"type": "dialogue"
-},
-&"@GraphNode@35730": {
-"next_node": "@GraphNode@35781",
-"node_name": &"@GraphNode@35730",
-"position": [17260.0, 560.0],
-"set_flags": "",
-"speaker": "",
-"text": "A hush falls over the classroom. Even the students who were pretending not to listen are paying attention now.",
-"type": "dialogue"
-},
-&"@GraphNode@35781": {
-"next_node": "@GraphNode@35988",
-"node_name": &"@GraphNode@35781",
-"position": [17620.0, 520.0],
-"set_flags": "",
-"speaker": "ANNOUNCEMENT",
-"text": "“If anyone has information, please report to the Principal’s office immediately.”",
-"type": "dialogue"
-},
-&"@GraphNode@35988": {
-"next_node": "@GraphNode@36022",
-"node_name": &"@GraphNode@35988",
-"position": [18040.0, 580.0],
-"set_flags": "",
-"speaker": "",
-"text": "The announcement cuts out.",
-"type": "dialogue"
-},
-&"@GraphNode@36022": {
-"next_node": "@GraphNode@36043",
-"node_name": &"@GraphNode@36022",
-"position": [18420.0, 560.0],
-"set_flags": "",
-"speaker": "",
-"text": "A moment later, the classroom door opens.",
-"type": "dialogue"
-},
-&"@GraphNode@36043": {
-"events": [{
-"action_type": "show_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Principal",
-"character_uid": "uid://ch0pocbeb0y77",
-"expression": "Serious",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center-Right",
-"z_index": 0
-}],
-"next_node": "@GraphNode@36346",
-"position": [18800.0, 600.0],
-"type": "actor"
-},
-&"@GraphNode@36346": {
-"next_node": "@GraphNode@36367",
-"node_name": &"@GraphNode@36346",
-"position": [19180.0, 580.0],
-"set_flags": "",
-"speaker": "",
-"text": "Encik Samad stands there, expression unusually serious.",
-"type": "dialogue"
-},
-&"@GraphNode@36367": {
-"events": [{
-"action_type": "show_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Alyssa",
-"character_uid": "uid://bsylmi0xhjqvv",
-"expression": "Sad_Pose3",
-"flip_h": true,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center-Left",
-"z_index": 0
-}],
-"next_node": "@GraphNode@36958",
-"position": [19520.0, 620.0],
-"type": "actor"
-},
-&"@GraphNode@36958": {
-"next_node": "@GraphNode@37176",
-"node_name": &"@GraphNode@36958",
-"position": [19900.0, 560.0],
-"set_flags": "",
-"speaker": "Principle",
-"text": "{Serious}
-“Alyssa. Emergency meeting. My office.”",
-"type": "dialogue"
-},
-&"@GraphNode@37176": {
-"events": [{
-"action_type": "hide_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Principal",
-"character_uid": "uid://ch0pocbeb0y77",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}],
-"next_node": "@GraphNode@37504",
-"position": [20280.0, 620.0],
-"type": "actor"
-},
-&"@GraphNode@37277": {
-"next_node": "@GraphNode@37806",
-"node_name": &"@GraphNode@37277",
-"position": [21000.0, 580.0],
-"set_flags": "",
-"speaker": "Alyssa",
-"text": "{Angry, Pose4}
-“This isn’t over.”",
-"type": "dialogue"
-},
-&"@GraphNode@37504": {
-"events": [{
-"action_type": "show_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Mirul",
-"character_uid": "uid://dowxttrntsqon",
-"expression": "Neutral_Pose3",
-"flip_h": true,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center-Right",
-"z_index": 0
-}],
-"next_node": "@GraphNode@37277",
-"position": [20620.0, 620.0],
-"type": "actor"
-},
-&"@GraphNode@37806": {
-"events": [{
-"action_type": "hide_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Alyssa",
-"character_uid": "uid://bsylmi0xhjqvv",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}, {
-"action_type": "hide_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Mirul",
-"character_uid": "uid://dowxttrntsqon",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}],
-"next_node": "@GraphNode@38104",
-"position": [21408.469, 591.5017],
-"type": "actor"
-},
-&"@GraphNode@38104": {
-"next_node": "@GraphNode@38134",
-"node_name": &"@GraphNode@38104",
-"position": [21840.0, 580.0],
-"set_flags": "",
-"speaker": "",
-"text": "Alyssa left and chases after the principal...you turn to Mirul.",
-"type": "dialogue"
-},
-&"@GraphNode@38134": {
-"events": [{
-"action_type": "show_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Mirul",
-"character_uid": "uid://dowxttrntsqon",
-"expression": "Neutral_Pose4",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}],
-"next_node": "@GraphNode@38425",
-"position": [22220.0, 620.0],
-"type": "actor"
-},
-&"@GraphNode@38425": {
+&"StareChoice": {
 "choices": Array[Dictionary]([{
 "condition": "",
 "hide_if_locked": false,
-"text": "“Alyssa’s definitely going to suspect you now.”"
+"text": "Nothing, sorry!"
 }, {
-"condition": "",
+"condition": "Courage >= 6",
 "hide_if_locked": false,
-"text": "“Do you know anything about the missing papers?”"
+"text": "I'm looking at a jerk."
 }]),
-"next_nodes": ["@GraphNode@38522", "@GraphNode@39023"],
-"node_name": &"@GraphNode@38425",
-"position": [22620.0, 620.0],
-"prompt": "Mirul looked at you",
+"next_nodes": ["ApologizeRoute", "JerkRoute"],
+"node_name": &"StareChoice",
+"position": [900.0, 0.0],
+"prompt": "How do you respond to Mirul?",
 "type": "choice_branch"
-},
-&"@GraphNode@38522": {
-"next_node": "@GraphNode@38693",
-"node_name": &"@GraphNode@38522",
-"position": [23140.0, 540.0],
-"set_flags": "",
-"speaker": "Mirul",
-"text": "{Neutral, Pose2}
-“Because I skip class?”",
-"type": "dialogue"
-},
-&"@GraphNode@38693": {
-"next_node": "@GraphNode@38753",
-"node_name": &"@GraphNode@38693",
-"position": [23560.0, 560.0],
-"set_flags": "",
-"speaker": "{player}",
-"text": "“You’re not helping yourself.”",
-"type": "dialogue"
-},
-&"@GraphNode@38753": {
-"next_node": "@GraphNode@39136",
-"node_name": &"@GraphNode@38753",
-"position": [23960.0, 560.0],
-"set_flags": "",
-"speaker": "Mirul",
-"text": "{Neutral, Pose4}
-“Her problem.”",
-"type": "dialogue"
-},
-&"@GraphNode@39023": {
-"next_node": "@GraphNode@39136",
-"node_name": &"@GraphNode@39023",
-"position": [23160.0, 860.0],
-"set_flags": "",
-"speaker": "Mirul",
-"text": "{Annoyed, Pose4}
-“Me? “Nah. Not my problem.”",
-"type": "dialogue"
-},
-&"@GraphNode@39120": {
-"next_node": "@GraphNode@39311",
-"node_name": &"@GraphNode@39120",
-"position": [24640.0, 880.0],
-"set_flags": "",
-"speaker": "",
-"text": "Some time later, Alyssa returns. She sat down with a concerned look on her face.",
-"type": "dialogue"
-},
-&"@GraphNode@39136": {
-"events": [{
-"action_type": "hide_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Mirul",
-"character_uid": "uid://dowxttrntsqon",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}],
-"next_node": "@GraphNode@39120",
-"position": [24260.0, 920.0],
-"type": "actor"
-},
-&"@GraphNode@39311": {
-"next_node": "@GraphNode@39328",
-"node_name": &"@GraphNode@39311",
-"position": [25020.0, 900.0],
-"set_flags": "",
-"speaker": "",
-"text": "You noticed Mirul staring at Alyssa but he stayed quiet. How unlikely.",
-"type": "dialogue"
-},
-&"@GraphNode@39328": {
-"next_node": "",
-"node_name": &"@GraphNode@39328",
-"position": [25420.0, 880.0],
-"set_flags": "",
-"speaker": "{player}",
-"text": "“Something’s definitely going on.”",
-"type": "dialogue"
-},
-&"ActorNode": {
-"events": [{
-"action_type": "change_bg",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "uid://4imjs0hwif5i",
-"character": "Alyssa",
-"character_uid": "",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}],
-"next_node": "GraphNode",
-"position": [-1300.0, 20.0],
-"type": "actor"
-},
-&"ChoiceNode": {
-"choices": Array[Dictionary]([{
-"condition": "",
-"hide_if_locked": false,
-"text": "[Acrobatic10]\"Okay ah jom, might as well.\""
-}, {
-"condition": "",
-"hide_if_locked": false,
-"text": "\"Mmm it's okay la bro you go ahead.\""
-}]),
-"next_nodes": ["@GraphNode@30109", "@GraphNode@32796"],
-"node_name": &"ChoiceNode",
-"position": [8160.0, 100.0],
-"prompt": "\"Jom ah ikut aq skip kelas sekali.\"",
-"type": "choice_branch"
-},
-&"CommandNode": {
-"command": "start_hub 3",
-"next_node": "@GraphNode@33419",
-"position": [13560.0, -80.0],
-"type": "command"
-},
-&"GraphNode": {
-"next_node": "@GraphNode@24277",
-"node_name": &"GraphNode",
-"position": [-920.0, 0.0],
-"set_flags": "",
-"speaker": "",
-"text": "The first lesson of the day has barely begun before the teacher places the marker down and steps away from the board.",
-"type": "dialogue"
 },
 &"Start": {
-"next_node": "ActorNode",
+"next_node": "SetupScene",
 "node_name": &"Start",
-"position": [-1760.0, 20.0],
+"position": [0.0, 0.0],
 "type": "start"
+},
+&"StartHub": {
+"command": "start_hub 5",
+"next_node": "AfterPE",
+"position": [2300.0, 0.0],
+"type": "command"
 }
 }

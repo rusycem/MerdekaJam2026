@@ -87,7 +87,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(2.9802322e-08, 0.8),
 "transitions": PackedFloat32Array(0.20306318, 0.8408964),
 "update": 0,
-"values": [-0.11170107212763669, 0.03490658503988659]
+"values": [-0.11170107212763668, 0.03490658503988659]
 }
 
 [sub_resource type="Animation" id="Animation_ag4qj"]
@@ -270,6 +270,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Fade" type="Panel" parent="." unique_id=1135941480]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
