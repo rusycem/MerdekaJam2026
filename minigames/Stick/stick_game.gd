@@ -6,9 +6,9 @@ extends Control
 @onready var result_label: Label = $ResultPanel/ResultLabel
 @onready var return_button: Button = $ResultPanel/ReturnButton
 
+const STICK_SCENE: PackedScene = preload("res://minigames/Stick/stick.tscn")
+
 const STICK_W := 130.0
-const STICK_H := 24.0
-const STICK_CHAMFER := 7.0
 
 const BOARD_W := 840.0
 const BOARD_H := 460.0
@@ -22,13 +22,15 @@ const LAYER_PLAYER := 2
 const LAYER_ENEMY := 4
 
 const FLICK_IMPULSE := 500.0
-const FLICK_TORQUE := 14.0
+const FLICK_TORQUE := 3.0
 const BLAST_RADIUS := 100.0
 const BLAST_MIN := 0.5
 const BLAST_MAX := 1.5
 const HOP_SCALE := 1.35
 const HOP_TIME := 0.3
 const FLIGHT_TIME := 1.2
+const OFF_TABLE_SCALE := 0.25
+const OFF_TABLE_SHRINK_TIME := 0.5
 
 const AI_DELAY := 1.0
 
@@ -44,13 +46,14 @@ var defender: RigidBody2D
 var resolving := false
 var resolve_time := 0.0
 var z_top := 1
+var hop_tween: Tween
 
 
 func _ready() -> void:
 	return_button.pressed.connect(_on_return_pressed)
 	_build_table()
-	player_stick = _build_stick(Vector2(-300, 0), PLAYER_COLOR, LAYER_PLAYER)
-	enemy_stick = _build_stick(Vector2(300, 0), ENEMY_COLOR, LAYER_ENEMY)
+	player_stick = _spawn_stick(Vector2(-300, 0), PLAYER_COLOR, LAYER_PLAYER)
+	enemy_stick = _spawn_stick(Vector2(300, 0), ENEMY_COLOR, LAYER_ENEMY)
 	_update_turn_label()
 
 
@@ -61,10 +64,10 @@ func _build_table() -> void:
 	board.add_child(poly)
 
 
-func _build_stick(pos: Vector2, color: Color, layer: int) -> RigidBody2D:
-	var stick := RigidBody2D.new()
+func _spawn_stick(pos: Vector2, color: Color, layer: int) -> RigidBody2D:
+	var stick := STICK_SCENE.instantiate() as RigidBody2D
 	stick.position = pos
-	stick.rotation = PI / 2.0
+	stick.stick_color = color
 	stick.gravity_scale = 0.0
 	stick.linear_damp = 0.0
 	stick.angular_damp = 0.0
@@ -73,30 +76,6 @@ func _build_stick(pos: Vector2, color: Color, layer: int) -> RigidBody2D:
 	stick.collision_mask = LAYER_MAP
 	stick.z_index = z_top
 	z_top += 1
-
-	var collision := CollisionShape2D.new()
-	var rect := RectangleShape2D.new()
-	rect.size = Vector2(STICK_W, STICK_H)
-	collision.shape = rect
-	stick.add_child(collision)
-
-	var sprite := Polygon2D.new()
-	sprite.name = "Sprite"
-	sprite.polygon = _chamfered_rect_points(STICK_W, STICK_H, STICK_CHAMFER)
-	sprite.color = color
-	stick.add_child(sprite)
-
-	var detector := Area2D.new()
-	detector.name = "Detector"
-	detector.collision_layer = 0
-	detector.collision_mask = LAYER_PLAYER | LAYER_ENEMY
-	var detect_shape := CollisionShape2D.new()
-	var detect_rect := RectangleShape2D.new()
-	detect_rect.size = Vector2(STICK_W, STICK_H)
-	detect_shape.shape = detect_rect
-	detector.add_child(detect_shape)
-	stick.add_child(detector)
-
 	board.add_child(stick)
 	return stick
 
@@ -113,22 +92,6 @@ func _rect_points(w: float, h: float) -> PackedVector2Array:
 		Vector2(hw, -hh),
 		Vector2(hw, hh),
 		Vector2(-hw, hh),
-	])
-
-
-func _chamfered_rect_points(w: float, h: float, c: float) -> PackedVector2Array:
-	var hw: float = w / 2.0
-	var hh: float = h / 2.0
-	var r: float = minf(c, minf(hw, hh))
-	return PackedVector2Array([
-		Vector2(-hw + r, -hh),
-		Vector2(hw - r, -hh),
-		Vector2(hw, -hh + r),
-		Vector2(hw, hh - r),
-		Vector2(hw - r, hh),
-		Vector2(-hw + r, hh),
-		Vector2(-hw, hh - r),
-		Vector2(-hw, -hh + r),
 	])
 
 
@@ -173,36 +136,45 @@ func _flick(attacker_stick: RigidBody2D, defender_stick: RigidBody2D, click_pos:
 		dir = defender_stick.position - attacker_stick.position
 	dir = dir.normalized().rotated(randf_range(-0.05, 0.05))
 
+	attacker_stick.rotation = dir.angle()
+
 	attacker_stick.z_index = z_top
 	z_top += 1
 
 	var sprite := attacker_stick.get_node("Sprite")
-	var hop := create_tween()
-	hop.tween_property(sprite, "scale", Vector2(HOP_SCALE, HOP_SCALE), FLIGHT_TIME / 2.0)\
+	hop_tween = create_tween()
+	hop_tween.tween_property(sprite, "scale", Vector2(HOP_SCALE, HOP_SCALE), FLIGHT_TIME / 2.0)\
 		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-	hop.tween_property(sprite, "scale", Vector2.ONE, FLIGHT_TIME / 2.0)\
+	hop_tween.tween_property(sprite, "scale", Vector2.ONE, FLIGHT_TIME / 2.0)\
 		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 
 	var dist := click_pos.distance_to(attacker_stick.position)
 	var power := clampf(1.5 - dist / BLAST_RADIUS, BLAST_MIN, BLAST_MAX)
 	attacker_stick.apply_central_impulse(dir * (FLICK_IMPULSE * power))
-	attacker_stick.apply_torque_impulse(FLICK_TORQUE * randf_range(-1.2, 1.2))
+	attacker_stick.angular_velocity = FLICK_TORQUE * randf_range(-1.2, 1.2)
 
 
 func _is_off_table(stick: RigidBody2D) -> bool:
 	var p := stick.position
-	return abs(p.x) > BOARD_W / 2.0 or abs(p.y) > BOARD_H / 2.0
+	return abs(p.x) > BOARD_W / 2.0 + STICK_W / 2.0 or abs(p.y) > BOARD_H / 2.0 + STICK_W / 2.0
 
 
 func _finish(outcome: Outcome) -> void:
 	resolving = false
 
-	attacker.linear_velocity = Vector2.ZERO
-	attacker.angular_velocity = 0.0
+	if hop_tween and hop_tween.is_running():
+		hop_tween.kill()
 
-	var land := create_tween()
-	land.tween_property(attacker.get_node("Sprite"), "scale", Vector2.ONE, HOP_TIME)\
-		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	if outcome == Outcome.OFF_TABLE:
+		var shrink := create_tween()
+		shrink.tween_property(attacker.get_node("Sprite"), "scale", Vector2(OFF_TABLE_SCALE, OFF_TABLE_SCALE), OFF_TABLE_SHRINK_TIME)\
+			.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	else:
+		attacker.linear_velocity = Vector2.ZERO
+		attacker.angular_velocity = 0.0
+		var land := create_tween()
+		land.tween_property(attacker.get_node("Sprite"), "scale", Vector2.ONE, HOP_TIME)\
+			.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 
 	if outcome == Outcome.MISS:
 		_next_turn()
