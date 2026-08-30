@@ -5,839 +5,6 @@
 [resource]
 script = ExtResource("1_p8nui")
 graph_data = {
-&"@GraphNode@23392": {
-"next_node": "@GraphNode@23582",
-"node_name": &"@GraphNode@23392",
-"position": [1360.0, 480.0],
-"set_flags": "",
-"speaker": "",
-"text": "While you are pulling your textbook out, a familiar voice comes from behind you.",
-"type": "dialogue"
-},
-&"@GraphNode@23582": {
-"events": [{
-"action_type": "show_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Mirul",
-"character_uid": "uid://dowxttrntsqon",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}],
-"next_node": "@GraphNode@23660",
-"position": [1740.0, 500.0],
-"type": "actor"
-},
-&"@GraphNode@23660": {
-"next_node": "@GraphNode@23704",
-"node_name": &"@GraphNode@23660",
-"position": [2100.0, 480.0],
-"set_flags": "",
-"speaker": "Mirul",
-"text": "{Smile, Pose3}
-Yo. So, camne school so far?",
-"type": "dialogue"
-},
-&"@GraphNode@23704": {
-"next_node": "@GraphNode@23729",
-"node_name": &"@GraphNode@23704",
-"position": [2460.0, 500.0],
-"set_flags": "",
-"speaker": "{player}",
-"text": "Err... Still getting used to it.",
-"type": "dialogue"
-},
-&"@GraphNode@23729": {
-"next_node": "@GraphNode@23902",
-"node_name": &"@GraphNode@23729",
-"position": [2800.0, 500.0],
-"set_flags": "",
-"speaker": "Mirul",
-"text": "{Smile_Pose4}
-A week or two later okay lah nanti.",
-"type": "dialogue"
-},
-&"@GraphNode@23902": {
-"events": [{
-"action_type": "hide_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Mirul",
-"character_uid": "uid://dowxttrntsqon",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}],
-"next_node": "@GraphNode@24646",
-"position": [3200.0, 540.0],
-"type": "actor"
-},
-&"@GraphNode@24646": {
-"events": [{
-"action_type": "show_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Vihaan",
-"character_uid": "uid://cupkf4jv5s3wr",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}],
-"next_node": "@GraphNode@24924",
-"position": [3540.0, 540.0],
-"type": "actor"
-},
-&"@GraphNode@24924": {
-"next_node": "@GraphNode@24946",
-"node_name": &"@GraphNode@24924",
-"position": [3880.0, 540.0],
-"set_flags": "",
-"speaker": "Vihaan",
-"text": "{Neutral, Pose2}
-It’s not that bad.",
-"type": "dialogue"
-},
-&"@GraphNode@24946": {
-"events": [{
-"action_type": "hide_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Vihaan",
-"character_uid": "uid://cupkf4jv5s3wr",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}, {
-"action_type": "show_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Mirul",
-"character_uid": "uid://dowxttrntsqon",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}],
-"next_node": "@GraphNode@25136",
-"position": [4220.0, 560.0],
-"type": "actor"
-},
-&"@GraphNode@25136": {
-"next_node": "@GraphNode@25339",
-"node_name": &"@GraphNode@25136",
-"position": [4940.0, 540.0],
-"set_flags": "",
-"speaker": "Mirul",
-"text": "{Laugh, Pose2}
-You senang citer la Vihaan, your face always in the books sia.",
-"type": "dialogue"
-},
-&"@GraphNode@25339": {
-"events": [{
-"action_type": "hide_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Mirul",
-"character_uid": "uid://dowxttrntsqon",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}, {
-"action_type": "show_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Vihaan",
-"character_uid": "uid://cupkf4jv5s3wr",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}],
-"next_node": "@GraphNode@25695",
-"position": [5260.0, 560.0],
-"type": "actor"
-},
-&"@GraphNode@25695": {
-"next_node": "@GraphNode@25725",
-"node_name": &"@GraphNode@25695",
-"position": [5880.0, 560.0],
-"set_flags": "",
-"speaker": "Vihaan",
-"text": "{Smile, Pose4}
-Books are quieter.",
-"type": "dialogue"
-},
-&"@GraphNode@25725": {
-"next_node": "@GraphNode@25912",
-"node_name": &"@GraphNode@25725",
-"position": [6220.0, 560.0],
-"set_flags": "",
-"speaker": "",
-"text": "You notice how naturally the two talk to each other.",
-"type": "dialogue"
-},
-&"@GraphNode@25912": {
-"next_node": "@GraphNode@26387",
-"node_name": &"@GraphNode@25912",
-"position": [6540.0, 560.0],
-"set_flags": "",
-"speaker": "",
-"text": "A quiet kid and a troublemaker... An interesting dynamic, really!",
-"type": "dialogue"
-},
-&"@GraphNode@26117": {
-"next_node": "@GraphNode@27037",
-"node_name": &"@GraphNode@26117",
-"position": [7300.0, 560.0],
-"set_flags": "",
-"speaker": "",
-"text": "Mirul looks up at the clock, then shifted to get up from his seat.",
-"type": "dialogue"
-},
-&"@GraphNode@26387": {
-"events": [{
-"action_type": "hide_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Vihaan",
-"character_uid": "uid://cupkf4jv5s3wr",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}, {
-"action_type": "show_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Mirul",
-"character_uid": "uid://dowxttrntsqon",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}],
-"next_node": "@GraphNode@26117",
-"position": [6860.0, 560.0],
-"type": "actor"
-},
-&"@GraphNode@27037": {
-"next_node": "@GraphNode@27075",
-"node_name": &"@GraphNode@27037",
-"position": [7720.0, 540.0],
-"set_flags": "",
-"speaker": "Mirul",
-"text": "Oh, it's kelas Puan Leah later. Well, time for me to go.",
-"type": "dialogue"
-},
-&"@GraphNode@27075": {
-"next_node": "@GraphNode@27113",
-"node_name": &"@GraphNode@27075",
-"position": [8140.0, 540.0],
-"set_flags": "",
-"speaker": "{player}",
-"text": "Aik, you going where?",
-"type": "dialogue"
-},
-&"@GraphNode@27113": {
-"next_node": "@GraphNode@27287",
-"node_name": &"@GraphNode@27113",
-"position": [8460.0, 540.0],
-"set_flags": "",
-"speaker": "Mirul",
-"text": "{Laugh, Pose4}
-Lepak lah bro, what else?",
-"type": "dialogue"
-},
-&"@GraphNode@27287": {
-"events": [{
-"action_type": "hide_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Mirul",
-"character_uid": "uid://dowxttrntsqon",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}, {
-"action_type": "show_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Vihaan",
-"character_uid": "uid://cupkf4jv5s3wr",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}],
-"next_node": "@GraphNode@27492",
-"position": [8780.0, 540.0],
-"type": "actor"
-},
-&"@GraphNode@27492": {
-"next_node": "@GraphNode@27545",
-"node_name": &"@GraphNode@27492",
-"position": [9100.0, 540.0],
-"set_flags": "",
-"speaker": "",
-"text": "You look at Vihaan as Mirul shoves his hands in his pockets and walks out of the classroom.",
-"type": "dialogue"
-},
-&"@GraphNode@27545": {
-"next_node": "@GraphNode@27575",
-"node_name": &"@GraphNode@27545",
-"position": [9420.0, 540.0],
-"set_flags": "",
-"speaker": "{player}",
-"text": "He does that often?",
-"type": "dialogue"
-},
-&"@GraphNode@27575": {
-"next_node": "@GraphNode@27609",
-"node_name": &"@GraphNode@27575",
-"position": [9740.0, 540.0],
-"set_flags": "",
-"speaker": "Vihaan",
-"text": "{Neutral, Pose4}
-Usually.",
-"type": "dialogue"
-},
-&"@GraphNode@27609": {
-"next_node": "@GraphNode@27659",
-"node_name": &"@GraphNode@27609",
-"position": [10060.0, 540.0],
-"set_flags": "",
-"speaker": "",
-"text": "You wait for Vihaan to explain, but he didn’t. He just shove his face back into his books.",
-"type": "dialogue"
-},
-&"@GraphNode@27659": {
-"next_node": "@GraphNode@27701",
-"node_name": &"@GraphNode@27659",
-"position": [10400.0, 520.0],
-"set_flags": "",
-"speaker": "{player}",
-"text": "...You not much of a talker, eh?",
-"type": "dialogue"
-},
-&"@GraphNode@27701": {
-"next_node": "@GraphNode@27756",
-"node_name": &"@GraphNode@27701",
-"position": [10740.0, 540.0],
-"set_flags": "",
-"speaker": "Vihaan",
-"text": "{Sad, Pose4}
-Mm.",
-"type": "dialogue"
-},
-&"@GraphNode@27756": {
-"next_node": "@GraphNode@30674",
-"node_name": &"@GraphNode@27756",
-"position": [11060.0, 540.0],
-"set_flags": "",
-"speaker": "",
-"text": "Haiyo... This kid might take a while to open up.",
-"type": "dialogue"
-},
-&"@GraphNode@27816": {
-"command": "minigame error_hunt",
-"next_node": "@GraphNode@30171",
-"position": [12000.0, 560.0],
-"type": "command"
-},
-&"@GraphNode@30171": {
-"next_node": "@GraphNode@31203",
-"node_name": &"@GraphNode@30171",
-"position": [12340.0, 700.0],
-"set_flags": "",
-"speaker": "",
-"text": "The afternoon study period is quiet. The teacher has given everyone some free time to work on their assignments. While studying, you notice Vihaan reading a novel.",
-"type": "dialogue"
-},
-&"@GraphNode@30200": {
-"next_node": "@GraphNode@30234",
-"node_name": &"@GraphNode@30200",
-"position": [12960.0, 680.0],
-"set_flags": "",
-"speaker": "{player}",
-"text": "Aik you not studying? What novel is that?",
-"type": "dialogue"
-},
-&"@GraphNode@30234": {
-"next_node": "@GraphNode@30285",
-"node_name": &"@GraphNode@30234",
-"position": [13280.0, 700.0],
-"set_flags": "",
-"speaker": "Vihaan",
-"text": "Science fiction.",
-"type": "dialogue"
-},
-&"@GraphNode@30285": {
-"next_node": "@GraphNode@30319",
-"node_name": &"@GraphNode@30285",
-"position": [13600.0, 680.0],
-"set_flags": "",
-"speaker": "{player}",
-"text": "Wahh, didn’t expect that from you.",
-"type": "dialogue"
-},
-&"@GraphNode@30319": {
-"next_node": "@GraphNode@30349",
-"node_name": &"@GraphNode@30319",
-"position": [13920.0, 700.0],
-"set_flags": "",
-"speaker": "Vihaan",
-"text": "What did you expect?",
-"type": "dialogue"
-},
-&"@GraphNode@30349": {
-"next_node": "@GraphNode@30439",
-"node_name": &"@GraphNode@30349",
-"position": [14240.0, 680.0],
-"set_flags": "",
-"speaker": "{player}",
-"text": "I thought you were gonna read another textbook.",
-"type": "dialogue"
-},
-&"@GraphNode@30439": {
-"next_node": "@GraphNode@30470",
-"node_name": &"@GraphNode@30439",
-"position": [14560.0, 680.0],
-"set_flags": "",
-"speaker": "",
-"text": "Vihaan surprisingly laughs. It's quiet, but still there.",
-"type": "dialogue"
-},
-&"@GraphNode@30470": {
-"next_node": "@GraphNode@30657",
-"node_name": &"@GraphNode@30470",
-"position": [14880.0, 680.0],
-"set_flags": "",
-"speaker": "Vihaan",
-"text": "Dey, I’m not that boring.",
-"type": "dialogue"
-},
-&"@GraphNode@30657": {
-"next_node": "@GraphNode@33229",
-"node_name": &"@GraphNode@30657",
-"position": [15200.0, 680.0],
-"set_flags": "",
-"speaker": "",
-"text": "You talk more to Vihaan. You start to learn that Vihaan likes strategy games, puzzles, and anything that makes him think.",
-"type": "dialogue"
-},
-&"@GraphNode@30674": {
-"events": [{
-"action_type": "hide_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Vihaan",
-"character_uid": "uid://cupkf4jv5s3wr",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}],
-"next_node": "CommandNode",
-"position": [11360.0, 560.0],
-"type": "actor"
-},
-&"@GraphNode@31105": {
-"next_node": "@GraphNode@31126",
-"node_name": &"@GraphNode@31105",
-"position": [15780.0, 680.0],
-"set_flags": "",
-"speaker": "",
-"text": "Before you can ask more, Alyssa storms over to Mirul after he entered the class.",
-"type": "dialogue"
-},
-&"@GraphNode@31126": {
-"events": [{
-"action_type": "show_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Alyssa",
-"character_uid": "uid://bsylmi0xhjqvv",
-"expression": "Angry_Pose1",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center-Left",
-"z_index": 0
-}],
-"next_node": "@GraphNode@32018",
-"position": [16100.0, 820.0],
-"type": "actor"
-},
-&"@GraphNode@31203": {
-"events": [{
-"action_type": "show_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Vihaan",
-"character_uid": "uid://cupkf4jv5s3wr",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}],
-"next_node": "@GraphNode@30200",
-"position": [12640.0, 720.0],
-"type": "actor"
-},
-&"@GraphNode@32018": {
-"next_node": "@GraphNode@34445",
-"node_name": &"@GraphNode@32018",
-"position": [16440.0, 800.0],
-"set_flags": "",
-"speaker": "Alyssa",
-"text": "{Angry_Pose1, shake}
-Oi Mirul! Got back already?! How many times you going to skip class hah?!",
-"type": "dialogue"
-},
-&"@GraphNode@32080": {
-"next_node": "@GraphNode@34923",
-"node_name": &"@GraphNode@32080",
-"position": [17120.0, 820.0],
-"set_flags": "",
-"speaker": "Vihaan",
-"text": "{Neutral, Pose3}
-Here we go again.",
-"type": "dialogue"
-},
-&"@GraphNode@32748": {
-"next_node": "@GraphNode@32820",
-"node_name": &"@GraphNode@32748",
-"position": [17760.0, 840.0],
-"set_flags": "",
-"speaker": "",
-"text": "While Alyssa and Mirul bickers about him skipping class, the school speakers suddenly crackle to life.",
-"type": "dialogue"
-},
-&"@GraphNode@32820": {
-"next_node": "@GraphNode@35388",
-"node_name": &"@GraphNode@32820",
-"position": [18080.0, 840.0],
-"set_flags": "",
-"speaker": "ANNOUNCEMENT",
-"text": "Dear teachers and students. We have received shocking news from our Principal, Encik Samad. The answer sheets for the upcoming final examinations have been stolen. If anyone has information, please report to the Principal’s office. Thank you.",
-"type": "dialogue"
-},
-&"@GraphNode@32854": {
-"next_node": "@GraphNode@35599",
-"node_name": &"@GraphNode@32854",
-"position": [18720.0, 860.0],
-"set_flags": "",
-"speaker": "",
-"text": "Encik Samad appears at the door of the class, his face is stern compared to the last time you saw him.",
-"type": "dialogue"
-},
-&"@GraphNode@33229": {
-"events": [{
-"action_type": "hide_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Vihaan",
-"character_uid": "uid://cupkf4jv5s3wr",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}],
-"next_node": "@GraphNode@31105",
-"position": [15480.0, 700.0],
-"type": "actor"
-},
-&"@GraphNode@34445": {
-"events": [{
-"action_type": "hide_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Alyssa",
-"character_uid": "uid://bsylmi0xhjqvv",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}, {
-"action_type": "show_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Vihaan",
-"character_uid": "uid://cupkf4jv5s3wr",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}],
-"next_node": "@GraphNode@32080",
-"position": [16760.0, 840.0],
-"type": "actor"
-},
-&"@GraphNode@34923": {
-"events": [{
-"action_type": "hide_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Vihaan",
-"character_uid": "uid://cupkf4jv5s3wr",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}],
-"next_node": "@GraphNode@32748",
-"position": [17440.0, 860.0],
-"type": "actor"
-},
-&"@GraphNode@35388": {
-"events": [{
-"action_type": "show_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Principal",
-"character_uid": "uid://ch0pocbeb0y77",
-"expression": "Serious",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}],
-"next_node": "@GraphNode@32854",
-"position": [18400.0, 880.0],
-"type": "actor"
-},
-&"@GraphNode@35599": {
-"next_node": "@GraphNode@35863",
-"node_name": &"@GraphNode@35599",
-"position": [19040.0, 860.0],
-"set_flags": "",
-"speaker": "Encik Samad",
-"text": "Alyssa. Emergency meeting. To my office now.",
-"type": "dialogue"
-},
-&"@GraphNode@35628": {
-"next_node": "@GraphNode@35665",
-"node_name": &"@GraphNode@35628",
-"position": [19720.0, 880.0],
-"set_flags": "",
-"speaker": "",
-"text": "Alyssa glares at Mirul before she step over to the Principal.",
-"type": "dialogue"
-},
-&"@GraphNode@35665": {
-"next_node": "@GraphNode@36534",
-"node_name": &"@GraphNode@35665",
-"position": [20060.0, 860.0],
-"set_flags": "",
-"speaker": "Alyssa",
-"text": "{Angry, Pose4}
-Don't think you can lari ah. You kena nanti, Mirul!",
-"type": "dialogue"
-},
-&"@GraphNode@35694": {
-"next_node": "@GraphNode@35731",
-"node_name": &"@GraphNode@35694",
-"position": [20720.0, 880.0],
-"set_flags": "",
-"speaker": "Mirul",
-"text": "{Smile_Pose4}
-Eee takutnyeee!!",
-"type": "dialogue"
-},
-&"@GraphNode@35731": {
-"next_node": "@GraphNode@37213",
-"node_name": &"@GraphNode@35731",
-"position": [21060.0, 880.0],
-"set_flags": "",
-"speaker": "",
-"text": "Mirul laughs, sarcastically mimics a scared expression before returning to his seat with a grin.",
-"type": "dialogue"
-},
-&"@GraphNode@35764": {
-"next_node": "@GraphNode@35793",
-"node_name": &"@GraphNode@35764",
-"position": [21720.0, 880.0],
-"set_flags": "",
-"speaker": "",
-"text": "You turn towards Vihaan, it seems even he seems concerned.",
-"type": "dialogue"
-},
-&"@GraphNode@35793": {
-"next_node": "@GraphNode@35830",
-"node_name": &"@GraphNode@35793",
-"position": [22060.0, 880.0],
-"set_flags": "",
-"speaker": "{player}",
-"text": "Uh, that normal too?",
-"type": "dialogue"
-},
-&"@GraphNode@35830": {
-"next_node": "",
-"node_name": &"@GraphNode@35830",
-"position": [22400.0, 860.0],
-"set_flags": "",
-"speaker": "Vihaan",
-"text": "{Shocked, Pose2}
-The bickering is. But the announcement?.... No, not really.",
-"type": "dialogue"
-},
-&"@GraphNode@35863": {
-"events": [{
-"action_type": "hide_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Principal",
-"character_uid": "uid://ch0pocbeb0y77",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}, {
-"action_type": "show_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Alyssa",
-"character_uid": "uid://bsylmi0xhjqvv",
-"expression": "Annoyed_Pose2",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}],
-"next_node": "@GraphNode@35628",
-"position": [19380.0, 880.0],
-"type": "actor"
-},
-&"@GraphNode@36534": {
-"events": [{
-"action_type": "hide_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Alyssa",
-"character_uid": "uid://bsylmi0xhjqvv",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}, {
-"action_type": "show_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Mirul",
-"character_uid": "uid://dowxttrntsqon",
-"expression": "Smile_Pose1",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}],
-"next_node": "@GraphNode@35694",
-"position": [20380.0, 880.0],
-"type": "actor"
-},
-&"@GraphNode@37213": {
-"events": [{
-"action_type": "hide_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Mirul",
-"character_uid": "uid://dowxttrntsqon",
-"expression": "Neutral",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}, {
-"action_type": "show_character",
-"anim_duration": 0.5,
-"animation": "None",
-"background_uid": "",
-"character": "Vihaan",
-"character_uid": "uid://cupkf4jv5s3wr",
-"expression": "Sad_Pose1",
-"flip_h": false,
-"offset_x": 0.0,
-"offset_y": 0.0,
-"position_slot": "Center",
-"z_index": 0
-}],
-"next_node": "@GraphNode@35764",
-"position": [21380.0, 880.0],
-"type": "actor"
-},
 &"ActorNode": {
 "events": [{
 "action_type": "hide_all",
@@ -872,12 +39,12 @@ The bickering is. But the announcement?.... No, not really.",
 },
 &"CommandNode": {
 "command": "start_hub 3",
-"next_node": "@GraphNode@27816",
+"next_node": "_GraphNode_27816",
 "position": [11680.0, 560.0],
 "type": "command"
 },
 &"GraphNode": {
-"next_node": "@GraphNode@23392",
+"next_node": "_GraphNode_23392",
 "node_name": &"GraphNode",
 "position": [1020.0, 480.0],
 "set_flags": "",
@@ -890,5 +57,838 @@ The bickering is. But the announcement?.... No, not really.",
 "node_name": &"Start",
 "position": [238.0, 496.0],
 "type": "start"
+},
+&"_GraphNode_23392": {
+"next_node": "_GraphNode_23582",
+"node_name": &"_GraphNode_23392",
+"position": [1360.0, 480.0],
+"set_flags": "",
+"speaker": "",
+"text": "While you are pulling your textbook out, a familiar voice comes from behind you.",
+"type": "dialogue"
+},
+&"_GraphNode_23582": {
+"events": [{
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Mirul",
+"character_uid": "uid://dowxttrntsqon",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "_GraphNode_23660",
+"position": [1740.0, 500.0],
+"type": "actor"
+},
+&"_GraphNode_23660": {
+"next_node": "_GraphNode_23704",
+"node_name": &"_GraphNode_23660",
+"position": [2100.0, 480.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Smile, Pose3}
+Yo. So, camne school so far?",
+"type": "dialogue"
+},
+&"_GraphNode_23704": {
+"next_node": "_GraphNode_23729",
+"node_name": &"_GraphNode_23704",
+"position": [2460.0, 500.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "Err... Still getting used to it.",
+"type": "dialogue"
+},
+&"_GraphNode_23729": {
+"next_node": "_GraphNode_23902",
+"node_name": &"_GraphNode_23729",
+"position": [2800.0, 500.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Smile_Pose4}
+A week or two later okay lah nanti.",
+"type": "dialogue"
+},
+&"_GraphNode_23902": {
+"events": [{
+"action_type": "hide_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Mirul",
+"character_uid": "uid://dowxttrntsqon",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "_GraphNode_24646",
+"position": [3200.0, 540.0],
+"type": "actor"
+},
+&"_GraphNode_24646": {
+"events": [{
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Vihaan",
+"character_uid": "uid://cupkf4jv5s3wr",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "_GraphNode_24924",
+"position": [3540.0, 540.0],
+"type": "actor"
+},
+&"_GraphNode_24924": {
+"next_node": "_GraphNode_24946",
+"node_name": &"_GraphNode_24924",
+"position": [3880.0, 540.0],
+"set_flags": "",
+"speaker": "Vihaan",
+"text": "{Neutral, Pose2}
+It’s not that bad.",
+"type": "dialogue"
+},
+&"_GraphNode_24946": {
+"events": [{
+"action_type": "hide_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Vihaan",
+"character_uid": "uid://cupkf4jv5s3wr",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Mirul",
+"character_uid": "uid://dowxttrntsqon",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "_GraphNode_25136",
+"position": [4220.0, 560.0],
+"type": "actor"
+},
+&"_GraphNode_25136": {
+"next_node": "_GraphNode_25339",
+"node_name": &"_GraphNode_25136",
+"position": [4880.0, 540.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Laugh, Pose2}
+You senang citer la Vihaan, your face always in the books sia.",
+"type": "dialogue"
+},
+&"_GraphNode_25339": {
+"events": [{
+"action_type": "hide_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Mirul",
+"character_uid": "uid://dowxttrntsqon",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Vihaan",
+"character_uid": "uid://cupkf4jv5s3wr",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "_GraphNode_25695",
+"position": [5260.0, 560.0],
+"type": "actor"
+},
+&"_GraphNode_25695": {
+"next_node": "_GraphNode_25725",
+"node_name": &"_GraphNode_25695",
+"position": [5880.0, 560.0],
+"set_flags": "",
+"speaker": "Vihaan",
+"text": "{Smile, Pose4}
+Books are quieter.",
+"type": "dialogue"
+},
+&"_GraphNode_25725": {
+"next_node": "_GraphNode_25912",
+"node_name": &"_GraphNode_25725",
+"position": [6220.0, 560.0],
+"set_flags": "",
+"speaker": "",
+"text": "You notice how naturally the two talk to each other.",
+"type": "dialogue"
+},
+&"_GraphNode_25912": {
+"next_node": "_GraphNode_26387",
+"node_name": &"_GraphNode_25912",
+"position": [6540.0, 560.0],
+"set_flags": "",
+"speaker": "",
+"text": "A quiet kid and a troublemaker... An interesting dynamic, really!",
+"type": "dialogue"
+},
+&"_GraphNode_26117": {
+"next_node": "_GraphNode_27037",
+"node_name": &"_GraphNode_26117",
+"position": [7300.0, 560.0],
+"set_flags": "",
+"speaker": "",
+"text": "Mirul looks up at the clock, then shifted to get up from his seat.",
+"type": "dialogue"
+},
+&"_GraphNode_26387": {
+"events": [{
+"action_type": "hide_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Vihaan",
+"character_uid": "uid://cupkf4jv5s3wr",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Mirul",
+"character_uid": "uid://dowxttrntsqon",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "_GraphNode_26117",
+"position": [6860.0, 560.0],
+"type": "actor"
+},
+&"_GraphNode_27037": {
+"next_node": "_GraphNode_27075",
+"node_name": &"_GraphNode_27037",
+"position": [7720.0, 540.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "Oh, it's kelas Puan Leah later. Well, time for me to go.",
+"type": "dialogue"
+},
+&"_GraphNode_27075": {
+"next_node": "_GraphNode_27113",
+"node_name": &"_GraphNode_27075",
+"position": [8140.0, 540.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "Aik, you going where?",
+"type": "dialogue"
+},
+&"_GraphNode_27113": {
+"next_node": "_GraphNode_27287",
+"node_name": &"_GraphNode_27113",
+"position": [8440.0, 540.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Laugh, Pose4}
+Lepak lah bro, what else?",
+"type": "dialogue"
+},
+&"_GraphNode_27287": {
+"events": [{
+"action_type": "hide_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Mirul",
+"character_uid": "uid://dowxttrntsqon",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Vihaan",
+"character_uid": "uid://cupkf4jv5s3wr",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "_GraphNode_27492",
+"position": [8780.0, 540.0],
+"type": "actor"
+},
+&"_GraphNode_27492": {
+"next_node": "_GraphNode_27545",
+"node_name": &"_GraphNode_27492",
+"position": [9100.0, 540.0],
+"set_flags": "",
+"speaker": "",
+"text": "You look at Vihaan as Mirul shoves his hands in his pockets and walks out of the classroom.",
+"type": "dialogue"
+},
+&"_GraphNode_27545": {
+"next_node": "_GraphNode_27575",
+"node_name": &"_GraphNode_27545",
+"position": [9420.0, 540.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "He does that often?",
+"type": "dialogue"
+},
+&"_GraphNode_27575": {
+"next_node": "_GraphNode_27609",
+"node_name": &"_GraphNode_27575",
+"position": [9740.0, 540.0],
+"set_flags": "",
+"speaker": "Vihaan",
+"text": "{Neutral, Pose4}
+Usually.",
+"type": "dialogue"
+},
+&"_GraphNode_27609": {
+"next_node": "_GraphNode_27659",
+"node_name": &"_GraphNode_27609",
+"position": [10060.0, 540.0],
+"set_flags": "",
+"speaker": "",
+"text": "You wait for Vihaan to explain, but he didn’t. He just shove his face back into his books.",
+"type": "dialogue"
+},
+&"_GraphNode_27659": {
+"next_node": "_GraphNode_27701",
+"node_name": &"_GraphNode_27659",
+"position": [10400.0, 540.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "...You not much of a talker, eh?",
+"type": "dialogue"
+},
+&"_GraphNode_27701": {
+"next_node": "_GraphNode_27756",
+"node_name": &"_GraphNode_27701",
+"position": [10740.0, 540.0],
+"set_flags": "",
+"speaker": "Vihaan",
+"text": "{Sad, Pose4}
+Mm.",
+"type": "dialogue"
+},
+&"_GraphNode_27756": {
+"next_node": "_GraphNode_30674",
+"node_name": &"_GraphNode_27756",
+"position": [11020.0, 500.0],
+"set_flags": "",
+"speaker": "",
+"text": "Haiyo... This kid might take a while to open up.",
+"type": "dialogue"
+},
+&"_GraphNode_27816": {
+"command": "minigame error_hunt",
+"next_node": "_GraphNode_30171",
+"position": [12000.0, 560.0],
+"type": "command"
+},
+&"_GraphNode_30171": {
+"next_node": "_GraphNode_31203",
+"node_name": &"_GraphNode_30171",
+"position": [12340.0, 700.0],
+"set_flags": "",
+"speaker": "",
+"text": "The afternoon study period is quiet. The teacher has given everyone some free time to work on their assignments. While studying, you notice Vihaan reading a novel.",
+"type": "dialogue"
+},
+&"_GraphNode_30200": {
+"next_node": "_GraphNode_30234",
+"node_name": &"_GraphNode_30200",
+"position": [12960.0, 680.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "Aik you not studying? What novel is that?",
+"type": "dialogue"
+},
+&"_GraphNode_30234": {
+"next_node": "_GraphNode_30285",
+"node_name": &"_GraphNode_30234",
+"position": [13280.0, 700.0],
+"set_flags": "",
+"speaker": "Vihaan",
+"text": "Science fiction.",
+"type": "dialogue"
+},
+&"_GraphNode_30285": {
+"next_node": "_GraphNode_30319",
+"node_name": &"_GraphNode_30285",
+"position": [13600.0, 680.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "Wahh, didn’t expect that from you.",
+"type": "dialogue"
+},
+&"_GraphNode_30319": {
+"next_node": "_GraphNode_30349",
+"node_name": &"_GraphNode_30319",
+"position": [13920.0, 700.0],
+"set_flags": "",
+"speaker": "Vihaan",
+"text": "What did you expect?",
+"type": "dialogue"
+},
+&"_GraphNode_30349": {
+"next_node": "_GraphNode_30439",
+"node_name": &"_GraphNode_30349",
+"position": [14240.0, 680.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "I thought you were gonna read another textbook.",
+"type": "dialogue"
+},
+&"_GraphNode_30439": {
+"next_node": "_GraphNode_30470",
+"node_name": &"_GraphNode_30439",
+"position": [14560.0, 680.0],
+"set_flags": "",
+"speaker": "",
+"text": "Vihaan surprisingly laughs. It's quiet, but still there.",
+"type": "dialogue"
+},
+&"_GraphNode_30470": {
+"next_node": "_GraphNode_30657",
+"node_name": &"_GraphNode_30470",
+"position": [14880.0, 680.0],
+"set_flags": "",
+"speaker": "Vihaan",
+"text": "Dey, I’m not that boring.",
+"type": "dialogue"
+},
+&"_GraphNode_30657": {
+"next_node": "_GraphNode_33229",
+"node_name": &"_GraphNode_30657",
+"position": [15200.0, 680.0],
+"set_flags": "",
+"speaker": "",
+"text": "You talk more to Vihaan. You start to learn that Vihaan likes strategy games, puzzles, and anything that makes him think.",
+"type": "dialogue"
+},
+&"_GraphNode_30674": {
+"events": [{
+"action_type": "hide_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Vihaan",
+"character_uid": "uid://cupkf4jv5s3wr",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "CommandNode",
+"position": [11360.0, 560.0],
+"type": "actor"
+},
+&"_GraphNode_31105": {
+"next_node": "_GraphNode_31126",
+"node_name": &"_GraphNode_31105",
+"position": [15780.0, 680.0],
+"set_flags": "",
+"speaker": "",
+"text": "Before you can ask more, Alyssa storms over to Mirul after he entered the class.",
+"type": "dialogue"
+},
+&"_GraphNode_31126": {
+"events": [{
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Alyssa",
+"character_uid": "uid://bsylmi0xhjqvv",
+"expression": "Angry_Pose1",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center-Left",
+"z_index": 0
+}],
+"next_node": "_GraphNode_32018",
+"position": [16100.0, 820.0],
+"type": "actor"
+},
+&"_GraphNode_31203": {
+"events": [{
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Vihaan",
+"character_uid": "uid://cupkf4jv5s3wr",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "_GraphNode_30200",
+"position": [12640.0, 720.0],
+"type": "actor"
+},
+&"_GraphNode_32018": {
+"next_node": "_GraphNode_34445",
+"node_name": &"_GraphNode_32018",
+"position": [16440.0, 800.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Angry_Pose1, shake}
+Oi Mirul! Got back already?! How many times you going to skip class hah?!",
+"type": "dialogue"
+},
+&"_GraphNode_32080": {
+"next_node": "_GraphNode_34923",
+"node_name": &"_GraphNode_32080",
+"position": [17120.0, 820.0],
+"set_flags": "",
+"speaker": "Vihaan",
+"text": "{Neutral, Pose3}
+Here we go again.",
+"type": "dialogue"
+},
+&"_GraphNode_32748": {
+"next_node": "_GraphNode_32820",
+"node_name": &"_GraphNode_32748",
+"position": [17760.0, 840.0],
+"set_flags": "",
+"speaker": "",
+"text": "While Alyssa and Mirul bickers about him skipping class, the school speakers suddenly crackle to life.",
+"type": "dialogue"
+},
+&"_GraphNode_32820": {
+"next_node": "_GraphNode_35388",
+"node_name": &"_GraphNode_32820",
+"position": [18080.0, 840.0],
+"set_flags": "",
+"speaker": "ANNOUNCEMENT",
+"text": "Dear teachers and students. We have received shocking news from our Principal, Encik Samad. The answer sheets for the upcoming final examinations have been stolen. If anyone has information, please report to the Principal’s office. Thank you.",
+"type": "dialogue"
+},
+&"_GraphNode_32854": {
+"next_node": "_GraphNode_35599",
+"node_name": &"_GraphNode_32854",
+"position": [18720.0, 860.0],
+"set_flags": "",
+"speaker": "",
+"text": "Encik Samad appears at the door of the class, his face is stern compared to the last time you saw him.",
+"type": "dialogue"
+},
+&"_GraphNode_33229": {
+"events": [{
+"action_type": "hide_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Vihaan",
+"character_uid": "uid://cupkf4jv5s3wr",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "_GraphNode_31105",
+"position": [15480.0, 700.0],
+"type": "actor"
+},
+&"_GraphNode_34445": {
+"events": [{
+"action_type": "hide_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Alyssa",
+"character_uid": "uid://bsylmi0xhjqvv",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Vihaan",
+"character_uid": "uid://cupkf4jv5s3wr",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "_GraphNode_32080",
+"position": [16760.0, 840.0],
+"type": "actor"
+},
+&"_GraphNode_34923": {
+"events": [{
+"action_type": "hide_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Vihaan",
+"character_uid": "uid://cupkf4jv5s3wr",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "_GraphNode_32748",
+"position": [17440.0, 860.0],
+"type": "actor"
+},
+&"_GraphNode_35388": {
+"events": [{
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Principal",
+"character_uid": "uid://ch0pocbeb0y77",
+"expression": "Serious",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "_GraphNode_32854",
+"position": [18400.0, 880.0],
+"type": "actor"
+},
+&"_GraphNode_35599": {
+"next_node": "_GraphNode_35863",
+"node_name": &"_GraphNode_35599",
+"position": [19040.0, 860.0],
+"set_flags": "",
+"speaker": "Encik Samad",
+"text": "Alyssa. Emergency meeting. To my office now.",
+"type": "dialogue"
+},
+&"_GraphNode_35628": {
+"next_node": "_GraphNode_35665",
+"node_name": &"_GraphNode_35628",
+"position": [19720.0, 880.0],
+"set_flags": "",
+"speaker": "",
+"text": "Alyssa glares at Mirul before she step over to the Principal.",
+"type": "dialogue"
+},
+&"_GraphNode_35665": {
+"next_node": "_GraphNode_36534",
+"node_name": &"_GraphNode_35665",
+"position": [20060.0, 860.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Angry, Pose4}
+Don't think you can lari ah. You kena nanti, Mirul!",
+"type": "dialogue"
+},
+&"_GraphNode_35694": {
+"next_node": "_GraphNode_35731",
+"node_name": &"_GraphNode_35694",
+"position": [20720.0, 880.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Smile_Pose4}
+Eee takutnyeee!!",
+"type": "dialogue"
+},
+&"_GraphNode_35731": {
+"next_node": "_GraphNode_37213",
+"node_name": &"_GraphNode_35731",
+"position": [21060.0, 880.0],
+"set_flags": "",
+"speaker": "",
+"text": "Mirul laughs, sarcastically mimics a scared expression before returning to his seat with a grin.",
+"type": "dialogue"
+},
+&"_GraphNode_35764": {
+"next_node": "_GraphNode_35793",
+"node_name": &"_GraphNode_35764",
+"position": [21720.0, 880.0],
+"set_flags": "",
+"speaker": "",
+"text": "You turn towards Vihaan, it seems even he seems concerned.",
+"type": "dialogue"
+},
+&"_GraphNode_35793": {
+"next_node": "_GraphNode_35830",
+"node_name": &"_GraphNode_35793",
+"position": [22060.0, 880.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "Uh, that normal too?",
+"type": "dialogue"
+},
+&"_GraphNode_35830": {
+"next_node": "",
+"node_name": &"_GraphNode_35830",
+"position": [22400.0, 860.0],
+"set_flags": "",
+"speaker": "Vihaan",
+"text": "{Shocked, Pose2}
+The bickering is. But the announcement?.... No, not really.",
+"type": "dialogue"
+},
+&"_GraphNode_35863": {
+"events": [{
+"action_type": "hide_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Principal",
+"character_uid": "uid://ch0pocbeb0y77",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Alyssa",
+"character_uid": "uid://bsylmi0xhjqvv",
+"expression": "Annoyed_Pose2",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "_GraphNode_35628",
+"position": [19380.0, 880.0],
+"type": "actor"
+},
+&"_GraphNode_36534": {
+"events": [{
+"action_type": "hide_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Alyssa",
+"character_uid": "uid://bsylmi0xhjqvv",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Mirul",
+"character_uid": "uid://dowxttrntsqon",
+"expression": "Smile_Pose1",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "_GraphNode_35694",
+"position": [20380.0, 880.0],
+"type": "actor"
+},
+&"_GraphNode_37213": {
+"events": [{
+"action_type": "hide_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Mirul",
+"character_uid": "uid://dowxttrntsqon",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Vihaan",
+"character_uid": "uid://cupkf4jv5s3wr",
+"expression": "Sad_Pose1",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "_GraphNode_35764",
+"position": [21380.0, 880.0],
+"type": "actor"
 }
 }
