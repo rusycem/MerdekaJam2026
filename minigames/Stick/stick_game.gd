@@ -141,7 +141,7 @@ func _flick(attacker_stick: RigidBody2D, defender_stick: RigidBody2D, click_pos:
 	attacker_stick.z_index = z_top
 	z_top += 1
 
-	var sprite := attacker_stick.get_node("Sprite")
+	var sprite := attacker_stick.get_node("Sprite2D")
 	hop_tween = create_tween()
 	hop_tween.tween_property(sprite, "scale", Vector2(HOP_SCALE, HOP_SCALE), FLIGHT_TIME / 2.0)\
 		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
@@ -167,13 +167,13 @@ func _finish(outcome: Outcome) -> void:
 
 	if outcome == Outcome.OFF_TABLE:
 		var shrink := create_tween()
-		shrink.tween_property(attacker.get_node("Sprite"), "scale", Vector2(OFF_TABLE_SCALE, OFF_TABLE_SCALE), OFF_TABLE_SHRINK_TIME)\
+		shrink.tween_property(attacker.get_node("Sprite2D"), "scale", Vector2(OFF_TABLE_SCALE, OFF_TABLE_SCALE), OFF_TABLE_SHRINK_TIME)\
 			.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 	else:
 		attacker.linear_velocity = Vector2.ZERO
 		attacker.angular_velocity = 0.0
 		var land := create_tween()
-		land.tween_property(attacker.get_node("Sprite"), "scale", Vector2.ONE, HOP_TIME)\
+		land.tween_property(attacker.get_node("Sprite2D"), "scale", Vector2.ONE, HOP_TIME)\
 			.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 
 	if outcome == Outcome.MISS:

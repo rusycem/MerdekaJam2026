@@ -1,20 +1,30 @@
 [gd_scene format=3 uid="uid://b5mtmtex05mhh"]
 
 [ext_resource type="Script" uid="uid://xoeuyoirnupk" path="res://minigames/Stick/stick.gd" id="1_stick"]
+[ext_resource type="Texture2D" uid="uid://b4mpwqr0woyj7" path="res://assets/minigames/StickGame/stick.png" id="2_itp4q"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0yitp"]
+radius = 13.0
+height = 194.0
 
 [node name="Stick" type="RigidBody2D" unique_id=1361834291]
 rotation = 1.5707963
 script = ExtResource("1_stick")
 
-[node name="Sprite" type="Polygon2D" parent="." unique_id=1673338610]
-polygon = PackedVector2Array(-58, -12, 58, -12, 65, -5, 65, 5, 58, 12, -58, 12, -65, 5, -65, -5)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1731335091]
+rotation = 1.5707964
+texture = ExtResource("2_itp4q")
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="." unique_id=568620472]
-polygon = PackedVector2Array(-58, -12, 58, -12, 65, -5, 65, 5, 58, 12, -58, 12, -65, 5, -65, -5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=542994260]
+position = Vector2(0.99999994, 1.0000001)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_0yitp")
 
 [node name="Detector" type="Area2D" parent="." unique_id=960612884]
 collision_layer = 0
 collision_mask = 6
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Detector" unique_id=1777760898]
-polygon = PackedVector2Array(-58, -12, 58, -12, 65, -5, 65, 5, 58, 12, -58, 12, -65, 5, -65, -5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector" unique_id=46750804]
+position = Vector2(0.99999994, 1.0000001)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_0yitp")
