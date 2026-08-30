@@ -1,15 +1,10 @@
 [gd_scene format=3 uid="uid://cys0d7gh30qw0"]
 
+[ext_resource type="Theme" uid="uid://vcjv4g61tkjh" path="res://assets/MainMenu/mainmenu_theme.tres" id="1_e2p27"]
 [ext_resource type="Script" uid="uid://ci08qt5yg3l0o" path="res://src/UI/main_menu.gd" id="1_qwnig"]
 [ext_resource type="Texture2D" uid="uid://evakhjfk1bh6" path="res://assets/UIAssets/woodbg.png" id="2_5jstl"]
-[ext_resource type="FontFile" uid="uid://bjsjfoiqhtqsm" path="res://assets/UIAssets/cc.otf" id="3_tfcbk"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhts7"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
+[ext_resource type="Texture2D" uid="uid://cmme5r57qenc8" path="res://assets/MainMenu/book.png" id="4_ngj32"]
+[ext_resource type="PackedScene" uid="uid://bloekt38bucuf" path="res://src/UI/settings.tscn" id="6_ngj32"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1869123318]
 
@@ -20,82 +15,90 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_e2p27")
 script = ExtResource("1_qwnig")
 first_level_scene = "uid://c3x8g2y4nak1"
 
-[node name="Panel" type="Panel" parent="MainMenu" unique_id=1536040878]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="BG" type="TextureRect" parent="MainMenu" unique_id=1085652723]
+modulate = Color(0.44, 0.44, 0.44, 1)
 layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 720.0
 texture = ExtResource("2_5jstl")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu" unique_id=452848019]
+[node name="Book" type="TextureRect" parent="MainMenu" unique_id=1368911488]
+layout_mode = 0
+offset_left = 401.0
+offset_top = 8.0
+offset_right = 857.0
+offset_bottom = 695.0
+texture = ExtResource("4_ngj32")
+
+[node name="Play" type="Button" parent="MainMenu" unique_id=32827114]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -50.0
-offset_right = 200.0
-offset_bottom = 250.0
+offset_left = -169.0
+offset_top = 82.0
+offset_right = 79.0
+offset_bottom = 123.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 20
+text = "Enter SChool"
 
-[node name="Button" type="Button" parent="MainMenu/VBoxContainer" unique_id=806312748]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_tfcbk")
-theme_override_font_sizes/font_size = 48
-theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
-text = "Play"
-
-[node name="Button2" type="Button" parent="MainMenu/VBoxContainer" unique_id=2116077506]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_tfcbk")
-theme_override_font_sizes/font_size = 48
-theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
+[node name="Load" type="Button" parent="MainMenu" unique_id=1651138041]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = 137.0
+offset_right = 69.0
+offset_bottom = 178.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Load Game"
 
-[node name="Button3" type="Button" parent="MainMenu/VBoxContainer" unique_id=471876672]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_tfcbk")
-theme_override_font_sizes/font_size = 48
-theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
-text = "Exit"
-
-[node name="Label" type="Label" parent="MainMenu" unique_id=991087751]
+[node name="Options" type="Button" parent="MainMenu" unique_id=641462520]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -400.0
-offset_top = 100.0
-offset_right = 400.0
-offset_bottom = 250.0
+anchor_bottom = 0.5
+offset_left = -146.0
+offset_top = 194.0
+offset_right = 8.0
+offset_bottom = 235.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0.3196144, 0.13979024, 0.035845835, 1)
-theme_override_fonts/font = ExtResource("3_tfcbk")
-theme_override_font_sizes/font_size = 126
-text = "SeMaK"
-horizontal_alignment = 1
-vertical_alignment = 1
+grow_vertical = 2
+text = "Options"
 
-[connection signal="pressed" from="MainMenu/VBoxContainer/Button" to="MainMenu" method="_on_start_pressed"]
-[connection signal="pressed" from="MainMenu/VBoxContainer/Button2" to="MainMenu" method="_on_settings_pressed"]
-[connection signal="pressed" from="MainMenu/VBoxContainer/Button3" to="MainMenu" method="_on_exit_pressed"]
+[node name="Quit" type="Button" parent="MainMenu" unique_id=44383459]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -123.0
+offset_top = 249.0
+offset_right = 104.0
+offset_bottom = 290.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit school"
+
+[node name="Settings" parent="MainMenu" unique_id=178099742 instance=ExtResource("6_ngj32")]
+visible = false
+layout_mode = 1
+
+[connection signal="button_up" from="MainMenu/Play" to="MainMenu" method="_on_play_button_up"]
+[connection signal="button_up" from="MainMenu/Load" to="MainMenu" method="_on_load_button_up"]
+[connection signal="button_up" from="MainMenu/Options" to="MainMenu" method="_on_options_button_up"]
+[connection signal="button_up" from="MainMenu/Quit" to="MainMenu" method="_on_quit_button_up"]

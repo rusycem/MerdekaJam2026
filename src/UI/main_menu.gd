@@ -2,22 +2,23 @@ extends Control
 
 @export_file("*.tscn") var first_level_scene: String
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-func _on_start_pressed() -> void:
+func _on_play_button_up() -> void:
 	EventBus.scene_change_requested.emit("res://src/UI/CharacterCreation.tscn", false)
 
-func _on_settings_pressed() -> void:
+
+func _on_load_button_up() -> void:
 	var save_menu_res = load("res://scenes/UI/SaveMenu.tscn")
 	if save_menu_res:
 		var sm = save_menu_res.instantiate()
 		add_child(sm)
 
-func _on_exit_pressed():
+
+func _on_options_button_up() -> void:
+	var settings := $Settings
+
+	settings.visible = !settings.visible
+
+
+func _on_quit_button_up() -> void:
 	get_tree().quit()
