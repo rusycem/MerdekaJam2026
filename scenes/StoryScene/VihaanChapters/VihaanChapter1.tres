@@ -5,8 +5,40 @@
 [resource]
 script = ExtResource("1_p8nui")
 graph_data = {
-&"Start": {
+&"ActorNode": {
+"events": [{
+"action_type": "hide_all",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Alyssa",
+"character_uid": "",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "change_bg",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "uid://4imjs0hwif5i",
+"character": "Alyssa",
+"character_uid": "",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
 "next_node": "",
+"position": [660.0, 500.0],
+"type": "actor"
+},
+&"Start": {
+"next_node": "ActorNode",
 "node_name": &"Start",
 "position": [238.0, 496.0],
 "type": "start"
