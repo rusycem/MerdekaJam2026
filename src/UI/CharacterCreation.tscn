@@ -287,6 +287,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Fade" type="Panel" parent="." unique_id=1135941480]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

@@ -3,6 +3,39 @@
 [ext_resource type="Script" uid="uid://b2is41e18svil" path="res://src/UI/settings.gd" id="1_20fys"]
 [ext_resource type="FontFile" uid="uid://bjsjfoiqhtqsm" path="res://assets/UIAssets/cc.otf" id="2_eeyo5"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn"]
+content_margin_left = 14.0
+content_margin_top = 5.0
+content_margin_right = 14.0
+content_margin_bottom = 5.0
+bg_color = Color(0.62, 0.62, 0.62, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
+content_margin_left = 14.0
+content_margin_top = 5.0
+content_margin_right = 14.0
+content_margin_bottom = 5.0
+bg_color = Color(0.5, 0.5, 0.5, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+content_margin_left = 14.0
+content_margin_top = 5.0
+content_margin_right = 14.0
+content_margin_bottom = 5.0
+bg_color = Color(0.73, 0.73, 0.73, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [sub_resource type="ButtonGroup" id="ButtonGroup_ork7p"]
 
 [node name="Settings" type="PanelContainer" unique_id=178099742]
@@ -16,133 +49,422 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_20fys")
 
-[node name="Options" type="VBoxContainer" parent="." unique_id=1995142369]
+[node name="Center" type="CenterContainer" parent="." unique_id=1532352742]
 layout_mode = 2
-size_flags_horizontal = 4
+
+[node name="Panel" type="Panel" parent="Center" unique_id=1862905274]
+custom_minimum_size = Vector2(900, 700)
+layout_mode = 2
+
+[node name="Tabs" type="TabContainer" parent="Center/Panel" unique_id=1706444131]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+
+[node name="Settings" type="MarginContainer" parent="Center/Panel/Tabs" unique_id=1900756989]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+metadata/_tab_index = 0
+
+[node name="Scroll" type="ScrollContainer" parent="Center/Panel/Tabs/Settings" unique_id=2070326533]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="ScrollCenter" type="CenterContainer" parent="Center/Panel/Tabs/Settings/Scroll" unique_id=866415826]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Options" type="VBoxContainer" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter" unique_id=1995142369]
+layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 4
 theme_override_constants/separation = 20
 
-[node name="Label" type="Label" parent="Options" unique_id=242558543]
+[node name="Label" type="Label" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options" unique_id=242558543]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_eeyo5")
-theme_override_font_sizes/font_size = 32
-text = "Settings FR"
+theme_override_font_sizes/font_size = 52
+text = "Settings"
 horizontal_alignment = 1
 
-[node name="TextSpeed" type="HBoxContainer" parent="Options" unique_id=826114514]
+[node name="TextSpeed" type="HBoxContainer" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options" unique_id=826114514]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="Options/TextSpeed" unique_id=1833772801]
+[node name="Label" type="Label" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options/TextSpeed" unique_id=1833772801]
 layout_mode = 2
-theme_override_font_sizes/font_size = 28
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_eeyo5")
+theme_override_font_sizes/font_size = 32
 text = "Text Speed:"
 
-[node name="Slow" type="Button" parent="Options/TextSpeed" unique_id=234749455]
+[node name="Slow" type="Button" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options/TextSpeed" unique_id=234749455]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 28
+theme_override_fonts/font = ExtResource("2_eeyo5")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_ork7p")
 text = "Slow"
 
-[node name="Medium" type="Button" parent="Options/TextSpeed" unique_id=1834318440]
+[node name="Medium" type="Button" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options/TextSpeed" unique_id=1834318440]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 28
+theme_override_fonts/font = ExtResource("2_eeyo5")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
 toggle_mode = true
 button_pressed = true
 button_group = SubResource("ButtonGroup_ork7p")
 text = "Medium"
 
-[node name="Fast" type="Button" parent="Options/TextSpeed" unique_id=466798206]
+[node name="Fast" type="Button" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options/TextSpeed" unique_id=466798206]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 28
+theme_override_fonts/font = ExtResource("2_eeyo5")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_ork7p")
 text = "Fast"
 
-[node name="KeybindLabel" type="Label" parent="Options" unique_id=242223033]
+[node name="FullscreenCheck" type="CheckButton" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options" unique_id=1196429459]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_eeyo5")
+theme_override_font_sizes/font_size = 20
+text = "Fullscreen"
+
+[node name="KeybindDivider" type="HBoxContainer" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options" unique_id=242223033]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options/KeybindDivider" unique_id=243775652]
+modulate = Color(1, 1, 1, 0.35)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options/KeybindDivider" unique_id=829403825]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_eeyo5")
+theme_override_font_sizes/font_size = 36
+text = "KeyBinds"
+
+[node name="HSeparator2" type="HSeparator" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options/KeybindDivider" unique_id=666728927]
+modulate = Color(1, 1, 1, 0.35)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="NextChat" type="HBoxContainer" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options" unique_id=1015817090]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Label" type="Label" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options/NextChat" unique_id=839017155]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_eeyo5")
+theme_override_font_sizes/font_size = 32
+text = "Next Dialog:"
+
+[node name="NextChatBtn" type="Button" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options/NextChat" unique_id=802855042]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_eeyo5")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "Space"
+
+[node name="AutoNext" type="HBoxContainer" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options" unique_id=865215106]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Label" type="Label" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options/AutoNext" unique_id=718015500]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_eeyo5")
+theme_override_font_sizes/font_size = 32
+text = "Toggle Auto Next: "
+
+[node name="AutoNextBtn" type="Button" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options/AutoNext" unique_id=1703049650]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_eeyo5")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "F"
+
+[node name="HideMenu" type="HBoxContainer" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options" unique_id=763570250]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Label" type="Label" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options/HideMenu" unique_id=1235581674]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_eeyo5")
+theme_override_font_sizes/font_size = 32
+text = "Toggle UI: "
+
+[node name="HideMenuBtn" type="Button" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options/HideMenu" unique_id=1827949770]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_eeyo5")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "H"
+
+[node name="OpenTranscript" type="HBoxContainer" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options" unique_id=68115252]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Label" type="Label" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options/OpenTranscript" unique_id=907354664]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_eeyo5")
+theme_override_font_sizes/font_size = 32
+text = "Toggle Transcript:"
+
+[node name="TranscriptBtn" type="Button" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options/OpenTranscript" unique_id=1966062508]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_eeyo5")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "Tab"
+
+[node name="PauseButton" type="HBoxContainer" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options" unique_id=103774006]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Label" type="Label" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options/PauseButton" unique_id=527296045]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_eeyo5")
+theme_override_font_sizes/font_size = 32
+text = "Pause Game:"
+
+[node name="PauseBtn" type="Button" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options/PauseButton" unique_id=1554924941]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_eeyo5")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "Esc"
+
+[node name="HSeparator2" type="HSeparator" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options" unique_id=1269257755]
+layout_mode = 2
+
+[node name="MasterVolume" type="HBoxContainer" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options" unique_id=663982523]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options/MasterVolume" unique_id=649311476]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_eeyo5")
 theme_override_font_sizes/font_size = 32
-text = "-- KeyBinds --"
-horizontal_alignment = 1
+text = "Master Volume"
 
-[node name="NextChat" type="HBoxContainer" parent="Options" unique_id=1015817090]
+[node name="MasterSlider" type="HSlider" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options/MasterVolume" unique_id=384738756]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/separation = 64
-alignment = 1
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.05
 
-[node name="Label" type="Label" parent="Options/NextChat" unique_id=839017155]
+[node name="BGMVolume" type="HBoxContainer" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options" unique_id=657826589]
 layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "Next Dialog:"
 
-[node name="Button" type="Button" parent="Options/NextChat" unique_id=802855042]
+[node name="Label" type="Label" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options/BGMVolume" unique_id=1278736415]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "Space"
+theme_override_fonts/font = ExtResource("2_eeyo5")
+theme_override_font_sizes/font_size = 32
+text = "BGM Volume"
 
-[node name="AutoNext" type="HBoxContainer" parent="Options" unique_id=865215106]
+[node name="BGMSlider" type="HSlider" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options/BGMVolume" unique_id=984910362]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/separation = 64
-alignment = 1
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.05
 
-[node name="Label" type="Label" parent="Options/AutoNext" unique_id=718015500]
+[node name="SFXVolume" type="HBoxContainer" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options" unique_id=1526279567]
 layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "Toggle Auto Next: "
 
-[node name="Button" type="Button" parent="Options/AutoNext" unique_id=1703049650]
+[node name="Label" type="Label" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options/SFXVolume" unique_id=2061937936]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "F"
+theme_override_fonts/font = ExtResource("2_eeyo5")
+theme_override_font_sizes/font_size = 32
+text = "SFX Volume"
 
-[node name="HideMenu" type="HBoxContainer" parent="Options" unique_id=763570250]
+[node name="SFXSlider" type="HSlider" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options/SFXVolume" unique_id=1406170581]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/separation = 64
-alignment = 1
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.05
 
-[node name="Label" type="Label" parent="Options/HideMenu" unique_id=1235581674]
+[node name="VoiceVolume" type="HBoxContainer" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options" unique_id=902755045]
 layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "Toggle UI: "
 
-[node name="Button" type="Button" parent="Options/HideMenu" unique_id=1827949770]
+[node name="Label" type="Label" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options/VoiceVolume" unique_id=1750288632]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "H"
+theme_override_fonts/font = ExtResource("2_eeyo5")
+theme_override_font_sizes/font_size = 32
+text = "Voice Volume"
 
-[node name="OpenTranscript" type="HBoxContainer" parent="Options" unique_id=68115252]
+[node name="VoiceSlider" type="HSlider" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options/VoiceVolume" unique_id=1394999446]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/separation = 64
-alignment = 1
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.05
 
-[node name="Label" type="Label" parent="Options/OpenTranscript" unique_id=907354664]
+[node name="HSeparator" type="HSeparator" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options" unique_id=1296254030]
 layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "Toggle Transcript:"
 
-[node name="Button" type="Button" parent="Options/OpenTranscript" unique_id=1966062508]
+[node name="QuitButton" type="Button" parent="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options" unique_id=137035676]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "Tab"
+theme_override_colors/font_color = Color(1, 0.4, 0.4, 1)
+theme_override_fonts/font = ExtResource("2_eeyo5")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "Quit to Main Menu"
 
-[node name="PauseButton" type="HBoxContainer" parent="Options" unique_id=103774006]
+[node name="Save" type="MarginContainer" parent="Center/Panel/Tabs" unique_id=129879021]
+visible = false
 layout_mode = 2
-theme_override_constants/separation = 64
-alignment = 1
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+metadata/_tab_index = 1
 
-[node name="Label" type="Label" parent="Options/PauseButton" unique_id=527296045]
+[node name="SaveGrid" type="GridContainer" parent="Center/Panel/Tabs/Save" unique_id=865004339]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "Pause Game:"
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 3
 
-[node name="Button" type="Button" parent="Options/PauseButton" unique_id=1554924941]
+[node name="Slot_1" type="Button" parent="Center/Panel/Tabs/Save/SaveGrid" unique_id=1649655508]
+custom_minimum_size = Vector2(260, 120)
 layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "Esc"
+text = "Save 1
+[Empty]"
+
+[node name="Slot_2" type="Button" parent="Center/Panel/Tabs/Save/SaveGrid" unique_id=323171773]
+custom_minimum_size = Vector2(260, 120)
+layout_mode = 2
+text = "Save 2
+[Empty]"
+
+[node name="Slot_3" type="Button" parent="Center/Panel/Tabs/Save/SaveGrid" unique_id=1383459133]
+custom_minimum_size = Vector2(260, 120)
+layout_mode = 2
+text = "Save 3
+[Empty]"
+
+[node name="Slot_4" type="Button" parent="Center/Panel/Tabs/Save/SaveGrid" unique_id=473386238]
+custom_minimum_size = Vector2(260, 120)
+layout_mode = 2
+text = "Save 4
+[Empty]"
+
+[node name="Slot_5" type="Button" parent="Center/Panel/Tabs/Save/SaveGrid" unique_id=1202693399]
+custom_minimum_size = Vector2(260, 120)
+layout_mode = 2
+text = "Save 5
+[Empty]"
+
+[node name="Slot_6" type="Button" parent="Center/Panel/Tabs/Save/SaveGrid" unique_id=415058209]
+custom_minimum_size = Vector2(260, 120)
+layout_mode = 2
+text = "Save 6
+[Empty]"
+
+[node name="Slot_7" type="Button" parent="Center/Panel/Tabs/Save/SaveGrid" unique_id=1903400600]
+custom_minimum_size = Vector2(260, 120)
+layout_mode = 2
+text = "Save 7
+[Empty]"
+
+[node name="Slot_8" type="Button" parent="Center/Panel/Tabs/Save/SaveGrid" unique_id=118000086]
+custom_minimum_size = Vector2(260, 120)
+layout_mode = 2
+text = "Save 8
+[Empty]"
+
+[node name="Slot_9" type="Button" parent="Center/Panel/Tabs/Save/SaveGrid" unique_id=1864484068]
+custom_minimum_size = Vector2(260, 120)
+layout_mode = 2
+text = "Save 9
+[Empty]"
+
+[node name="Status" type="MarginContainer" parent="Center/Panel/Tabs" unique_id=1218088118]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+metadata/_tab_index = 2
+
+[node name="StatusLabel" type="RichTextLabel" parent="Center/Panel/Tabs/Status" unique_id=260431932]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+
+[node name="Objectives" type="MarginContainer" parent="Center/Panel/Tabs" unique_id=346663071]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+metadata/_tab_index = 3
+
+[node name="ObjectivesLabel" type="RichTextLabel" parent="Center/Panel/Tabs/Objectives" unique_id=1868796612]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Current Location:[/b] Unknown
+
+[b]Active Quests:[/b]
+- Continue investigating..."
 
 [node name="ListeningContainer" type="PanelContainer" parent="." unique_id=182606966]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
@@ -151,26 +473,32 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 65
 
-[node name="Label" type="Label" parent="ListeningContainer/HBox" unique_id=767754600]
+[node name="ListeningLabel" type="Label" parent="ListeningContainer/HBox" unique_id=767754600]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_eeyo5")
 theme_override_font_sizes/font_size = 32
 text = "Listening...."
 
 [node name="CancelBtn" type="Button" parent="ListeningContainer/HBox" unique_id=182606968]
+unique_name_in_owner = true
 modulate = Color(0.86, 0, 0.014333115, 1)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 64
+theme_override_fonts/font = ExtResource("2_eeyo5")
+theme_override_font_sizes/font_size = 40
 text = "X"
 
-[connection signal="toggled" from="Options/TextSpeed/Slow" to="." method="_on_slow_toggled"]
-[connection signal="toggled" from="Options/TextSpeed/Medium" to="." method="_on_medium_toggled"]
-[connection signal="toggled" from="Options/TextSpeed/Fast" to="." method="_on_fast_toggled"]
-[connection signal="pressed" from="Options/NextChat/Button" to="." method="_on_next_chat_pressed"]
-[connection signal="pressed" from="Options/AutoNext/Button" to="." method="_on_auto_next_pressed"]
-[connection signal="pressed" from="Options/HideMenu/Button" to="." method="_on_hide_menu_pressed"]
-[connection signal="pressed" from="Options/OpenTranscript/Button" to="." method="_on_open_transcript_pressed"]
-[connection signal="pressed" from="Options/PauseButton/Button" to="." method="_on_pause_pressed"]
+[connection signal="toggled" from="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options/TextSpeed/Slow" to="." method="_on_slow_toggled"]
+[connection signal="toggled" from="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options/TextSpeed/Medium" to="." method="_on_medium_toggled"]
+[connection signal="toggled" from="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options/TextSpeed/Fast" to="." method="_on_fast_toggled"]
+[connection signal="toggled" from="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options/FullscreenCheck" to="." method="_on_fullscreen_toggled"]
+[connection signal="pressed" from="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options/NextChat/NextChatBtn" to="." method="_on_next_chat_pressed"]
+[connection signal="pressed" from="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options/AutoNext/AutoNextBtn" to="." method="_on_auto_next_pressed"]
+[connection signal="pressed" from="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options/HideMenu/HideMenuBtn" to="." method="_on_hide_menu_pressed"]
+[connection signal="pressed" from="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options/OpenTranscript/TranscriptBtn" to="." method="_on_open_transcript_pressed"]
+[connection signal="pressed" from="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options/PauseButton/PauseBtn" to="." method="_on_pause_pressed"]
+[connection signal="pressed" from="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options/QuitButton" to="." method="_on_quit_pressed"]
 [connection signal="button_down" from="ListeningContainer/HBox/CancelBtn" to="." method="_stop_listening"]
