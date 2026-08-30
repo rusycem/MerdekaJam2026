@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://savemenu123"]
 
 [ext_resource type="Script" uid="uid://dnpm5ls4lpxva" path="res://scenes/UI/SaveMenu.gd" id="1_script"]
+[ext_resource type="FontFile" uid="uid://bjsjfoiqhtqsm" path="res://assets/UIAssets/cc.otf" id="2_0x47d"]
 
 [node name="SaveMenu" type="CanvasLayer" unique_id=1109731549]
 layer = 10
@@ -40,6 +41,7 @@ grow_vertical = 2
 
 [node name="Title" type="Label" parent="Panel/VBox" unique_id=1152698454]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_0x47d")
 theme_override_font_sizes/font_size = 36
 text = "Save / Load"
 horizontal_alignment = 1
@@ -59,5 +61,6 @@ alignment = 1
 [node name="BtnClose" type="Button" parent="Panel/VBox/HBox" unique_id=895433493]
 custom_minimum_size = Vector2(120, 40)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_0x47d")
 theme_override_font_sizes/font_size = 24
 text = "Close"
