@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cifi4sbu527am"
-path="res://.godot/imported/Principle_Serious.png-9b9179d662c5383a345207bd27db213f.ctex"
+uid="uid://cl2wscrr7v51l"
+path="res://.godot/imported/MalePLayer_Shocked.png-ad4165bc52ce1c1ecd4a9fb98c895303.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/CharacterArtAssets/Principal/Principle_Serious.png"
-dest_files=["res://.godot/imported/Principle_Serious.png-9b9179d662c5383a345207bd27db213f.ctex"]
+source_file="res://assets/CharacterArtAssets/MaleChar/MalePLayer_Shocked.png"
+dest_files=["res://.godot/imported/MalePLayer_Shocked.png-ad4165bc52ce1c1ecd4a9fb98c895303.ctex"]
 
 [params]
 

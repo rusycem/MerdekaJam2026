@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="VNStoryTree" format=3 uid="uid://bxfb5jbpjsd8q"]
+[gd_resource type="Resource" script_class="VNStoryTree" format=3 uid="uid://xx875pdaxdr2"]
 
-[ext_resource type="Script" uid="uid://dtjadxbepppro" path="res://src/vn_control/VNStoryTree.gd" id="1_qhav2"]
+[ext_resource type="Script" uid="uid://dtjadxbepppro" path="res://src/vn_control/VNStoryTree.gd" id="1_wdme7"]
 
 [resource]
-script = ExtResource("1_qhav2")
+script = ExtResource("1_wdme7")
 graph_data = {
 &"ActorNode": {
 "events": [{

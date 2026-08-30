@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://c0hnkiacldsq" path="res://src/Dorm.gd" id="1_dorm"]
 [ext_resource type="Resource" uid="uid://c6gwqkcetcatt" path="res://scenes/StoryScene/prologue_test.tres" id="2_dmaja"]
-[ext_resource type="Resource" uid="uid://dq0hbkf4ljii5" path="res://scenes/StoryScene/mirul/level1_test.tres" id="3_qk8yr"]
-[ext_resource type="Resource" uid="uid://msjo6ad0pr8n" path="res://scenes/StoryScene/mirul/level2_test.tres" id="4_1s6s4"]
-[ext_resource type="Resource" uid="uid://gteyq0g4lhfj" path="res://scenes/StoryScene/mirul/level3_test.tres" id="5_v4nee"]
+[ext_resource type="Resource" uid="uid://dq0hbkf4ljii5" path="res://scenes/StoryScene/MirulChapters/MirulChapter1.tres" id="3_qk8yr"]
+[ext_resource type="Resource" uid="uid://msjo6ad0pr8n" path="res://scenes/StoryScene/MirulChapters/MirulChapter2.tres" id="4_1s6s4"]
+[ext_resource type="Resource" uid="uid://gteyq0g4lhfj" path="res://scenes/StoryScene/MirulChapters/MirulChapter3.tres" id="5_v4nee"]
 
 [node name="Dorm" type="Control" unique_id=1102915279]
 layout_mode = 3

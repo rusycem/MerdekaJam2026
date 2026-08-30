@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="VNStoryTree" format=3 uid="uid://bp74p15n2lh8o"]
+
+[ext_resource type="Script" uid="uid://dtjadxbepppro" path="res://src/vn_control/VNStoryTree.gd" id="1_ej8sj"]
+
+[resource]
+script = ExtResource("1_ej8sj")
+graph_data = {
+&"ActorNode": {
+"events": [],
+"next_node": "",
+"position": [759.93567, 489.76007],
+"type": "actor"
+},
+&"Start": {
+"next_node": "ActorNode",
+"node_name": &"Start",
+"position": [238.0, 496.0],
+"type": "start"
+}
+}

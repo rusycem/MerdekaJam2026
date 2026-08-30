@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7fdogrnmqmhx"
-path="res://.godot/imported/Principle_Happy.png-d7f179ef8d2eaccfb51bd5b2e0e6e89a.ctex"
+uid="uid://4imjs0hwif5i"
+path="res://.godot/imported/BG_Classroom.jpg-885fb377581b13518449f17e3c8c9ec7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/CharacterArtAssets/Principal/Principle_Happy.png"
-dest_files=["res://.godot/imported/Principle_Happy.png-d7f179ef8d2eaccfb51bd5b2e0e6e89a.ctex"]
+source_file="res://assets/BGArtAssets/BG_Classroom.jpg"
+dest_files=["res://.godot/imported/BG_Classroom.jpg-885fb377581b13518449f17e3c8c9ec7.ctex"]
 
 [params]
 
