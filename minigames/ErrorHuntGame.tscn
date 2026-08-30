@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://p0e2swun7cyh"]
 
 [ext_resource type="Script" uid="uid://do0kxeqfd37dj" path="res://minigames/ErrorHuntGame.gd" id="1_errorhunt"]
-[ext_resource type="Texture2D" uid="uid://evakhjfk1bh6" path="res://assets/UIAssets/woodbg.png" id="2_8mqpm"]
-[ext_resource type="FontFile" uid="uid://bjsjfoiqhtqsm" path="res://assets/UIAssets/cc.otf" id="2_b23hr"]
 
 [node name="ErrorHuntGame" type="Control" unique_id=1682163477]
 layout_mode = 3
@@ -22,12 +20,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.08, 0.1, 0.16, 0.98)
 
-[node name="BG" type="TextureRect" parent="." unique_id=1239167092]
-layout_mode = 0
-offset_right = 1280.0
-offset_bottom = 720.0
-texture = ExtResource("2_8mqpm")
-
 [node name="Header" type="Panel" parent="." unique_id=938102380]
 layout_mode = 1
 anchors_preset = 10
@@ -45,7 +37,6 @@ offset_top = -24.0
 offset_right = 400.0
 offset_bottom = 24.0
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_b23hr")
 theme_override_font_sizes/font_size = 28
 text = "ENGLISH // ERROR HUNT"
 vertical_alignment = 1
@@ -60,7 +51,6 @@ offset_top = 12.0
 offset_right = 150.0
 offset_bottom = 56.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("2_b23hr")
 theme_override_font_sizes/font_size = 32
 text = "Time: 60.0s"
 horizontal_alignment = 1
@@ -79,7 +69,6 @@ offset_right = -40.0
 offset_bottom = 4.0
 grow_horizontal = 0
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_b23hr")
 theme_override_font_sizes/font_size = 28
 text = "Score: 0"
 horizontal_alignment = 2
@@ -99,7 +88,6 @@ offset_bottom = 38.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.75, 0.8, 0.9, 1)
-theme_override_fonts/font = ExtResource("2_b23hr")
 theme_override_font_sizes/font_size = 18
 text = "Target: 100 pts (Solved: 0)"
 horizontal_alignment = 2
@@ -126,14 +114,12 @@ theme_override_constants/separation = 16
 [node name="BadgeLabel" type="Label" parent="MainCard/VBox" unique_id=1838271656]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.4, 0.8, 1, 1)
-theme_override_fonts/font = ExtResource("2_b23hr")
 theme_override_font_sizes/font_size = 18
 text = "[TAP THE ERROR] VERB TENSE"
 horizontal_alignment = 1
 
 [node name="PromptLabel" type="Label" parent="MainCard/VBox" unique_id=2141357219]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_b23hr")
 theme_override_font_sizes/font_size = 22
 text = "Tap the incorrect word in the sentence below:"
 horizontal_alignment = 1

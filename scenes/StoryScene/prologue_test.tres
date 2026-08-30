@@ -213,7 +213,7 @@ graph_data = {
 "type": "dialogue"
 },
 &"VihaanMinigame": {
-"command": "minigame math",
+"command": "minigame errorhunt",
 "next_node": "ConditionNode",
 "position": [2320.0, 380.0],
 "type": "command"

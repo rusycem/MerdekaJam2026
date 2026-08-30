@@ -8,7 +8,6 @@
 
 [resource]
 script = ExtResource("1_u015h")
-character_name = "{player}"
 portraits = {
 "Angry": ExtResource("3_l262x"),
 "Happy": ExtResource("2_hhy8f"),

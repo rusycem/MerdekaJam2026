@@ -1,10 +1,8 @@
 [gd_scene format=3 uid="uid://cblobby123"]
 
-[ext_resource type="Script" uid="uid://d2drp8g3hlfa3" path="res://src/ActivityPhase.gd" id="1_lobby"]
-[ext_resource type="Texture2D" uid="uid://evakhjfk1bh6" path="res://assets/UIAssets/woodbg.png" id="2_3btx0"]
-[ext_resource type="FontFile" uid="uid://bjsjfoiqhtqsm" path="res://assets/UIAssets/cc.otf" id="3_u5xav"]
+[ext_resource type="Script" uid="uid://dabtyic5o4xl0" path="res://src/ActivityPhase.gd" id="1_lobby"]
 
-[node name="Lobby" type="Control" unique_id=584254321]
+[node name="Lobby" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,7 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lobby")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=474226688]
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,25 +20,17 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.1, 0.1, 0.15, 1)
 
-[node name="BG" type="TextureRect" parent="." unique_id=837532059]
-layout_mode = 0
-offset_right = 1280.0
-offset_bottom = 720.0
-texture = ExtResource("2_3btx0")
-
-[node name="TitleLabel" type="Label" parent="." unique_id=2042069520]
+[node name="TitleLabel" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 82.0
+offset_bottom = 67.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("3_u5xav")
 theme_override_font_sizes/font_size = 48
 text = "Activity Phase"
 horizontal_alignment = 1
-vertical_alignment = 2
 
-[node name="TurnsLabel" type="Label" parent="." unique_id=2099229465]
+[node name="TurnsLabel" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -50,13 +40,12 @@ offset_top = 20.0
 offset_right = -20.0
 offset_bottom = 65.0
 grow_horizontal = 0
-theme_override_colors/font_color = Color(1, 0.9, 0, 1)
-theme_override_fonts/font = ExtResource("3_u5xav")
 theme_override_font_sizes/font_size = 32
+theme_override_colors/font_color = Color(1, 0.9, 0, 1)
 text = "Turns: 5"
 horizontal_alignment = 2
 
-[node name="StatsPanel" type="Panel" parent="." unique_id=411760220]
+[node name="StatsPanel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -67,7 +56,7 @@ offset_right = 350.0
 offset_bottom = 200.0
 grow_vertical = 2
 
-[node name="VBox" type="VBoxContainer" parent="StatsPanel" unique_id=385716878]
+[node name="VBox" type="VBoxContainer" parent="StatsPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -80,19 +69,18 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
-[node name="Header" type="Label" parent="StatsPanel/VBox" unique_id=1324213411]
+[node name="Header" type="Label" parent="StatsPanel/VBox"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_u5xav")
 theme_override_font_sizes/font_size = 32
 text = "My Stats"
 horizontal_alignment = 1
 
-[node name="StatLabels" type="VBoxContainer" parent="StatsPanel/VBox" unique_id=911216956]
+[node name="StatLabels" type="VBoxContainer" parent="StatsPanel/VBox"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 15
 
-[node name="ActivitiesPanel" type="Panel" parent="." unique_id=1471638939]
+[node name="ActivitiesPanel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -106,7 +94,7 @@ offset_bottom = 200.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="VBox" type="VBoxContainer" parent="ActivitiesPanel" unique_id=766911641]
+[node name="VBox" type="VBoxContainer" parent="ActivitiesPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -119,37 +107,34 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
-[node name="Header" type="Label" parent="ActivitiesPanel/VBox" unique_id=17540424]
+[node name="Header" type="Label" parent="ActivitiesPanel/VBox"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_u5xav")
 theme_override_font_sizes/font_size = 32
 text = "Activities"
 horizontal_alignment = 1
 
-[node name="BtnStudy" type="Button" parent="ActivitiesPanel/VBox" unique_id=2052164494]
+[node name="BtnStudy" type="Button" parent="ActivitiesPanel/VBox"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("3_u5xav")
 theme_override_font_sizes/font_size = 28
 text = "Study (+Int)"
 
-[node name="BtnWorkout" type="Button" parent="ActivitiesPanel/VBox" unique_id=517339614]
+[node name="BtnWorkout" type="Button" parent="ActivitiesPanel/VBox"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("3_u5xav")
 theme_override_font_sizes/font_size = 28
 text = "Workout (+Dex)"
 
-[node name="BtnSocialize" type="Button" parent="ActivitiesPanel/VBox" unique_id=1536111472]
+[node name="BtnSocialize" type="Button" parent="ActivitiesPanel/VBox"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("3_u5xav")
 theme_override_font_sizes/font_size = 28
 text = "Socialize (+Charm)"
 
-[node name="BtnExplore" type="Button" parent="ActivitiesPanel/VBox" unique_id=1234269447]
+[node name="BtnExplore" type="Button" parent="ActivitiesPanel/VBox"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("3_u5xav")
 theme_override_font_sizes/font_size = 28
 text = "Explore (+Courage)"
+
+
