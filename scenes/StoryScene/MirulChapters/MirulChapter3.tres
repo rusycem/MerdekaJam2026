@@ -5,78 +5,997 @@
 [resource]
 script = ExtResource("1_uwufi")
 graph_data = {
-&"AddBestFriend": {
-"command": "flag add mirul_best_friend",
-"next_node": "GiveMoney",
-"position": [1600.0, -100.0],
-"type": "command"
-},
-&"EndChapter": {
-"next_node": "FlagCompleted",
-"node_name": &"EndChapter",
-"position": [2300.0, 0.0],
-"set_flags": "",
-"speaker": "{player}",
-"text": "And so, the school year ends.",
-"type": "dialogue"
-},
-&"ExamFail": {
-"next_node": "EndChapter",
-"node_name": &"ExamFail",
-"position": [1300.0, 100.0],
+&"@GraphNode@50130": {
+"next_node": "@GraphNode@50191",
+"node_name": &"@GraphNode@50130",
+"position": [1180.0, -20.0],
 "set_flags": "",
 "speaker": "Mirul",
-"text": "{Sad, Pose1, sink} Damn... I failed. But it's okay, I'll just retake the class. Thanks for being my friend anyway.",
+"text": "{Annoyed, Pose2}
+\"I told you to keep it down haven't I?\"",
 "type": "dialogue"
 },
-&"ExamPass": {
-"next_node": "AddBestFriend",
-"node_name": &"ExamPass",
-"position": [1300.0, -100.0],
+&"@GraphNode@50191": {
+"next_node": "@GraphNode@50208",
+"node_name": &"@GraphNode@50191",
+"position": [1520.0, -40.0],
+"set_flags": "",
+"speaker": "Vihaan",
+"text": "{Neutral, Pose4}
+\"{player}, you know about this too?\"",
+"type": "dialogue"
+},
+&"@GraphNode@50208": {
+"next_node": "@GraphNode@50272",
+"node_name": &"@GraphNode@50208",
+"position": [1900.0, 0.0],
+"set_flags": "",
+"speaker": "",
+"text": "You softly nod and you turn to Mirul hoping for an explanation.",
+"type": "dialogue"
+},
+&"@GraphNode@50272": {
+"next_node": "@GraphNode@50424",
+"node_name": &"@GraphNode@50272",
+"position": [2320.0, -40.0],
+"set_flags": "",
+"speaker": "Vihaan",
+"text": "{Angry, Pose2}
+\"I just don't get it, why would you do it? It's not like you cared about grades. ",
+"type": "dialogue"
+},
+&"@GraphNode@50424": {
+"next_node": "@GraphNode@50480",
+"node_name": &"@GraphNode@50424",
+"position": [2740.0, -40.0],
 "set_flags": "",
 "speaker": "Mirul",
-"text": "{Happy, Pose1, bounce} Wow! I actually passed! Thanks to you, {player}. We're best friends now!",
+"text": "{Annoyed, Pose2}
+\"Since when you get so talkative?\"",
 "type": "dialogue"
 },
-&"ExamStart": {
-"next_node": "FinalCheck",
-"node_name": &"ExamStart",
-"position": [600.0, 0.0],
+&"@GraphNode@50480": {
+"next_node": "@GraphNode@50510",
+"node_name": &"@GraphNode@50480",
+"position": [3120.0, 0.0],
 "set_flags": "",
-"speaker": "Mirul",
-"text": "{Shocked, Pose2, jump} This is it, {player}. The final exam. I hope we studied enough.",
+"speaker": "",
+"text": "Vihaan instinctively took a couple steps back. ",
 "type": "dialogue"
 },
-&"FinalCheck": {
-"dc_value": 15,
-"next_fail": "ExamFail",
-"next_pass": "ExamPass",
-"node_name": &"FinalCheck",
-"position": [900.0, 0.0],
-"target_stat": "Intelligence",
+&"@GraphNode@50510": {
+"next_node": "ChoiceNode",
+"node_name": &"@GraphNode@50510",
+"position": [3500.0, -20.0],
+"set_flags": "",
+"speaker": "",
+"text": "You can feel the tension rising. Whatever you chose to do now will decide the fate of these students.",
+"type": "dialogue"
+},
+&"@GraphNode@50645": {
+"dc_value": 10,
+"next_fail": "@GraphNode@52287",
+"next_pass": "@GraphNode@51394",
+"node_name": &"@GraphNode@50645",
+"position": [4300.0, 460.0],
+"target_stat": "Charm",
 "type": "dnd_check"
 },
-&"FlagCompleted": {
-"command": "flag add completed_mirul_ch3",
-"next_node": "",
-"position": [2600.0, 0.0],
-"type": "command"
+&"@GraphNode@50996": {
+"next_node": "@GraphNode@51030",
+"node_name": &"@GraphNode@50996",
+"position": [4320.0, 160.0],
+"set_flags": "",
+"speaker": "",
+"text": "With Mirul unclear motif, you decided this has gone far enough. ",
+"type": "dialogue"
 },
-&"GiveMoney": {
-"command": "reward money 100",
-"next_node": "EndChapter",
-"position": [1900.0, -100.0],
-"type": "command"
+&"@GraphNode@51030": {
+"next_node": "@GraphNode@51669",
+"node_name": &"@GraphNode@51030",
+"position": [4680.0, 160.0],
+"set_flags": "",
+"speaker": "",
+"text": "You and Vihaan left Mirul to find Alyysa...to tell her everything. ",
+"type": "dialogue"
 },
-&"SetupScene": {
+&"@GraphNode@51093": {
+"next_node": "@GraphNode@51940",
+"node_name": &"@GraphNode@51093",
+"position": [5720.0, 120.0],
+"set_flags": "Flag_ToldAlyssa",
+"speaker": "",
+"text": "Alyssa freezes in shock upon hearing the news...",
+"type": "dialogue"
+},
+&"@GraphNode@51394": {
+"next_node": "@GraphNode@51562",
+"node_name": &"@GraphNode@51394",
+"position": [4771.472, 408.94736],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Sad, Pose2}
+\"Yeah maybe you're right. Let me think about it.\"",
+"type": "dialogue"
+},
+&"@GraphNode@51562": {
+"next_node": "@GraphNode@51626",
+"node_name": &"@GraphNode@51562",
+"position": [5120.0, 440.0],
+"set_flags": "",
+"speaker": "",
+"text": "You sighed in relief. You turned to Vihaan and gave him a reassuring nod.",
+"type": "dialogue"
+},
+&"@GraphNode@51626": {
+"next_node": "@GraphNode@51940",
+"node_name": &"@GraphNode@51626",
+"position": [5480.0, 440.0],
+"set_flags": "Flag_ConvinceMirul",
+"speaker": "",
+"text": "You have placed your trust in Mirul...",
+"type": "dialogue"
+},
+&"@GraphNode@51669": {
+"events": [{
+"action_type": "hide_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Mirul",
+"character_uid": "uid://dowxttrntsqon",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "@GraphNode@51810",
+"position": [5020.0, 180.0],
+"type": "actor"
+},
+&"@GraphNode@51810": {
 "events": [{
 "action_type": "change_bg",
 "anim_duration": 0.5,
 "animation": "None",
-"background_uid": "uid://ltl68wkoaqh0",
-"character": "",
+"background_uid": "uid://brq5bijildv3f",
+"character": "Alyssa",
 "character_uid": "",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "@GraphNode@51093",
+"position": [5360.0, 160.0],
+"type": "actor"
+},
+&"@GraphNode@51940": {
+"events": [{
+"action_type": "hide_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Mirul",
+"character_uid": "uid://dowxttrntsqon",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "hide_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Vihaan",
+"character_uid": "uid://cupkf4jv5s3wr",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "CommandNode",
+"position": [13820.0, 260.0],
+"type": "actor"
+},
+&"@GraphNode@52287": {
+"next_node": "@GraphNode@52416",
+"node_name": &"@GraphNode@52287",
+"position": [4760.0, 660.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Sad, Pose2}
+\"You don’t understand. I don't think you could ever understand.\"",
+"type": "dialogue"
+},
+&"@GraphNode@52416": {
+"next_node": "@GraphNode@52445",
+"node_name": &"@GraphNode@52416",
+"position": [5120.0, 700.0],
+"set_flags": "",
+"speaker": "",
+"text": "Mirul walks past both you and Vihaan. His face seems as if he is contemplating. ",
+"type": "dialogue"
+},
+&"@GraphNode@52445": {
+"next_node": "@GraphNode@52462",
+"node_name": &"@GraphNode@52445",
+"position": [5480.0, 700.0],
+"set_flags": "",
+"speaker": "",
+"text": "A thought have entered your mind...",
+"type": "dialogue"
+},
+&"@GraphNode@52462": {
+"next_node": "@GraphNode@51940",
+"node_name": &"@GraphNode@52462",
+"position": [5820.0, 680.0],
+"set_flags": "Flag_MirulWin",
+"speaker": "",
+"text": "\"Have you been a good friend?\"",
+"type": "dialogue"
+},
+&"@GraphNode@52664": {
+"next_node": "@GraphNode@52923",
+"node_name": &"@GraphNode@52664",
+"position": [4320.0, -100.0],
+"set_flags": "",
+"speaker": "Vihaan",
+"text": "{Angry, Pose3}
+\"Are you serious? I can't believe you're defending this right now.\"",
+"type": "dialogue"
+},
+&"@GraphNode@52923": {
+"next_node": "@GraphNode@52980",
+"node_name": &"@GraphNode@52923",
+"position": [4680.0, -80.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "\"I'm sure he has his reason, I'm sticking with Mirul.\"",
+"type": "dialogue"
+},
+&"@GraphNode@52980": {
+"next_node": "@GraphNode@53022",
+"node_name": &"@GraphNode@52980",
+"position": [5080.0, -100.0],
+"set_flags": "",
+"speaker": "Vihaan",
+"text": "{Angry, Pose3}
+\"Then what am I supposed to do? Stay quiet and pretend I didn't see anything?\"",
+"type": "dialogue"
+},
+&"@GraphNode@53022": {
+"next_node": "@GraphNode@53053",
+"node_name": &"@GraphNode@53022",
+"position": [5400.0, -160.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "\"Yes, you're going to pretend you didn't see anything. They won't suspect you.\" ",
+"type": "dialogue"
+},
+&"@GraphNode@53053": {
+"next_node": "@GraphNode@53108",
+"node_name": &"@GraphNode@53053",
+"position": [5760.0, -180.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "\"Or...I will tell Alyssa that YOU stole them.\" ",
+"type": "dialogue"
+},
+&"@GraphNode@53108": {
+"next_node": "@GraphNode@53152",
+"node_name": &"@GraphNode@53108",
+"position": [6100.0, -160.0],
+"set_flags": "",
+"speaker": "",
+"text": "Both Vihaan and Mirul were shocked.",
+"type": "dialogue"
+},
+&"@GraphNode@53152": {
+"next_node": "@GraphNode@53169",
+"node_name": &"@GraphNode@53152",
+"position": [6440.0, -160.0],
+"set_flags": "",
+"speaker": "",
+"text": "Vihaan looked at both of you in disapointment. ",
+"type": "dialogue"
+},
+&"@GraphNode@53169": {
+"next_node": "@GraphNode@53186",
+"node_name": &"@GraphNode@53169",
+"position": [6780.0, -160.0],
+"set_flags": "",
+"speaker": "",
+"text": "Vihaan has left the room.",
+"type": "dialogue"
+},
+&"@GraphNode@53186": {
+"events": [{
+"action_type": "hide_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Vihaan",
+"character_uid": "uid://cupkf4jv5s3wr",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "@GraphNode@53419",
+"position": [7140.0, -140.0],
+"type": "actor"
+},
+&"@GraphNode@53419": {
+"events": [{
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "Fade In",
+"background_uid": "",
+"character": "Mirul",
+"character_uid": "uid://dowxttrntsqon",
 "expression": "Neutral_Pose1",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "@GraphNode@53564",
+"position": [7520.0, -140.0],
+"type": "actor"
+},
+&"@GraphNode@53564": {
+"next_node": "@GraphNode@53594",
+"node_name": &"@GraphNode@53564",
+"position": [7900.0, -180.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "\"You owe me an explanation.\"",
+"type": "dialogue"
+},
+&"@GraphNode@53594": {
+"next_node": "@GraphNode@53911",
+"node_name": &"@GraphNode@53594",
+"position": [8260.0, -200.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Annoyed_Pose1}
+“I wanted to prove how easy the system is to break.”",
+"type": "dialogue"
+},
+&"@GraphNode@53911": {
+"next_node": "@GraphNode@54063",
+"node_name": &"@GraphNode@53911",
+"position": [8620.0, -140.0],
+"set_flags": "",
+"speaker": "",
+"text": "You look at Mirul in confusion...but also in curiosity. ",
+"type": "dialogue"
+},
+&"@GraphNode@54063": {
+"next_node": "@GraphNode@54191",
+"node_name": &"@GraphNode@54063",
+"position": [8980.0, -180.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Angry_Pose1}
+“Me and Alyssa used to be a thing.”",
+"type": "dialogue"
+},
+&"@GraphNode@54191": {
+"next_node": "@GraphNode@54238",
+"node_name": &"@GraphNode@54191",
+"position": [9320.0, -180.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Angry_Pose1}
+“My Dad, the strict person that he is...”",
+"type": "dialogue"
+},
+&"@GraphNode@54238": {
+"next_node": "@GraphNode@54272",
+"node_name": &"@GraphNode@54238",
+"position": [9660.0, -180.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Angry_Pose1}
+“always compared me with Alyssa...”",
+"type": "dialogue"
+},
+&"@GraphNode@54272": {
+"next_node": "@GraphNode@54302",
+"node_name": &"@GraphNode@54272",
+"position": [10060.0, -180.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Angry_Pose1}
+“and because of it, I lashes out to Alyssa, it was wrong I know.”",
+"type": "dialogue"
+},
+&"@GraphNode@54302": {
+"next_node": "@GraphNode@54332",
+"node_name": &"@GraphNode@54302",
+"position": [10400.0, -180.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Angry_Pose1}
+“She broke it off...wanted to focus on her studies she said.”",
+"type": "dialogue"
+},
+&"@GraphNode@54332": {
+"next_node": "@GraphNode@54494",
+"node_name": &"@GraphNode@54332",
+"position": [10740.0, -180.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Angry_Pose1}
+“I knew she couldn't take more of me.”",
+"type": "dialogue"
+},
+&"@GraphNode@54494": {
+"next_node": "@GraphNode@54539",
+"node_name": &"@GraphNode@54494",
+"position": [11080.0, -180.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Angry_Pose1}
+“My mom was like that too... before she passed. Telling me to keep studying hard.\"",
+"type": "dialogue"
+},
+&"@GraphNode@54539": {
+"next_node": "@GraphNode@54630",
+"node_name": &"@GraphNode@54539",
+"position": [11440.0, -180.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Angry_Pose1}
+“I don't get why...they couldn't just love me.\"",
+"type": "dialogue"
+},
+&"@GraphNode@54630": {
+"next_node": "@GraphNode@54672",
+"node_name": &"@GraphNode@54630",
+"position": [11780.0, -180.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Angry_Pose1}
+“I don't get why...they value this...education shit...over ME.\"",
+"type": "dialogue"
+},
+&"@GraphNode@54672": {
+"next_node": "@GraphNode@54789",
+"node_name": &"@GraphNode@54672",
+"position": [12100.0, -140.0],
+"set_flags": "",
+"speaker": "",
+"text": "You look at him, you can't help but feel sorry for him.",
+"type": "dialogue"
+},
+&"@GraphNode@54789": {
+"next_node": "@GraphNode@54875",
+"node_name": &"@GraphNode@54789",
+"position": [12460.0, -160.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Angry_Pose1}
+“So that's why I stole the paper, I'm framing Alyssa.\"",
+"type": "dialogue"
+},
+&"@GraphNode@54875": {
+"next_node": "@GraphNode@54973",
+"node_name": &"@GraphNode@54875",
+"position": [12820.0, -180.0],
+"set_flags": "Flag_MirulWin",
+"speaker": "Mirul",
+"text": "{Angry_Pose1}
+“My Dad will lose faith and Alyssa will be betrayed by the system she has chosen.\"",
+"type": "dialogue"
+},
+&"@GraphNode@54973": {
+"next_node": "@GraphNode@55003",
+"node_name": &"@GraphNode@54973",
+"position": [13160.0, -120.0],
+"set_flags": "",
+"speaker": "",
+"text": "You guys sat in silence together.",
+"type": "dialogue"
+},
+&"@GraphNode@55003": {
+"next_node": "@GraphNode@51940",
+"node_name": &"@GraphNode@55003",
+"position": [13520.0, -120.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "\"I'm with you.\"",
+"type": "dialogue"
+},
+&"@GraphNode@55442": {
+"command": "minigame error_hunt",
+"next_node": "ConditionNode",
+"position": [14500.0, 280.0],
+"type": "command"
+},
+&"@GraphNode@55704": {
+"condition": "Flag_ToldAlyssa",
+"next_false": "@GraphNode@55712",
+"next_true": "@GraphNode@59638",
+"position": [15520.0, 1020.0],
+"type": "condition"
+},
+&"@GraphNode@55712": {
+"condition": "Flag_ConvinceMirul",
+"next_false": "",
+"next_true": "@GraphNode@61133",
+"position": [15820.0, 1400.0],
+"type": "condition"
+},
+&"@GraphNode@56449": {
+"next_node": "@GraphNode@57391",
+"node_name": &"@GraphNode@56449",
+"position": [18080.0, 1300.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Angry_Pose1}
+“Me and Alyssa used to be a thing.”",
+"type": "dialogue"
+},
+&"@GraphNode@57391": {
+"next_node": "@GraphNode@57459",
+"node_name": &"@GraphNode@57391",
+"position": [18480.0, 1300.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Angry_Pose1}
+“My Dad, the strict person that he is...”",
+"type": "dialogue"
+},
+&"@GraphNode@57459": {
+"next_node": "@GraphNode@57488",
+"node_name": &"@GraphNode@57459",
+"position": [18900.0, 1320.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Angry_Pose1}
+“always compared me with Alyssa...”",
+"type": "dialogue"
+},
+&"@GraphNode@57488": {
+"next_node": "@GraphNode@57517",
+"node_name": &"@GraphNode@57488",
+"position": [19280.0, 1320.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Angry_Pose1}
+“and because of it, I lashes out to Alyssa, it was wrong I know.”",
+"type": "dialogue"
+},
+&"@GraphNode@57517": {
+"next_node": "@GraphNode@57623",
+"node_name": &"@GraphNode@57517",
+"position": [19720.0, 1340.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Angry_Pose1}
+“She broke it off...wanted to focus on her studies she said.”",
+"type": "dialogue"
+},
+&"@GraphNode@57623": {
+"next_node": "@GraphNode@57652",
+"node_name": &"@GraphNode@57623",
+"position": [20180.0, 1400.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Angry_Pose1}
+“I knew she couldn't take more of me.”",
+"type": "dialogue"
+},
+&"@GraphNode@57652": {
+"next_node": "@GraphNode@57681",
+"node_name": &"@GraphNode@57652",
+"position": [20600.0, 1440.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Angry_Pose1}
+“My mom was like that too... before she passed. Telling me to keep studying hard.\"",
+"type": "dialogue"
+},
+&"@GraphNode@57681": {
+"next_node": "@GraphNode@57710",
+"node_name": &"@GraphNode@57681",
+"position": [20940.0, 1480.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Angry_Pose1}
+“I don't get why...they couldn't just love me.\"",
+"type": "dialogue"
+},
+&"@GraphNode@57710": {
+"next_node": "@GraphNode@57739",
+"node_name": &"@GraphNode@57710",
+"position": [21300.0, 1480.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Angry_Pose1}
+“I don't get why...they value this...education shit...over ME.\"",
+"type": "dialogue"
+},
+&"@GraphNode@57739": {
+"next_node": "@GraphNode@57768",
+"node_name": &"@GraphNode@57739",
+"position": [21680.0, 1540.0],
+"set_flags": "",
+"speaker": "",
+"text": "You look at him, you can't help but feel sorry for him.",
+"type": "dialogue"
+},
+&"@GraphNode@57768": {
+"next_node": "@GraphNode@57797",
+"node_name": &"@GraphNode@57768",
+"position": [22080.0, 1520.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Angry_Pose1}
+“So that's why I stole the paper, I'm framing Alyssa.\"",
+"type": "dialogue"
+},
+&"@GraphNode@57797": {
+"next_node": "@GraphNode@57852",
+"node_name": &"@GraphNode@57797",
+"position": [22440.0, 1480.0],
+"set_flags": "Flag_MirulWin",
+"speaker": "Mirul",
+"text": "{Angry_Pose1}
+“My Dad will lose faith and Alyssa will be betrayed by the system she has chosen.\"",
+"type": "dialogue"
+},
+&"@GraphNode@57852": {
+"next_node": "@GraphNode@57881",
+"node_name": &"@GraphNode@57852",
+"position": [22840.0, 1580.0],
+"set_flags": "",
+"speaker": "",
+"text": "You guys sat in silence together.",
+"type": "dialogue"
+},
+&"@GraphNode@57881": {
+"next_node": "",
+"node_name": &"@GraphNode@57881",
+"position": [23200.0, 1620.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "\"I'm with you.\"",
+"type": "dialogue"
+},
+&"@GraphNode@58083": {
+"next_node": "@GraphNode@58175",
+"node_name": &"@GraphNode@58083",
+"position": [15980.0, 280.0],
+"set_flags": "",
+"speaker": "",
+"text": "At the end of the day, Encik Samad enters the classroom with two teachers and announces a spot check. One by one, the students belongings are searched. Then they reach Alyssa...",
+"type": "dialogue"
+},
+&"@GraphNode@58117": {
+"next_node": "@GraphNode@58621",
+"node_name": &"@GraphNode@58117",
+"position": [16720.0, 280.0],
+"set_flags": "",
+"speaker": "",
+"text": "Inside her bag, the stolen exam paper.",
+"type": "dialogue"
+},
+&"@GraphNode@58175": {
+"events": [{
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "Fade In",
+"background_uid": "",
+"character": "Alyssa",
+"character_uid": "uid://bsylmi0xhjqvv",
+"expression": "Sad_Pose1",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "@GraphNode@58117",
+"position": [16380.0, 300.0],
+"type": "actor"
+},
+&"@GraphNode@58621": {
+"next_node": "@GraphNode@58664",
+"node_name": &"@GraphNode@58621",
+"position": [17100.0, 280.0],
+"set_flags": "",
+"speaker": "",
+"text": "Alyssa immediately protests, insisting that it is not hers and that someone must have planted it there. It does not matter. She is taken to the Principal’s office for questioning.",
+"type": "dialogue"
+},
+&"@GraphNode@58664": {
+"next_node": "@GraphNode@58767",
+"node_name": &"@GraphNode@58664",
+"position": [17440.0, 260.0],
+"set_flags": "",
+"speaker": "",
+"text": "You look toward Mirul. He meets your eyes. That is enough. You understand exactly what happened.",
+"type": "dialogue"
+},
+&"@GraphNode@58767": {
+"next_node": "@GraphNode@58801",
+"node_name": &"@GraphNode@58767",
+"position": [17800.0, 260.0],
+"set_flags": "",
+"speaker": "",
+"text": "You kept Vihaan quiet, and Mirul used that opportunity to frame her.",
+"type": "dialogue"
+},
+&"@GraphNode@58801": {
+"next_node": "@GraphNode@58835",
+"node_name": &"@GraphNode@58801",
+"position": [18180.0, 260.0],
+"set_flags": "",
+"speaker": "",
+"text": "Alyssa is suspended from her Head Prefect duties while the school investigates.",
+"type": "dialogue"
+},
+&"@GraphNode@58835": {
+"next_node": "@GraphNode@58886",
+"node_name": &"@GraphNode@58835",
+"position": [18520.0, 260.0],
+"set_flags": "",
+"speaker": "",
+"text": "Mirul gets away with it. And whether you meant to or not, you helped him.",
+"type": "dialogue"
+},
+&"@GraphNode@58886": {
+"next_node": "",
+"node_name": &"@GraphNode@58886",
+"position": [18880.0, 260.0],
+"set_flags": "",
+"speaker": "",
+"text": "Even after getting what he wanted...Mirul still left unsatisfied.",
+"type": "dialogue"
+},
+&"@GraphNode@58907": {
+"next_node": "@GraphNode@59755",
+"node_name": &"@GraphNode@58907",
+"position": [16220.0, 1000.0],
+"set_flags": "",
+"speaker": "",
+"text": "After school, you tell Alyssa the truth and confront Mirul together.",
+"type": "dialogue"
+},
+&"@GraphNode@59464": {
+"events": [{
+"action_type": "change_bg",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "uid://4imjs0hwif5i",
+"character": "Alyssa",
+"character_uid": "",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "@GraphNode@58083",
+"position": [15540.0, 280.0],
+"type": "actor"
+},
+&"@GraphNode@59638": {
+"events": [{
+"action_type": "change_bg",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "uid://brq5bijildv3f",
+"character": "Alyssa",
+"character_uid": "",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "@GraphNode@58907",
+"position": [15880.0, 1020.0],
+"type": "actor"
+},
+&"@GraphNode@59755": {
+"events": [{
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "Fade In",
+"background_uid": "",
+"character": "Alyssa",
+"character_uid": "uid://bsylmi0xhjqvv",
+"expression": "Annoyed_Pose1",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "Fade In",
+"background_uid": "",
+"character": "Vihaan",
+"character_uid": "uid://cupkf4jv5s3wr",
+"expression": "Angry_Pose4",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center-Right",
+"z_index": 0
+}],
+"next_node": "@GraphNode@60528",
+"position": [16560.0, 1000.0],
+"type": "actor"
+},
+&"@GraphNode@60528": {
+"next_node": "@GraphNode@60578",
+"node_name": &"@GraphNode@60528",
+"position": [16900.0, 980.0],
+"set_flags": "",
+"speaker": "",
+"text": "The moment he realizes you told her, his expression changes. There is no point denying it anymore.",
+"type": "dialogue"
+},
+&"@GraphNode@60578": {
+"next_node": "@GraphNode@60823",
+"node_name": &"@GraphNode@60578",
+"position": [17240.0, 980.0],
+"set_flags": "",
+"speaker": "",
+"text": "Mirul eventually confesses and is suspended.",
+"type": "dialogue"
+},
+&"@GraphNode@60823": {
+"next_node": "@GraphNode@60857",
+"node_name": &"@GraphNode@60823",
+"position": [17580.0, 980.0],
+"set_flags": "",
+"speaker": "",
+"text": "Before he leaves, Mirul looks at you one last time. You can already tell what that look means.",
+"type": "dialogue"
+},
+&"@GraphNode@60857": {
+"next_node": "",
+"node_name": &"@GraphNode@60857",
+"position": [17920.0, 1020.0],
+"set_flags": "",
+"speaker": "",
+"text": "He trusted you.",
+"type": "dialogue"
+},
+&"@GraphNode@61133": {
+"events": [{
+"action_type": "change_bg",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "uid://fo6330wekvkq",
+"character": "Alyssa",
+"character_uid": "",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "Fade In",
+"background_uid": "",
+"character": "Mirul",
+"character_uid": "uid://dowxttrntsqon",
+"expression": "Sad_Pose1",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "@GraphNode@61276",
+"position": [16160.0, 1400.0],
+"type": "actor"
+},
+&"@GraphNode@61276": {
+"next_node": "@GraphNode@61392",
+"node_name": &"@GraphNode@61276",
+"position": [16500.0, 1400.0],
+"set_flags": "",
+"speaker": "",
+"text": "After school, Mirul turns the stolen exam paper over to his Dad himself. For now, no disciplinary action is taken.",
+"type": "dialogue"
+},
+&"@GraphNode@61392": {
+"next_node": "@GraphNode@61844",
+"node_name": &"@GraphNode@61392",
+"position": [16820.0, 1400.0],
+"set_flags": "",
+"speaker": "",
+"text": "Instead, Mirul asks for one thing.",
+"type": "dialogue"
+},
+&"@GraphNode@61743": {
+"choices": Array[Dictionary]([{
+"condition": "",
+"hide_if_locked": false,
+"text": "Yes"
+}, {
+"condition": "",
+"hide_if_locked": false,
+"text": "No"
+}]),
+"next_nodes": ["@GraphNode@56449", "@GraphNode@61929"],
+"node_name": &"@GraphNode@61743",
+"position": [17540.0, 1360.0],
+"prompt": "What will you do?...",
+"type": "choice_branch"
+},
+&"@GraphNode@61844": {
+"next_node": "@GraphNode@61743",
+"node_name": &"@GraphNode@61844",
+"position": [17160.0, 1400.0],
+"set_flags": "",
+"speaker": "",
+"text": "If you are willing to listen, he says there is something he wants you to know.",
+"type": "dialogue"
+},
+&"@GraphNode@61929": {
+"next_node": "@GraphNode@61985",
+"node_name": &"@GraphNode@61929",
+"position": [17938.32, 1583.412],
+"set_flags": "",
+"speaker": "",
+"text": "Mirul understands and left the room",
+"type": "dialogue"
+},
+&"@GraphNode@61985": {
+"events": [{
+"action_type": "hide_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Mirul",
+"character_uid": "uid://dowxttrntsqon",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "",
+"position": [18300.0, 1600.0],
+"type": "actor"
+},
+&"ActorNode": {
+"events": [{
+"action_type": "change_bg",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "uid://fo6330wekvkq",
+"character": "Vihaan",
+"character_uid": "uid://cupkf4jv5s3wr",
+"expression": "Neutral",
+"flip_h": false,
 "offset_x": 0.0,
 "offset_y": 0.0,
 "position_slot": "Center",
@@ -86,22 +1005,79 @@ graph_data = {
 "anim_duration": 0.5,
 "animation": "None",
 "background_uid": "",
-"character": "Mirul",
-"character_uid": "uid://dowxttrntsqon",
-"expression": "Neutral_Pose1",
+"character": "Vihaan",
+"character_uid": "uid://cupkf4jv5s3wr",
+"expression": "Neutral_Pose4",
+"flip_h": false,
 "offset_x": 0.0,
 "offset_y": 0.0,
-"position_slot": "Center",
+"position_slot": "Center-Left",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Mirul",
+"character_uid": "uid://dowxttrntsqon",
+"expression": "Annoyed_Pose2",
+"flip_h": true,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center-Right",
 "z_index": 0
 }],
-"next_node": "ExamStart",
-"position": [300.0, 0.0],
+"next_node": "GraphNode",
+"position": [440.0, -20.0],
 "type": "actor"
 },
+&"ChoiceNode": {
+"choices": Array[Dictionary]([{
+"condition": "",
+"hide_if_locked": false,
+"text": "Vihaan, let's keep this down yeah?"
+}, {
+"condition": "",
+"hide_if_locked": false,
+"text": "We should tell Alyssa"
+}, {
+"condition": "",
+"hide_if_locked": false,
+"text": "[Persuasion10]Mirul, We don't know what you're after, it's time to come clean. "
+}]),
+"next_nodes": ["@GraphNode@52664", "@GraphNode@50996", "@GraphNode@50645"],
+"node_name": &"ChoiceNode",
+"position": [3920.0, -100.0],
+"prompt": "What will you do?...",
+"type": "choice_branch"
+},
+&"CommandNode": {
+"command": "start_hub 3",
+"next_node": "@GraphNode@55442",
+"position": [14140.0, 280.0],
+"type": "command"
+},
+&"ConditionNode": {
+"condition": "Flag_MirulWin",
+"next_false": "@GraphNode@55704",
+"next_true": "@GraphNode@59464",
+"position": [15100.0, 280.0],
+"type": "condition"
+},
+&"GraphNode": {
+"next_node": "@GraphNode@50130",
+"node_name": &"GraphNode",
+"position": [820.0, -40.0],
+"set_flags": "",
+"speaker": "Vihaan",
+"text": "{Neutral, Pose4}
+\"Mirul, what are you going to do with the stolen exam papers?\"",
+"type": "dialogue"
+},
 &"Start": {
-"next_node": "SetupScene",
+"next_node": "ActorNode",
 "node_name": &"Start",
-"position": [0.0, 0.0],
+"position": [0.0, 20.0],
 "type": "start"
 }
 }
