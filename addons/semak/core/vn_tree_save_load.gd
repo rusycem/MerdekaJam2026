@@ -120,6 +120,7 @@ func load_tree() -> void:
 		var ACTOR_NODE_SCENE = load("res://addons/semak/nodes/ActorNode.tscn")
 		
 		# Step 1: Reconstruct nodes
+		var name_map = {}
 		for node_name in graph_data.keys():
 			var data = graph_data[node_name]
 			var node_instance: Control
@@ -127,43 +128,50 @@ func load_tree() -> void:
 			if data["type"] == "dialogue":
 				node_instance = DIALOGUE_NODE_SCENE.instantiate()
 				graph_edit.add_child(node_instance)
-				node_instance.name = node_name
+				node_instance.name = node_name.replace("@", "_")
+				name_map[node_name] = node_instance.name
 				node_instance.set_node_data(data)
 			
 			elif data["type"] == "choice_branch":
 				node_instance = CHOICE_NODE_SCENE.instantiate()
 				graph_edit.add_child(node_instance)
-				node_instance.name = node_name
+				node_instance.name = node_name.replace("@", "_")
+				name_map[node_name] = node_instance.name
 				node_instance.set_node_data(data)
 
 			elif data["type"] == "dnd_check":
 				node_instance = DND_CHECK_SCENE.instantiate()
 				graph_edit.add_child(node_instance)
-				node_instance.name = node_name
+				node_instance.name = node_name.replace("@", "_")
+				name_map[node_name] = node_instance.name
 				node_instance.set_node_data(data)
 				
 			elif data["type"] == "command":
 				node_instance = COMMAND_NODE_SCENE.instantiate()
 				graph_edit.add_child(node_instance)
-				node_instance.name = node_name
+				node_instance.name = node_name.replace("@", "_")
+				name_map[node_name] = node_instance.name
 				node_instance.set_node_data(data)
 				
 			elif data["type"] == "condition":
 				node_instance = CONDITION_NODE_SCENE.instantiate()
 				graph_edit.add_child(node_instance)
-				node_instance.name = node_name
+				node_instance.name = node_name.replace("@", "_")
+				name_map[node_name] = node_instance.name
 				node_instance.set_node_data(data)
 				
 			elif data["type"] == "actor":
 				node_instance = ACTOR_NODE_SCENE.instantiate()
 				graph_edit.add_child(node_instance)
-				node_instance.name = node_name
+				node_instance.name = node_name.replace("@", "_")
+				name_map[node_name] = node_instance.name
 				node_instance.set_node_data(data)
 				
 			elif data["type"] == "start":
 				node_instance = START_NODE_SCENE.instantiate()
 				graph_edit.add_child(node_instance)
-				node_instance.name = node_name
+				node_instance.name = node_name.replace("@", "_")
+				name_map[node_name] = node_instance.name
 				
 			elif data["type"] == "comment":
 				if ClassDB.class_exists("GraphFrame"):
@@ -176,7 +184,8 @@ func load_tree() -> void:
 					node_instance.set_autoshrink_enabled(false)
 				
 				graph_edit.add_child(node_instance)
-				node_instance.name = node_name
+				node_instance.name = node_name.replace("@", "_")
+				name_map[node_name] = node_instance.name
 				node_instance.title = data.get("title", "Comment Box")
 				if data.has("size"):
 					node_instance.size = Vector2(data["size"][0], data["size"][1])
@@ -202,29 +211,40 @@ func load_tree() -> void:
 		# Step 2: Relink connections
 		for node_name in graph_data.keys():
 			var data = graph_data[node_name]
+			var actual_from = name_map.get(node_name, node_name)
+			
 			if data["type"] == "dialogue" and data.get("next_node", "") != "":
-				graph_edit.connect_node(node_name, 0, data["next_node"], 0)
+				var actual_to = name_map.get(data["next_node"], data["next_node"])
+				graph_edit.connect_node(actual_from, 0, actual_to, 0)
 			elif data["type"] == "start" and data.get("next_node", "") != "":
-				graph_edit.connect_node(node_name, 0, data["next_node"], 0)
+				var actual_to = name_map.get(data["next_node"], data["next_node"])
+				graph_edit.connect_node(actual_from, 0, actual_to, 0)
 			elif data["type"] == "command" and data.get("next_node", "") != "":
-				graph_edit.connect_node(node_name, 0, data["next_node"], 0)
+				var actual_to = name_map.get(data["next_node"], data["next_node"])
+				graph_edit.connect_node(actual_from, 0, actual_to, 0)
 			elif data["type"] == "actor" and data.get("next_node", "") != "":
-				graph_edit.connect_node(node_name, 0, data["next_node"], 0)
+				var actual_to = name_map.get(data["next_node"], data["next_node"])
+				graph_edit.connect_node(actual_from, 0, actual_to, 0)
 			elif data["type"] == "choice_branch":
 				for port_idx in range(data["next_nodes"].size()):
 					var target_path_node = data["next_nodes"][port_idx]
 					if target_path_node != "":
-						graph_edit.connect_node(node_name, port_idx, target_path_node, 0)
+						var actual_to = name_map.get(target_path_node, target_path_node)
+						graph_edit.connect_node(actual_from, port_idx, actual_to, 0)
 			elif data["type"] == "dnd_check":
 				if data.get("next_pass", "") != "":
-					graph_edit.connect_node(node_name, 0, data["next_pass"], 0)
+					var actual_to = name_map.get(data["next_pass"], data["next_pass"])
+					graph_edit.connect_node(actual_from, 0, actual_to, 0)
 				if data.get("next_fail", "") != "":
-					graph_edit.connect_node(node_name, 1, data["next_fail"], 0)
+					var actual_to = name_map.get(data["next_fail"], data["next_fail"])
+					graph_edit.connect_node(actual_from, 1, actual_to, 0)
 			elif data["type"] == "condition":
 				if data.get("next_true", "") != "":
-					graph_edit.connect_node(node_name, 0, data["next_true"], 0)
+					var actual_to = name_map.get(data["next_true"], data["next_true"])
+					graph_edit.connect_node(actual_from, 0, actual_to, 0)
 				if data.get("next_false", "") != "":
-					graph_edit.connect_node(node_name, 1, data["next_false"], 0)
+					var actual_to = name_map.get(data["next_false"], data["next_false"])
+					graph_edit.connect_node(actual_from, 1, actual_to, 0)
 					
 		print("VN Tree: Data asset loaded successfully!")
 		file_dialog.queue_free()
