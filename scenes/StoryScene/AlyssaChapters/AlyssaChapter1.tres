@@ -5,19 +5,10 @@
 [resource]
 script = ExtResource("1_1")
 graph_data = {
-&"@GraphNode@76610": {
-"next_node": "Choice1",
-"node_name": &"@GraphNode@76610",
-"position": [-18620.0, -1740.0],
-"set_flags": "",
-"speaker": "{player}",
-"text": "{player} glance around the classroom. Most students are already talking amongst themselves.",
-"type": "dialogue"
-},
 &"A_Fail1": {
 "next_node": "A_Fail2",
 "node_name": &"A_Fail1",
-"position": [-16160.0, -1560.0],
+"position": [-17220.0, -1900.0],
 "set_flags": "",
 "speaker": "{player}",
 "text": "{Neutral} Guys? Homework mana?",
@@ -26,7 +17,7 @@ graph_data = {
 &"A_Fail2": {
 "next_node": "A_Fail3",
 "node_name": &"A_Fail2",
-"position": [-15940.0, -1180.0],
+"position": [-16740.0, -1680.0],
 "set_flags": "",
 "speaker": "",
 "text": "Nobody listens. You try again. ALYSSA sighs and steps forward.",
@@ -35,7 +26,7 @@ graph_data = {
 &"A_Fail3": {
 "next_node": "A_Fail4",
 "node_name": &"A_Fail3",
-"position": [-15500.0, -1740.0],
+"position": [-16320.0, -1560.0],
 "set_flags": "",
 "speaker": "Alyssa",
 "text": "{Angry_Pose2, jump} Walaoeh! Woi! Homework! Pass up now!",
@@ -44,7 +35,7 @@ graph_data = {
 &"A_Fail4": {
 "next_node": "A_Fail5",
 "node_name": &"A_Fail4",
-"position": [-15180.0, -1500.0],
+"position": [-16060.0, -1640.0],
 "set_flags": "",
 "speaker": "",
 "text": "The class immediately starts moving.",
@@ -53,7 +44,7 @@ graph_data = {
 &"A_Fail5": {
 "next_node": "Merge1",
 "node_name": &"A_Fail5",
-"position": [-14920.0, -1400.0],
+"position": [-15520.0, -1440.0],
 "set_flags": "",
 "speaker": "Alyssa",
 "text": "{Annoyed_Pose3, sigh} You really need more confidence lah.",
@@ -62,7 +53,7 @@ graph_data = {
 &"A_Pass1": {
 "next_node": "A_Pass2",
 "node_name": &"A_Pass1",
-"position": [-17820.0, -2180.0],
+"position": [-17380.0, -2500.0],
 "set_flags": "",
 "speaker": "{player}",
 "text": "{Angry, jump} Woi! Whoever hasn't submitted their homework, pass it here, cepat sikit!",
@@ -71,7 +62,7 @@ graph_data = {
 &"A_Pass2": {
 "next_node": "A_Pass3",
 "node_name": &"A_Pass2",
-"position": [-17260.0, -2220.0],
+"position": [-16820.0, -2540.0],
 "set_flags": "",
 "speaker": "",
 "text": "A few students complain, but they eventually hand over their books.You return to ALYSSA with the stack.",
@@ -80,7 +71,7 @@ graph_data = {
 &"A_Pass3": {
 "next_node": "A_Pass4",
 "node_name": &"A_Pass3",
-"position": [-17120.0, -2020.0],
+"position": [-16680.0, -2340.0],
 "set_flags": "",
 "speaker": "Alyssa",
 "text": "{Happy_Pose1, nod} Not bad lah.",
@@ -89,7 +80,7 @@ graph_data = {
 &"A_Pass4": {
 "next_node": "A_Pass5",
 "node_name": &"A_Pass4",
-"position": [-16780.0, -2080.0],
+"position": [-16340.0, -2400.0],
 "set_flags": "",
 "speaker": "{player}",
 "text": "{Happy} Wah, is that a compliment?",
@@ -98,7 +89,7 @@ graph_data = {
 &"A_Pass5": {
 "next_node": "Merge1",
 "node_name": &"A_Pass5",
-"position": [-16060.0, -2240.0],
+"position": [-15380.0, -1940.0],
 "set_flags": "",
 "speaker": "Alyssa",
 "text": "{Annoyed_Pose1, shake} Pft, Perasan.",
@@ -126,7 +117,7 @@ graph_data = {
 &"B1": {
 "next_node": "B2",
 "node_name": &"B1",
-"position": [-18060.0, -1340.0],
+"position": [-18080.0, -1200.0],
 "set_flags": "",
 "speaker": "",
 "text": "{player} go from table to table collecting the missing books.It takes longer, but eventually you return with everything.",
@@ -135,7 +126,7 @@ graph_data = {
 &"B2": {
 "next_node": "B3",
 "node_name": &"B2",
-"position": [-18060.0, -980.0],
+"position": [-17780.0, -940.0],
 "set_flags": "",
 "speaker": "Alyssa",
 "text": "{Happy_Pose2, nod} Thanks.",
@@ -144,7 +135,7 @@ graph_data = {
 &"B3": {
 "next_node": "B4",
 "node_name": &"B3",
-"position": [-17320.0, -1080.0],
+"position": [-17220.0, -920.0],
 "set_flags": "",
 "speaker": "{player}",
 "text": "{Neutral} You kena do this every day ke?",
@@ -153,7 +144,7 @@ graph_data = {
 &"B4": {
 "next_node": "B5",
 "node_name": &"B4",
-"position": [-15740.0, -1980.0],
+"position": [-15800.0, -940.0],
 "set_flags": "",
 "speaker": "Alyssa",
 "text": "{Neutral_Pose3, sigh} Like that lor.",
@@ -162,7 +153,7 @@ graph_data = {
 &"B5": {
 "next_node": "Merge1",
 "node_name": &"B5",
-"position": [-15280.0, -1980.0],
+"position": [-15420.0, -940.0],
 "set_flags": "",
 "speaker": "",
 "text": "She takes the books from you.",
@@ -173,7 +164,7 @@ graph_data = {
 "next_fail": "A_Fail1",
 "next_pass": "A_Pass1",
 "node_name": &"Check1",
-"position": [-17560.0, -1720.0],
+"position": [-17640.0, -2120.0],
 "target_stat": "Charm",
 "type": "dnd_check"
 },
@@ -189,14 +180,14 @@ graph_data = {
 }]),
 "next_nodes": ["GraphNode", "B1"],
 "node_name": &"Choice1",
-"position": [-18220.0, -1960.0],
+"position": [-18480.0, -1900.0],
 "prompt": "Help Alyssa",
 "type": "choice_branch"
 },
 &"D1": {
 "next_node": "D2",
 "node_name": &"D1",
-"position": [-20460.0, -1700.0],
+"position": [-21040.0, -1580.0],
 "set_flags": "",
 "speaker": "",
 "text": "Before class starts, ALYSSA is standing at the teacher's desk with a stack of attendance sheets.She looks busy.",
@@ -205,7 +196,7 @@ graph_data = {
 &"D2": {
 "next_node": "D3",
 "node_name": &"D2",
-"position": [-20240.0, -1920.0],
+"position": [-20820.0, -1800.0],
 "set_flags": "",
 "speaker": "{player}",
 "text": "{Neutral, nod} Wei, need help tak?",
@@ -214,7 +205,7 @@ graph_data = {
 &"D3": {
 "next_node": "D4",
 "node_name": &"D3",
-"position": [-19860.0, -1820.0],
+"position": [-20440.0, -1700.0],
 "set_flags": "",
 "speaker": "System",
 "text": "ALYSSA looks at you.",
@@ -223,7 +214,7 @@ graph_data = {
 &"D4": {
 "next_node": "D5",
 "node_name": &"D4",
-"position": [-19500.0, -2000.0],
+"position": [-20080.0, -1880.0],
 "set_flags": "",
 "speaker": "Alyssa",
 "text": "{Neutral_Pose2, twitch} Haiya, ngam lah you asked. Half the class still haven't pass up their homework.",
@@ -232,16 +223,16 @@ graph_data = {
 &"D5": {
 "next_node": "D6",
 "node_name": &"D5",
-"position": [-19180.0, -1920.0],
+"position": [-19760.0, -1800.0],
 "set_flags": "",
 "speaker": "",
 "text": "She hands you a short list.",
 "type": "dialogue"
 },
 &"D6": {
-"next_node": "@GraphNode@76610",
+"next_node": "_GraphNode_76610",
 "node_name": &"D6",
-"position": [-18820.0, -1980.0],
+"position": [-19400.0, -1860.0],
 "set_flags": "",
 "speaker": "Alyssa",
 "text": "{Neutral_Pose1} You help me collect, can ah?",
@@ -259,7 +250,7 @@ graph_data = {
 &"Merge1": {
 "next_node": "Merge2",
 "node_name": &"Merge1",
-"position": [-14940.0, -1980.0],
+"position": [-14960.0, -1340.0],
 "set_flags": "",
 "speaker": "Alyssa",
 "text": "{Sad_Pose1} Being Head Prefect means everyone's problem becomes my problem mah.",
@@ -268,7 +259,7 @@ graph_data = {
 &"Merge2": {
 "next_node": "Merge3",
 "node_name": &"Merge2",
-"position": [-14640.0, -1940.0],
+"position": [-14500.0, -1280.0],
 "set_flags": "",
 "speaker": "",
 "text": "You glance toward MIRUL's empty seat.",
@@ -277,7 +268,7 @@ graph_data = {
 &"Merge3": {
 "next_node": "Merge4",
 "node_name": &"Merge3",
-"position": [-14340.0, -1880.0],
+"position": [-14200.0, -1220.0],
 "set_flags": "",
 "speaker": "{player}",
 "text": "{Neutral} Even Mirul's?",
@@ -286,7 +277,7 @@ graph_data = {
 &"Merge4": {
 "next_node": "Merge5",
 "node_name": &"Merge4",
-"position": [-13980.0, -1880.0],
+"position": [-13840.0, -1220.0],
 "set_flags": "",
 "speaker": "",
 "text": "Alyssa follows your eyes. She sighs.",
@@ -295,7 +286,7 @@ graph_data = {
 &"Merge5": {
 "next_node": "Story2_Start",
 "node_name": &"Merge5",
-"position": [-13560.0, -1900.0],
+"position": [-13420.0, -1240.0],
 "set_flags": "",
 "speaker": "Alyssa",
 "text": "{Sad_Pose2, shake} Especially his one.",
@@ -304,7 +295,7 @@ graph_data = {
 &"S2_1": {
 "next_node": "S2_2",
 "node_name": &"S2_1",
-"position": [-12920.0, -1720.0],
+"position": [-12800.0, -1320.0],
 "set_flags": "",
 "speaker": "",
 "text": "Later that day, MIRUL finally returns to class.ALYSSA immediately approaches him.",
@@ -403,7 +394,7 @@ graph_data = {
 &"S2_2": {
 "next_node": "S2_3",
 "node_name": &"S2_2",
-"position": [-12500.0, -1680.0],
+"position": [-12380.0, -1280.0],
 "set_flags": "",
 "speaker": "Alyssa",
 "text": "{Angry_Pose1, jump} Mirul. You ponteng again ah?",
@@ -415,7 +406,7 @@ graph_data = {
 "position": [-6540.0, -240.0],
 "set_flags": "",
 "speaker": "Mirul",
-"text": "{Laugh_Pose3, nod} Lah, not going anywhere pun do.",
+"text": "{Laugh_Pose3} Lah, not going anywhere pun do.",
 "type": "dialogue"
 },
 &"S2_21": {
@@ -430,7 +421,7 @@ graph_data = {
 &"S2_3": {
 "next_node": "S2_4",
 "node_name": &"S2_3",
-"position": [-12180.0, -1620.0],
+"position": [-12060.0, -1220.0],
 "set_flags": "",
 "speaker": "Mirul",
 "text": "{Laugh_Pose1} Chill out lah, Lysa. Rilek lu.",
@@ -439,7 +430,7 @@ graph_data = {
 &"S2_4": {
 "next_node": "S2_5",
 "node_name": &"S2_4",
-"position": [-11800.0, -1600.0],
+"position": [-11680.0, -1200.0],
 "set_flags": "",
 "speaker": "Alyssa",
 "text": "{Angry_Pose3, shake} Haiya, every time you disappear, I'm the one who kena answer to the teachers you know!",
@@ -598,7 +589,7 @@ graph_data = {
 "position": [-3180.0, 180.0],
 "set_flags": "",
 "speaker": "Alyssa",
-"text": "{Neutral_Pose2, nod} Probably lor.",
+"text": "{Neutral_Pose2} Probably lor.",
 "type": "dialogue"
 },
 &"S3_7": {
@@ -659,13 +650,13 @@ graph_data = {
 "position_slot": "Center"
 }],
 "next_node": "D1",
-"position": [-20820.0, -1680.0],
+"position": [-21400.0, -1560.0],
 "type": "actor"
 },
 &"Start2": {
 "next_node": "Start",
 "node_name": &"Start2",
-"position": [-21200.0, -1640.0],
+"position": [-21780.0, -1520.0],
 "type": "start"
 },
 &"Story2_Start": {
@@ -723,7 +714,16 @@ graph_data = {
 "z_index": 0
 }],
 "next_node": "S2_1",
-"position": [-13180.0, -1920.0],
+"position": [-13060.0, -1520.0],
 "type": "actor"
+},
+&"_GraphNode_76610": {
+"next_node": "Choice1",
+"node_name": &"_GraphNode_76610",
+"position": [-18900.0, -1900.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{player} glance around the classroom. Most students are already talking amongst themselves.",
+"type": "dialogue"
 }
 }
