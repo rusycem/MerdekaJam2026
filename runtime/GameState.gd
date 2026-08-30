@@ -10,6 +10,7 @@ var resume_node_id: String = ""
 
 var player_name: String = "Student"
 var player_class: String = "None"
+var player_gender: String = "Male"
 
 var stats: Dictionary = {
 	"Charm": 5,
@@ -21,6 +22,7 @@ var stats: Dictionary = {
 func reset_state() -> void:
 	player_name = "Student"
 	player_class = "None"
+	player_gender = "Male"
 	flags.clear()
 	money = 0
 	last_minigame_result = false

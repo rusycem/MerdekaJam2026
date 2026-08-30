@@ -1,8 +1,11 @@
-[gd_resource type="Resource" script_class="CharacterStats" format=3 uid="uid://w74dwh7vy01b"]
+[gd_resource type="Resource" script_class="CharacterStats" format=3]
 
-[ext_resource type="Script" uid="uid://bimhvxaa0nerw" path="res://src/character/CharacterStats.gd" id="1_d6xl0"]
+[ext_resource type="Script" path="res://src/character/CharacterStats.gd" id="1_d6xl0"]
 
 [resource]
 script = ExtResource("1_d6xl0")
-character_name = "Player1"
+character_name = "Student"
+dexterity = 5
+intelligence = 7
+charisma = 6
 metadata/_custom_type_script = "uid://bimhvxaa0nerw"

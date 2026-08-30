@@ -1,5 +1,7 @@
 extends Control
 
+var custom_font = preload("res://assets/UIAssets/cc.otf")
+
 @onready var turns_label = $TurnsLabel
 @onready var stat_labels_container = $StatsPanel/VBox/StatLabels
 
@@ -14,31 +16,34 @@ func _ready():
 func _update_ui():
 	turns_label.text = "Turns: %d" % GameState.hub_turns_remaining
 	
-	# Clear old labels
 	for c in stat_labels_container.get_children():
 		c.queue_free()
 		
-	# Rebuild labels
 	for stat in GameState.stats.keys():
 		var lbl = Label.new()
 		lbl.text = "%s: %d" % [stat, GameState.stats[stat]]
+		
+		lbl.add_theme_font_override("font", custom_font)
 		lbl.add_theme_font_size_override("font_size", 24)
+		
 		stat_labels_container.add_child(lbl)
 		
 	var money_lbl = Label.new()
 	money_lbl.text = "Money: %d" % GameState.money
+	
+	# 3. Apply the font, size, and color to money label
+	money_lbl.add_theme_font_override("font", custom_font)
 	money_lbl.add_theme_font_size_override("font_size", 24)
 	money_lbl.add_theme_color_override("font_color", Color.GOLD)
+	
 	stat_labels_container.add_child(money_lbl)
 
 func _on_activity(stat_name: String, amount: int):
 	if GameState.hub_turns_remaining <= 0:
 		return
 		
-	# Deduct turn
 	GameState.hub_turns_remaining -= 1
 	
-	# Add stat
 	GameState.stats[stat_name] += amount
 	
 	# Try to inject into VN backlog!
@@ -47,10 +52,9 @@ func _on_activity(stat_name: String, amount: int):
 		if vn.has_method("add_to_history"):
 			vn.add_to_history("System", "+%d %s (Activity)" % [amount, stat_name], "")
 			
-	# Refresh UI
 	_update_ui()
 	
-	# Spawn floating text near mouse
+	# spawn floating text near mouse
 	_spawn_floating_text("+%d %s" % [amount, stat_name], get_global_mouse_position())
 	
 	# Check if out of turns
@@ -60,6 +64,9 @@ func _on_activity(stat_name: String, amount: int):
 func _spawn_floating_text(msg: String, pos: Vector2):
 	var lbl = Label.new()
 	lbl.text = msg
+	
+	# apply font to floating text
+	lbl.add_theme_font_override("font", custom_font)
 	lbl.add_theme_font_size_override("font_size", 32)
 	lbl.add_theme_color_override("font_color", Color.GREEN_YELLOW)
 	lbl.add_theme_color_override("font_outline_color", Color.BLACK)
@@ -84,7 +91,7 @@ func _transition_to_next_chapter():
 			
 	print("Lobby: Out of turns! Resuming Visual Novel...")
 	
-	# Wait a tiny bit so they can see the final floating text
+	# final floating text
 	await get_tree().create_timer(1.0).timeout
 	
 	EventBus.resume_vn.emit()

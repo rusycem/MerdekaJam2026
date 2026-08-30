@@ -1,10 +1,20 @@
-class_name VNDialogueHandler extends RefCounted
+class_name VNDialogueHandler
+extends RefCounted
 
 static func handle(player: Node, data: Dictionary) -> void:
 	player.dialogue_panel.show()
 	player.speaker_label.text = data.get("speaker", "").replace("{player}", GameState.player_name)
 	
 	var raw_text = data.get("text", "").replace("{player}", GameState.player_name)
+	
+	var p_he = "He" if GameState.player_gender == "Male" else "She"
+	var p_him = "Him" if GameState.player_gender == "Male" else "Her"
+	var p_his = "His" if GameState.player_gender == "Male" else "Her"
+	
+	raw_text = raw_text.replace("{player_noun}", p_he).replace("{player_noun_lower}", p_he.to_lower())
+	raw_text = raw_text.replace("{player_he}", p_he).replace("{player_he_lower}", p_he.to_lower())
+	raw_text = raw_text.replace("{player_him}", p_him).replace("{player_him_lower}", p_him.to_lower())
+	raw_text = raw_text.replace("{player_his}", p_his).replace("{player_his_lower}", p_his.to_lower())
 	
 	# Parse tag: {Emotion, Pose, Anim}
 	var regex = RegEx.new()
@@ -13,18 +23,40 @@ static func handle(player: Node, data: Dictionary) -> void:
 	var new_emotion = ""
 	var new_pose = ""
 	var new_anim = ""
+	var new_flip = ""
 	
 	var results = regex.search_all(raw_text)
 	for res in results:
 		var tag = res.get_string(1)
 		var parts = tag.split(",")
 		
-		if parts.size() > 0 and parts[0].strip_edges() != "":
-			new_emotion = parts[0].strip_edges().capitalize()
-		if parts.size() > 1 and parts[1].strip_edges() != "":
-			new_pose = parts[1].strip_edges().capitalize()
-		if parts.size() > 2 and parts[2].strip_edges() != "":
-			new_anim = parts[2].strip_edges().to_lower()
+		var filtered_parts = []
+		for p in parts:
+			var clean = p.strip_edges().to_lower()
+			if clean == "flip": new_flip = "flip"
+			elif clean == "unflip": new_flip = "unflip"
+			else: filtered_parts.append(p.strip_edges())
+			
+		if filtered_parts.size() > 0 and filtered_parts[0] != "":
+			var p0 = filtered_parts[0]
+			if "_" in p0:
+				var ep = p0.split("_")
+				new_emotion = ep[0].substr(0,1).to_upper() + ep[0].substr(1)
+				if ep.size() > 1:
+					new_pose = ep[1].substr(0,1).to_upper() + ep[1].substr(1)
+			else:
+				new_emotion = p0.substr(0,1).to_upper() + p0.substr(1)
+				
+		if filtered_parts.size() > 1 and filtered_parts[1] != "":
+			if new_pose == "":
+				var p1 = filtered_parts[1]
+				new_pose = p1.substr(0,1).to_upper() + p1.substr(1)
+			else:
+				new_anim = filtered_parts[1].to_lower()
+				
+		if filtered_parts.size() > 2 and filtered_parts[2] != "":
+			if new_anim == "":
+				new_anim = filtered_parts[2].to_lower()
 			
 		raw_text = raw_text.replace(res.get_string(0), "")
 		
@@ -47,11 +79,13 @@ static func handle(player: Node, data: Dictionary) -> void:
 			
 			if new_emotion != "": current_emotion = new_emotion
 			if new_pose != "": current_pose = new_pose
+			if new_flip == "flip": sprite.flip_h = true
+			elif new_flip == "unflip": sprite.flip_h = false
 			
 			sprite.set_meta("emotion", current_emotion)
 			sprite.set_meta("pose", current_pose)
 			
-			var key_full = current_pose + "_" + current_emotion
+			var key_full = current_emotion + "_" + current_pose
 			var tex = null
 			
 			if profile.portraits.has(key_full):
@@ -118,13 +152,15 @@ static func handle(player: Node, data: Dictionary) -> void:
 	var text_length = player.text_label.text.length()
 	if text_length > 0:
 		player.type_tween = player.create_tween()
-		player.type_tween.tween_property(player.text_label, "visible_characters", text_length, text_length * 0.03)
+		player.type_tween.tween_property(player.text_label, "visible_characters", text_length, text_length * GameSettings.get_text_speed_delay())
 	else:
 		player.text_label.visible_characters = -1
 	
 	if data.has("set_flags") and data["set_flags"] != "":
 		GameState.grant_flags(data["set_flags"])
 	
+	if player.has_method("add_to_history"):
+		player.add_to_history(player.speaker_label.text, raw_text.strip_edges(), voice_uid)
+		
 	player.current_node_id = data.get("next_node", "")
-
 

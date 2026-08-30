@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bloekt38bucuf"]
 
 [ext_resource type="Script" uid="uid://b2is41e18svil" path="res://src/UI/settings.gd" id="1_20fys"]
+[ext_resource type="FontFile" uid="uid://bjsjfoiqhtqsm" path="res://assets/UIAssets/cc.otf" id="2_eeyo5"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_ork7p"]
 
@@ -23,6 +24,7 @@ theme_override_constants/separation = 20
 
 [node name="Label" type="Label" parent="Options" unique_id=242558543]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_eeyo5")
 theme_override_font_sizes/font_size = 32
 text = "Settings FR"
 horizontal_alignment = 1
@@ -60,6 +62,7 @@ text = "Fast"
 
 [node name="KeybindLabel" type="Label" parent="Options" unique_id=242223033]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_eeyo5")
 theme_override_font_sizes/font_size = 32
 text = "-- KeyBinds --"
 horizontal_alignment = 1
