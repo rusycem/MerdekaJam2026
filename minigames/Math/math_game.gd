@@ -3,12 +3,14 @@ extends Control
 @export var timer: TextureProgressBar
 @export var score_label: Label
 @export var equation_label: Label
+@export var target_score: int = 50 
 
 const PUNISHMENT_SECONDS := 10.0
 const OPERATIONS := ["+", "-", "*"]
 
 var score := 0
 var answer_choice := 0
+var is_game_over := false #
 
 
 func _ready() -> void :
@@ -16,16 +18,21 @@ func _ready() -> void :
 
 
 func _process(delta: float) -> void :
+	if is_game_over:
+		return
+		
 	timer.value -= delta
-
 	score_label.text = "Score: %d" % score
-
-	if (timer.value == 0) :
+	if (timer.value <= 0) :
 		_handle_game_finish()
 
 
 func _handle_game_finish() -> void :
-	get_tree().quit()
+	is_game_over = true
+	var player_won: bool = score >= target_score
+	GameState.last_minigame_result = player_won
+	EventBus.minigame_finished.emit()
+	queue_free()
 
 
 func _handle_correct_answer() -> void :
@@ -85,7 +92,6 @@ func _assign_answer(equation: String) -> void :
 		index += 1
 
 
-
 func _calculate_equation(equation: String) -> int :
 	var expression := Expression.new()
 	var response = expression.parse(equation)
@@ -99,7 +105,6 @@ func _calculate_equation(equation: String) -> int :
 		return -1
 
 	return result
-
 
 
 ###########
