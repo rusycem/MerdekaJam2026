@@ -126,6 +126,11 @@ func _on_context_menu_id_pressed(id: int) -> void:
 
 func _spawn_node(scene: PackedScene, is_choice: bool = false) -> void:
 	var node = scene.instantiate()
+	
+	# Assign a safe, unique name to prevent Godot from auto-assigning "@" names
+	# "@" names get scrubbed on load, causing permanent line disconnections!
+	node.name = "Node_" + str(Time.get_ticks_usec()) + "_" + str(randi() % 1000)
+	
 	node.position_offset = (last_click_position + graph_edit.scroll_offset) / graph_edit.zoom
 	
 	if node is GraphNode:
@@ -160,6 +165,9 @@ func _spawn_comment_frame() -> void:
 	
 	if frame.has_method("set_autoshrink_enabled"):
 		frame.set_autoshrink_enabled(false)
+		
+	# Assign a safe, unique name
+	frame.name = "Comment_" + str(Time.get_ticks_usec()) + "_" + str(randi() % 1000)
 	
 	# IMPORTANT: Godot requires manual plumbing for resize requests!
 	if frame.has_signal("resize_request"):

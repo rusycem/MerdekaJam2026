@@ -2,9 +2,17 @@
 
 [ext_resource type="Script" uid="uid://duh8h5rdamywy" path="res://runtime/VNPlayer.gd" id="1_vnplay"]
 [ext_resource type="Resource" uid="uid://bxfb5jbpjsd8q" path="res://scenes/StoryScene/prologue.tres" id="2_j7s1q"]
+[ext_resource type="FontFile" uid="uid://bjsjfoiqhtqsm" path="res://assets/UIAssets/cc.otf" id="3_43jty"]
 [ext_resource type="PackedScene" uid="uid://bloekt38bucuf" path="res://src/UI/settings.tscn" id="3_kvy81"]
 [ext_resource type="PackedScene" uid="uid://5ilhr54yhup" path="res://assets/objects/dice20/dice20.glb" id="10_diceglb"]
 [ext_resource type="Script" uid="uid://d4bkvxps2dgj2" path="res://src/dice20/dice_20.gd" id="11_dicescr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5d002"]
+bg_color = Color(0, 0, 0, 0.5647059)
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
 
 [node name="VNPlayer" type="CanvasLayer" unique_id=1542072408]
 script = ExtResource("1_vnplay")
@@ -74,6 +82,7 @@ grow_vertical = 2
 [node name="SpeakerLabel" type="Label" parent="UI/DialoguePanel/VBoxContainer" unique_id=956585148]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.8, 0, 1)
+theme_override_fonts/font = ExtResource("3_43jty")
 theme_override_font_sizes/font_size = 36
 text = "Speaker"
 
@@ -86,11 +95,41 @@ text = "Dialogue text goes here..."
 [node name="NextButton" type="Button" parent="UI/DialoguePanel/VBoxContainer" unique_id=49527346]
 layout_mode = 2
 size_flags_horizontal = 8
+theme_override_fonts/font = ExtResource("3_43jty")
 theme_override_font_sizes/font_size = 24
 text = "Next >"
 
-[node name="ChoicesPanel" type="Panel" parent="UI" unique_id=116286973]
+[node name="ChoicesPanel" type="PanelContainer" parent="UI" unique_id=1171994149]
 visible = false
+custom_maximum_size = Vector2(500, 300)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5d002")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/ChoicesPanel" unique_id=900087719]
+layout_mode = 2
+
+[node name="PromptLabel" type="Label" parent="UI/ChoicesPanel/VBoxContainer" unique_id=1847787063]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_43jty")
+theme_override_font_sizes/font_size = 20
+text = "What will you do?"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ChoicesContainer" type="VBoxContainer" parent="UI/ChoicesPanel/VBoxContainer" unique_id=59708927]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="ChoicesPanel3" type="Panel" parent="UI" unique_id=116286973]
+visible = false
+custom_minimum_size = Vector2(500, 300)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -104,29 +143,8 @@ offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/ChoicesPanel" unique_id=900087719]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = -20.0
-offset_bottom = -20.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="PromptLabel" type="Label" parent="UI/ChoicesPanel/VBoxContainer" unique_id=1847787063]
-layout_mode = 2
-text = "What will you do?"
-horizontal_alignment = 1
-
-[node name="ChoicesContainer" type="VBoxContainer" parent="UI/ChoicesPanel/VBoxContainer" unique_id=59708927]
-layout_mode = 2
-size_flags_vertical = 3
-alignment = 1
-
 [node name="DicePanel" type="Panel" parent="UI" unique_id=209269263]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -160,6 +178,7 @@ text = "Rolling..."
 
 [node name="ContinueBtn" type="Button" parent="UI/DicePanel/VBoxContainer" unique_id=1477810018]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_43jty")
 text = "Continue"
 
 [node name="DiceViewportContainer" type="SubViewportContainer" parent="UI/DicePanel" unique_id=1211340907]
@@ -179,7 +198,7 @@ grow_vertical = 2
 [node name="SubViewport" type="SubViewport" parent="UI/DicePanel/DiceViewportContainer" unique_id=1646116685]
 handle_input_locally = false
 size = Vector2i(256, 256)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="dice20" parent="UI/DicePanel/DiceViewportContainer/SubViewport" unique_id=1149426466 instance=ExtResource("10_diceglb")]
 script = ExtResource("11_dicescr")
