@@ -1,20 +1,729 @@
 [gd_resource type="Resource" script_class="VNStoryTree" format=3 uid="uid://bp74p15n2lh8o"]
 
-[ext_resource type="Script" uid="uid://dtjadxbepppro" path="res://src/vn_control/VNStoryTree.gd" id="1_ej8sj"]
+[ext_resource type="Script" uid="uid://dtjadxbepppro" path="res://src/vn_control/VNStoryTree.gd" id="1_1"]
 
 [resource]
-script = ExtResource("1_ej8sj")
+script = ExtResource("1_1")
 graph_data = {
+&"@GraphNode@76610": {
+"next_node": "Choice1",
+"node_name": &"@GraphNode@76610",
+"position": [-18620.0, -1740.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{player} glance around the classroom. Most students are already talking amongst themselves.",
+"type": "dialogue"
+},
+&"A_Fail1": {
+"next_node": "A_Fail2",
+"node_name": &"A_Fail1",
+"position": [-16160.0, -1560.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{Neutral} Guys? Homework mana?",
+"type": "dialogue"
+},
+&"A_Fail2": {
+"next_node": "A_Fail3",
+"node_name": &"A_Fail2",
+"position": [-15940.0, -1180.0],
+"set_flags": "",
+"speaker": "",
+"text": "Nobody listens. You try again. ALYSSA sighs and steps forward.",
+"type": "dialogue"
+},
+&"A_Fail3": {
+"next_node": "A_Fail4",
+"node_name": &"A_Fail3",
+"position": [-15500.0, -1740.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Angry_Pose2, jump} Walaoeh! Woi! Homework! Pass up now!",
+"type": "dialogue"
+},
+&"A_Fail4": {
+"next_node": "A_Fail5",
+"node_name": &"A_Fail4",
+"position": [-15180.0, -1500.0],
+"set_flags": "",
+"speaker": "",
+"text": "The class immediately starts moving.",
+"type": "dialogue"
+},
+&"A_Fail5": {
+"next_node": "Merge1",
+"node_name": &"A_Fail5",
+"position": [-14920.0, -1400.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Annoyed_Pose3, sigh} You really need more confidence lah.",
+"type": "dialogue"
+},
+&"A_Pass1": {
+"next_node": "A_Pass2",
+"node_name": &"A_Pass1",
+"position": [-17820.0, -2180.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{Angry, jump} Woi! Whoever hasn't submitted their homework, pass it here, cepat sikit!",
+"type": "dialogue"
+},
+&"A_Pass2": {
+"next_node": "A_Pass3",
+"node_name": &"A_Pass2",
+"position": [-17260.0, -2220.0],
+"set_flags": "",
+"speaker": "",
+"text": "A few students complain, but they eventually hand over their books.You return to ALYSSA with the stack.",
+"type": "dialogue"
+},
+&"A_Pass3": {
+"next_node": "A_Pass4",
+"node_name": &"A_Pass3",
+"position": [-17120.0, -2020.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Happy_Pose1, nod} Not bad lah.",
+"type": "dialogue"
+},
+&"A_Pass4": {
+"next_node": "A_Pass5",
+"node_name": &"A_Pass4",
+"position": [-16780.0, -2080.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{Happy} Wah, is that a compliment?",
+"type": "dialogue"
+},
+&"A_Pass5": {
+"next_node": "Merge1",
+"node_name": &"A_Pass5",
+"position": [-16060.0, -2240.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Annoyed_Pose1, shake} Pft, Perasan.",
+"type": "dialogue"
+},
 &"ActorNode": {
-"events": [],
+"events": [{
+"action_type": "hide_all",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Alyssa",
+"character_uid": "",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}],
+"next_node": "S2_Principal",
+"position": [-8444.124, -568.1305],
+"type": "actor"
+},
+&"B1": {
+"next_node": "B2",
+"node_name": &"B1",
+"position": [-18060.0, -1340.0],
+"set_flags": "",
+"speaker": "",
+"text": "{player} go from table to table collecting the missing books.It takes longer, but eventually you return with everything.",
+"type": "dialogue"
+},
+&"B2": {
+"next_node": "B3",
+"node_name": &"B2",
+"position": [-18060.0, -980.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Happy_Pose2, nod} Thanks.",
+"type": "dialogue"
+},
+&"B3": {
+"next_node": "B4",
+"node_name": &"B3",
+"position": [-17320.0, -1080.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{Neutral} You kena do this every day ke?",
+"type": "dialogue"
+},
+&"B4": {
+"next_node": "B5",
+"node_name": &"B4",
+"position": [-15740.0, -1980.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Neutral_Pose3, sigh} Like that lor.",
+"type": "dialogue"
+},
+&"B5": {
+"next_node": "Merge1",
+"node_name": &"B5",
+"position": [-15280.0, -1980.0],
+"set_flags": "",
+"speaker": "",
+"text": "She takes the books from you.",
+"type": "dialogue"
+},
+&"Check1": {
+"dc_value": 10,
+"next_fail": "A_Fail1",
+"next_pass": "A_Pass1",
+"node_name": &"Check1",
+"position": [-17560.0, -1720.0],
+"target_stat": "Charm",
+"type": "dnd_check"
+},
+&"Choice1": {
+"choices": Array[Dictionary]([{
+"condition": "",
+"hide_if_locked": false,
+"text": "Help confidently [PERSUASION — DC10]"
+}, {
+"condition": "",
+"hide_if_locked": false,
+"text": "Help quietly."
+}]),
+"next_nodes": ["GraphNode", "B1"],
+"node_name": &"Choice1",
+"position": [-18220.0, -1960.0],
+"prompt": "Help Alyssa",
+"type": "choice_branch"
+},
+&"D1": {
+"next_node": "D2",
+"node_name": &"D1",
+"position": [-20460.0, -1700.0],
+"set_flags": "",
+"speaker": "",
+"text": "Before class starts, ALYSSA is standing at the teacher's desk with a stack of attendance sheets.She looks busy.",
+"type": "dialogue"
+},
+&"D2": {
+"next_node": "D3",
+"node_name": &"D2",
+"position": [-20240.0, -1920.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{Neutral, nod} Wei, need help tak?",
+"type": "dialogue"
+},
+&"D3": {
+"next_node": "D4",
+"node_name": &"D3",
+"position": [-19860.0, -1820.0],
+"set_flags": "",
+"speaker": "System",
+"text": "ALYSSA looks at you.",
+"type": "dialogue"
+},
+&"D4": {
+"next_node": "D5",
+"node_name": &"D4",
+"position": [-19500.0, -2000.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Neutral_Pose2, twitch} Haiya, ngam lah you asked. Half the class still haven't pass up their homework.",
+"type": "dialogue"
+},
+&"D5": {
+"next_node": "D6",
+"node_name": &"D5",
+"position": [-19180.0, -1920.0],
+"set_flags": "",
+"speaker": "",
+"text": "She hands you a short list.",
+"type": "dialogue"
+},
+&"D6": {
+"next_node": "@GraphNode@76610",
+"node_name": &"D6",
+"position": [-18820.0, -1980.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Neutral_Pose1} You help me collect, can ah?",
+"type": "dialogue"
+},
+&"GraphNode": {
+"next_node": "Check1",
+"node_name": &"GraphNode",
+"position": [-17900.0, -1820.0],
+"set_flags": "",
+"speaker": "",
+"text": "{player} glance around the classroom. Most students are already talking amongst themselves.",
+"type": "dialogue"
+},
+&"Merge1": {
+"next_node": "Merge2",
+"node_name": &"Merge1",
+"position": [-14940.0, -1980.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Sad_Pose1} Being Head Prefect means everyone's problem becomes my problem mah.",
+"type": "dialogue"
+},
+&"Merge2": {
+"next_node": "Merge3",
+"node_name": &"Merge2",
+"position": [-14640.0, -1940.0],
+"set_flags": "",
+"speaker": "",
+"text": "You glance toward MIRUL's empty seat.",
+"type": "dialogue"
+},
+&"Merge3": {
+"next_node": "Merge4",
+"node_name": &"Merge3",
+"position": [-14340.0, -1880.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{Neutral} Even Mirul's?",
+"type": "dialogue"
+},
+&"Merge4": {
+"next_node": "Merge5",
+"node_name": &"Merge4",
+"position": [-13980.0, -1880.0],
+"set_flags": "",
+"speaker": "",
+"text": "Alyssa follows your eyes. She sighs.",
+"type": "dialogue"
+},
+&"Merge5": {
+"next_node": "Story2_Start",
+"node_name": &"Merge5",
+"position": [-13560.0, -1900.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Sad_Pose2, shake} Especially his one.",
+"type": "dialogue"
+},
+&"S2_1": {
+"next_node": "S2_2",
+"node_name": &"S2_1",
+"position": [-12920.0, -1720.0],
+"set_flags": "",
+"speaker": "",
+"text": "Later that day, MIRUL finally returns to class.ALYSSA immediately approaches him.",
+"type": "dialogue"
+},
+&"S2_10": {
+"next_node": "S2_11",
+"node_name": &"S2_10",
+"position": [-9800.0, -1120.0],
+"set_flags": "",
+"speaker": "",
+"text": "Before Mirul can reply, the school speakers crackle.",
+"type": "dialogue"
+},
+&"S2_11": {
+"next_node": "S2_12",
+"node_name": &"S2_11",
+"position": [-9440.0, -1080.0],
+"set_flags": "",
+"speaker": "ANNOUNCEMENT",
+"text": "\"The answer sheets for the upcoming final examinations have been reported missing.\"",
+"type": "dialogue"
+},
+&"S2_12": {
+"next_node": "S2_13",
+"node_name": &"S2_12",
+"position": [-9300.0, -920.0],
+"set_flags": "",
+"speaker": "",
+"text": "The class goes silent.",
+"type": "dialogue"
+},
+&"S2_13": {
+"next_node": "S2_14",
+"node_name": &"S2_13",
+"position": [-9060.0, -820.0],
+"set_flags": "",
+"speaker": "ANNOUNCEMENT",
+"text": "\"If anyone has information, please report to the Principal's office immediately.\"",
+"type": "dialogue"
+},
+&"S2_14": {
+"next_node": "ActorNode",
+"node_name": &"S2_14",
+"position": [-8820.0, -700.0],
+"set_flags": "",
+"speaker": "",
+"text": "Alyssa's expression changes.She looks toward Mirul.Then the classroom door opens.",
+"type": "dialogue"
+},
+&"S2_15": {
+"next_node": "S2_16",
+"node_name": &"S2_15",
+"position": [-8040.0, -640.0],
+"set_flags": "",
+"speaker": "Principal",
+"text": "{Neutral} Alyssa. Emergency meeting. My office.",
+"type": "dialogue"
+},
+&"S2_16": {
+"next_node": "S2_17",
+"node_name": &"S2_16",
+"position": [-7900.0, -400.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Neutral_Pose4, jump} Right now ke, sir?",
+"type": "dialogue"
+},
+&"S2_17": {
+"next_node": "S2_18",
+"node_name": &"S2_17",
+"position": [-7580.0, -360.0],
+"set_flags": "",
+"speaker": "Principal",
+"text": "{Angry, nod} Now.",
+"type": "dialogue"
+},
+&"S2_18": {
+"next_node": "S2_19",
+"node_name": &"S2_18",
+"position": [-7300.0, -180.0],
+"set_flags": "",
+"speaker": "",
+"text": "She looks back at Mirul.",
+"type": "dialogue"
+},
+&"S2_19": {
+"next_node": "S2_20",
+"node_name": &"S2_19",
+"position": [-6920.0, -240.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Angry_Pose2, shake} You better don't go anywhere ah.",
+"type": "dialogue"
+},
+&"S2_2": {
+"next_node": "S2_3",
+"node_name": &"S2_2",
+"position": [-12500.0, -1680.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Angry_Pose1, jump} Mirul. You ponteng again ah?",
+"type": "dialogue"
+},
+&"S2_20": {
+"next_node": "S2_21",
+"node_name": &"S2_20",
+"position": [-6540.0, -240.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Laugh_Pose3, nod} Lah, not going anywhere pun do.",
+"type": "dialogue"
+},
+&"S2_21": {
+"next_node": "S3_Start",
+"node_name": &"S2_21",
+"position": [-6200.0, -240.0],
+"set_flags": "",
+"speaker": "",
+"text": "Alyssa  leaves with Encik Samad.",
+"type": "dialogue"
+},
+&"S2_3": {
+"next_node": "S2_4",
+"node_name": &"S2_3",
+"position": [-12180.0, -1620.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Laugh_Pose1} Chill out lah, Lysa. Rilek lu.",
+"type": "dialogue"
+},
+&"S2_4": {
+"next_node": "S2_5",
+"node_name": &"S2_4",
+"position": [-11800.0, -1600.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Angry_Pose3, shake} Haiya, every time you disappear, I'm the one who kena answer to the teachers you know!",
+"type": "dialogue"
+},
+&"S2_5": {
+"next_node": "S2_6",
+"node_name": &"S2_5",
+"position": [-11400.0, -1580.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Neutral_Pose2} Then just don't answer them la",
+"type": "dialogue"
+},
+&"S2_6": {
+"next_node": "S2_7",
+"node_name": &"S2_6",
+"position": [-11160.0, -1460.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Annoyed_Pose4, shake} You think Head Prefect can just ignore like that meh?!",
+"type": "dialogue"
+},
+&"S2_7": {
+"next_node": "S2_8",
+"node_name": &"S2_7",
+"position": [-10920.0, -1280.0],
+"set_flags": "",
+"speaker": "System",
+"text": "Mirul leans back.",
+"type": "dialogue"
+},
+&"S2_8": {
+"next_node": "S2_9",
+"node_name": &"S2_8",
+"position": [-10580.0, -1280.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Laugh_Pose2} Sounds damn stressful do.",
+"type": "dialogue"
+},
+&"S2_9": {
+"next_node": "S2_10",
+"node_name": &"S2_9",
+"position": [-10200.0, -1200.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Angry_Pose4, jump} You are the stress lah!",
+"type": "dialogue"
+},
+&"S2_Principal": {
+"events": [{
+"action_type": "show_character",
+"character": "Principal",
+"character_uid": "uid://ch0pocbeb0y77",
+"expression": "Neutral",
+"position_slot": "Left"
+}],
+"next_node": "S2_15",
+"position": [-8260.0, -720.0],
+"type": "actor"
+},
+&"S3_1": {
+"next_node": "S3_2",
+"node_name": &"S3_1",
+"position": [-5520.0, -180.0],
+"set_flags": "",
+"speaker": "",
+"text": "A few minutes later, you see her outside the Principal's office.",
+"type": "dialogue"
+},
+&"S3_10": {
+"next_node": "S3_11",
+"node_name": &"S3_10",
+"position": [-1140.0, -140.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Annoyed_Pose2} He skipped class the exact same day mah.",
+"type": "dialogue"
+},
+&"S3_11": {
+"next_node": "S3_12",
+"node_name": &"S3_11",
+"position": [-840.0, -40.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{Neutral, shake} Doesn't mean he's the one who rembat it kot.",
+"type": "dialogue"
+},
+&"S3_12": {
+"next_node": "S3_13",
+"node_name": &"S3_12",
+"position": [-400.0, -200.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Annoyed_Pose1, twitch} I know lah.",
+"type": "dialogue"
+},
+&"S3_13": {
+"next_node": "S3_14",
+"node_name": &"S3_13",
+"position": [80.0, -440.0],
+"set_flags": "",
+"speaker": "",
+"text": "She looks unconvinced.",
+"type": "dialogue"
+},
+&"S3_14": {
 "next_node": "",
-"position": [759.93567, 489.76007],
+"node_name": &"S3_14",
+"position": [500.0, -360.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Neutral_Pose1} Maybe.",
+"type": "dialogue"
+},
+&"S3_2": {
+"next_node": "S3_3",
+"node_name": &"S3_2",
+"position": [-5140.0, -40.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{Neutral} What happened wei?",
+"type": "dialogue"
+},
+&"S3_3": {
+"next_node": "S3_4",
+"node_name": &"S3_3",
+"position": [-4860.0, 140.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Sad_Pose3, twitch} Haiya, this stolen paper thing very serious lah.",
+"type": "dialogue"
+},
+&"S3_4": {
+"next_node": "S3_5",
+"node_name": &"S3_4",
+"position": [-4340.0, 260.0],
+"set_flags": "",
+"speaker": "",
+"text": "She looks back toward the classroom.",
+"type": "dialogue"
+},
+&"S3_5": {
+"next_node": "S3_6",
+"node_name": &"S3_5",
+"position": [-4000.0, 300.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{Neutral} You think it was a student?",
+"type": "dialogue"
+},
+&"S3_6": {
+"next_node": "S3_7",
+"node_name": &"S3_6",
+"position": [-3180.0, 180.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Neutral_Pose2, nod} Probably lor.",
+"type": "dialogue"
+},
+&"S3_7": {
+"next_node": "S3_8",
+"node_name": &"S3_7",
+"position": [-2500.0, 140.0],
+"set_flags": "",
+"speaker": "",
+"text": "She pauses. Her eyes settle on Mirul through the classroom window.",
+"type": "dialogue"
+},
+&"S3_8": {
+"next_node": "S3_9",
+"node_name": &"S3_8",
+"position": [-2140.0, -200.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{Shocked} ...You suspect Mirul?",
+"type": "dialogue"
+},
+&"S3_9": {
+"next_node": "S3_10",
+"node_name": &"S3_9",
+"position": [-1520.0, -80.0],
+"set_flags": "",
+"speaker": "",
+"text": "Alyssa doesn't answer immediately.",
+"type": "dialogue"
+},
+&"S3_Start": {
+"events": [{
+"action_type": "clear_stage"
+}, {
+"action_type": "change_bg",
+"background_uid": "res://assets/BGArtAssets/BG_Corridor.jpg"
+}, {
+"action_type": "show_character",
+"character": "Alyssa",
+"character_uid": "uid://bsylmi0xhjqvv",
+"expression": "Neutral_Pose1",
+"position_slot": "Center"
+}],
+"next_node": "S3_1",
+"position": [-5860.0, -200.0],
 "type": "actor"
 },
 &"Start": {
-"next_node": "ActorNode",
-"node_name": &"Start",
-"position": [238.0, 496.0],
+"events": [{
+"action_type": "change_bg",
+"background_uid": "res://assets/BGArtAssets/BG_Classroom.jpg"
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"character": "Alyssa",
+"character_uid": "uid://bsylmi0xhjqvv",
+"expression": "Neutral_Pose1",
+"position_slot": "Center"
+}],
+"next_node": "D1",
+"position": [-20820.0, -1680.0],
+"type": "actor"
+},
+&"Start2": {
+"next_node": "Start",
+"node_name": &"Start2",
+"position": [-21200.0, -1640.0],
 "type": "start"
+},
+&"Story2_Start": {
+"events": [{
+"action_type": "clear_stage",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Alyssa",
+"character_uid": "",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "change_bg",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "uid://4imjs0hwif5i",
+"character": "Alyssa",
+"character_uid": "",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Mirul",
+"character_uid": "uid://dowxttrntsqon",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Alyssa",
+"character_uid": "uid://bsylmi0xhjqvv",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Right",
+"z_index": 0
+}],
+"next_node": "S2_1",
+"position": [-13180.0, -1920.0],
+"type": "actor"
 }
 }

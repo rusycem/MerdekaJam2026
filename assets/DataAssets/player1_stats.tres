@@ -5,7 +5,6 @@
 [resource]
 script = ExtResource("1_d6xl0")
 character_name = "Student"
-gender = "Female"
 dexterity = 5
 intelligence = 7
 charisma = 6
