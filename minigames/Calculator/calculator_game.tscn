@@ -1,0 +1,237 @@
+[gd_scene format=3 uid="uid://do08moywiwdlb"]
+
+[ext_resource type="Script" uid="uid://bgy6lvxtsc47c" path="res://minigames/Calculator/calculator_game.gd" id="1_p7cvj"]
+[ext_resource type="Theme" uid="uid://b7pugr58scgh" path="res://minigames/Calculator/calculator_theme.tres" id="2_ek0om"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5jhrl"]
+bg_color = Color(0.22310002, 0.8704135, 0.97, 0.25882354)
+
+[node name="Calculator Game" type="Control" unique_id=379723945 node_paths=PackedStringArray("digit_slots")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p7cvj")
+digit_slots = NodePath("TheCalc/MarginContainer/Body/Display/MarginContainer/DigitSlots")
+
+[node name="Target" type="Label" parent="." unique_id=1383536874]
+layout_mode = 0
+offset_left = 516.0
+offset_top = 62.0
+offset_right = 661.0
+offset_bottom = 117.0
+theme_override_font_sizes/font_size = 40
+text = "Target: "
+horizontal_alignment = 1
+
+[node name="EqualSign" type="Label" parent="." unique_id=852587172]
+layout_mode = 0
+offset_left = 827.0
+offset_top = 174.0
+offset_right = 972.0
+offset_bottom = 229.0
+theme_override_font_sizes/font_size = 40
+text = "="
+
+[node name="Result" type="Label" parent="." unique_id=1384505140]
+layout_mode = 0
+offset_left = 860.0
+offset_top = 174.0
+offset_right = 1005.0
+offset_bottom = 229.0
+theme_override_font_sizes/font_size = 40
+
+[node name="TheCalc" type="PanelContainer" parent="." unique_id=301725766]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = -208.0
+offset_right = 168.0
+offset_bottom = 208.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_ek0om")
+
+[node name="MarginContainer" type="MarginContainer" parent="TheCalc" unique_id=1154674021]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Body" type="VBoxContainer" parent="TheCalc/MarginContainer" unique_id=1651508322]
+layout_mode = 2
+
+[node name="Display" type="PanelContainer" parent="TheCalc/MarginContainer/Body" unique_id=1393008099]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5jhrl")
+
+[node name="MarginContainer" type="MarginContainer" parent="TheCalc/MarginContainer/Body/Display" unique_id=1728642680]
+layout_mode = 2
+
+[node name="DigitSlots" type="HBoxContainer" parent="TheCalc/MarginContainer/Body/Display/MarginContainer" unique_id=1801701374]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Digit" type="Label" parent="TheCalc/MarginContainer/Body/Display/MarginContainer/DigitSlots" unique_id=449967010]
+custom_minimum_size = Vector2(48, 48)
+custom_maximum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_ek0om")
+theme_type_variation = &"DigitDisplay"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Digit2" type="Label" parent="TheCalc/MarginContainer/Body/Display/MarginContainer/DigitSlots" unique_id=1230459961]
+custom_minimum_size = Vector2(48, 48)
+custom_maximum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_ek0om")
+theme_type_variation = &"DigitDisplay"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Digit3" type="Label" parent="TheCalc/MarginContainer/Body/Display/MarginContainer/DigitSlots" unique_id=2145747585]
+custom_minimum_size = Vector2(48, 48)
+custom_maximum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_ek0om")
+theme_type_variation = &"DigitDisplay"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Digit4" type="Label" parent="TheCalc/MarginContainer/Body/Display/MarginContainer/DigitSlots" unique_id=226970570]
+custom_minimum_size = Vector2(48, 48)
+custom_maximum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_ek0om")
+theme_type_variation = &"DigitDisplay"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Digit5" type="Label" parent="TheCalc/MarginContainer/Body/Display/MarginContainer/DigitSlots" unique_id=362279540]
+custom_minimum_size = Vector2(48, 48)
+custom_maximum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_ek0om")
+theme_type_variation = &"DigitDisplay"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Row" type="HBoxContainer" parent="TheCalc/MarginContainer/Body" unique_id=160839174]
+layout_mode = 2
+
+[node name="Num" type="Button" parent="TheCalc/MarginContainer/Body/Row" unique_id=1828144426]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "7"
+
+[node name="Num2" type="Button" parent="TheCalc/MarginContainer/Body/Row" unique_id=1209600794]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "8"
+
+[node name="Num3" type="Button" parent="TheCalc/MarginContainer/Body/Row" unique_id=1444306254]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "9"
+
+[node name="Operator" type="Button" parent="TheCalc/MarginContainer/Body/Row" unique_id=1490231028]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "+"
+
+[node name="Row2" type="HBoxContainer" parent="TheCalc/MarginContainer/Body" unique_id=1075557159]
+layout_mode = 2
+
+[node name="Num" type="Button" parent="TheCalc/MarginContainer/Body/Row2" unique_id=1752084119]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "4"
+
+[node name="Num2" type="Button" parent="TheCalc/MarginContainer/Body/Row2" unique_id=87611125]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "5"
+
+[node name="Num3" type="Button" parent="TheCalc/MarginContainer/Body/Row2" unique_id=1244891386]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "6"
+
+[node name="Operator" type="Button" parent="TheCalc/MarginContainer/Body/Row2" unique_id=685792087]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "-"
+
+[node name="Row3" type="HBoxContainer" parent="TheCalc/MarginContainer/Body" unique_id=1691831460]
+layout_mode = 2
+
+[node name="Num" type="Button" parent="TheCalc/MarginContainer/Body/Row3" unique_id=576431122]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "1"
+
+[node name="Num2" type="Button" parent="TheCalc/MarginContainer/Body/Row3" unique_id=218244558]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "2"
+
+[node name="Num3" type="Button" parent="TheCalc/MarginContainer/Body/Row3" unique_id=673722624]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "3"
+
+[node name="Operator" type="Button" parent="TheCalc/MarginContainer/Body/Row3" unique_id=1110508130]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "*"
+
+[node name="Row4" type="HBoxContainer" parent="TheCalc/MarginContainer/Body" unique_id=654210965]
+layout_mode = 2
+
+[node name="Delete" type="Button" parent="TheCalc/MarginContainer/Body/Row4" unique_id=1218318194]
+modulate = Color(4.165, 0, 0, 1)
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Del"
+
+[node name="Num" type="Button" parent="TheCalc/MarginContainer/Body/Row4" unique_id=1906853897]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "0"
+
+[node name="Enter" type="Button" parent="TheCalc/MarginContainer/Body/Row4" unique_id=234668012]
+modulate = Color(0.3559588, 4.8687005, 0, 1)
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "="

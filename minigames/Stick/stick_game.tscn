@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://c2gb1xsi1xw6a"]
+
+[ext_resource type="Script" uid="uid://d1ferhk8nobix" path="res://minigames/Stick/stick_game.gd" id="1_stick"]
+
+[node name="StickGame" type="Control" unique_id=916892372]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_stick")
+
+[node name="Background" type="ColorRect" parent="." unique_id=718893088]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.1, 0.12, 0.15, 1)
+
+[node name="Board" type="Node2D" parent="." unique_id=1851269001]
+position = Vector2(640, 360)
+
+[node name="TurnLabel" type="Label" parent="." unique_id=1765082637]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -400.0
+offset_top = 24.0
+offset_right = 400.0
+offset_bottom = 64.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 28
+text = "Your turn"
+horizontal_alignment = 1
+
+[node name="ResultPanel" type="Panel" parent="." unique_id=101689405]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResultLabel" type="Label" parent="ResultPanel" unique_id=370502330]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -50.0
+offset_right = 200.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "YOU WIN!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ReturnButton" type="Button" parent="ResultPanel" unique_id=1276264818]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Return"

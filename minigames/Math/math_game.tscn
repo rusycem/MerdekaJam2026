@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://c2fu5uw6ti6o8"]
+
+[ext_resource type="Theme" uid="uid://c2hixso2vy57e" path="res://minigames/Math/math_game_theme.tres" id="1_prsqs"]
+[ext_resource type="Script" uid="uid://k2fyqwgwx5nh" path="res://minigames/Math/math_game.gd" id="2_4loy1"]
+[ext_resource type="Texture2D" uid="uid://du8u0uwb4edep" path="res://assets/minigames/MathGame/StopwatchBG.png" id="3_g4t4r"]
+[ext_resource type="Texture2D" uid="uid://bgfhq677itckk" path="res://assets/minigames/MathGame/StopwatchFG.png" id="4_q6m2w"]
+[ext_resource type="Texture2D" uid="uid://cq7mywqwmhbw5" path="res://assets/minigames/MathGame/StopwatchMG.png" id="5_ht1kx"]
+
+[node name="MathGame" type="Control" unique_id=1766026497 node_paths=PackedStringArray("timer", "score_label", "equation_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_prsqs")
+script = ExtResource("2_4loy1")
+timer = NodePath("Body/MarginContainer/VBoxContainer/Timer")
+score_label = NodePath("Body/MarginContainer/VBoxContainer/Score")
+equation_label = NodePath("Body/MarginContainer/VBoxContainer/Equation/Label")
+
+[node name="Body" type="PanelContainer" parent="." unique_id=1531866436]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.0
+offset_top = -36.0
+offset_right = 196.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Body" unique_id=2020229368]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Body/MarginContainer" unique_id=816640912]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Timer" type="TextureProgressBar" parent="Body/MarginContainer/VBoxContainer" unique_id=605574563]
+layout_mode = 2
+max_value = 60.0
+step = 0.01
+value = 43.03
+fill_mode = 4
+texture_under = ExtResource("3_g4t4r")
+texture_over = ExtResource("4_q6m2w")
+texture_progress = ExtResource("5_ht1kx")
+texture_progress_offset = Vector2(14, 51)
+
+[node name="Title" type="Label" parent="Body/MarginContainer/VBoxContainer" unique_id=450835466]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Quik Mafs"
+horizontal_alignment = 1
+
+[node name="Score" type="Label" parent="Body/MarginContainer/VBoxContainer" unique_id=651312844]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Score: XXX"
+horizontal_alignment = 1
+
+[node name="Equation" type="PanelContainer" parent="Body/MarginContainer/VBoxContainer" unique_id=1875445503]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Body/MarginContainer/VBoxContainer/Equation" unique_id=821560621]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "6 + 7 * 42"
+horizontal_alignment = 1
+
+[node name="Answers" type="HBoxContainer" parent="Body/MarginContainer/VBoxContainer" unique_id=1662905121]
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="ChoiceA" type="Button" parent="Body/MarginContainer/VBoxContainer/Answers" unique_id=413031742]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+text = "300"
+
+[node name="ChoiceB" type="Button" parent="Body/MarginContainer/VBoxContainer/Answers" unique_id=1617069204]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+text = "345"
+
+[node name="ChoiceC" type="Button" parent="Body/MarginContainer/VBoxContainer/Answers" unique_id=1703237057]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+text = "122"
+
+[connection signal="button_up" from="Body/MarginContainer/VBoxContainer/Answers/ChoiceA" to="." method="_on_choice_a_button_up"]
+[connection signal="button_up" from="Body/MarginContainer/VBoxContainer/Answers/ChoiceB" to="." method="_on_choice_b_button_up"]
+[connection signal="button_up" from="Body/MarginContainer/VBoxContainer/Answers/ChoiceC" to="." method="_on_choice_c_button_up"]
