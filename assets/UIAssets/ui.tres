@@ -1,0 +1,34 @@
+[gd_resource type="Theme" format=3 uid="uid://ddijtyg13x3da"]
+
+[ext_resource type="FontFile" uid="uid://bjsjfoiqhtqsm" path="res://assets/UIAssets/cc.otf" id="1_efkuo"]
+[ext_resource type="Texture2D" uid="uid://c7nk43swggtcm" path="res://assets/UIAssets/uiline.png" id="2_r2d0a"]
+[ext_resource type="Texture2D" uid="uid://bj5llcionqj81" path="res://assets/UIAssets/arrow.png" id="3_8s6yg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r2d0a"]
+texture = ExtResource("2_r2d0a")
+texture_margin_bottom = 15.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8s6yg"]
+texture = ExtResource("2_r2d0a")
+texture_margin_bottom = 15.0
+
+[resource]
+Label/colors/font_color = Color(0.22745098, 0.14901961, 0.09411765, 1)
+Label/fonts/font = ExtResource("1_efkuo")
+LineEdit/colors/caret_color = Color(0.95, 0.95, 0.95, 1)
+LineEdit/colors/font_color = Color(0.22745098, 0.14901961, 0.09411765, 1)
+LineEdit/colors/font_placeholder_color = Color(0.22745098, 0.14901961, 0.09411765, 0.3019608)
+LineEdit/fonts/font = ExtResource("1_efkuo")
+LineEdit/styles/focus = SubResource("StyleBoxTexture_r2d0a")
+LineEdit/styles/normal = SubResource("StyleBoxTexture_r2d0a")
+OptionButton/colors/font_color = Color(0.22745098, 0.14901961, 0.09411765, 1)
+OptionButton/colors/font_focus_color = Color(0.22745098, 0.14901961, 0.09411765, 1)
+OptionButton/colors/font_hover_color = Color(0.6388679, 0.4963171, 0.22693542, 1)
+OptionButton/colors/font_hover_pressed_color = Color(0.22745098, 0.14901961, 0.09411765, 1)
+OptionButton/colors/font_pressed_color = Color(0.22745098, 0.14901961, 0.09411765, 1)
+OptionButton/fonts/font = ExtResource("1_efkuo")
+OptionButton/icons/arrow = ExtResource("3_8s6yg")
+OptionButton/styles/focus = SubResource("StyleBoxTexture_8s6yg")
+OptionButton/styles/hover = SubResource("StyleBoxTexture_8s6yg")
+OptionButton/styles/normal = SubResource("StyleBoxTexture_8s6yg")
+OptionButton/styles/pressed = SubResource("StyleBoxTexture_8s6yg")
