@@ -463,6 +463,20 @@ text = "[b]Current Location:[/b] Unknown
 [b]Active Quests:[/b]
 - Continue investigating..."
 
+[node name="CloseBtn" type="Button" parent="Center/Panel" unique_id=999999999]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -30.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 30.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("2_eeyo5")
+theme_override_font_sizes/font_size = 24
+text = " X "
+
 [node name="ListeningContainer" type="PanelContainer" parent="." unique_id=182606966]
 unique_name_in_owner = true
 visible = false
@@ -502,3 +516,4 @@ text = "X"
 [connection signal="pressed" from="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options/PauseButton/PauseBtn" to="." method="_on_pause_pressed"]
 [connection signal="pressed" from="Center/Panel/Tabs/Settings/Scroll/ScrollCenter/Options/QuitButton" to="." method="_on_quit_pressed"]
 [connection signal="button_down" from="ListeningContainer/HBox/CancelBtn" to="." method="_stop_listening"]
+[connection signal="pressed" from="Center/Panel/CloseBtn" to="." method="_on_close_pressed"]
