@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dormscene123"]
 
 [ext_resource type="Script" uid="uid://c0hnkiacldsq" path="res://src/Dorm.gd" id="1_dorm"]
-[ext_resource type="Resource" path="res://scenes/StoryScene/AlyssaChapters/AlyssaChapter1.tres" id="2_jw3nw"]
+[ext_resource type="Resource" uid="uid://caj3gcn82jpnc" path="res://scenes/StoryScene/AlyssaChapters/AlyssaChapter1.tres" id="2_jw3nw"]
 [ext_resource type="Resource" uid="uid://bxfb5jbpjsd8q" path="res://scenes/StoryScene/prologue.tres" id="2_oaefl"]
 [ext_resource type="Resource" uid="uid://dq0hbkf4ljii5" path="res://scenes/StoryScene/MirulChapters/MirulChapter1.tres" id="3_qk8yr"]
 [ext_resource type="Resource" uid="uid://msjo6ad0pr8n" path="res://scenes/StoryScene/MirulChapters/MirulChapter2.tres" id="4_1s6s4"]
@@ -12,7 +12,7 @@
 [ext_resource type="Resource" uid="uid://bupa2yg7ta548" path="res://scenes/StoryScene/AlyssaChapters/AlyssaChapter3.tres" id="8_mo6ia"]
 [ext_resource type="Resource" uid="uid://caiguau12ndtb" path="res://scenes/StoryScene/VihaanChapters/VihaanChapter1.tres" id="9_27jsp"]
 [ext_resource type="Resource" uid="uid://bj074naylrndg" path="res://scenes/StoryScene/VihaanChapters/VihaanChapter2.tres" id="10_xunsv"]
-[ext_resource type="Resource" uid="uid://da1ysw1o281t2" path="res://scenes/StoryScene/VihaanChapters/VihaanChapter3.tres" id="11_3sowt"]
+[ext_resource type="Resource" uid="uid://bxgo0h0qtk5tf" path="res://scenes/StoryScene/VihaanChapters/VihaanChapter3.tres" id="11_3sowt"]
 
 [node name="Dorm" type="Control" unique_id=1102915279]
 layout_mode = 3
@@ -60,7 +60,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 50.0
-offset_top = 120.0
+offset_top = 97.0
 offset_right = -50.0
 offset_bottom = -50.0
 grow_horizontal = 2
@@ -113,10 +113,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = -20.0
-offset_bottom = -20.0
+offset_left = 15.0
+offset_top = 6.0
+offset_right = -15.0
+offset_bottom = 243.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
@@ -128,20 +128,44 @@ theme_override_font_sizes/font_size = 32
 text = "Radio"
 horizontal_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="HBox/RightPanel/RadioPanel/VBox" unique_id=476119589]
+[node name="HSeparator" type="HSeparator" parent="HBox/RightPanel/RadioPanel/VBox" unique_id=237906383]
 layout_mode = 2
 
-[node name="BtnPlaySong1" type="Button" parent="HBox/RightPanel/RadioPanel/VBox" unique_id=590629220]
+[node name="BtnRadio1" type="Button" parent="HBox/RightPanel/RadioPanel/VBox" unique_id=590629221]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_v4nee")
 theme_override_font_sizes/font_size = 24
-text = "Play: Lo-Fi Study"
+text = "School Of Old Laughing People (Chill)"
 
-[node name="BtnPlaySong2" type="Button" parent="HBox/RightPanel/RadioPanel/VBox" unique_id=824813065]
+[node name="BtnRadio2" type="Button" parent="HBox/RightPanel/RadioPanel/VBox" unique_id=824813066]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_v4nee")
 theme_override_font_sizes/font_size = 24
-text = "Play: Upbeat Dorm"
+text = "Wednesday 19th (Bad Boy)"
+
+[node name="BtnRadio3" type="Button" parent="HBox/RightPanel/RadioPanel/VBox" unique_id=824813067]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_v4nee")
+theme_override_font_sizes/font_size = 24
+text = "Pants For 40 RM (Adventurous)"
+
+[node name="BtnRadio4" type="Button" parent="HBox/RightPanel/RadioPanel/VBox" unique_id=824813068]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_v4nee")
+theme_override_font_sizes/font_size = 24
+text = "A Dog In Turkey (Cool Guy)"
+
+[node name="BtnRadio5" type="Button" parent="HBox/RightPanel/RadioPanel/VBox" unique_id=824813069]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_v4nee")
+theme_override_font_sizes/font_size = 24
+text = "7479 (Playful)"
+
+[node name="BtnRadio6" type="Button" parent="HBox/RightPanel/RadioPanel/VBox" unique_id=824813070]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_v4nee")
+theme_override_font_sizes/font_size = 24
+text = "Who The Hell Are You (Nonchalant)"
 
 [node name="SystemPanel" type="Panel" parent="HBox/RightPanel" unique_id=1471589987]
 layout_mode = 2
