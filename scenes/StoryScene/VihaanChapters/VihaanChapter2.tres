@@ -462,9 +462,8 @@ graph_data = {
 "node_name": &"_GraphNode_54283",
 "position": [8020.0, 720.0],
 "set_flags": "",
-"speaker": "",
-"text": "[Sad, Pose4]
-Vihaan only nodded, but he doesn’t explain all that much... Or at all actually. He returns to his book.",
+"speaker": "Vihaan",
+"text": "{Sad, Pose4} Vihaan only nodded, but he doesn’t explain all that much... Or at all actually. He returns to his book.",
 "type": "dialogue"
 },
 &"_GraphNode_54322": {

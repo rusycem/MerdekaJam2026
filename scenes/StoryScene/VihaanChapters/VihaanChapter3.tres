@@ -1,14 +1,793 @@
-[gd_resource type="Resource" script_class="VNStoryTree" format=3 uid="uid://da1ysw1o281t2"]
+[gd_resource type="Resource" script_class="VNStoryTree" format=3 uid="uid://bxgo0h0qtk5tf"]
 
-[ext_resource type="Script" uid="uid://dtjadxbepppro" path="res://src/vn_control/VNStoryTree.gd" id="1_ly6ne"]
+[ext_resource type="Script" uid="uid://dtjadxbepppro" path="res://src/vn_control/VNStoryTree.gd" id="1_1"]
 
 [resource]
-script = ExtResource("1_ly6ne")
+script = ExtResource("1_1")
 graph_data = {
-&"Start": {
+&"A_Fail1": {
+"next_node": "A_Fail2",
+"node_name": &"A_Fail1",
+"position": [5260.0, -140.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{Angry, shake} You need to stop him do.",
+"type": "dialogue"
+},
+&"A_Fail2": {
+"next_node": "A_Fail3",
+"node_name": &"A_Fail2",
+"position": [5600.0, -150.0],
+"set_flags": "",
+"speaker": "",
+"text": "Vihaan shakes his head.",
+"type": "dialogue"
+},
+&"A_Fail3": {
+"next_node": "A_Fail4",
+"node_name": &"A_Fail3",
+"position": [5950.0, -150.0],
+"set_flags": "",
+"speaker": "Vihaan",
+"text": "{Sad_Pose1, sink} I can't da.",
+"type": "dialogue"
+},
+&"A_Fail4": {
+"next_node": "A_Fail5",
+"node_name": &"A_Fail4",
+"position": [6300.0, -150.0],
+"set_flags": "",
+"speaker": "Vihaan",
+"text": "{Sad_Pose2, sink} I'm sorry.",
+"type": "dialogue"
+},
+&"A_Fail5": {
+"next_node": "A_Fail6",
+"node_name": &"A_Fail5",
+"position": [6650.0, -150.0],
+"set_flags": "",
+"speaker": "",
+"text": "He closes the chessboard.",
+"type": "dialogue"
+},
+&"A_Fail6": {
+"next_node": "Node_1167193408_586",
+"node_name": &"A_Fail6",
+"position": [7000.0, -150.0],
+"set_flags": "",
+"speaker": "Vihaan",
+"text": "{Sad_Pose3, sink} Maybe it'll sort itself out kot.",
+"type": "dialogue"
+},
+&"A_Pass1": {
+"next_node": "A_Pass2",
+"node_name": &"A_Pass1",
+"position": [5360.0, -500.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{Angry, shake} If he's really your friend, you have to stop him before it gets worse lah.",
+"type": "dialogue"
+},
+&"A_Pass2": {
+"next_node": "A_Pass3",
+"node_name": &"A_Pass2",
+"position": [5620.0, -440.0],
+"set_flags": "",
+"speaker": "",
+"text": "Vihaan stays quiet.",
+"type": "dialogue"
+},
+&"A_Pass3": {
+"next_node": "A_Pass4",
+"node_name": &"A_Pass3",
+"position": [5950.0, -450.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{Neutral, bounce} You said Mirul treated you like a real friend. Be a real one to him now.",
+"type": "dialogue"
+},
+&"A_Pass4": {
+"next_node": "A_Pass5",
+"node_name": &"A_Pass4",
+"position": [6300.0, -450.0],
+"set_flags": "",
+"speaker": "",
+"text": "Vihaan looks toward Mirul again. Finally, he closes the chessboard.",
+"type": "dialogue"
+},
+&"A_Pass5": {
+"next_node": "A_Pass6",
+"node_name": &"A_Pass5",
+"position": [6650.0, -450.0],
+"set_flags": "",
+"speaker": "Vihaan",
+"text": "{Neutral_Pose2, sink} ...Okay lah.",
+"type": "dialogue"
+},
+&"A_Pass6": {
+"next_node": "A_Pass7",
+"node_name": &"A_Pass6",
+"position": [7000.0, -450.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{Neutral, bounce} You'll tell someone ah?",
+"type": "dialogue"
+},
+&"A_Pass7": {
+"next_node": "Node_1525058349_425",
+"node_name": &"A_Pass7",
+"position": [7350.0, -450.0],
+"set_flags": "vihaan_speaks",
+"speaker": "Vihaan",
+"text": "{Neutral_Pose3, bounce} Alyssa. She already suspect him anyway.",
+"type": "dialogue"
+},
+&"B1": {
+"next_node": "B2",
+"node_name": &"B1",
+"position": [4900.0, 150.0],
+"set_flags": "",
+"speaker": "",
+"text": "You decide the choice belongs to Vihaan.",
+"type": "dialogue"
+},
+&"B2": {
+"next_node": "B3",
+"node_name": &"B2",
+"position": [5250.0, 150.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{Neutral, sink} Up to you lah.",
+"type": "dialogue"
+},
+&"B3": {
+"next_node": "B4",
+"node_name": &"B3",
+"position": [5600.0, 150.0],
+"set_flags": "",
+"speaker": "",
+"text": "Vihaan looks down.",
+"type": "dialogue"
+},
+&"B4": {
+"next_node": "Node_1167193408_586",
+"node_name": &"B4",
+"position": [5950.0, 150.0],
+"set_flags": "",
+"speaker": "Vihaan",
+"text": "{Sad_Pose4, sink} Then... I'm staying quiet.",
+"type": "dialogue"
+},
+&"Check1": {
+"dc_value": 10,
+"next_fail": "A_Fail1",
+"next_pass": "A_Pass1",
+"node_name": &"Check1",
+"position": [4960.0, -360.0],
+"target_stat": "Charm",
+"type": "dnd_check"
+},
+&"Choice1": {
+"choices": Array[Dictionary]([{
+"condition": "",
+"hide_if_locked": false,
+"text": "[Charm - DC10] Persuade him"
+}, {
+"condition": "",
+"hide_if_locked": false,
+"text": "Stay out of it."
+}]),
+"next_nodes": ["Node_1056785748_49", "B1"],
+"node_name": &"Choice1",
+"position": [4540.0, 0.0],
+"prompt": "What will you do?",
+"type": "choice_branch"
+},
+&"D1": {
+"next_node": "D2",
+"node_name": &"D1",
+"position": [350.0, 0.0],
+"set_flags": "",
+"speaker": "",
+"text": "During a free period, Vihaan sits beside you with his chessboard untouched.",
+"type": "dialogue"
+},
+&"D10": {
+"next_node": "D11",
+"node_name": &"D10",
+"position": [3500.0, 0.0],
+"set_flags": "",
+"speaker": "Vihaan",
+"text": "{Sad_Pose3, sink} He was the first person here who actually treated me like one, machaa.",
+"type": "dialogue"
+},
+&"D11": {
+"next_node": "D12",
+"node_name": &"D11",
+"position": [3850.0, 0.0],
+"set_flags": "",
+"speaker": "",
+"text": "He looks down.",
+"type": "dialogue"
+},
+&"D12": {
+"next_node": "Choice1",
+"node_name": &"D12",
+"position": [4200.0, 0.0],
+"set_flags": "",
+"speaker": "Vihaan",
+"text": "{Sad_Pose4, sink} If I speak up, he could get buang sekolah do.",
+"type": "dialogue"
+},
+&"D2": {
+"next_node": "D3",
+"node_name": &"D2",
+"position": [700.0, 0.0],
+"set_flags": "",
+"speaker": "Vihaan",
+"text": "{Neutral_Pose1, bounce} You remember what I told you about Mirul tak?",
+"type": "dialogue"
+},
+&"D3": {
+"next_node": "D4",
+"node_name": &"D3",
+"position": [1050.0, 0.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{Neutral, bounce} That he rembat the exam papers ke?",
+"type": "dialogue"
+},
+&"D4": {
+"next_node": "D5",
+"node_name": &"D4",
+"position": [1400.0, 0.0],
+"set_flags": "",
+"speaker": "",
+"text": "Vihaan nods.",
+"type": "dialogue"
+},
+&"D5": {
+"next_node": "D6",
+"node_name": &"D5",
+"position": [1750.0, 0.0],
+"set_flags": "",
+"speaker": "Vihaan",
+"text": "{Sad_Pose1, sink} I saw him leaving the admin building that day do. I saw what he was carrying.",
+"type": "dialogue"
+},
+&"D6": {
+"next_node": "D7",
+"node_name": &"D6",
+"position": [2100.0, 0.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{Shocked, jump} Then why you never tell anyone wei?",
+"type": "dialogue"
+},
+&"D7": {
+"next_node": "D8",
+"node_name": &"D7",
+"position": [2460.0, 0.0],
+"set_flags": "",
+"speaker": "",
+"text": "Vihaan looks toward Mirul.",
+"type": "dialogue"
+},
+&"D8": {
+"next_node": "D9",
+"node_name": &"D8",
+"position": [2800.0, 0.0],
+"set_flags": "",
+"speaker": "Vihaan",
+"text": "{Sad_Pose2, sink} Because he's my friend lah dey.",
+"type": "dialogue"
+},
+&"D9": {
+"next_node": "D10",
+"node_name": &"D9",
+"position": [3150.0, 0.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "{Neutral, sink} Even after all this?",
+"type": "dialogue"
+},
+&"EndFlagTrue": {
 "next_node": "",
-"node_name": &"Start",
-"position": [238.0, 496.0],
+"node_name": &"EndFlagTrue",
+"position": [15850.0, -450.0],
+"set_flags": "completed_vihaan_ch3",
+"speaker": "System",
+"text": "Chapter Complete.",
+"type": "dialogue"
+},
+&"Node_1056785748_49": {
+"next_node": "Check1",
+"node_name": &"Node_1056785748_49",
+"position": [4660.0, -220.0],
+"set_flags": "",
+"speaker": "{player}",
+"text": "If he's your friend, stop him before this gets worse.",
+"type": "dialogue"
+},
+&"Node_1167193408_586": {
+"events": [{
+"action_type": "clear_stage",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Alyssa",
+"character_uid": "",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "change_bg",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "uid://4imjs0hwif5i",
+"character": "Alyssa",
+"character_uid": "",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Alyssa",
+"character_uid": "uid://bsylmi0xhjqvv",
+"expression": "Neutral_Pose1",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center-Left",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Vihaan",
+"character_uid": "uid://cupkf4jv5s3wr",
+"expression": "Neutral_Pose1",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Principal",
+"character_uid": "uid://ch0pocbeb0y77",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center-Right",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Mirul",
+"character_uid": "uid://dowxttrntsqon",
+"expression": "Neutral_Pose1",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Right",
+"z_index": 0
+}],
+"next_node": "S2_F2",
+"position": [7440.0, 60.0],
+"type": "actor"
+},
+&"Node_1525058349_425": {
+"events": [{
+"action_type": "clear_stage",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Alyssa",
+"character_uid": "",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "change_bg",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "uid://4imjs0hwif5i",
+"character": "Alyssa",
+"character_uid": "",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Alyssa",
+"character_uid": "uid://bsylmi0xhjqvv",
+"expression": "Neutral_Pose1",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center-Left",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Vihaan",
+"character_uid": "uid://cupkf4jv5s3wr",
+"expression": "Neutral_Pose1",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Mirul",
+"character_uid": "uid://dowxttrntsqon",
+"expression": "Neutral_Pose1",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Right",
+"z_index": 0
+}],
+"next_node": "S2_T2",
+"position": [7760.0, -460.0],
+"type": "actor"
+},
+&"Node_958692621_727": {
+"events": [{
+"action_type": "change_bg",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "uid://4imjs0hwif5i",
+"character": "Alyssa",
+"character_uid": "",
+"expression": "Neutral",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center",
+"z_index": 0
+}, {
+"action_type": "show_character",
+"anim_duration": 0.5,
+"animation": "None",
+"background_uid": "",
+"character": "Vihaan",
+"character_uid": "uid://cupkf4jv5s3wr",
+"expression": "Neutral_Pose1",
+"flip_h": false,
+"offset_x": 0.0,
+"offset_y": 0.0,
+"position_slot": "Center-Right",
+"z_index": 0
+}],
+"next_node": "D1",
+"position": [0.0, 80.0],
+"type": "actor"
+},
+&"S2_F10": {
+"next_node": "S2_F11",
+"node_name": &"S2_F10",
+"position": [10600.0, 0.0],
+"set_flags": "",
+"speaker": "",
+"text": "Across the room, Mirul says nothing. Vihaan lowers his head. He knew the truth. He had the chance to speak. Now Alyssa is taking the blame.",
+"type": "dialogue"
+},
+&"S2_F11": {
+"next_node": "",
+"node_name": &"S2_F11",
+"position": [10950.0, 0.0],
+"set_flags": "",
+"speaker": "ENDING B - STAY SILENT",
+"text": "Alyssa is suspended from her Head Prefect duties while the school investigates. Mirul avoids punishment. Vihaan is left knowing his silence allowed Mirul to frame someone else.",
+"type": "dialogue"
+},
+&"S2_F2": {
+"next_node": "S2_F3",
+"node_name": &"S2_F2",
+"position": [7800.0, 0.0],
+"set_flags": "",
+"speaker": "",
+"text": "At the end of the day, Encik Samad enters with two teachers.",
+"type": "dialogue"
+},
+&"S2_F3": {
+"next_node": "S2_F4",
+"node_name": &"S2_F3",
+"position": [8150.0, 0.0],
+"set_flags": "",
+"speaker": "Principal",
+"text": "{Angry, shake} Nobody leave. We're conducting a spot check now.",
+"type": "dialogue"
+},
+&"S2_F4": {
+"next_node": "S2_F5",
+"node_name": &"S2_F4",
+"position": [8500.0, 0.0],
+"set_flags": "",
+"speaker": "",
+"text": "The teachers search each student's belongings. Eventually, they reach Alyssa. Encik Samad searches her bag. He pulls out a folded sheet. The stolen exam paper.",
+"type": "dialogue"
+},
+&"S2_F5": {
+"next_node": "S2_F6",
+"node_name": &"S2_F5",
+"position": [8850.0, 0.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Angry_Pose1, jump} Hah?! That's not mine do!",
+"type": "dialogue"
+},
+&"S2_F6": {
+"next_node": "S2_F7",
+"node_name": &"S2_F6",
+"position": [9200.0, 0.0],
+"set_flags": "",
+"speaker": "Principal",
+"text": "{Neutral, bounce} It was found in your bag, Alyssa.",
+"type": "dialogue"
+},
+&"S2_F7": {
+"next_node": "S2_F8",
+"node_name": &"S2_F7",
+"position": [9550.0, 0.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Angry_Pose2, shake} Someone put it there lah!",
+"type": "dialogue"
+},
+&"S2_F8": {
+"next_node": "S2_F9",
+"node_name": &"S2_F8",
+"position": [9900.0, 0.0],
+"set_flags": "",
+"speaker": "",
+"text": "She is taken to the Principal's office. You look at Vihaan. He looks horrified.",
+"type": "dialogue"
+},
+&"S2_F9": {
+"next_node": "S2_F10",
+"node_name": &"S2_F9",
+"position": [10250.0, 0.0],
+"set_flags": "",
+"speaker": "Vihaan",
+"text": "{Shocked_Pose1, jump} ...Mirul.",
+"type": "dialogue"
+},
+&"S2_T10": {
+"next_node": "S2_T11",
+"node_name": &"S2_T10",
+"position": [10950.0, -450.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Angry_Pose3, shake} After everything, you're the one ratting me out ah?",
+"type": "dialogue"
+},
+&"S2_T11": {
+"next_node": "S2_T12",
+"node_name": &"S2_T11",
+"position": [11300.0, -450.0],
+"set_flags": "",
+"speaker": "Vihaan",
+"text": "{Angry_Pose1, shake} I'm trying to stop you da!",
+"type": "dialogue"
+},
+&"S2_T12": {
+"next_node": "S2_T13",
+"node_name": &"S2_T12",
+"position": [11650.0, -450.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Angry_Pose4, shake} By getting me buang sekolah?!",
+"type": "dialogue"
+},
+&"S2_T13": {
+"next_node": "S2_T14",
+"node_name": &"S2_T13",
+"position": [12000.0, -450.0],
+"set_flags": "",
+"speaker": "Vihaan",
+"text": "{Angry_Pose2, shake} By making you face what you actually did.",
+"type": "dialogue"
+},
+&"S2_T14": {
+"next_node": "S2_T15",
+"node_name": &"S2_T14",
+"position": [12350.0, -450.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Angry_Pose2, jump} Why did you steal them do?",
+"type": "dialogue"
+},
+&"S2_T15": {
+"next_node": "S2_T16",
+"node_name": &"S2_T15",
+"position": [12700.0, -450.0],
+"set_flags": "",
+"speaker": "",
+"text": "Mirul looks away.",
+"type": "dialogue"
+},
+&"S2_T16": {
+"next_node": "S2_T17",
+"node_name": &"S2_T16",
+"position": [13050.0, -450.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Sad_Pose1, sink} I wanted to prove the system is a joke lah.",
+"type": "dialogue"
+},
+&"S2_T17": {
+"next_node": "S2_T18",
+"node_name": &"S2_T17",
+"position": [13400.0, -450.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Annoyed_Pose2, twitch} What does that even mean wei?",
+"type": "dialogue"
+},
+&"S2_T18": {
+"next_node": "S2_T19",
+"node_name": &"S2_T18",
+"position": [13750.0, -450.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Angry_Pose1, shake} You follow every rule. Vihaan study 24/7. My dad keeps comparing me to people like you guys.",
+"type": "dialogue"
+},
+&"S2_T19": {
+"next_node": "S2_T20",
+"node_name": &"S2_T19",
+"position": [14100.0, -450.0],
+"set_flags": "",
+"speaker": "",
+"text": "He clenches his fist.",
+"type": "dialogue"
+},
+&"S2_T2": {
+"next_node": "S2_T3",
+"node_name": &"S2_T2",
+"position": [8150.0, -450.0],
+"set_flags": "",
+"speaker": "",
+"text": "After the final bell, Alyssa approaches Mirul.",
+"type": "dialogue"
+},
+&"S2_T20": {
+"next_node": "S2_T21",
+"node_name": &"S2_T20",
+"position": [14450.0, -450.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Sad_Pose2, sink} I barely try and still pass mah. I wanted to prove how easy it was to beat the system.",
+"type": "dialogue"
+},
+&"S2_T21": {
+"next_node": "S2_T22",
+"node_name": &"S2_T21",
+"position": [14800.0, -450.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Sad_Pose1, sink} And all you proved is that you're willing to hurt other people to do it lor.",
+"type": "dialogue"
+},
+&"S2_T22": {
+"next_node": "S2_T23",
+"node_name": &"S2_T22",
+"position": [15150.0, -450.0],
+"set_flags": "",
+"speaker": "System",
+"text": "Mirul goes quiet. He looks at Vihaan one last time. Vihaan doesn't look away.",
+"type": "dialogue"
+},
+&"S2_T23": {
+"next_node": "EndFlagTrue",
+"node_name": &"S2_T23",
+"position": [15500.0, -450.0],
+"set_flags": "",
+"speaker": "ENDING A - VIHAAN SPEAKS UP",
+"text": "Mirul is brought to Encik Samad and confesses. He is suspended, but not expelled. Vihaan loses much of Mirul's trust, but prevents him from making the situation worse.",
+"type": "dialogue"
+},
+&"S2_T3": {
+"next_node": "S2_T4",
+"node_name": &"S2_T3",
+"position": [8500.0, -450.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Angry_Pose1, shake} Mirul. We need to talk.",
+"type": "dialogue"
+},
+&"S2_T4": {
+"next_node": "S2_T5",
+"node_name": &"S2_T4",
+"position": [8840.0, -440.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Annoyed_Pose1, twitch} Again ke?",
+"type": "dialogue"
+},
+&"S2_T5": {
+"next_node": "S2_T6",
+"node_name": &"S2_T5",
+"position": [9200.0, -450.0],
+"set_flags": "",
+"speaker": "Alyssa",
+"text": "{Neutral_Pose1, bounce} Vihaan told me everything dah.",
+"type": "dialogue"
+},
+&"S2_T6": {
+"next_node": "S2_T7",
+"node_name": &"S2_T6",
+"position": [9550.0, -450.0],
+"set_flags": "",
+"speaker": "",
+"text": "Mirul freezes. He looks toward Vihaan.",
+"type": "dialogue"
+},
+&"S2_T7": {
+"next_node": "S2_T8",
+"node_name": &"S2_T7",
+"position": [9900.0, -450.0],
+"set_flags": "",
+"speaker": "Mirul",
+"text": "{Angry_Pose2, shake} ...You snitch on me? Serious ah?!",
+"type": "dialogue"
+},
+&"S2_T8": {
+"next_node": "S2_T9",
+"node_name": &"S2_T8",
+"position": [10250.0, -450.0],
+"set_flags": "",
+"speaker": "",
+"text": "Vihaan steps forward.",
+"type": "dialogue"
+},
+&"S2_T9": {
+"next_node": "S2_T10",
+"node_name": &"S2_T9",
+"position": [10600.0, -450.0],
+"set_flags": "",
+"speaker": "Vihaan",
+"text": "{Neutral_Pose1, bounce} I saw you leaving the admin building with the papers.",
+"type": "dialogue"
+},
+&"Start2": {
+"next_node": "Node_958692621_727",
+"node_name": &"Start2",
+"position": [-453.5291, 142.52887],
 "type": "start"
 }
 }

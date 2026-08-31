@@ -3,6 +3,10 @@ extends Control
 @export_file("*.tscn") var first_level_scene: String
 
 
+func _ready() -> void:
+	if get_tree().root.has_node("AudioManager"):
+		AudioManager.play_bgm("res://assets/audio/bgm/SchoolOfOldLaughingPeople.ogg")
+
 func _on_play_button_up() -> void:
 	EventBus.scene_change_requested.emit("res://src/UI/CharacterCreation.tscn", false)
 
