@@ -22,6 +22,10 @@ func _ready():
 	btn_save_load.pressed.connect(_open_save_menu)
 	btn_main_menu.pressed.connect(_quit_to_title)
 	
+	var btn_settings = $HBox/RightPanel/SystemPanel/VBox.get_node_or_null("BtnSettings")
+	if btn_settings:
+		btn_settings.pressed.connect(_open_settings)
+	
 	_rebuild_right_panel()
 	_populate_chapters()
 
@@ -161,8 +165,6 @@ func _quit_to_title():
 	EventBus.scene_change_requested.emit("res://scenes/UI/main_menu.tscn", true)
 
 
-
-
 func _setup_radio_buttons(vbox: VBoxContainer) -> void:
 	var mapping = {
 		"BtnRadio1": "res://assets/audio/bgm/SchoolOfOldLaughingPeople.ogg",
@@ -182,3 +184,9 @@ func _setup_radio_buttons(vbox: VBoxContainer) -> void:
 				if get_tree().root.has_node("AudioManager"):
 					AudioManager.play_bgm(uid)
 			)
+
+func _open_settings() -> void:
+	var settings_scene = load("res://src/UI/settings.tscn")
+	if settings_scene:
+		var s = settings_scene.instantiate()
+		add_child(s)
