@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dm3ie66ogpgp4"
+path="res://.godot/imported/school-crowd-indonesian(40 seconds).mp3-46706d219d6d68db9a0dceb03b217afc.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/school-crowd-indonesian(40 seconds).mp3"
+dest_files=["res://.godot/imported/school-crowd-indonesian(40 seconds).mp3-46706d219d6d68db9a0dceb03b217afc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

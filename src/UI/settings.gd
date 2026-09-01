@@ -105,11 +105,11 @@ func _process(_delta: float) -> void :
 		return
 
 	if (Input.is_action_just_pressed("pause")) :
-		if (get_tree().paused) :
-			get_tree().paused = false
-			hide()
-
-		else :
+		if visible:
+			_on_close_pressed()
+			if get_tree().paused and get_parent() and get_parent().name == "VNPlayer":
+				get_tree().paused = false
+		elif get_parent() and get_parent().name == "VNPlayer":
 			get_tree().paused = true
 			_refresh_save_ui()
 			_refresh_status()
@@ -185,3 +185,9 @@ func _on_medium_toggled(toggled_on: bool) -> void:
 func _on_fast_toggled(toggled_on: bool) -> void:
 	if (toggled_on) :
 		GameSettings.text_speed = GameSettings.TextSpeed.FAST
+
+func _on_close_pressed() -> void:
+	if get_parent() and (get_parent().name == "MainMenu" or get_parent().name == "VNPlayer"):
+		visible = false
+	else:
+		queue_free()

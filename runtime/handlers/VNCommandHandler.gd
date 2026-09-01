@@ -28,11 +28,24 @@ static func handle(player: Node, data: Dictionary) -> void:
 		var parts = cmd.split(" ", false)
 		if parts.size() > 1:
 			if parts[1] == "stop":
-				if Engine.has_singleton("AudioManager"):
+				if Engine.get_main_loop().root.has_node("AudioManager"):
 					AudioManager.stop_bgm()
 			elif parts[1] == "play" and parts.size() > 2:
-				if Engine.has_singleton("AudioManager"):
+				if Engine.get_main_loop().root.has_node("AudioManager"):
 					AudioManager.play_bgm(parts[2])
+					
+	elif cmd.begins_with("sfx"):
+		var parts = cmd.split(" ", false)
+		if parts.size() > 1:
+			if parts[1] == "stop":
+				if Engine.get_main_loop().root.has_node("AudioManager"):
+					if parts.size() > 2:
+						AudioManager.stop_sfx(parts[2])
+					else:
+						AudioManager.stop_sfx()
+			elif parts[1] == "play" and parts.size() > 2:
+				if Engine.get_main_loop().root.has_node("AudioManager"):
+					AudioManager.play_sfx(parts[2])
 			
 	elif cmd != "":
 		GameState.execute_command(cmd)

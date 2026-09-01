@@ -22,6 +22,10 @@ func _ready():
 	btn_save_load.pressed.connect(_open_save_menu)
 	btn_main_menu.pressed.connect(_quit_to_title)
 	
+	var btn_settings = $HBox/RightPanel/SystemPanel/VBox.get_node_or_null("BtnSettings")
+	if btn_settings:
+		btn_settings.pressed.connect(_open_settings)
+	
 	_rebuild_right_panel()
 	_populate_chapters()
 
@@ -85,6 +89,11 @@ func _rebuild_right_panel():
 	tabs.add_child(system_panel)
 	
 	right_panel.add_child(tabs)
+	
+	_setup_radio_buttons(radio_panel.get_node("VBox"))
+	
+	if get_tree().root.has_node("AudioManager"):
+		AudioManager.play_bgm(GameState.selected_radio_bgm)
 
 func _populate_chapters():
 	for c in chapter_list.get_children():
@@ -154,3 +163,30 @@ func _open_save_menu():
 
 func _quit_to_title():
 	EventBus.scene_change_requested.emit("res://scenes/UI/main_menu.tscn", true)
+
+
+func _setup_radio_buttons(vbox: VBoxContainer) -> void:
+	var mapping = {
+		"BtnRadio1": "res://assets/audio/bgm/SchoolOfOldLaughingPeople.ogg",
+		"BtnRadio2": "res://assets/audio/bgm/Wednesday19th.ogg",
+		"BtnRadio3": "res://assets/audio/bgm/PantsFor40RM.ogg",
+		"BtnRadio4": "res://assets/audio/bgm/ADogInTurkey.ogg",
+		"BtnRadio5": "res://assets/audio/bgm/7479.ogg",
+		"BtnRadio6": "res://assets/audio/bgm/WhoTheHellAreYou.ogg"
+	}
+	
+	for btn_name in mapping.keys():
+		var btn = vbox.get_node(btn_name)
+		if btn:
+			var uid = mapping[btn_name]
+			btn.pressed.connect(func():
+				GameState.selected_radio_bgm = uid
+				if get_tree().root.has_node("AudioManager"):
+					AudioManager.play_bgm(uid)
+			)
+
+func _open_settings() -> void:
+	var settings_scene = load("res://src/UI/settings.tscn")
+	if settings_scene:
+		var s = settings_scene.instantiate()
+		add_child(s)

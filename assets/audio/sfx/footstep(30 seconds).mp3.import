@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://j2wq5llj7802"
+path="res://.godot/imported/footstep(30 seconds).mp3-887f9446b88f46206684574a4d3ca2e3.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/footstep(30 seconds).mp3"
+dest_files=["res://.godot/imported/footstep(30 seconds).mp3-887f9446b88f46206684574a4d3ca2e3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

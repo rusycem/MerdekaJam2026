@@ -39,5 +39,3 @@ static func handle(player: Node, data: Dictionary) -> void:
 			player._process_node()
 		)
 		player.choices_container.add_child(btn)
-
-

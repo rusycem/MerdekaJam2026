@@ -11,6 +11,7 @@ var resume_node_id: String = ""
 var player_name: String = "Student"
 var player_class: String = "None"
 var player_gender: String = "Male"
+var selected_radio_bgm: String = "res://assets/audio/bgm/SchoolOfOldLaughingPeople.ogg" 
 
 var stats: Dictionary = {
 	"Charm": 5,
